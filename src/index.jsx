@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Header } from './components/';
+import { Hello } from './pages/';
 
 const App = () => {
   return <React.StrictMode>
     <Header />
+    <Hello />
   </React.StrictMode>;
 }
 
