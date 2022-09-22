@@ -1,0 +1,44 @@
+.header {
+  background-color: #282c34;
+  height: 100px;
+  color: white;
+  margin: -50px -50px 50px;
+  padding-left: 100px;
+}
+
+.header__logo {
+  height: 80px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+  left: -5px;
+  animation: header__logo_spin infinite 20s linear;
+}
+
+.header__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 70px;
+}
+
+.header__nav {
+  font-size: 16px;
+}
+
+.header__nav-link {
+  color: #61dafb;
+}
+
+.header__nav-link:hover {
+  text-decoration: none;
+}
+
+@keyframes header__logo_spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
