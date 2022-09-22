@@ -3,25 +3,38 @@ import "./pagination.css";
 
 export default class Pagination extends Component {
     pageChanged(e) {
-        console.log(`change current page in parents state into ${e.target.innerText}`)
+        console.log(`change current page in parent's state into ${e.target.innerText}`)
     }
-    render() {
-        const {pages, currentPage} = this.props;
+    pageSeparating(collection){
+        const perPage = 2;
+        const pagesNumber = Math.ceil(collection.length/perPage);
+        let pages = [];
+        for (let i = 1; i <= pagesNumber; i++) {
+            pages.push(i);
+        } 
+        return pages;
+    }
 
-        return <div>
-            {pages.map((page, index) => {
-                
-                return <button 
-                            className="" 
-                            onClick={this.pageChanged}
-                            disabled={(index + 1) === currentPage}
-                            key={index}
-                        >
-                            {index + 1}
-                        </button>
-            })}
+    render() {
+        const {collection, currentPage} = this.props;
+        const pages = this.pageSeparating(collection);
+        return (
+        <div className="Pagination">
+            <div className="PaginationWrapper">
+                {pages.map((page, index) => (
+                    <button 
+                        className="PaginationPageBtn" 
+                        onClick={this.pageChanged}
+                        disabled={(index + 1) === currentPage}
+                        key={page}
+                    >
+                        {index + 1}
+                    </button>)
+                )}
+            </div>
+            <button className="ShowNextBtn PaginationPageBtn">&#62;</button>
         </div>
-    }
+    )}
 }
 
 

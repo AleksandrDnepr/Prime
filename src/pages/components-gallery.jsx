@@ -8,7 +8,7 @@ export default class ComponentsGallery extends Component {
         return <div>
 
 
-            <Pagination pages={[1, 2, 3, 4, 5, 6, 7]} currentPage={3}/>
+            <Pagination collection={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]} currentPage={3}/>
         
         </div>
     }

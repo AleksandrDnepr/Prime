@@ -1,14 +1,6 @@
-.PaginationPageBtn {
+.Pagination{
     display: flex;
-    align-items: center;
     justify-content: center;
-
-    color: #74777C;
-    background: #FFFFFF;
-    border: 1px solid #74777C;
-    border-radius: 2px;
-    width: 48px;
-    height: 43px;
 
     font-family: 'Inter';
     font-style: normal;
@@ -17,6 +9,47 @@
     line-height: 19px;
 }
 
+.PaginationWrapper{
+    display: flex;
+}
+
+.PaginationPageBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #74777C;
+    background: #FFFFFF;
+    border: 1px solid #74777C;
+    width: 48px;
+    height: 43px;
+    font: inherit;
+}
+
+.PaginationPageBtn:hover,
+.PaginationPageBtn:focus{
+    background-color: #F1F3F6;
+}
+
+.PaginationPageBtn:not(:last-child) {
+    border-right: none;
+}
+
+.PaginationPageBtn:last-child {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.PaginationPageBtn:first-child {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
 .PaginationPageBtn:disabled{
     background-color: #F1F3F6;
+}
+.ShowNextBtn {
+    font-weight: 700;
+    border-radius: 2px;
+    margin-left: 10px;
 }
