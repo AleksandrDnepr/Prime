@@ -98,4 +98,3 @@ const { color } = this.props;
 }
 
 
-// #DF434A

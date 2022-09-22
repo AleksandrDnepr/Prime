@@ -1,8 +1,49 @@
 :root {
---title-color: #4D4F52; 
---text-color: #74777C;
---title-font-size: 20px;
---text-font-size: 15px;
-
+  --title-color: #4d4f52;
+  --text-color: #74777c;
+  --background-color: #F1F3F6;
+  --title-font-size: 20px;
+  --text-font-size: 15px;
 }
 
+@font-face {
+  font-family: "DM Sans", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Lato&family=Oswald:wght@600&display=swap");
+  font-style: normal;
+  font-weight: normal;
+}
+
+.footer {
+  display: flex;
+  height: 250px;
+  align-items: center;
+  background: var(--background-color);
+  justify-content: center;
+}
+
+.contact-info__title {
+  color: var(--title-color);
+}
+
+.contact-info__list {
+  display: flex;
+  list-style-type: none;
+}
+
+.contact-info__border {
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--title-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info__item {
+  display: flex;
+}
+
+.contact-info__text {
+  color: var(--text-color);
+}
