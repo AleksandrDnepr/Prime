@@ -3,7 +3,7 @@ import "./pagination.css";
 
 export default class Pagination extends Component {
     pageChanged() {
-
+        console.log("change current page in parents state")
     }
     render() {
         const {pages, currentPage} = this.props;
@@ -12,7 +12,7 @@ export default class Pagination extends Component {
             {pages.map((page, index) => {
                 
                 return <button 
-                            className="PaginationPageBtn" 
+                            className="" 
                             onClick={this.pageChanged}
                             disabled={index === currentPage}
                         >
