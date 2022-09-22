@@ -2,8 +2,8 @@ import { Component } from "react";
 import "./pagination.css";
 
 export default class Pagination extends Component {
-    pageChanged() {
-        console.log("change current page in parents state")
+    pageChanged(e) {
+        console.log(`change current page in parents state into ${e.target.innerText}`)
     }
     render() {
         const {pages, currentPage} = this.props;
@@ -14,7 +14,8 @@ export default class Pagination extends Component {
                 return <button 
                             className="" 
                             onClick={this.pageChanged}
-                            disabled={index === currentPage}
+                            disabled={(index + 1) === currentPage}
+                            key={index}
                         >
                             {index + 1}
                         </button>
