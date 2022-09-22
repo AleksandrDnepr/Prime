@@ -9,3 +9,6 @@ export default class Pagination {
         return <div></div>
     }
 }
+
+import React, { Component } from 'react'
+
