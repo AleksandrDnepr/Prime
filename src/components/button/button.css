@@ -1,0 +1,34 @@
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #74777C;
+    background: #FFFFFF;
+    border: 1px solid #74777C;
+    width: 48px;
+    height: 43px;
+}
+
+.Btn:hover,
+.Btn:focus{
+    background-color: #F1F3F6;
+}
+
+/* .Btn:not(:last-child) {
+    border-right: none;
+} */
+
+.Btn:last-child {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.Btn:first-child {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.Btn:disabled{
+    background-color: #F1F3F6;
+}

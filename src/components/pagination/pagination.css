@@ -1,56 +1,33 @@
+ol{
+    padding: 0;
+    margin: 0;
+}
 .Pagination{
     display: flex;
     justify-content: center;
-
-    font-family: 'Inter';
+    /* font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 400; */
     font-size: 16px;
     line-height: 19px;
 }
 
-.PaginationWrapper{
+.PaginationList{
     display: flex;
+    list-style: none;
 }
-
-.PaginationPageBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #74777C;
-    background: #FFFFFF;
-    border: 1px solid #74777C;
-    width: 48px;
-    height: 43px;
-    font: inherit;
-}
-
-.PaginationPageBtn:hover,
-.PaginationPageBtn:focus{
-    background-color: #F1F3F6;
-}
-
+/* not vorking because it is not child any more. li became colletion children */
 .PaginationPageBtn:not(:last-child) {
     border-right: none;
-}
-
-.PaginationPageBtn:last-child {
-    border-bottom-right-radius: 2px;
-    border-top-right-radius: 2px;
-}
-
-.PaginationPageBtn:first-child {
-    border-bottom-left-radius: 2px;
-    border-top-left-radius: 2px;
-}
-
-.PaginationPageBtn:disabled{
-    background-color: #F1F3F6;
 }
 
 .ShowNextBtn {
     font-weight: 700;
     border-radius: 2px;
     margin-left: 10px;
+}
+.ShowPrevBtn {
+    font-weight: 700;
+    border-radius: 2px;
+    margin-right: 10px;
 }
