@@ -11,13 +11,25 @@ export default class Pagination extends Component {
         } 
         return collection;
     }
+    sliceVisiblePages(pages, page) {
+        const availablePages = this.pageSeparating(pages);
+        const currentPageIndex = availablePages.findIndex(e => e === page);
+        let visiblePages = availablePages.slice();
+        if(availablePages.length > 5) {
+            if(availablePages.slice(-3).includes(page)) {
+                visiblePages = availablePages.slice(-5);
+            } else {
+                visiblePages = currentPageIndex < 3 ? availablePages.slice(0, 5) : availablePages.slice(currentPageIndex - 2, currentPageIndex + 3);
+            }
+        }
+        return visiblePages;
+    }
 
     render() {
         const {pages, page, onChange} = this.props;
-        const availablePages = this.pageSeparating(pages);
-        const lastPage = availablePages[availablePages.length - 1];
-        
-        if (availablePages.length === 1) {return null};
+        const visiblePages = this.sliceVisiblePages(pages, page);
+
+        if (pages === 1) {return null};
         return (
             <nav className="Pagination">
                 {page !== 1 && 
@@ -26,23 +38,21 @@ export default class Pagination extends Component {
                     children="<"
                     handleClick={()=> console.log("Show previos")}/>}
                 <ol className="PaginationList">
-                    {availablePages.map((button) => (
-                        <li className="PaginationItem">
-                            {console.log(button === page)}
+                    {visiblePages.map((button) => (
+                        <li className="PaginationItem" key={button}>
                             <Button 
                                 className="PaginationPageBtn" 
                                 handleClick={onChange}
                                 isDisabled={button === page}
-                                key={button}
                                 children={button}
                             />
                         </li>
                         )
                     )}
                 </ol>
-                {page !== lastPage && 
+                {page !== pages && 
                     <Button className="ShowNextBtn"
-                            children={">"}
+                            children=">"
                             handleClick={()=> console.log("Show next")}
                     />
                 }

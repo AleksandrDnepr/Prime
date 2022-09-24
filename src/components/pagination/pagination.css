@@ -4,6 +4,7 @@ ol{
 }
 .Pagination{
     display: flex;
+    align-items: center;
     justify-content: center;
     font-size: 16px;
     line-height: 19px;
@@ -27,12 +28,12 @@ ol{
     padding-left: 19px;
     padding-right: 19px;
 }
-.ShowNextBtn{
+.ShowNextBtn {
     margin-left: 10px;
 }
 .ShowPrevBtn {
     margin-right: 10px;
 }
-.PaginationPageBtn{
+.PaginationPageBtn {
     border: none;
 }
