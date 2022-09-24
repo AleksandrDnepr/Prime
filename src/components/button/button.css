@@ -1,34 +1,17 @@
 .Btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    text-align: center;
     color: #74777C;
-    background: #FFFFFF;
+    background-color: #FFFFFF;
     border: 1px solid #74777C;
     width: 48px;
     height: 43px;
 }
 
-.Btn:hover,
-.Btn:focus{
+.Btn:disabled,
+.Btn:hover {
     background-color: #F1F3F6;
 }
 
-/* .Btn:not(:last-child) {
-    border-right: none;
+/* .Btn:disabled {
+    background-color: #F1F3F6;
 } */
-
-.Btn:last-child {
-    border-bottom-right-radius: 2px;
-    border-top-right-radius: 2px;
-}
-
-.Btn:first-child {
-    border-bottom-left-radius: 2px;
-    border-top-left-radius: 2px;
-}
-
-.Btn:disabled{
-    background-color: #F1F3F6;
-}

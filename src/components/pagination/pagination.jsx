@@ -20,14 +20,19 @@ export default class Pagination extends Component {
         if (availablePages.length === 1) {return null};
         return (
             <nav className="Pagination">
-                {page !== 1 && <button className="ShowPrevBtn PaginationPageBtn">&#60;</button>}
+                {page !== 1 && 
+                    <Button 
+                    className="ShowPrevBtn"
+                    children="<"
+                    handleClick={()=> console.log("Show previos")}/>}
                 <ol className="PaginationList">
                     {availablePages.map((button) => (
-                        <li>
+                        <li className="PaginationItem">
+                            {console.log(button === page)}
                             <Button 
                                 className="PaginationPageBtn" 
                                 handleClick={onChange}
-                                disabled={(button) === page}
+                                isDisabled={button === page}
                                 key={button}
                                 children={button}
                             />
@@ -35,7 +40,12 @@ export default class Pagination extends Component {
                         )
                     )}
                 </ol>
-                {page !== lastPage && <button className="ShowNextBtn PaginationPageBtn">&#62;</button>}
+                {page !== lastPage && 
+                    <Button className="ShowNextBtn"
+                            children={">"}
+                            handleClick={()=> console.log("Show next")}
+                    />
+                }
             </nav>
         )
     }

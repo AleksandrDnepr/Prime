@@ -5,9 +5,6 @@ ol{
 .Pagination{
     display: flex;
     justify-content: center;
-    /* font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400; */
     font-size: 16px;
     line-height: 19px;
 }
@@ -15,19 +12,27 @@ ol{
 .PaginationList{
     display: flex;
     list-style: none;
-}
-/* not vorking because it is not child any more. li became colletion children */
-.PaginationPageBtn:not(:last-child) {
-    border-right: none;
+    border: 1px solid #74777C;
+    border-radius: 2px;
 }
 
-.ShowNextBtn {
-    font-weight: 700;
-    border-radius: 2px;
-    margin-left: 10px;
+.PaginationItem:not(:last-child){
+    border-right: 1px solid #74777C;
 }
+
+.ShowNextBtn, 
 .ShowPrevBtn {
     font-weight: 700;
     border-radius: 2px;
+    padding-left: 19px;
+    padding-right: 19px;
+}
+.ShowNextBtn{
+    margin-left: 10px;
+}
+.ShowPrevBtn {
     margin-right: 10px;
+}
+.PaginationPageBtn{
+    border: none;
 }
