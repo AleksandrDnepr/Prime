@@ -17,6 +17,7 @@ export default class ViewModeToggle extends Component {
         {modes.map((el) => (
             
             <button 
+            key={el.mode}
                 className={el.className} 
                 mode={el.mode}
                 >
