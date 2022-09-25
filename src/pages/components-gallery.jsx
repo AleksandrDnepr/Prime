@@ -3,12 +3,6 @@ import { Component } from "react";
 import Pagination from "../components/pagination/pagination";
 
 import Footer from "../components/footer/footer";
-import {Description} from "../components/description/description";
-
-import { Subtitle } from "../components/subtitle/subtitle";
-
-
-import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle"
 
 import PropertyCard from "../components/propertyCard/propertyCard";
 
@@ -18,6 +12,7 @@ export default class ComponentsGallery extends Component {
   render() {
     return (
       <div>
+        <HeaderMain title="Properties" />
 
         <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)}/>
 
