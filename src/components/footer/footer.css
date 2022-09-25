@@ -14,9 +14,15 @@
 }
 
 .footer {
-  display: flex;
   background: var(--background-color);
+  margin: 0 -50px;
+}
+
+.footer__container {
   padding: 50px 84px 50px 400px;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1095px;
 }
 
 .footer__logo {
