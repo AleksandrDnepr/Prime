@@ -19,7 +19,6 @@ export default class ViewModeToggle extends Component {
             <button 
                 className={el.className} 
                 mode={el.mode}
-                onClick={()=> console.log(this.props.mode) }
                 >
                 <img src={el.url} />
 
