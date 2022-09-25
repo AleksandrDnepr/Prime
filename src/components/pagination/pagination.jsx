@@ -3,6 +3,9 @@ import Button from "../button/button";
 import "./pagination.css";
 
 export default class Pagination extends Component {
+    state = {
+        currentPage: this.props.page,
+    }
 
     pageSeparating(pagesNumber) {
         let collection = [];
@@ -11,6 +14,7 @@ export default class Pagination extends Component {
         } 
         return collection;
     }
+    
     sliceVisiblePages(pages, page) {
         const availablePages = this.pageSeparating(pages);
         const currentPageIndex = availablePages.findIndex(e => e === page);
@@ -26,34 +30,35 @@ export default class Pagination extends Component {
     }
 
     render() {
+        const {currentPage} = this.state;
         const {pages, page, onChange} = this.props;
-        const visiblePages = this.sliceVisiblePages(pages, page);
+        const visiblePages = this.sliceVisiblePages(pages, currentPage);
 
         if (pages === 1) {return null};
         return (
             <nav className="Pagination">
-                {page !== 1 && 
+                {currentPage !== 1 && 
                     <Button 
                     className="ShowPrevBtn"
                     children="<"
-                    handleClick={()=> console.log("Show previos")}/>}
+                    handleClick={() => this.setState((prevState)=>({currentPage: prevState.currentPage - 1}))}/>}
                 <ol className="PaginationList">
                     {visiblePages.map((button) => (
                         <li className="PaginationItem" key={button}>
                             <Button 
                                 className="PaginationPageBtn" 
-                                handleClick={onChange}
-                                isDisabled={button === page}
+                                handleClick={()=>onChange(button)}
+                                isDisabled={button === currentPage}
                                 children={button}
                             />
                         </li>
                         )
                     )}
                 </ol>
-                {page !== pages && 
+                {currentPage !== pages && 
                     <Button className="ShowNextBtn"
                             children=">"
-                            handleClick={()=> console.log("Show next")}
+                            handleClick={() => this.setState((prevState)=>({currentPage: prevState.currentPage + 1}))}
                     />
                 }
             </nav>

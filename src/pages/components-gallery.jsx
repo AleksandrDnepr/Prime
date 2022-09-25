@@ -8,7 +8,7 @@ export default class ComponentsGallery extends Component {
         return <div>
 
 
-            <Pagination pages={7} page={3} onChange={page => console.log(`Page changed to ${page}`)}/>
+            <Pagination pages={15} page={4} onChange={page => console.log(`Page changed to ${page}`)}/>
         
         </div>
     }
