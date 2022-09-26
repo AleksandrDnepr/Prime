@@ -1,20 +1,5 @@
-:root {
-  --title-color: #4d4f52;
-  --text-color: #74777c;
-  --background-color: #f1f3f6;
-  --title-font-size: 20px;
-  --text-font-size: 15px;
-}
-
-@font-face {
-  font-family: 'Inter', sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Lato&family=Oswald:wght@600&display=swap");
-  font-style: normal;
-  font-weight: normal;
-}
-
 .footer {
-  background: var(--background-color);
+  background: #f1f3f6;
   margin: 0 -50px;
 }
 
@@ -25,18 +10,22 @@
   max-width: 1095px;
 }
 
-.footer__logo {
-  margin-right: 84px;
-  margin-bottom: 0;
+.footer__contact-info {
+  margin-left: 83px;
 }
 
-.footer__contact-info {
-  margin: 0;
+.contact-info__icon {
+  border: 1px solid #4d4f52;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  object-fit: none;
 }
 
 .contact-info__title {
-  color: var(--title-color);
-  font-size: var(--title-font-size);
+  color: #4d4f52;
+  font-size: 20px;
   font-weight: 400;
   margin-bottom: 24px;
   margin-top: 0;
@@ -48,26 +37,17 @@
   padding: 0;
 }
 
-.contact-info__border {
-  height: 30px;
-  width: 30px;
-  border: 1px solid var(--title-color);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .contact-info__item {
   display: flex;
   text-decoration: none;
+  color: #74777c;
+  align-items: center;
 }
 
 .contact-info__text {
-  color: var(--text-color);
   padding-left: 5px;
   margin-right: 40px;
-  font-size: var(--text-font-size);
+  font-size: 15px;
   padding-top: 6px;
   white-space: nowrap;
 }
