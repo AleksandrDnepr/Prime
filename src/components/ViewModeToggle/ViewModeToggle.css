@@ -8,20 +8,17 @@ p {
 }
 
 .grid {
-    width: 40px;
-    height: 40px;
-    border-width: 1px;
-    /* border-color: #ADB2B6; */
     border-radius: 2px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+    
+}
+
+.grid.Btn{
+    border-right:none;
 }
 
 .list {
-    width: 40px;
-    height: 40px;
-    border-width: 1px;
-    /* border-color: #ADB2B6; */
     border-radius: 2px;
     border-left: 0px;
     border-top-left-radius: 0px;
@@ -33,4 +30,8 @@ p {
     justify-content: right;
     margin: 0px;
     padding: 0px;
+}
+
+.pict{
+    vertical-align: middle;
 }
