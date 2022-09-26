@@ -8,8 +8,8 @@ export default class ViewModeToggle extends Component {
   render() {
     
     const modes = [
-        {url:grid, mode:"grid", className:"grid"},
-        {url:list, mode:"list", className:"list"}
+        {url:grid, mode:"grid"},
+        {url:list, mode:"list"}
     ]
     return (
         <div className="view-mode">
@@ -18,7 +18,7 @@ export default class ViewModeToggle extends Component {
             
             <button 
             key={el.mode}
-                className={el.className} 
+                className={el.mode} 
                 mode={el.mode}
                 >
                 <img src={el.url} />
