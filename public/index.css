@@ -1,7 +1,6 @@
 body {
   margin: 0;
-  padding: 50px 50px 150px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 21px;
@@ -10,19 +9,11 @@ body {
 }
 
 @font-face {
-  font-family: 'DM Sans';
-  src: url('fonts/dm-sans-v11-latin-regular.woff2') format('woff2'),
-          url('fonts/dm-sans-v11-latin-regular.woff') format('woff');
+  font-family: 'Inter';
+  src: url('fonts/Inter/inter-v12-latin-regular.woff2') format('woff2'),
+          url('fonts/Inter/inter-v12-latin-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-:root {
-  --main-color: #DF434A;
-  --bg-color: #F5F5F5;
-  --box-bg-color: #FFFFFF;
-  --footer-color: #F1F3F6;
-  --description-text-color: #74777C;
-  --title-text-color: #4D4F52;
-  --icon-color: #ADB2B6;
-}
+@import 'normalize.css';
