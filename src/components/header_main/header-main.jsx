@@ -1,5 +1,6 @@
 import './header-main.css';
 import { Component } from "react";
+import Logo from "../logo/logo";
 
 export default class HeaderMain extends Component {
 
@@ -12,10 +13,10 @@ export default class HeaderMain extends Component {
     return (
       <header>
           <nav className="nav_header">
-            {/* <div className = "footer_logo"> 
-          <Logo color = "#FFFFFF" />
-        </div> */}
+          <section className="header_logo"> 
+            <Logo color="white" className="header_logo"/> 
           <p className='nav_text'>{this.props.title}</p>
+          </section>
           </nav>
         </header>
     )

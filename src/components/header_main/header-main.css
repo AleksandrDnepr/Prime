@@ -1,14 +1,24 @@
 .nav_header {
-    width: 100%;
-    max-width: 1920px;
     height: 241px;
     display: flex;
     background-image: url(./backdrop.jpg);
     background-position: 0px auto;
-    background-repeat: no-repeat;
 }
 
 .nav_text {
     text-transform: uppercase;
     color: #FFFFFF;
+    padding-left: 30px;
+    font-size: 32px;
+    margin: 0;
 }
+
+.logo_color_white path {
+    fill: #FFFFFF;
+  }
+
+.header_logo {
+    display: flex;
+    align-items: flex-end;
+    padding: 56px 0 36px 409px;
+}  
