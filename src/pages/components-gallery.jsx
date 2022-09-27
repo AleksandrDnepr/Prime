@@ -24,7 +24,7 @@ export default class ComponentsGallery extends Component {
 
         
         
-        <Subtitle />
+        <Subtitle>Floor plans</Subtitle>
       </div>
     )
     }

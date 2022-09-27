@@ -7,10 +7,10 @@ class Subtitle extends Component {
     }
 
     render() {
+        const {children} = this.props;
         return (
             <h1 className="subtitle">
-                {/* {this.props.subtitle} */}
-                Floor plans
+                {children}
             </h1>
         )
     }
