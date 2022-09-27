@@ -1,0 +1,13 @@
+.Btn {
+    text-align: center;
+    color: #74777C;
+    background-color: #FFFFFF;
+    border: 1px solid #74777C;
+    width: 48px;
+    height: 43px;
+}
+
+.Btn:disabled,
+.Btn:hover {
+    background-color: #F1F3F6;
+}
