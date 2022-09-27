@@ -10,6 +10,8 @@ import { Subtitle } from "../components/subtitle/subtitle";
 
 import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle"
 
+import PropertyCard from "../components/propertyCard/propertyCard";
+
 export default class ComponentsGallery extends Component {
 
     render() {
@@ -25,7 +27,18 @@ export default class ComponentsGallery extends Component {
           page={4}
           onChange={(page) => console.log(`Page changed to ${page}`)}
         />
+        <PropertyCard 
+          mode="square|line"
+  picture="http://example.com/.../name.png"
+  deal="sale|rent"
+  type="apartment|townhouse"
+  price={2850000}
+  title="Luxury Apartment with great views"
+  location={['Soho', 'New York']}
+  description="Lorem ipsum...."
+  details={{ area: 1320, bedrooms: 2, bathrooms: 2 }}
 
+        />
         <Footer />
 
 
