@@ -7,13 +7,11 @@ class Description extends Component {
     }
 
     render() {
+        const {children} = this.props;
         return (
             <div className="text_description">
-                {/* <p>{props.text}</p> */}
-                <p>Verona at Parkbridge II by DR Horton. Conveniently located in Natomas Sacramento. 
-                These 2020 build open, bright, and ready-to-move-in home is available for you.
-                It features a unique floor plan with a 1932. 
-                </p>
+                <p>{children}</p>
+                
             </div>
         );
         }
