@@ -3,6 +3,8 @@ import { Component } from "react";
 import Pagination from "../components/pagination/pagination";
 
 import Footer from "../components/footer/footer";
+import {Description} from "../components/description/description";
+
 
 export default class ComponentsGallery extends Component {
   render() {
@@ -15,6 +17,9 @@ export default class ComponentsGallery extends Component {
         />
 
         <Footer />
+
+
+        <Description />
       </div>
     );
   }
