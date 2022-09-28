@@ -5,6 +5,7 @@ import Pagination from "../components/pagination/pagination";
 import Footer from "../components/footer/footer";
 
 
+
 import PropertyCard from "../components/propertyCard/propertyCard";
 
 import AmenityList from "../components/amenitylist/amenitylist";
@@ -31,7 +32,6 @@ import Gallery from "../components/Gallery/Gallery";
 import { Link } from "react-router-dom";
 
 import PropertyList from "../components/propertyList/propertyList";
-
 export default class ComponentsGallery extends Component {
   render() {
     return (
@@ -99,10 +99,15 @@ export default class ComponentsGallery extends Component {
           ]} />
 
         <Subtitle>Floor plans</Subtitle>
+       
 
         <Features />
 
-        </div>
-    )
-    }
+
+        <Footer />
+
+        
+      </div>
+    );
+  }
 }
