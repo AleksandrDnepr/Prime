@@ -11,7 +11,7 @@ export default class Features extends Component {
               <img 
               className="features_img"
               src={src}
-              alt="${text}' icon" />
+              alt = {`${text} icon`}/>
               {text}
            </li>
     };
