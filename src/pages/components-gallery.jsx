@@ -17,7 +17,7 @@ export default class ComponentsGallery extends Component {
         <div>
 
 
-        <ViewModeToggle mode="grid" onChange={mode => console.log(`View mode changed to ${mode}`)}/>
+        <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)}/>
 
 
         <Pagination
