@@ -15,6 +15,11 @@ export default class ComponentsGallery extends Component {
     render() {
         return (
         <div>
+
+
+        <ViewModeToggle mode="grid" onChange={mode => console.log(`View mode changed to ${mode}`)}/>
+
+
         <Pagination
           pages={15}
           page={4}
