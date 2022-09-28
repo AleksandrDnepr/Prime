@@ -13,18 +13,13 @@ import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle"
 export default class ComponentsGallery extends Component {
 
     render() {
-        return (<div>
-
-
-            <ViewModeToggle mode="grid" onChange={mode => console.log(`View mode changed to ${mode}`)} />
-
-
-            <Pagination
-                pages={15}
-                page={4}
-                onChange={(page) => console.log(`Page changed to ${page}`)}
-            />
-
+        return (
+        <div>
+        <Pagination
+          pages={15}
+          page={4}
+          onChange={(page) => console.log(`Page changed to ${page}`)}
+        />
 
         <Footer />
 
