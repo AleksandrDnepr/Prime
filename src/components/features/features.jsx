@@ -6,6 +6,16 @@ import pool from "./Pool.svg";
 import fence from "./Fence.svg";
 
 export default class Features extends Component {
+
+  container(src, text) {
+    return <li className="feature_container"> 
+              <img 
+              className="features_img"
+              src={src}
+              alt = {`${text} icon`}/>
+              {text}
+           </li>
+    };
     
   render() {
     return (
