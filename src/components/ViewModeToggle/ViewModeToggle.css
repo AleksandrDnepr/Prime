@@ -3,19 +3,20 @@
     padding: 0px;
 }
 
-p {
-    margin: 8px;
+.view-mode-text {
+    font-size: 16px;
+    color: #74777C;
+    margin-right: 12px;
 }
 
 .grid {
     border-radius: 2px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    
 }
 
-.grid.Btn{
-    border-right:none;
+.grid.Btn {
+    border-right: none;
 }
 
 .list {
@@ -27,11 +28,12 @@ p {
 
 .view-mode {
     display: flex;
+    align-items: center;
     justify-content: right;
     margin: 0px;
     padding: 0px;
 }
 
-.pict{
+.pict {
     vertical-align: middle;
 }
