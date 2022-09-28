@@ -21,7 +21,10 @@ render(){
                 <p className="AgentName">Adam Conover</p>
                 <p className="AgentLocation">Los Angeles, California</p>
                 <div className="DividerDecor"></div>
-                <ContactInfo type="tel"/>
+                <ContactInfo type="adress">24th Street, New York, USA</ContactInfo>
+                <ContactInfo type="tel">+0 123-456-7890</ContactInfo>
+                <ContactInfo type="mail">adam@example.com</ContactInfo>
+
             </figcaption>
         </figure>
         </section>
