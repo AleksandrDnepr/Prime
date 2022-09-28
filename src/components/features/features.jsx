@@ -11,31 +11,29 @@ export default class Features extends Component {
     };
 
     container(src, text) {
-    return <li className="features_container"> 
-            <ul>
+    return <li className="feature_container"> 
+          
                 <img 
                 className="features_img"
                 src={src}
-                alt="icon_img"
+                alt="{text} icon"
                 width="40px" >
                 </img>
-            </ul>
-            <ul>
-                <p className="features_text">
                     {text}
-                </p>
-            </ul>
         </li>
     };
     
   render() {
     return (
 
-        <div className="features_main_container">
-           {this.container(paw, "Pets Allowed")}
+        <section className="features_main_container">
+            <p className='features_title'>{this.props.title}</p>
+            <ul  className="features_container">
+          {this.container(paw, "Pets Allowed")}
            {this.container(pool, "Outdoor Pool")}
            {this.container(fence, "850 Sq Ft Garden")}
-        </div>
+           </ul>
+        </section>
     )
   }
 }

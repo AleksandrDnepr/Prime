@@ -101,13 +101,11 @@ export default class ComponentsGallery extends Component {
         <Subtitle>Floor plans</Subtitle>
        
 
-        <Features />
-
+        <Features title="features" />
 
         <Footer />
 
-        
       </div>
-    );
+    )
   }
 }

@@ -1,8 +1,14 @@
 .features_main_container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .features_container {
+    display: flex;
+}
+
+.feature_container {
     display: flex;
     align-items: center;
     width: 354px;
@@ -21,6 +27,14 @@
     font-size: 16px;
     color: #74777C;
     padding-left: 10px;
+    margin-top: 9px;
+}
+
+.features_title {
+    text-transform: uppercase;
+    color: #DF434A;
+    font-size: 32px;
+    border-bottom: 1px solid #DF434A;
 }
 
 ul {
