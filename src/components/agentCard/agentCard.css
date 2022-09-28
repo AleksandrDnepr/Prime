@@ -1,36 +1,52 @@
+.AgentSection{
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
 .AgentCard {
     display: flex;
-    /* margin-left: auto;
-    margin-right: auto; */
-    margin: 0 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
     width: 100%;
     max-width: 1092px;
+    height: 220px;
+
+    list-style: none;
+    padding: 0;
     border: 1px solid #E4E4E4;
+    margin: 0 auto;
 
 }
 .AgentPhoto {
     width: 220px;
-}
-.AgentInfo{
-    width: 100%;
-    padding: 20px 25px;
+    height: 220px;
+    margin-right: 25px;
 }
 .AgentName {
     font-size: 32px;
     line-height: 39px;
     color: #4D4F52;
+    margin-top: 20px;
 }
 .AgentLocation {
+    font-size: 16px;
     font-style: italic;
-    /* font-size: 16px; */
     line-height: 19px;
-    color: #4D4F52;
+    margin-bottom: 31px;
 
+    color: #4D4F52;
+    position: relative;
 }
-.DividerDecor {
+.AgentLocation::after{
+    content: "";
     height: 1px;
-    width: 224px;
+    width: 100%;
     background-color: #E4E4E4;
     margin-top: 15px;
     margin-bottom: 15px;
+
+    position: absolute;
+    left: 0;
+    top: 16px;
 }

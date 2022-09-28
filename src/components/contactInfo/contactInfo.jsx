@@ -1,14 +1,12 @@
-
-import { Component } from 'react';
-import { ReactComponent as PhoneIcon } from './icon-phone.svg';
-import { ReactComponent as EmailIcon } from './icon-email.svg';
+import { Component } from "react";
+import { ReactComponent as PhoneIcon } from "./icon-phone.svg";
+import { ReactComponent as EmailIcon } from "./icon-email.svg";
 import { ReactComponent as AdressIcon } from "./icon-address.svg";
-
+import "./contactInfo.css";
 
 export default class ContactInfo extends Component {
-customizeContact(type, info){
-const createLinkHref = (type) => {
-    switch (type) {
+    createLinkHref = (type, info) => {
+        switch (type) {
         case "tel":
             return `tel:${info}`;
         case "mail":
@@ -16,40 +14,43 @@ const createLinkHref = (type) => {
         case "adress":
             const searchParam = info.toLowerCase();
             const regex = /[^\w\s]/gi;
-            const newstr = searchParam.replaceAll(regex, '').replaceAll(/\s/gi, "+");
-            return `https://www.google.com/maps/place/${newstr}`;   
+            const newstr = searchParam
+            .replaceAll(regex, "")
+            .replaceAll(/\s/gi, "+");
+            return `https://www.google.com/maps/place/${newstr}`;
         default:
-        break;
-    }
-}
-const chooseImage = (type) => {
-    switch (type) {
+            break;
+        }
+    };
+    chooseImage = (type) => {
+        switch (type) {
         case "tel":
-            return <PhoneIcon/>;
+            return <PhoneIcon />;
         case "mail":
-            return <EmailIcon/>;
+            return <EmailIcon />;
         case "adress":
-            return <AdressIcon/>;
+            return <AdressIcon />;
         default:
-        break;
-    }
-}
-    return <a href={createLinkHref(type)} 
+            break;
+        }
+    };
+
+    render() {
+        const { type, border, children } = this.props;
+        return (
+        <li className="contact-info">
+            <a
+                href={this.createLinkHref(type, children)}
                 className="contact-info__item"
                 target="_blank"
-                rel="noreferrer">
-                {chooseImage(type)}
-                    
-                {info}
+                rel="noreferrer"
+            >
+                <span className={`contact__icon ${border ? "framed" : ""}`}>
+                    {this.chooseImage(type)}
+                </span>
+                {children}
             </a>
-}
-
-  render() {
-    const {type, children} = this.props;
-    return (
-            <li className="contact-info__text">
-                {this.customizeContact(type, children)}
-            </li>
-        )
-  }
+        </li>
+        );
+    }
 }

@@ -1,9 +1,3 @@
-// picture="http://example.com/.../name.png"
-// name="Adam Conover"
-// location={['California', 'Los Angeles']}
-// description="Lorem ipsum...."
-// contacts={{ tel: "+0 123-456-7890", email: "adam@example.com"}}
-
 import { Component } from "react";
 import "./agentCard.css";
 import agentPhoto from "./agent-001.png";
@@ -11,22 +5,36 @@ import ContactInfo from "../contactInfo/contactInfo";
 
 
 export default class AgentCard extends Component {
-render(){
+render() {
     return(
-        <section>
+        <section className="AgentSection">
             {/* <Subtitle>AGENT INFORMATION</Subtitle> */}
-        <figure className="AgentCard">
-            <img src={agentPhoto} alt="agents_pic" className="AgentPhoto"/>
-            <figcaption className="AgentInfo">
-                <p className="AgentName">Adam Conover</p>
-                <p className="AgentLocation">Los Angeles, California</p>
-                <div className="DividerDecor"></div>
-                <ContactInfo type="adress">24th Street, New York, USA</ContactInfo>
-                <ContactInfo type="tel">+0 123-456-7890</ContactInfo>
-                <ContactInfo type="mail">adam@example.com</ContactInfo>
-
-            </figcaption>
-        </figure>
+            <ul className="AgentCard">
+                <li>
+                    <img src={agentPhoto} alt="agents_pic" className="AgentPhoto"/>
+                </li>
+                <li className="AgentName">
+                    Adam Conover
+                </li>
+                <li className="AgentLocation">
+                    Los Angeles, California
+                </li>
+                {/* <ContactInfo 
+                    type="adress" 
+                    border={false}>
+                    24th Street, New York, USA
+                </ContactInfo> */}
+                <ContactInfo 
+                    type="tel" 
+                    border={false}>
+                    +0 123-456-7890
+                </ContactInfo>
+                <ContactInfo 
+                    type="mail" 
+                    border={false}>
+                    adam@example.com
+                </ContactInfo>
+            </ul>
         </section>
     )
 }
