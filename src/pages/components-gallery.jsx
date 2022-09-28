@@ -32,7 +32,7 @@ export default class ComponentsGallery extends Component {
   picture="http://example.com/.../name.png"
   deal="sale|rent"
   type="apartment|townhouse"
-  price={2850000}
+  price="2 850 000 $"
   title="Luxury Apartment with great views"
   location={['Soho', 'New York']}
   description="Lorem ipsum...."

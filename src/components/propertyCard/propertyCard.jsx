@@ -9,19 +9,19 @@ export default class PropertyCard extends Component {
     const {mode,picture,deal,type,price,title,location,description,details} = this.props;
     return (
       <a className="container">
-        <section>
+        <section className='label__info'>
           <img src={mainPhoto} alt="main-photo" />
-          <div className="info">
+          <div className="price__label-block">
             <img src={building} alt="building" />
-            <h2>For Sale</h2>
-            <h1>{price}</h1>
+            <p>For Sale</p>
+            <p>{price}</p>
           </div>
         </section>
           <section className='description'>
-      <h3>Dream Apartment for Young Family</h3>
-      <h5>Pasadena, California</h5>
-      <p>Cras lobortis, diam et ultricies imperdiet, urna urna pharetra est, vitae euismod lectus dolor nec...</p>
-      <Title />
+       <h4>Dream Apartment for Young Family</h4>
+        <h6>Pasadena, California</h6>
+       <p>Cras lobortis, diam et ultricies imperdiet, urna urna pharetra est, vitae euismod lectus dolor nec...</p>
+       <Title />
           </section>
       </a>
     )
