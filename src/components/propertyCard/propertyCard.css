@@ -4,6 +4,10 @@
 
 .info{
     display: flex;
-    flex-direction: column;
     position: fixed;
+}
+
+.description{
+    display: flex;
+    flex-direction: column; 
 }
