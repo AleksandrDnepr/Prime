@@ -6,18 +6,19 @@ import ContactInfo from "../contactInfo/contactInfo";
 
 export default class AgentCard extends Component {
 render() {
+    const {name, AgentPhoto, location, phone, email} = this.props;
     return(
         <section className="AgentSection">
             {/* <Subtitle>AGENT INFORMATION</Subtitle> */}
             <ul className="AgentCard">
                 <li>
-                    <img src={agentPhoto} alt="agents_pic" className="AgentPhoto"/>
+                    <img src={agentPhoto} alt={`photo_agent_${name}`} className="AgentPhoto"/>
                 </li>
                 <li className="AgentName">
-                    Adam Conover
+                    {name}
                 </li>
                 <li className="AgentLocation">
-                    Los Angeles, California
+                    {location}
                 </li>
                 {/* <ContactInfo 
                     type="adress" 
@@ -27,12 +28,12 @@ render() {
                 <ContactInfo 
                     type="tel" 
                     border={false}>
-                    +0 123-456-7890
+                    {phone}
                 </ContactInfo>
                 <ContactInfo 
                     type="mail" 
                     border={false}>
-                    adam@example.com
+                    {email}
                 </ContactInfo>
             </ul>
         </section>

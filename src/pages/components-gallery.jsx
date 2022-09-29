@@ -54,7 +54,13 @@ export default class ComponentsGallery extends Component {
 
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
 
-        <AgentCard/>
+        <AgentCard 
+          name={"Adam Conover"} 
+          // AgentPhoto={} 
+          location={"Los Angeles, California"}
+          phone={"+0 123-456-7890"}
+          email={"adam@example.com"}
+        />
 
     </div>)
   }
