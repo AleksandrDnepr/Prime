@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./amenitylistitem.css";
 
 export default class AmenityListItem extends Component {
   render() {

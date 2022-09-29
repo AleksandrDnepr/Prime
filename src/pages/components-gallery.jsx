@@ -59,6 +59,10 @@ export default class ComponentsGallery extends Component {
         <AmenityList amenities={[
             { isAvailable: true, title: "Air Conditioning" },
             { isAvailable: false, title: "Alarm Clock" },
+            { isAvailable: true, title: "Balcony" },
+            { isAvailable: false, title: "Clothes Dryer" },
+            { isAvailable: false, title: "Coffee Maker" },
+            { isAvailable: true, title: "Deck / Patio" },
           ]} />
 
         <Subtitle>Floor plans</Subtitle>

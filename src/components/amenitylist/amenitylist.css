@@ -1,0 +1,9 @@
+.amenity__section {
+  width: 1097px;
+  margin: auto;
+}
+
+.amenity__list {
+  display: flex;
+  flex-direction: column;
+}
