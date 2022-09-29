@@ -17,9 +17,6 @@ import Description from "../components/description";
 import Subtitle from "../components/subtitle";
 
 import AgentCard from "../components/agentCard/agentCard";
-import agentPhoto from "../components/agentCard/agent-001.png";
-
-
 
 export default class ComponentsGallery extends Component {
   render() {
@@ -56,9 +53,9 @@ export default class ComponentsGallery extends Component {
 
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
 
-        <AgentCard 
-          name={"Adam Conover"} 
-          photo={agentPhoto} 
+        <AgentCard
+          name={"Adam Conover"}
+          photoUrl={"https://www.hji.co.uk/wp-content/efs/2018/09/Hairdressing-Agent-square.jpg"} 
           location={"Los Angeles, California"}
           phone={"+0 123-456-7890"}
           email={"adam@example.com"}
