@@ -16,6 +16,9 @@ import Description from "../components/description";
 
 import Subtitle from "../components/subtitle";
 
+import AgentCard from "../components/agentCard/agentCard";
+
+
 export default class ComponentsGallery extends Component {
   render() {
     return (
@@ -50,6 +53,8 @@ export default class ComponentsGallery extends Component {
         <Subtitle>Floor plans</Subtitle>
 
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
+
+        <AgentCard/>
 
     </div>)
   }

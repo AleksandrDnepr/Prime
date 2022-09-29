@@ -1,0 +1,36 @@
+.AgentCard {
+    display: flex;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1092px;
+    border: 1px solid #E4E4E4;
+
+}
+.AgentPhoto {
+    width: 220px;
+}
+.AgentInfo{
+    width: 100%;
+    padding: 20px 25px;
+}
+.AgentName {
+    font-size: 32px;
+    line-height: 39px;
+    color: #4D4F52;
+}
+.AgentLocation {
+    font-style: italic;
+    /* font-size: 16px; */
+    line-height: 19px;
+    color: #4D4F52;
+
+}
+.DividerDecor {
+    height: 1px;
+    width: 224px;
+    background-color: #E4E4E4;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
