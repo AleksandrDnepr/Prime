@@ -8,8 +8,6 @@ import PropertyCard from "../components/propertyCard/propertyCard";
 
 import AmenityList from "../components/amenitylist/amenitylist";
 
-import { Subtitle } from "../components/subtitle/subtitle";
-
 import PropertyDetails from "../components/propertyDetails/propertyDetails";
 
 import Header from "../components/header/header";
@@ -63,6 +61,27 @@ export default class ComponentsGallery extends Component {
             { isAvailable: false, title: "Clothes Dryer" },
             { isAvailable: false, title: "Coffee Maker" },
             { isAvailable: true, title: "Deck / Patio" },
+            { isAvailable: false, title: "Dishes & Utensils" },
+            { isAvailable: true, title: "Dishwasher" },
+            { isAvailable: true, title: "Fireplace" },
+            { isAvailable: true, title: "Freezer" },
+            { isAvailable: true, title: "Garage" },
+            { isAvailable: true, title: "Heating" },
+            { isAvailable: true, title: "Ice Maker" },
+            { isAvailable: false, title: "Internet" },
+            { isAvailable: true, title: "Microwave" },
+            { isAvailable: true, title: "Outdoor Grill" },
+            { isAvailable: true, title: "Oven" },
+            { isAvailable: false, title: "Parking On Street" },
+            { isAvailable: true, title: "Refrigerator" },
+            { isAvailable: false, title: "Satellite / Cable TV" },
+            { isAvailable: true, title: "Security System" },
+            { isAvailable: false, title: "Sofa Bed" },
+            { isAvailable: true, title: "Stove" },
+            { isAvailable: false, title: "Telephone" },
+            { isAvailable: false, title: "Toaster" },
+            { isAvailable: true, title: "Washing Machine" },
+            { isAvailable: false, title: "Water Cooler" },
           ]} />
 
         <Subtitle>Floor plans</Subtitle>
