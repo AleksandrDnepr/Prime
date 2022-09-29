@@ -20,11 +20,6 @@ render() {
                 <li className="AgentLocation">
                     {location}
                 </li>
-                {/* <ContactInfo 
-                    type="adress" 
-                    border={false}>
-                    24th Street, New York, USA
-                </ContactInfo> */}
                 <ContactInfo 
                     type="tel" 
                     border={false}>
