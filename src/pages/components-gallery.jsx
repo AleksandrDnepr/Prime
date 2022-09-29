@@ -8,10 +8,18 @@ import {Description} from "../components/description/description";
 import { Subtitle } from "../components/subtitle/subtitle";
 
 
+import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle"
+
 export default class ComponentsGallery extends Component {
-  render() {
-    return (
-      <div>
+
+    render() {
+        return (
+        <div>
+
+
+        <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)}/>
+
+
         <Pagination
           pages={15}
           page={4}
