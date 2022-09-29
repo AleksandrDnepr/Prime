@@ -60,18 +60,19 @@ export default class Footer extends Component {
                 </a>
               </li> */}
                 <ContactInfo 
-                    className="footer__contact-info"
+                    className={"footer-contact__info"}
                     type="adress" 
                     border={true}>
                     24th Street, New York, USA
                 </ContactInfo>
                 <ContactInfo 
-                    className="footer__contact-info"
+                    className={"footer-contact__info"}
                     type="tel" 
                     border={true}>
                     +0 123-456-7890
                 </ContactInfo>
                 <ContactInfo 
+                    className={"footer-contact__info"}
                     type="mail" 
                     border={true}>
                     info@example.com

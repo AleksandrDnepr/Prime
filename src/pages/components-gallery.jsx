@@ -17,6 +17,8 @@ import Description from "../components/description";
 import Subtitle from "../components/subtitle";
 
 import AgentCard from "../components/agentCard/agentCard";
+import agentPhoto from "../components/agentCard/agent-001.png";
+
 
 
 export default class ComponentsGallery extends Component {
@@ -56,7 +58,7 @@ export default class ComponentsGallery extends Component {
 
         <AgentCard 
           name={"Adam Conover"} 
-          // AgentPhoto={} 
+          photo={agentPhoto} 
           location={"Los Angeles, California"}
           phone={"+0 123-456-7890"}
           email={"adam@example.com"}

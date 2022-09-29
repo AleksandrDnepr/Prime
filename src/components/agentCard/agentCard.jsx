@@ -1,18 +1,17 @@
 import { Component } from "react";
 import "./agentCard.css";
-import agentPhoto from "./agent-001.png";
 import ContactInfo from "../contactInfo/contactInfo";
 
 
 export default class AgentCard extends Component {
 render() {
-    const {name, AgentPhoto, location, phone, email} = this.props;
+    const {name, photo, location, phone, email} = this.props;
     return(
         <section className="AgentSection">
             {/* <Subtitle>AGENT INFORMATION</Subtitle> */}
             <ul className="AgentCard">
                 <li>
-                    <img src={agentPhoto} alt={`photo_agent_${name}`} className="AgentPhoto"/>
+                    <img src={photo} alt={`photo_agent_${name}`} className="AgentPhoto"/>
                 </li>
                 <li className="AgentName">
                     {name}

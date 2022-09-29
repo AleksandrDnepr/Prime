@@ -3,12 +3,14 @@
     line-height: 18px;
     color: #74777C;
 }
+
 .contact-info__item {
     display: flex;
     text-decoration: none;
     color: #74777c;
     align-items: center;
 }
+
 .contact__icon {
     display: flex;
     align-items: center;
@@ -24,4 +26,6 @@
     border: 1px solid #4d4f52;
     border-radius: 4px;
 }
-
+.footer-contact__info{
+    width: 274px;
+}

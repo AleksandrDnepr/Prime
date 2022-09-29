@@ -36,9 +36,9 @@ export default class ContactInfo extends Component {
     };
 
     render() {
-        const { type, border, children } = this.props;
+        const { type, border, className, children } = this.props;
         return (
-        <li className="contact-info">
+        <li className={`contact-info ${className}`}>
             <a
                 href={this.createLinkHref(type, children)}
                 className="contact-info__item"

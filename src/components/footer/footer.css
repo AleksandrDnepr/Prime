@@ -3,10 +3,11 @@
 }
 
 .footer__container {
-  padding: 50px 84px 50px 400px;
+  padding: 50px 0px;
   display: flex;
   margin: 0 auto;
-  max-width: 1095px;
+  width: 100%;
+  max-width: 1094px;
 }
 
 .footer__contact-info {
@@ -35,13 +36,6 @@
   list-style-type: none;
   padding: 0;
 }
-/* 
-.contact-info__item {
-  display: flex;
-  text-decoration: none;
-  color: #74777c;
-  align-items: center;
-} */
 
 .contact-info__text {
   padding-left: 5px;
