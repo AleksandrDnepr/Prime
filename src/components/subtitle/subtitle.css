@@ -6,6 +6,8 @@
     line-height: 39px;
     color: #DF434A;
     text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 66px;
     }
     
 .subtitle::after {

@@ -1,8 +1,8 @@
-.AgentSection{
+.agent__section{
     padding-top: 100px;
     padding-bottom: 150px;
 }
-.AgentCard {
+.agent__card {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -18,18 +18,18 @@
     margin: 0 auto;
 
 }
-.AgentPhoto {
+.agent__photo {
     width: 220px;
     height: 220px;
     margin-right: 25px;
 }
-.AgentName {
+.agent__name {
     font-size: 32px;
     line-height: 39px;
     color: #4D4F52;
     margin-top: 20px;
 }
-.AgentLocation {
+.agent__location {
     font-size: 16px;
     font-style: italic;
     line-height: 19px;
@@ -38,7 +38,7 @@
     color: #4D4F52;
     position: relative;
 }
-.AgentLocation::after{
+.agent__location::after{
     content: "";
     height: 1px;
     width: 100%;

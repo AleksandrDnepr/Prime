@@ -22,10 +22,11 @@
     object-fit: none;
 }
 
-.framed{
+.framed {
     border: 1px solid #4d4f52;
     border-radius: 4px;
 }
-.footer-contact__info{
+
+.footer-contact__info {
     width: 274px;
 }
