@@ -29,8 +29,8 @@
     background-image: url(./agent-placeholder.png);
     background-size: contain;
     background-position: center;
-    /* object-fit: contain; */
 }
+
 .agent__photo--img {
     height: 100%;
 }
