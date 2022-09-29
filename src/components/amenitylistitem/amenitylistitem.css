@@ -1,0 +1,19 @@
+.amenity__item {
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+color: #74777C;
+}
+
+.amenity__status {
+  font-style: normal;
+}
+
+.amenity__title {
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+color: #74777C;
+}
