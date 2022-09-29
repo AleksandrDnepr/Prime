@@ -18,9 +18,9 @@ export default class PropertyCard extends Component {
           </div>
         </section>
           <section className='description'>
-       <h4>Dream Apartment for Young Family</h4>
-        <h6>Pasadena, California</h6>
-       <p>Cras lobortis, diam et ultricies imperdiet, urna urna pharetra est, vitae euismod lectus dolor nec...</p>
+       <h4 className='description-title'>Dream Apartment for Young Family</h4>
+        <h6 className="description-address">Pasadena, California</h6>
+       <p className="description-text">Cras lobortis, diam et ultricies imperdiet, urna urna pharetra est, vitae euismod lectus dolor nec...</p>
        <Title />
           </section>
       </a>
