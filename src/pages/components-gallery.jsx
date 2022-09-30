@@ -8,11 +8,19 @@ import PropertyCard from "../components/propertyCard/propertyCard";
 
 import PropertyDetails from "../components/propertyDetails/propertyDetails";
 
+import Header from "../components/header/header";
+
+import ViewModeToggle from "../components/ViewModeToggle";
+
+import Description from "../components/description";
+
+import Subtitle from "../components/subtitle";
+
 export default class ComponentsGallery extends Component {
   render() {
     return (
       <div>
-        <HeaderMain title="Properties" />
+        <Header title="Properties" />
 
         <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)}/>
 
