@@ -1,4 +1,4 @@
-.details-list{
+.details-list {
     display: flex;
     list-style: none;
     margin: 0px;
@@ -7,30 +7,25 @@
 
 .details-list>li {
     margin: 5px;
-   }
+    color: #74777C;
+}
 
-   .details-list>li:first-child {
+.details-list>li:first-child {
     margin-left: 0px;
-   }
-
-
+}
 
 .details-list>li::after {
     margin-left: 7px;
     content: "|";
     color: #E4E4E4;
-    ;
 }
-
 
 .details-list>li:last-child::after {
     margin: 0px 7px;
     content: "";
-    
 }
 
-
-.details-list-item{
+.details-list-item {
     margin-right: 7px;
     align-items: center;
 }

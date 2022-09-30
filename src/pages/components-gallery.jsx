@@ -28,10 +28,10 @@ export default class ComponentsGallery extends Component {
         />
 
         <PropertyCard
-          mode="square|line"
-          picture="http://example.com/.../name.png"
+          mode="list"
+          picture="./Photo.png"
           deal="For Sale"
-          type="apartment|townhouse"
+          type="apartment"
           price="2 850 000 $"
           title="Dream Apartment for Young Family"
           location={['Pasadena', 'California']}
