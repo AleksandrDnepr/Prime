@@ -1,12 +1,14 @@
-.features_main_container {
+.features_main_container,
+.feature_container,
+.features {
     display: flex;
+}
+
+.features {
     justify-content: center;
-    margin: 0;
-    padding: 0;
 }
 
 .feature_container {
-    display: flex;
     align-items: center;
     width: 354px;
     height: 70px;
@@ -15,6 +17,10 @@
     border-radius: 4px;
     margin-right: 11px;
     color: #74777C;
+}
+
+.feature_container:last-child {
+    margin-right: 0;
 }
 
 .features_img {
