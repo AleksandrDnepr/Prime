@@ -1,6 +1,8 @@
 .nav_header {
-    height: 241px;
+    width: 1920px;
     display: flex;
+    align-items: flex-end;
+    padding: 56px 0 36px 409px;
     background-image: url(./backdrop.jpg);
     background-position: 0px auto;
 }
@@ -13,12 +15,3 @@
     margin: 0;
 }
 
-.logo_color_white path {
-    fill: #FFFFFF;
-  }
-
-.header_logo {
-    display: flex;
-    align-items: flex-end;
-    padding: 56px 0 36px 409px;
-}  
