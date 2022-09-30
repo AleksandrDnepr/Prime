@@ -2,8 +2,8 @@
     display: flex;
     position: relative;
     /*for grid*/
-    /* flex-direction: column; 
-    /* max-width: 345px;  */
+    flex-direction: column; 
+    max-width: 345px; 
 } 
 
 .info {
@@ -15,9 +15,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 10px;
+    left: 36px;
     /*for grid*/
-    left: 36px;  
+    left: 10px;  
 
 }
 
