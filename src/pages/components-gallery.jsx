@@ -28,11 +28,12 @@ export default class ComponentsGallery extends Component {
         />
 
         <PropertyCard
-          mode="list"
-          picture="./Photo.png"
-          deal="For Sale"
-          type="apartment"
-          price="2 850 000 $"
+          mode="grid"
+          picture="https://storage01.tea.ru/medialibrary/2d0/2d0f6ed220d03e626e10a9d5712a4c89/92cce96f3a2c1e7e00e5f3e00f31a65f.jpg"
+          link="some link"
+          deal="sale"
+          type="townhouse"
+          price={2850000}
           title="Dream Apartment for Young Family"
           location={['Pasadena', 'California']}
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed arcu lectus. Praesent eget turpis vehicula, tempor libero sodales, lobortis erat. Etiam nulla odio, imperdiet sed tellus at, rhoncus commodo diam…"
@@ -45,7 +46,7 @@ export default class ComponentsGallery extends Component {
 
         <Subtitle>Floor plans</Subtitle>
 
-        <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} />
+        <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
 
     </div>)
   }
