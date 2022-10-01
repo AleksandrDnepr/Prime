@@ -4,7 +4,9 @@ import Pagination from "../components/pagination/pagination";
 
 import Footer from "../components/footer/footer";
 
+import {Description} from "../components/description/description";
 
+import AgentCard from "../components/agentCard/agentCard";
 
 import PropertyCard from "../components/propertyCard/propertyCard";
 
@@ -32,6 +34,8 @@ import Gallery from "../components/Gallery/Gallery";
 import { Link } from "react-router-dom";
 
 import PropertyList from "../components/propertyList/propertyList";
+import Features from "../components/features/features";
+
 export default class ComponentsGallery extends Component {
   render() {
     return (
@@ -101,7 +105,7 @@ export default class ComponentsGallery extends Component {
         <Subtitle>Floor plans</Subtitle>
        
 
-        <Features title="features" />
+        <Features/>
 
         <Footer />
 

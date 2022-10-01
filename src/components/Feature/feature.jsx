@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./feature.css"
 
 export default class Feature extends Component {
 
