@@ -88,14 +88,14 @@ export default class ComponentsGallery extends Component {
 
         <Subtitle>Floor plans</Subtitle>
 
-            <Title 
-                name="Verona at Parkbridge II by DR Horton"
-                location={['Natomas', 'Sacramento']}
-                type={["Townhouse", "Apartment"]}
-                area={1932}
-                bedrooms={4}
-                bathrooms={3}
-                id="A003N" />
+        <Title 
+            name="Verona at Parkbridge II by DR Horton"
+            location={['Natomas', 'Sacramento']}
+            type={["Townhouse", "Apartment"]}
+            area={1932}
+            bedrooms={4}
+            bathrooms={3}
+            id="A003N" />
 
 
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
