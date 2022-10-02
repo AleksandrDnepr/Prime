@@ -6,8 +6,8 @@
 
 .title__name {
 font-style: normal;
-font-weight: 400;
 font-size: 32px;
+font-weight: 400;
 line-height: 39px;
 color: #DF434A;
 margin: 0;
@@ -15,7 +15,6 @@ margin: 0;
 
 .title__location {
 font-style: italic;
-font-weight: 400;
 font-size: 16px;
 line-height: 19px;
 display: flex;
@@ -25,31 +24,32 @@ margin: 4px 0 0 0;
 }
 
 .title__details {
-  list-style-type: none;
-  display: flex;
-  padding: 0;
-}
-
-.details__id-card {
+list-style-type: none;
+display: flex;
+padding: 0;
 font-style: normal;
-font-weight: 400;
 font-size: 15px;
 line-height: 18px;
 color: #74777C; 
-margin-left: auto; 
+align-items: baseline;
+}
+
+.details__type-card::after {
+  margin: 0 7px;
+  content: "|";
+  color: #E4E4E4;
 }
 
 .details__type-card {
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-color: #74777C;
+  margin-right: 7px;
+}
+
+.details__id-card {
+margin-left: auto; 
 }
 
 .details-list-item {
   margin-right: 7px;
-  align-items: center;
 }
 
 

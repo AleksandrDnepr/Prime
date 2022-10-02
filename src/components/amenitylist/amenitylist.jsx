@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AmenityListItem from "../amenitylistitem/amenitylistitem";
-import { Subtitle } from "../subtitle/subtitle";
+import Subtitle from "../subtitle/subtitle";
 
 import "./amenitylist.css"
 

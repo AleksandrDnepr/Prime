@@ -14,11 +14,11 @@ import Title from "../components/title/title";
 
 import Header from "../components/header/header";
 
-import ViewModeToggle from "../components/ViewModeToggle";
+import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle";
 
-import Description from "../components/description";
+import Description from "../components/description/description";
 
-import Subtitle from "../components/subtitle";
+import Subtitle from "../components/subtitle/subtitle";
 
 import AgentCard from "../components/agentCard/agentCard";
 
@@ -91,7 +91,9 @@ export default class ComponentsGallery extends Component {
         <Title 
             name="Verona at Parkbridge II by DR Horton"
             location={['Natomas', 'Sacramento']}
-            type={["Townhouse", "Apartment"]}
+            type="Townhouse"
+            details={{ area: 1320, bedrooms: 2, bathrooms: 2 }}
+            mode="list"
             area={1932}
             bedrooms={4}
             bathrooms={3}

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Subtitle } from '../subtitle/subtitle';
+import Subtitle from '../subtitle/subtitle';
 import "./floorPlans.css";
 
 
