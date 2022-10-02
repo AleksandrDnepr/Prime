@@ -1,12 +1,22 @@
-import logo from './header__logo.svg';
 import './header.css';
+import { Component } from "react";
+import Logo from "../logo/logo";
 
-export default function Header() {
-  return <header className="header">
-    <img src={logo} className="header__logo" alt="logo" />
-    <h1 className="header__title">React App</h1>
-    <nav className="header__nav">
-      <a className="header__nav-link" href="https://reactjs.org">Learn React</a>
-    </nav>
-  </header>
+export default class HeaderMain extends Component {
+
+  constructor(props) {
+    super(props);
+    this.props = props;
+  };
+
+  render() {
+    return (
+      <header>
+        <div className="nav_header">
+          <Logo color="white" />
+          <h1 className='nav_text'>{this.props.title}</h1>
+        </div>
+      </header>
+    )
+  }
 };
