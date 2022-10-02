@@ -1,0 +1,12 @@
+.amenity__section {
+  width: 100%;
+  max-width: 1094px;
+  margin: auto;
+}
+
+.amenity__list {
+  list-style-type: none;
+  height: 260px;
+  column-count:3;
+  margin-top: 60px;
+}
