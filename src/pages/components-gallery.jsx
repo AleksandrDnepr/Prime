@@ -16,6 +16,8 @@ import Description from "../components/description";
 
 import Subtitle from "../components/subtitle";
 
+import AgentCard from "../components/agentCard/agentCard";
+
 export default class ComponentsGallery extends Component {
   render() {
     return (
@@ -50,6 +52,14 @@ export default class ComponentsGallery extends Component {
         <Subtitle>Floor plans</Subtitle>
 
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
+
+        <AgentCard
+          name={"Adam Conover"}
+          photoUrl={"https://www.hji.co.uk/wp-content/efs/2018/09/Hairdressing-Agent-square.jpg"} 
+          location={"Los Angeles, California"}
+          phone={"+0 123-456-7890"}
+          email={"adam@example.com"}
+        />
 
     </div>)
   }
