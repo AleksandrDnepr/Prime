@@ -8,7 +8,9 @@ import PropertyCard from "../components/propertyCard/propertyCard";
 
 import AmenityList from "../components/amenitylist/amenitylist";
 
-import PropertyDetails from "../components/propertyDetails/propertyDetails";
+import PropertyDetails from "../components/propertyDetails/propertyDetails";;
+
+import Title from "../components/title/title";
 
 import Header from "../components/header/header";
 
@@ -85,6 +87,16 @@ export default class ComponentsGallery extends Component {
           ]} />
 
         <Subtitle>Floor plans</Subtitle>
+
+            <Title 
+                name="Verona at Parkbridge II by DR Horton"
+                location={['Natomas', 'Sacramento']}
+                type={["Townhouse", "Apartment"]}
+                area={1932}
+                bedrooms={4}
+                bathrooms={3}
+                id="A003N" />
+
 
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
 
