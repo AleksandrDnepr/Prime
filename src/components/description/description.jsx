@@ -18,4 +18,4 @@ class Description extends Component {
     
 }
 
-export {Description};
+export default Description;

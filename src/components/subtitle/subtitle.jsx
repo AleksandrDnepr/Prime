@@ -16,4 +16,4 @@ class Subtitle extends Component {
     }
 }
 
-export {Subtitle};
+export default Subtitle;

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import ContactInfo from "../contactInfo/contactInfo";
-import { Subtitle } from "../subtitle/subtitle";
+import Subtitle from "../subtitle/subtitle";
 import "./agentCard.css";
 
 
