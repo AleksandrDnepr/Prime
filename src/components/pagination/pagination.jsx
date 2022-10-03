@@ -3,9 +3,6 @@ import Button from "../button/button";
 import "./pagination.css";
 
 export default class Pagination extends Component {
-    state = {
-        currentPage: this.props.page,
-    };
 
     pageSeparating(pagesNumber) {
         let collection = [];
@@ -32,70 +29,54 @@ export default class Pagination extends Component {
         return visiblePages;
     }
 
-    setPage(direction){
-        switch (direction) {
-            case "prev": 
-                this.setState(prevState => ({
-                    currentPage: prevState.currentPage - 1,
-                }));
-            break;
-            case "next":
-                this.setState(prevState => ({
-                    currentPage: prevState.currentPage + 1,
-                }));
-            break;
-            default: return;
-        }
-    }
 
-    renderPrevPage() {
-        if (this.state.currentPage === 1) {return null;}
+    renderPrevPage(page, onChange) {
+        if (this.props.page === 1) {return null;}
         return <Button 
                     className="ShowPrevBtn"
-                    handleClick={() => this.setPage("prev")}
+                    handleClick={() => onChange(page - 1)}
                 > 
                     {'\u003C'} 
                 </Button>;
     }
 
-    renderNextPage(pages) {
-        if (this.state.currentPage === pages) {return null;}
+    renderNextPage(pages, page, onChange) {
+        if (this.props.page === pages) {return null;}
         return <Button 
                     className="ShowNextBtn" 
-                    handleClick={() => this.setPage("next")}
+                    handleClick={() => onChange(page + 1)}
                 > 
                     {'\u003E'} 
                 </Button>;
     }
     
-    renderButton(button, currentPage, onChange){
+    renderButton(button, page, onChange){
         return <Button
                     className="PaginationPageBtn"
                     handleClick={() => onChange(button)}
-                    isDisabled={button === currentPage}
+                    isDisabled={button === page}
                 > 
                     {button} 
                 </Button>
     }
 
     render() {
-        const { currentPage } = this.state;
-        const { pages, onChange } = this.props;
-        const visiblePages = this.sliceVisiblePages(pages, currentPage);
+        const { pages, page, onChange } = this.props;
+        const visiblePages = this.sliceVisiblePages(pages, page);
 
         if (pages === 1) {return null;}
 
         return (
         <nav className="Pagination">
-            {this.renderPrevPage()}
+            {this.renderPrevPage(page, onChange)}
             <ol className="PaginationList">
                 {visiblePages.map(button => 
                     <li className="PaginationItem" key={button}>
-                        {this.renderButton(button, currentPage, onChange)}
+                        {this.renderButton(button, page, onChange)}
                     </li>
                     )}
             </ol>
-            {this.renderNextPage(pages)}
+            {this.renderNextPage(pages, page, onChange)}
         </nav>
         );
     }
