@@ -18,16 +18,12 @@ export default class App extends React.Component  {
             <Route path="/component_gallery" component={ComponentsGallery} />
 
             <Route path="/" exact={true} component={Index} />
-            
-            {/* <Route component={NotFoundPage} /> */}
           </Switch>  
         </BrowserRouter>
       </React.StrictMode>
     )
   }
 }
-
-
 
 function main() {
   const root = document.createElement('div');

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-export default class Property extends Component {
+class Property extends Component {
   render() {
     return (
       <>
@@ -10,3 +10,5 @@ export default class Property extends Component {
     )
   }
 }
+
+export default withRouter(Property)
