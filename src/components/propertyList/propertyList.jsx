@@ -31,12 +31,15 @@ export default class PropertyList extends Component {
             default: return;
         }
     }
+
+    
     changePage(page) {
         this.setState({currentPage: page});
     }
+
     showCurrentPage(mode, properties){
         const perPage = mode === "grid" ? 12 : 8;
-        const firstOnCurrentPage = (this.state.currentPage-1) * perPage;
+        const firstOnCurrentPage = (this.state.currentPage - 1) * perPage;
         return properties.slice(firstOnCurrentPage, (firstOnCurrentPage + perPage))
     }
 
@@ -44,10 +47,9 @@ export default class PropertyList extends Component {
         const visibleProperties = this.showCurrentPage(mode, properties);
         return (
             <ul className={`propertyList__list ${mode}`}>
-                { visibleProperties.map(({ picture, deal, type, link, price, title, location, description, details }) => 
-                <li>
+                { visibleProperties.map(({ picture, deal, type, link, price, title, location, description, details }, i) => 
+                <li key={link+i}>
                     <PropertyCard   
-                        key={link}
                         picture={picture}
                         mode={mode}
                         deal={deal}
