@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import Feature from "../Feature/feature";
-import "./features.css"
-import paw from "./Paw.svg";
-import pool from "./Pool.svg";
-import fence from "./Fence.svg";
-import { Subtitle } from "../subtitle/subtitle";
+import Feature from "../feature/feature";
+import "./features.css";
+import Subtitle from "../subtitle/subtitle";
 
 export default class Features extends Component {
     
@@ -13,9 +10,9 @@ export default class Features extends Component {
       <section className="features">
         <Subtitle>Features</Subtitle>
         <ul className="features_main_container">
-          <Feature src={paw} text="Pets Allowed" />
-          <Feature src={pool} text="Outdoor Pool" />
-          <Feature src={fence} text="850 Sq Ft Garden" />
+           <Feature icon ="paw">Pets Allowed</Feature>
+           <Feature icon ="pool">Outdoor Pool</Feature>
+           <Feature icon ="fence">850 Sq Ft Garden</Feature>
         </ul>
       </section>
     )
