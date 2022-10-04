@@ -6,14 +6,22 @@ import { ReactComponent as RightArrow } from "./rightArrow.svg"
 
 export default class Gallery extends Component {
     state = {
-        currentPhoto: 0
+        currentPhoto: 2
     }
 
     showNext() {
+        if(this.state.currentPhoto>this.props.pictGalery.length-this.state.currentPhoto+1){
+            return;
+        }
+        else{
         this.setState(prev => ({ currentPhoto: prev.currentPhoto + 1 }))
+        }
     }
 
     showPrev() {
+        if(this.state.currentPhoto<=0){
+            return;
+        }
         this.setState(prev => ({ currentPhoto: prev.currentPhoto - 1 }))
     }
 
