@@ -4,7 +4,7 @@ import ComponentsGallery from "./pages/components-gallery";
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Index from "./pages/index.jsx";
 import Property from "./pages/property";
-import NotFoundPage from "./pages/notFoundPage";
+import NotFoundError from "./components/notFoundError/notFoundError";
 
 
 
@@ -16,13 +16,12 @@ export default class App extends React.Component  {
           <Switch>
             <Route path="/component_gallery" component={ComponentsGallery} />
 
-            <Route path="/properties/:property_id" component={Property} />
+            <Route path="/page_not_found" component={NotFoundError} />
+
+            <Route path="/:property_id" component={Property} />
           
-            <Route path="/properties" component={Index} />
+            <Route path="/" component={Index} />
 
-            <Redirect from="/" exact={true} to="/component_gallery" />
-
-            <Route component={NotFoundPage} />
           </Switch>  
         </BrowserRouter>
       </React.StrictMode>

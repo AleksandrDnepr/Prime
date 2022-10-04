@@ -14,7 +14,7 @@ class Property extends Component {
     }
     return (
       <>
-        <Link to="/properties">Index</Link>
+        <Link to="/">Index</Link>
         <div>flat.id = {flat.id}</div>
         <div>flat.city = {flat.city}</div>
         <div>flat.rooms = {flat.rooms}</div>
