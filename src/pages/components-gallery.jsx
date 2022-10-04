@@ -36,7 +36,7 @@ export default class ComponentsGallery extends Component {
     return (
       <div>
 
-        <Link to="/">Properties</Link>
+        <Link to="/properties">Properties</Link>
 
         <Header title="Properties" />
 
