@@ -24,12 +24,16 @@ import AgentCard from "../components/agentCard/agentCard";
 
 import FloorPlans from "../components/floorPlans/floorPlans";
 
+import { Link } from "react-router-dom";
+
 import PropertyList from "../components/propertyList/propertyList";
 
 export default class ComponentsGallery extends Component {
   render() {
     return (
       <div>
+
+        <Link to="/properties">Properties</Link>
 
         <Header title="Properties" />
 
