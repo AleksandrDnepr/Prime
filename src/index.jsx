@@ -1,15 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Hello } from './pages/';
 import ComponentsGallery from "./pages/components-gallery";
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Index from "./pages/index.jsx";
+import Property from "./pages/property";
+import NotFoundError from "./components/notFoundError/notFoundError";
 
-const App = () => {
-  return <React.StrictMode>
-    <Hello />
-    <ComponentsGallery />
-  </React.StrictMode>;
+
+
+export default class App extends React.Component  {
+  render() {
+    return (
+      <React.StrictMode>  
+        <BrowserRouter>
+          <Switch>
+            <Route path="/component_gallery" component={ComponentsGallery} />
+
+            <Route path="/page_not_found" component={NotFoundError} />
+
+            <Route path="/:property_id" component={Property} />
+          
+            <Route path="/" component={Index} />
+
+          </Switch>  
+        </BrowserRouter>
+      </React.StrictMode>
+    )
+  }
 }
-
 
 function main() {
   const root = document.createElement('div');

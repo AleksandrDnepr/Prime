@@ -1,0 +1,27 @@
+.notFoundPage__container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+  height: 100vh;
+}
+
+.notFoundPage__main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #4D4F52;  
+}
+
+.notFoundPage__text {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 32px;  
+}
+
+.notFoundPage__link {
+  text-decoration: none;
+  color: #4D4F52; 
+}
