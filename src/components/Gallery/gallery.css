@@ -4,14 +4,8 @@
     width: 1093px;
     height: 615px;
     overflow: hidden;
-    background-image: url(./img-not-found.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     object-fit: contain;
-    object-position: 50% 50%;
-
-
+    margin: 20px;
 }
 
 .container__gallery:hover>svg {
@@ -35,5 +29,5 @@
 }
 
 .gallery__img{
-    width:100%
+    width: 100%;
 }
