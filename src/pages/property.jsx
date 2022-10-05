@@ -37,9 +37,10 @@ class Property extends Component {
       return;
     }
     const atachedAgent = this.getAgentByID(flat.attached_agents_id, agents_info);
+    const {name, photo, location, tel, email} = atachedAgent;
+
     return (
       <>
-        {console.log((data))}
         <HeaderMain title={flat.title}/>
 
         <Title 
@@ -64,12 +65,13 @@ class Property extends Component {
         amenities={flat.amenities} />
         
         <Features />
+        
         <AgentCard
-                  name={atachedAgent.name}
-                  photoUrl={atachedAgent.photo} 
-                  location={atachedAgent.location}
-                  phone={atachedAgent.tel}
-                  email={atachedAgent.email}
+                  name={name}
+                  photoUrl={photo} 
+                  location={location}
+                  phone={tel}
+                  email={email}
                 />
 
         <Footer />
