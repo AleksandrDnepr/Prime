@@ -47,9 +47,10 @@ export default class PropertyList extends Component {
         const visibleProperties = this.showCurrentPage(mode, properties);
         return (
             <ul className={`propertyList__list ${mode}`}>
-                { visibleProperties.map(({ picture, deal, type, link, price, title, location, description, details }, i) => 
+                { visibleProperties.map(({ id, picture, deal, type, link, price, title, location, description, details }, i) => 
                 <li key={link+i}>
-                    <PropertyCard   
+                    <PropertyCard  
+                        id={id}
                         picture={picture}
                         mode={mode}
                         deal={deal}

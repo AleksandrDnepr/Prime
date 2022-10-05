@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import "./propertyCard.css"
 import PropertyDetails from '../propertyDetails/propertyDetails'
 import PriceLabel from '../priceLabel/priceLabel'
+import { Link } from 'react-router-dom';
 
 export default class PropertyCard extends Component {
   render() {
-    const { picture, mode, deal, type, link, price, title, location, description, details } = this.props;
+    const { id, picture, mode, deal, type, price, title, location, description, details } = this.props;
 
     return (
-      <a href={link} className={`container_${mode}`}>
+      <Link to={`/${id}`} className={`container_${mode}`}>
         <section className='label__info'>
           <img className="property-photo" src={picture} alt="Property view" />
           <PriceLabel price={price} deal={deal} type={type} />
@@ -19,7 +20,9 @@ export default class PropertyCard extends Component {
           <p className="description-text">{description}</p>
           <PropertyDetails details={details} mode={mode} />
         </section>
-      </a>
+    </Link>
     )
   }
 }
+
+
