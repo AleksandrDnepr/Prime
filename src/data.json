@@ -535,7 +535,7 @@
               "https://pacifichomescostarica.com/images/482193_1569273299.jpeg"
             ]
           },
-          "description": "This scenic lot is located less than 5 minutes from the center of Samara, close to restaurants and white sandy beaches, as well as groceries, banks, pharmacies, and boutiques. The only gas station in the area is located about 2 minutes away.",
+          "description": "BOOOO!!! lot is located less than 5 minutes from the center of Samara, close to restaurants and white sandy beaches, as well as groceries, banks, pharmacies, and boutiques. The only gas station in the area is located about 2 minutes away.",
           "plans": [
             {
               "name": "1st Floor",
@@ -1352,7 +1352,7 @@
               "https://pechenyi.com/info/gostinaya-38-1.jpg"
             ]
           },
-          "description": "Gorgeous lot with impressive view to the lush jungle and mountains.This spectacular lot located just 5 minutes drive from Samara Beach, is ready for development. Its 360-degrees view of the lush jungle and mountains, makes it ideal for a residential or rental project.The land comes with an extensive variety of fruit plants: Mango, lemons, papaya, water apple, and many others.",
+          "description": "GEGEGEGEGE!!!! to the lush jungle and mountains.This spectacular lot located just 5 minutes drive from Samara Beach, is ready for development. Its 360-degrees view of the lush jungle and mountains, makes it ideal for a residential or rental project.The land comes with an extensive variety of fruit plants: Mango, lemons, papaya, water apple, and many others.",
           "plans": [
             {
               "name": "1st Floor",
@@ -3489,80 +3489,6 @@
             { "feature": "850 Sq Ft Garden" }
           ],
           "attached_agents_id": "003"
-        },
-        {
-          "id": "D4974",
-          "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
-          "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
-          "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
-            "galery": [
-              "https://pechenyi.com/info/gostinaya-36-1.jpg",
-              "https://pechenyi.com/info/gostinaya-28-2.jpg",
-              "https://pacifichomescostarica.com/images/779539_1569273300.jpeg",
-              "https://pacifichomescostarica.com/images/482193_1569273299.jpeg"
-            ]
-          },
-          "description": "This scenic lot is located less than 5 minutes from the center of Samara, close to restaurants and white sandy beaches, as well as groceries, banks, pharmacies, and boutiques. The only gas station in the area is located about 2 minutes away.",
-          "plans": [
-            {
-              "name": "1st Floor",
-              "url": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRvemFibzBqYW5yODMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.5U2_HsvFpwvAxKlQynbIvdlIAVRjtfeFeVLZtTBbbbE/image;s=1280x1024;q=80"
-            },
-            {
-              "name": "2nd Floor",
-              "url": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjAwZHo3aWdncDBiNjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.enUos-_HR4KDlcfZxopB41nCvx7J72C5Gn4Ddl84YJA/image;s=1280x1024;q=80"
-            },
-            {
-              "name": "3rd Floor",
-              "url": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InRoYXBvenM1dzV2OC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Fl5THtQLJTo8UDfmyogPRID4Dr-E7rtYZ_3DWaVZfv8/image;s=1280x1024;q=80"
-            },
-            {
-              "name": "4th Floor",
-              "url": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InMxcHRsYmE4MDR2bC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.oFZGjsBdqSk5DnHPuTA6dJXPdmCuWcEXj3Evdn1NnL0/image;s=1280x1024;q=80"
-            },
-            {
-              "name": "5th Floor",
-              "url": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InFqcmx4MGExMXUzdC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.NYOxTv8S2_7malQnjQ7TFDDjITV-drK9ajYe4EXfSM4/image;s=1280x1024;q=80"
-            }
-          ],
-          "amenities": [
-            { "isAvailable": true, "title": "Air Conditioning" },
-            { "isAvailable": false, "title": "Alarm Clock" },
-            { "isAvailable": true, "title": "Balcony" },
-            { "isAvailable": false, "title": "Clothes Dryer" },
-            { "isAvailable": false, "title": "Coffee Maker" },
-            { "isAvailable": true, "title": "Deck / Patio" },
-            { "isAvailable": false, "title": "Dishes & Utensils" },
-            { "isAvailable": true, "title": "Dishwasher" },
-            { "isAvailable": true, "title": "Fireplace" },
-            { "isAvailable": true, "title": "Freezer" },
-            { "isAvailable": true, "title": "Garage" },
-            { "isAvailable": true, "title": "Heating" },
-            { "isAvailable": true, "title": "Ice Maker" },
-            { "isAvailable": false, "title": "Internet" },
-            { "isAvailable": true, "title": "Microwave" },
-            { "isAvailable": true, "title": "Outdoor Grill" },
-            { "isAvailable": true, "title": "Oven" },
-            { "isAvailable": false, "title": "Parking On Street" },
-            { "isAvailable": true, "title": "Refrigerator" },
-            { "isAvailable": false, "title": "Satellite / Cable TV" },
-            { "isAvailable": true, "title": "Security System" },
-            { "isAvailable": false, "title": "Sofa Bed" },
-            { "isAvailable": true, "title": "Stove" },
-            { "isAvailable": false, "title": "Telephone" },
-            { "isAvailable": false, "title": "Toaster" },
-            { "isAvailable": true, "title": "Washing Machine" },
-            { "isAvailable": false, "title": "Water Cooler" }
-          ],
-          "features": [
-            { "feature": "pets allowed" },
-            { "feature": "outdoor pool" },
-            { "feature": "850 Sq Ft Garden" }
-          ],
-          "attached_agents_id": "001"
         }
       ],
       "agents_info": [
