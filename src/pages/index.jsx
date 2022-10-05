@@ -385,7 +385,7 @@ class Index extends Component {
   render() {
     return (
       <>
-        <Header title="Properties" />
+        <Header title="PROPERTIES" />
         <PropertyList
           defaultView="grid"
           properties={properties} 
