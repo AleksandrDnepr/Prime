@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-
-export const flats = [
-  { id: "1", city: "Kuiv", rooms: "3" },
-  { id: "2", city: "Odessa", rooms: "2" },
-  { id: "3", city: "Lviv", rooms: "1" },
-];
+import Header from "../components/header/header";
+import PropertyList from "../components/propertyList/propertyList";
+import Footer from "../components/footer/footer";
+import data from '../data.json';
 
 class Index extends Component {
+
   render() {
+
+const { apartaments } = data;
+console.log(apartaments);
+const { images, type, title,location, description, details} = apartaments;
+
     return (
       <>
-        <Link to="/component_gallery">component gallery</Link>
-        <ul>
-          {flats.map((item) => {
-            return (
-              <li key={item.id}>
-                <Link to={`/${item.id}`}>{item.city}</Link>
-              </li>
-            );
-          })}
-        </ul>
-        <Link to="/foo">foo</Link>
+        <Header title="PROPERTIES" />
+        <PropertyList
+          defaultView="grid"
+          properties={apartaments} 
+        />
+        <Footer />
       </>
     );
   }
