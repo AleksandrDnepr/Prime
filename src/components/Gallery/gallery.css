@@ -1,11 +1,10 @@
 .container__gallery {
     position: relative;
-    margin: auto;
-    width: 1093px;
+    margin: 36px auto 65px;
+    width: 1094px;
     height: 615px;
     overflow: hidden;
     object-fit: contain;
-    margin: 20px;
 }
 
 .container__gallery:hover>svg {

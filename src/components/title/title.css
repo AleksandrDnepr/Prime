@@ -1,55 +1,56 @@
 .title__section {
- width: 100%;
- width: 1094px;
- margin: auto;
+    width: 100%;
+    width: 1094px;
+    margin: auto;
+    margin-top: 110px;
 }
 
 .title__name {
-font-style: normal;
-font-size: 32px;
-font-weight: 400;
-line-height: 39px;
-color: #DF434A;
-margin: 0;
+    font-style: normal;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39px;
+    color: #DF434A;
+    margin: 0;
 }
 
 .title__location {
-font-style: italic;
-font-size: 16px;
-line-height: 19px;
-display: flex;
-align-items: center;
-color: #4D4F52;
-margin: 4px 0 0 0;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #4D4F52;
+    margin: 4px 0 0 0;
 }
 
 .title__details {
-list-style-type: none;
-display: flex;
-padding: 0;
-font-style: normal;
-font-size: 15px;
-line-height: 18px;
-color: #74777C; 
-align-items: baseline;
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: #74777C; 
+    align-items: baseline;
 }
 
 .details__type-card::after {
-  margin: 0 7px;
-  content: "|";
-  color: #E4E4E4;
+    margin: 0 7px;
+    content: "|";
+    color: #E4E4E4;
 }
 
 .details__type-card {
-  margin-right: 7px;
+    margin-right: 7px;
 }
 
 .details__id-card {
-margin-left: auto; 
+  margin-left: auto; 
 }
 
 .details-list-item {
-  margin-right: 7px;
+    margin-right: 7px;
 }
 
 
