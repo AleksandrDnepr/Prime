@@ -29,6 +29,7 @@ import Gallery from "../components/Gallery/Gallery";
 import { Link } from "react-router-dom";
 
 import PropertyList from "../components/propertyList/propertyList";
+import Features from "../components/features/features";
 
 export default class ComponentsGallery extends Component {
   render() {
@@ -475,6 +476,8 @@ export default class ComponentsGallery extends Component {
             details: { area: 5000, bedrooms: 5, bathrooms: 4 },
             },]} 
         />
+
+        <Features />
 
 
     </div>)

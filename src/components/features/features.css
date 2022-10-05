@@ -1,0 +1,11 @@
+.features_main_container,
+.features {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.features {   
+    flex-direction: column;
+}
