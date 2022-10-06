@@ -31,7 +31,7 @@
     font-style: normal;
     font-size: 15px;
     line-height: 18px;
-    color: #74777C; 
+    color: #74777C;
     align-items: baseline;
 }
 
@@ -45,12 +45,19 @@
     margin-right: 7px;
 }
 
+.details__type-card path {
+    fill: #ADB2B6;
+    fill-opacity: 1
+}
+
+.details__type-card svg {
+    width: 22px;
+}
+
 .details__id-card {
-  margin-left: auto; 
+    margin-left: auto;
 }
 
 .details-list-item {
     margin-right: 7px;
 }
-
-
