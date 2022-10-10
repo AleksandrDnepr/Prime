@@ -25,15 +25,11 @@
 
 .contact-info__title {
   color: #4d4f52;
-  font-size: 20px;
   font-weight: 400;
   margin-bottom: 24px;
-  margin-top: 0;
 }
 
 .contact-info__list {
   display: flex;
-  list-style-type: none;
-  padding: 0;
 }
 
