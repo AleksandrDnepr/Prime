@@ -69,42 +69,11 @@
     left: 10px;
 }
 
-.price__label-block {
-    padding-left: 10px;
+.label__info > .price-label {
     position: absolute;
-    display: flex;
-    max-width: 140px;
     top: 10px;
     left: -6px;
-    flex-wrap: wrap;
-    background-color: #DF434A;
-    color: white;
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
 }
 
-.price__label-block::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    background-color: #262d37;
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-    width: 6px;
-    height: 6px;
-  }
 
-.type-building-icon{
-    margin-left: 3px;
-    margin-top: 6px;
-}
 
-.type-building{
-    margin: 5px 5px 0px 5px;
-    font-size: 16px;
-}
-
-.price {
-    margin: 0px 5px 2px 5px;
-}
