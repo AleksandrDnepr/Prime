@@ -11,6 +11,7 @@ import AmenityList from "../components/amenitylist/amenitylist.jsx";
 import Features from "../components/features/features.jsx";
 import AgentCard from "../components/agentCard/agentCard.jsx";
 import Footer from "../components/footer/footer.jsx";
+import Page from "../components/page/Page";
 
 
 
@@ -31,6 +32,7 @@ class Property extends Component {
     const {apartaments, agents_info} = data;
     const { property_id } = this.props.match.params;
     const flat = this.getFlatByID(property_id, apartaments);
+    
 
     if (!flat) {
       this.props.history.push("/page_not_found");
@@ -41,7 +43,40 @@ class Property extends Component {
 
     return (
       <>
-        <HeaderMain title={flat.title}/>
+        {/* <HeaderMain title={flat.title}/> */}
+
+<Page>
+<Title 
+            name={flat.title}
+            location={flat.location}
+            type={flat.type}
+            details={flat.details}
+            id={flat.id} />
+
+        {flat.images.galery.length === 0 ? 
+          null : 
+          <Gallery 
+          pictGalery={flat.images.galery}/>}
+        
+        <Description>{flat.description}</Description>
+
+        {flat.plans.length === 0 ? 
+          null : 
+          <FloorPlans plans={flat.plans}/>}
+
+        <AmenityList 
+        amenities={flat.amenities} />
+        
+        <Features />
+        
+        <AgentCard
+                  name={name}
+                  photoUrl={photo} 
+                  location={location}
+                  phone={tel}
+                  email={email}
+                />
+</Page>
 
         <Title 
             name={flat.title}
@@ -74,7 +109,7 @@ class Property extends Component {
                   email={email}
                 />
 
-        <Footer />
+        
       </>
     );
   }
