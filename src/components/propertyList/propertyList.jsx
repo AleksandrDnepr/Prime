@@ -10,12 +10,23 @@ export default class PropertyList extends Component {
         currentMode: this.props.defaultView,
     }
     
+    componentDidUpdate(prevProps, prevState) {
+        // Типове використання (не забудьте порівняти пропси):
+        if (this.state.currentMode !== prevState.currentMode) {
+            const maxPage = Math.ceil(prevProps.properties.length/12)
+            if(maxPage < this.state.currentPage) {
+                this.setState({currentPage: maxPage});
+            };
+        }
+    }
+
     changeMode(mode) {  
         switch (mode) {
             case "grid":
             this.setState({currentMode: "list"});
             break;
             case "list":
+
             this.setState({currentMode: "grid"});
             break;
         default: return;
@@ -31,9 +42,9 @@ export default class PropertyList extends Component {
             default: return;
         }
     }
-
     
     changePage(page) {
+        window.scrollTo(0, 0);
         this.setState({currentPage: page});
     }
 
@@ -48,7 +59,7 @@ export default class PropertyList extends Component {
         return (
             <ul className={`propertyList__list ${mode}`}>
                 { visibleProperties.map(({ id, images, deal, type, link, price, title, location, description, details }, i) => 
-                <li key={link+i}>
+                <li key={id}>
                     <PropertyCard  
                         id={id}
                         picture={images.prewiew}
