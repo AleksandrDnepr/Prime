@@ -9,9 +9,9 @@ class Subtitle extends Component {
     render() {
         const {children} = this.props;
         return (
-            <h1 className="subtitle">
+            <h2 className="subtitle">
                 {children}
-            </h1>
+            </h2>
         )
     }
 }
