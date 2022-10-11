@@ -1,16 +1,10 @@
 .details-list_grid {
     display: flex;
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
     justify-content: center;
 }
 
 .details-list_list {
     display: flex;
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
 }
 
 .details-list_grid>li {

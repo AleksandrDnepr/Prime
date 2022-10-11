@@ -6,7 +6,6 @@
 
 .contact-info__item {
     display: flex;
-    text-decoration: none;
     color: #74777c;
     align-items: center;
 }

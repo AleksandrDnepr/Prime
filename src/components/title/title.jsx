@@ -31,7 +31,7 @@ export default class Title extends Component {
 
     return (
       <section className="title title__section">
-        <h1 className="title__name">{name}</h1>
+        <h2 className="title__name">{name}</h2>
         <p className="title__location">{location[0]}, {location[1]}</p>
         <ul className="title__details details">
           <li className="details__type-card">{this.chooseImage(type)} {this.apartOrHouse(type)}</li>

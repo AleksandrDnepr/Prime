@@ -22,7 +22,6 @@
 }
 
 .floorplan__toggle {
-    font-size: 20px;
     line-height: 30px;
     color: #74777C;
 
@@ -32,13 +31,6 @@
 
 .floorplan__menu{
     display: flex;
-
-    list-style: none;
-    padding: 0;
-
-    font-size: 20px;
-    line-height: 30px;
-
 }
 
 .floorplan__menu-item.currentFloor{
@@ -54,8 +46,6 @@
 }
 
 .floorplan__picture {
-    display: block;
-
     height: 100%;
     margin: 0 auto;
 }

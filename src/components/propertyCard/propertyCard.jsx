@@ -26,10 +26,10 @@ export default class PropertyCard extends Component {
           <PriceLabel price={price} deal={deal} type={type} />
         </section>
         <section className={`description_${mode}`}>
-          <h4 className="description-title">{title}</h4>
-          <h6 className="description-address">
+          <h3 className="description-title">{title}</h3>
+          <h4 className="description-address">
             {location[0]}, {location[1]}
-          </h6>
+          </h4>
           <p className="description-text">
             {" "}
             {description.length < 215
