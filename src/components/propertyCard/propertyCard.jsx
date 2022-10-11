@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./propertyCard.css";
 import PropertyDetails from "../propertyDetails/propertyDetails";
 import PriceLabel from "../priceLabel/priceLabel";
 import { Link } from "react-router-dom";
+import "./propertyCard.css";
 
 export default class PropertyCard extends Component {
   render() {
