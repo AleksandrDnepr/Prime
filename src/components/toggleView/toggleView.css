@@ -1,7 +1,8 @@
 .toggle-view {
     display: flex;
     align-items: center;
-    justify-content: right;    
+    justify-content: right;
+    padding-top: 35px;   
 }
 
 .toggle-view__text {

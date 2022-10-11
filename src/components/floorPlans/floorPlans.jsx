@@ -16,15 +16,15 @@ export default class FloorPlans extends Component {
         const { plans } = this.props;
         const { currentFloor } = this.state;
         return (
-        <section className="floorplan__section">
+        <section className="floorplan">
             <Subtitle>FLOOR PLANS</Subtitle>
             <div className="floorplan__frame">
                 <nav className="floorplan__toggle">
-                    <ol className="floorplan__menu">
+                    <ol className="floorplan__menu menu">
                         {plans.map(plan => {
                             return (
                             <li 
-                            className={`floorplan__menu-item ${plan.name === currentFloor.name ? "currentFloor" : ""}`} 
+                            className={`menu__item ${plan.name === currentFloor.name ? "currentFloor" : ""}`} 
                             key={plan.name} 
                             onClick={() => this.changeFloor(plan)}> 
                                 {plan.name} 

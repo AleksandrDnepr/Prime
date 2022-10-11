@@ -11,10 +11,10 @@ export default class HeaderMain extends Component {
 
   render() {
     return (
-      <header>
-        <div className="nav_header">
+      <header className="header">
+        <div className="header__block">
           <Logo color="white" />
-          <h1 className='nav_text'>{this.props.title}</h1>
+          <h1 className="header__title">{this.props.title}</h1>
         </div>
       </header>
     )

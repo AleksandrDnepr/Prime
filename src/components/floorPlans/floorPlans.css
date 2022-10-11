@@ -1,5 +1,6 @@
-.floorplan__section{
-    padding-bottom: 100px;
+.floorplan{    
+    margin: 0 auto;
+    width: 1094px;
 }
 
 .floorplan__frame {
@@ -27,15 +28,16 @@
     display: flex;
 }
 
-.floorplan__menu-item.currentFloor{
+.menu__item.currentFloor{
     color: #4D4F52;
 }
-.floorplan__menu-item:hover{
+
+.menu__item:hover{
     cursor: pointer;
     background-color: #ffffff7c;
 }
 
-.floorplan__menu-item:not(:last-child){
+.menu__item:not(:last-child){
     margin-right: 26px;
 }
 
