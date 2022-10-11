@@ -9,9 +9,8 @@ class Description extends Component {
     render() {
         const {children} = this.props;
         return (
-            <div className="text_description">
-                <p>{children}</p>
-                
+            <div className="description">
+                <p className="description__text">{children}</p>                
             </div>
         );
         }
