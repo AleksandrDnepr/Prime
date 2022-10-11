@@ -14,7 +14,7 @@ import Title from "../components/title/title";
 
 import Header from "../components/header/header";
 
-import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle";
+import ToggleView from "../components/toggleView/toggleView";
 
 import Description from "../components/description/description";
 
@@ -40,7 +40,7 @@ export default class ComponentsGallery extends Component {
 
         <Header title="Properties" />
 
-        <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)} />
+        <ToggleView mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)} />
 
         <Gallery pictGalery={[
           "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",

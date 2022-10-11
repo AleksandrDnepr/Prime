@@ -1,28 +1,30 @@
-.view-mode-text {
+.toggle-view {
+    display: flex;
+    align-items: center;
+    justify-content: right;    
+}
+
+.toggle-view__text {
     font-size: 16px;
     color: #74777C;
     padding-right: 12px;
 }
 
-.for-grid-button {
+.toggle-view__button_grid {
     border-radius: 2px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
 
-.for-list-button {
+.toggle-view__button_list {
     border-radius: 2px;
     border-left: 0px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
 
-.view-mode {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
 
-.btn-icon {
+
+.button__icon {
     vertical-align: middle;
 }

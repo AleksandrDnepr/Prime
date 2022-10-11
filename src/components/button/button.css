@@ -1,4 +1,4 @@
-.Btn {
+.button {
     text-align: center;
     color: #74777C;
     background-color: #FFFFFF;
@@ -7,7 +7,7 @@
     height: 43px;
 }
 
-.Btn:disabled,
-.Btn:hover {
+.button:disabled,
+.button:hover {
     background-color: #F1F3F6;
 }

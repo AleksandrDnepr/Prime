@@ -1,5 +1,4 @@
-
-.Pagination{
+.pagination{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,29 +6,31 @@
     line-height: 19px;
 }
 
-.PaginationList{
+.pagination__list{
     display: flex;
     border: 1px solid #74777C;
     border-radius: 2px;
+    margin: 0;
+    padding: 0;
 }
 
-.PaginationItem:not(:last-child){
+.pagination__item:not(:last-child){
     border-right: 1px solid #74777C;
 }
 
-.ShowNextBtn, 
-.ShowPrevBtn {
+.pagination__button_next, 
+.pagination__button_previous {
     font-weight: 700;
     border-radius: 2px;
     padding-left: 19px;
     padding-right: 19px;
 }
-.ShowNextBtn {
+.pagination__button_next {
     margin-left: 10px;
 }
-.ShowPrevBtn {
+.pagination__button_previous {
     margin-right: 10px;
 }
-.PaginationPageBtn {
+.pagination__button {
     border: none;
 }

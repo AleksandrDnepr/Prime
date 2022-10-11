@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import ViewModeToggle from '../ViewModeToggle/ViewModeToggle';
+import ToggleView from '../toggleView/toggleView';
 import PropertyCard from '../propertyCard/propertyCard';
 import Pagination from '../pagination/pagination';
 import "./propertyList.css";
@@ -82,7 +82,7 @@ export default class PropertyList extends Component {
         const {currentPage, currentMode} = this.state;
         return (
             <section className="propertyList__section">
-                <ViewModeToggle     
+                <ToggleView     
                     mode={currentMode} 
                     onChange={(mode) => this.changeMode(mode)}
                 />
