@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import AmenityListItem from "../amenitylistitem/amenitylistitem";
+import Amenity from "./__amenity/__amenity";
 import Subtitle from "../subtitle/subtitle";
 
-import "./amenitylist.css"
+import "./amenities.css"
 
-export default class AmenityList extends Component {
+export default class Amenities extends Component {
   render() {
     const { amenities }= this.props;
 
@@ -13,7 +13,7 @@ export default class AmenityList extends Component {
         <Subtitle>Amenities</Subtitle>
         <ul className="amenity__list">
           {amenities.map((item) => (
-            <AmenityListItem item={item} key={item.title}/>
+            <Amenity item={item} key={item.title}/>
           ))}
         </ul>
       </section>

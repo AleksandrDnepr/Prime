@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./amenitylistitem.css";
+import "./__amenity.css";
 
-export default class AmenityListItem extends Component {
+export default class Amenity extends Component {
   render() {
     const { isAvailable, title } = this.props.item;
     const status = isAvailable ? "✓" : "✗";
