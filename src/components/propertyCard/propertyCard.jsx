@@ -20,17 +20,17 @@ export default class PropertyCard extends Component {
     } = this.props;
 
     return (
-      <Link to={`/${id}`} className={`container_${mode}`}>
-        <section className="label__info">
-          <img className="property-photo" src={picture} alt="Property view" />
+      <Link to={`/${id}`} className={`property property_${mode}`}>
+        <section className="property__banner">
+          <img className="property__banner_photo" src={picture} alt="Property view" />
           <PriceLabel price={price} deal={deal} type={type} />
         </section>
-        <section className={`description_${mode}`}>
-          <h3 className="description-title">{title}</h3>
-          <h4 className="description-address">
+        <section className={`property__dscrpt property__dscrpt_${mode}`}>
+          <h3 className="property__dscrpt_title">{title}</h3>
+          <h4 className="property__dscrpt_address">
             {location[0]}, {location[1]}
           </h4>
-          <p className="description-text">
+          <p className="property__dscrpt_text">
             {" "}
             {description.length < 215
               ? `${description}`
