@@ -1,0 +1,14 @@
+.property-icon_s_apartment_pink, 
+.property-icon_s_townhouse_pink {
+    fill: #ffffff;
+    fill-opacity: 0.6;
+    width: 16px;
+    height: 17px;
+}
+
+.property-icon_m_apartment_grey, 
+.property-icon_m_townhouse_grey {
+    fill: #ADB2B6;
+    width: 23px;
+    height: 18px;
+}
