@@ -1,4 +1,6 @@
 .page__content{
     margin: 0 auto;
     width: 1094px;
+    padding-top: 36px;
+    padding-bottom: 64px;
 }
