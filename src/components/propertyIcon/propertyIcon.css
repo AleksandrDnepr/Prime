@@ -3,10 +3,13 @@
     fill: #ffffff;
     fill-opacity: 0.6;
     width: 16px;
+    height: 100%;
 }
 
 .property-icon_m_apartment_grey, 
 .property-icon_m_townhouse_grey {
     fill: #ADB2B6;
     width: 23px;
+    height: 100%;
+
 }
