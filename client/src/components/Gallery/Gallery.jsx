@@ -7,7 +7,7 @@ import { ReactComponent as RightArrow } from "./rightArrow.svg"
 export class Gallery extends Component {
     
     state = {
-        currentPhoto: 2
+        currentPhoto: 0
     }
 
     showNext() {
@@ -26,15 +26,24 @@ export class Gallery extends Component {
         this.setState(prev => ({ currentPhoto: prev.currentPhoto - 1 }))
     }
 
+    renderLeftArrow() {
+        if (this.state.currentPhoto <= 0) {return null}
+        return <LeftArrow onClick={() => this.showPrev()} className="gallery__arrow-left" />;
+    }
+
+    renderRightArrow() {
+        if (this.state.currentPhoto >= this.props.pictGalery.length-this.state.currentPhoto+1) {return null}
+        return  <RightArrow onClick={() => this.showNext()} className="gallery__arrow-right" />;
+    }
+
     render() {
-        const { pictGalery} = this.props
-        const { currentPhoto } = this.state
-        if(pictGalery.length === 0)return null
+        const { pictGalery } = this.props;
+        const { currentPhoto } = this.state;
         return (
             <div className="gallery container__gallery">
-                <LeftArrow onClick={() => this.showPrev()} className="gallery__arrow-left" />
+                {this.renderLeftArrow()}
                 <img className="gallery__img" src={pictGalery[currentPhoto]} alt="First view with the property" />
-                <RightArrow onClick={() => this.showNext()} className="gallery__arrow-right" />
+                {this.renderRightArrow()}
             </div>
         )
     }
