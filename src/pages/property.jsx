@@ -42,12 +42,13 @@ class Property extends Component {
     return (
       <>
         <Page title={flat.title}>
-        <Input
-                type="number"
-                value={42}
-                placeholder="Price..."
-                onChange={(value) => console.log(`Value changed to ${value}`)}
-            />
+          <Input 
+            type="text"
+            name="year" 
+            value="43" 
+            placeholder="...page" 
+            onChange={(value)=> console.log(value)}
+          />
           <Title
             name={flat.title}
             location={flat.location}
