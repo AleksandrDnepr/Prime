@@ -19,11 +19,11 @@ export default class Title extends Component {
     const { details: { area, bedrooms, bathrooms }, id, location, name, type } = this.props;
 
     return (
-      <section className="title title__section">
+      <section className="title__section">
         <h2 className="title__name">{name}</h2>
         <p className="title__location">{location[0]}, {location[1]}</p>
-        <ul className="title__details details">
-          <li className="details__type-card">
+        <ul className="title__details">
+          <li className="title__details_type">
             <PropertyIcon 
               size={"m"} 
               type={type} 
@@ -31,8 +31,13 @@ export default class Title extends Component {
             />
             {this.apartOrHouse(type)}
           </li>
-          <li><PropertyDetails details={{ area, bedrooms, bathrooms }} mode="list" /></li>
-          <li className="details__id-card">ID: {id}</li>
+          <li>
+            <PropertyDetails 
+            details={{ area, bedrooms, bathrooms }} 
+            mode="list" 
+            />
+          </li>
+          <li className="title__details_id">ID: {id}</li>
         </ul>
       </section>
     )
