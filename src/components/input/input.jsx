@@ -3,13 +3,13 @@ import "./input.css";
 
 export default class Input extends Component{
     render(){
-        const {} = this.props;
+        const {type, value, placeholder, onChange} = this.props;
         return(
             <Input
-                type="number"
-                value={42}
-                placeholder="Price..."
-                onChange={(value) => console.log(`Value changed to ${value}`)}
+                type={type}
+                value={value}
+                placeholder={placeholder}
+                onChange={onChange}
             />
 
         )
