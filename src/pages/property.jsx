@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 import data from "../data.json";
 import {Title} from "../components/title/title.jsx";
 import {Gallery} from "../components/Gallery/Gallery.jsx";
