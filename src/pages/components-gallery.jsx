@@ -37,6 +37,7 @@ import Input from "../components/input/input";
 import data from '../data.json';
 
 import DropDown from "../components/dropDown/DropDown";
+import Sidebar from "../components/sidebar/sidebar";
 
 import PropertyFilter from "../components/propertyFilter/propertyFilter";
 
@@ -229,7 +230,77 @@ export default class ComponentsGallery extends Component {
           />
 
 
-    </div>
+
+        <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
+
+      <AgentCard
+        name={"Adam Conover"}
+        photoUrl={"https://www.hji.co.uk/wp-content/efs/2018/09/Hairdressing-Agent-square.jpg"}
+        location={"Los Angeles, California"}
+        phone={"+0 123-456-7890"}
+        email={"adam@example.com"}
+      />
+
+      <FloorPlans plans={[
+        { 'name': '1st Floor', url: 'https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRvemFibzBqYW5yODMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.5U2_HsvFpwvAxKlQynbIvdlIAVRjtfeFeVLZtTBbbbE/image;s=1280x1024;q=80' },
+        { 'name': '2nd Floor', url: 'https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjAwZHo3aWdncDBiNjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.enUos-_HR4KDlcfZxopB41nCvx7J72C5Gn4Ddl84YJA/image;s=1280x1024;q=80' },
+        { 'name': '3rd Floor', url: 'https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InRoYXBvenM1dzV2OC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Fl5THtQLJTo8UDfmyogPRID4Dr-E7rtYZ_3DWaVZfv8/image;s=1280x1024;q=80' },
+        { 'name': '4th Floor', url: 'https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InMxcHRsYmE4MDR2bC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.oFZGjsBdqSk5DnHPuTA6dJXPdmCuWcEXj3Evdn1NnL0/image;s=1280x1024;q=80' },
+        { 'name': '5th Floor', url: 'https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InFqcmx4MGExMXUzdC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.NYOxTv8S2_7malQnjQ7TFDDjITV-drK9ajYe4EXfSM4/image;s=1280x1024;q=80' },
+      ]} />
+
+      <PropertyList
+        defaultView="grid"
+        properties={apartaments}
+      />
+
+      <Features features={{
+        "pet": "Pets allowed",
+        "pool": "Outdoor pool",
+        "garden": "850 Sq Ft Garden"
+      }} />
+
+      <Input
+        type="number"
+        name="year"
+        value={42}
+        placeholder="Min. Year Built"
+        onChange={(name, value) => console.log(name, value)}
+        size="small"
+      />
+
+      <Input
+        type="text"
+        name="pets"
+        value="My text"
+        placeholder="Property title, Property content..."
+        onChange={(name, value) => console.log(name, value)}
+        size="small"
+      />
+
+      <Input
+        type="number"
+        name="year"
+        value={42}
+        placeholder="Min. Year Built"
+        onChange={(name, value) => console.log(name, value)}
+        size="large"
+      />
+
+      <Input
+        type="text"
+        name="pets"
+        value="My text"
+        placeholder="Property title, Property content..."
+        onChange={(name, value) => console.log(name, value)}
+        size="large"
+      />
+
+        
+        <Sidebar />
+
+        
+      </div>
   }
 }
 

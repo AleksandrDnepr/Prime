@@ -17,6 +17,7 @@ const { apartaments } = data;
             defaultView="grid"
             properties={apartaments}
           />
+          <Sidebar />
         </Page>
       </>
     );
