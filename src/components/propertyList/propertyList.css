@@ -1,22 +1,18 @@
-.propertyList__section {
-    margin-bottom: 63px;
-}
-
-.propertyList__section > .view-mode {
+.property-list__section > .view-mode {
     margin-bottom: 35px;
 }
 
-.propertyList__list {
+.property-list__collection {
     margin-bottom: 80px;
 }
 
-.propertyList__list.grid {
+.property-list__collection_grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 42px 30px;
 }
 
-.propertyList__list.list > li:not(:last-child) {
+.property-list__collection_list > li:not(:last-child) {
     margin-bottom: 44px;
 }
 

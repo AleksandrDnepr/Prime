@@ -57,7 +57,7 @@ export default class PropertyList extends Component {
     propertyListCompiling(mode, properties) {
         const visibleProperties = this.showCurrentPage(mode, properties);
         return (
-            <ul className={`propertyList__list ${mode}`}>
+            <ul className={`property-list__collection property-list__collection_${mode}`}>
                 { visibleProperties.map(({ id, images, deal, type, link, price, title, location, description, details }, i) => 
                 <li key={id}>
                     <PropertyCard  
@@ -81,7 +81,7 @@ export default class PropertyList extends Component {
         const {properties} = this.props;
         const {currentPage, currentMode} = this.state;
         return (
-            <section className="propertyList__section">
+            <section className="property-list__section">
                 <ViewModeToggle     
                     mode={currentMode} 
                     onChange={(mode) => this.changeMode(mode)}
