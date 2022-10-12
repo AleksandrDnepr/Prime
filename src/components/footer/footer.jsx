@@ -9,23 +9,23 @@ export default class Footer extends Component {
       <footer className="footer">
         <div className="footer__container">
             <Logo color="red"/>         
-          <section className="footer__contact-info contact-info">
-            <h3 className="contact-info__title">Contact Info</h3>
-            <ul className="contact-info__list">
+          <section className="footer__contact-block contact-block">
+            <h3 className="contact-block__title">Contact Info</h3>
+            <ul className="contact-block__list">
                 <ContactInfo 
-                    className={"footer-contact__info"}
+                    className={"contact-block__details"}
                     type="adress" 
                     border={true}>
                     24th Street, New York, USA
                 </ContactInfo>
                 <ContactInfo 
-                    className={"footer-contact__info"}
+                    className={"contact-block__details"}
                     type="tel" 
                     border={true}>
                     +0 123-456-7890
                 </ContactInfo>
                 <ContactInfo 
-                    className={"footer-contact__info"}
+                    className={"contact-block__details"}
                     type="mail" 
                     border={true}>
                     info@example.com

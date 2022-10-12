@@ -45,7 +45,7 @@ export default class ContactInfo extends Component {
                 target="_blank"
                 rel="noreferrer"
             >
-                <span className={`contact__icon ${border ? "framed" : ""}`}>
+                <span className={`contact-info__icon ${border ? "contact-info__icon_framed" : ""}`}>
                     {this.chooseImage(type)}
                 </span>
                 {children}
