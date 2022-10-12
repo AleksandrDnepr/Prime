@@ -7,13 +7,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-
-    width: 100%;
-    max-width: 1094px;
     height: 220px;
 
     border: 1px solid #E4E4E4;
-    margin: 0 auto;
 
 }
 .agent__photo {

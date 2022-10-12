@@ -1,26 +1,23 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import Header from "../components/header/header";
+import { withRouter } from "react-router-dom";
 import PropertyList from "../components/propertyList/propertyList";
-import Footer from "../components/footer/footer";
 import data from '../data.json';
+import Page from "../components/page/Page";
 
 class Index extends Component {
 
   render() {
 
-const { apartaments } = data;
-console.log(apartaments);
-const { images, type, title,location, description, details} = apartaments;
+    const { apartaments } = data;
 
     return (
       <>
-        <Header title="PROPERTIES" />
-        <PropertyList
-          defaultView="grid"
-          properties={apartaments} 
-        />
-        <Footer />
+        <Page title="PROPERTIES">
+          <PropertyList
+            defaultView="grid"
+            properties={apartaments}
+          />
+        </Page>
       </>
     );
   }
