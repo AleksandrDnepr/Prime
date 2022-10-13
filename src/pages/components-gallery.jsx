@@ -37,6 +37,8 @@ import Input from "../components/input/input";
 import data from '../data.json';
 
 
+import DropDown from "../components/dropDown/DropDown";
+
 export default class ComponentsGallery extends Component {
   render() {
     const {apartaments} = data;
@@ -45,6 +47,17 @@ export default class ComponentsGallery extends Component {
         <Link to="/properties">Properties</Link>
 
         <Header title="Properties" />
+
+        <DropDown
+          onChange={(nextValue) => console.log(`Value changed to ${nextValue}`)}
+          value="apt"
+          options={[
+            { 'value': 'single', 'label': 'Single-family' },
+            { 'value': 'house', 'label': 'Townhouse' },
+            { 'value': 'apt', 'label': 'Apartment' },
+          ]}
+          placeholder="Type"
+        />
 
         <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)} />
 

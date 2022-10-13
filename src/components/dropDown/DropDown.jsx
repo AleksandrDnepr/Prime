@@ -24,20 +24,16 @@ export default class DropDown extends Component {
             }
         }
 
-        const { options, placeholder } = this.props;
+        const { options, placeholder} = this.props;
 
-        return (
-            <div className='dropdown-input'>
+        return <div className='dropdown-input'>
                 <Select
                     placeholder={placeholder}
                     onChange={changeValue}
                     value={getValue()}
                     options={options}
                     isClearable
-
-                />
+                 />
             </div>
-
-        )
     }
 }
