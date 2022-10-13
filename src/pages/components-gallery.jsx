@@ -49,8 +49,9 @@ export default class ComponentsGallery extends Component {
         <Header title="Properties" />
 
         <DropDown
-          onChange={(nextValue) => console.log(`Value changed to ${nextValue}`)}
+          onChange={(name, nextValue) => console.log(`Value changed to ${name} and ${nextValue}`)}
           value="apt"
+          name='propertyType'
           options={[
             { 'value': 'single', 'label': 'Single-family' },
             { 'value': 'house', 'label': 'Townhouse' },
