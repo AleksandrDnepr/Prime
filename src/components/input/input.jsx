@@ -7,43 +7,52 @@ export default class Input extends Component {
         currentValue: this.props.value,
     };
 
-    changeValue(e) {
+    changeValue = (e) => {
         const { type } = this.props;
         let value = e.target.value;
+
         if (type === "number") { value = Number(value) };
 
-        this.setState({ currentValue: value });
-    }
+        switch (e.type) {
+            case "focus":
+                this.setState({ startValue: value });
+                break;
 
-    handleFocus(e) {
-        const { type } = this.props;
-        let value = e.target.value;
-        if (type === "number") { value = Number(value) };
+            case "change":
+                this.setState({ currentValue: value });
+                break;
 
-        this.setState({ startValue: value })
+            default: return;
+        }
     }
 
     handleBlur = () => {
         const { startValue, currentValue } = this.state;
+        const { name, onChange } = this.props;
         if (currentValue !== startValue) {
-            this.props.onChange(currentValue);
+            onChange(name, currentValue);
         }
     }
 
     render() {
-        const { type, name, placeholder } = this.props;
+        const { type, name, placeholder, size, children } = this.props;
         const { currentValue } = this.state;
 
-        return <input
-            type={type}
-            name={name}
-            value={currentValue}
-            placeholder={placeholder}
-            onChange={(e) => this.changeValue(e)}
-            onFocus={(e) => this.handleFocus(e)}
-            onBlur={this.handleBlur}
-            autoComplete="off"
-            className="input"
-        />
+        return <label>
+                    {children}
+                    <input
+                    type={type}
+                    name={name}
+                    id={name}
+                    value={currentValue}
+                    placeholder={placeholder}
+                    onChange={this.changeValue}
+                    onFocus={this.changeValue}
+                    onBlur={this.handleBlur}
+                    autoComplete="off"
+                    className={`input input_${size}`}
+                />
+            </label>
     }
 }
+

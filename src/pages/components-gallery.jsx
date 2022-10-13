@@ -40,8 +40,7 @@ import data from '../data.json';
 export default class ComponentsGallery extends Component {
   render() {
     const {apartaments} = data;
-    return (
-      <div>
+    return <div>
 
         <Link to="/properties">Properties</Link>
 
@@ -119,8 +118,6 @@ export default class ComponentsGallery extends Component {
           details={{ area: 1320, bedrooms: 2, bathrooms: 2 }}
           id="A003N" />
 
-
-
         <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
 
         <AgentCard
@@ -152,17 +149,39 @@ export default class ComponentsGallery extends Component {
           name="year" 
           value={42} 
           placeholder="Min. Year Built" 
-          onChange={(value)=> console.log(value)}
+          onChange={(name, value) => console.log(name, value)}
+          size="small"
         />
 
         <Input 
           type="text"
-          name="year" 
+          name="pets" 
           value="My text" 
           placeholder="Property title, Property content..." 
-          onChange={(value) => console.log(value)}
+          onChange={(name, value) => console.log(name, value)}
+          size="small"
+        />        
+        
+        <Input 
+          type="number"
+          name="year" 
+          value={42} 
+          placeholder="Min. Year Built" 
+          onChange={(name, value) => console.log(name, value)}
+          size="large"
+        /> 
+  
+        <Input 
+          type="text"
+          name="pets" 
+          value="My text" 
+          placeholder="Property title, Property content..." 
+          onChange={(name, value) => console.log(name, value)}
+          size="large"
         />
 
-      </div>)
+
+      </div>
   }
 }
+
