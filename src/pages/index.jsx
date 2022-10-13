@@ -6,7 +6,7 @@ import {Page} from "../components/page/Page.jsx";
 
 class Index extends Component {
 
-  render() {
+  render() {    
 
 const { apartaments } = data;
 
@@ -17,7 +17,15 @@ const { apartaments } = data;
             defaultView="grid"
             properties={apartaments}
           />
-          <Sidebar />
+          <Sidebar>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          </Sidebar>
         </Page>
       </>
     );

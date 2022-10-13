@@ -1,8 +1,8 @@
 import { Component } from "react";
-import Subtitle from "../subtitle/subtitle";
+import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./sidebar.css";
 
-export default class Sidebar extends Component {    
+export class Sidebar extends Component {       
 
     render() {
         const {children} = this.props;

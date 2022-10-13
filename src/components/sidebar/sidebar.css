@@ -1,8 +1,15 @@
 .sidebar__container{
     background-color: #F1F3F6;
-    margin: 0 auto;
+    margin: auto;
     width: 30%;
-    padding: 20px;
+    padding: 30px;
     height: 100%;
 
 }
+
+.sidebar__input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+

@@ -12,7 +12,7 @@ export class Page extends Component {
     return (
       <div>
         <HeaderMain title={title} />
-        <article className='page__content'>{children}</article>
+        <article className={this.className()}>{children}</article>
         <Footer />
       </div>
     )

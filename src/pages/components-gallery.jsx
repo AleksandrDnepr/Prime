@@ -297,10 +297,11 @@ export default class ComponentsGallery extends Component {
       />
 
         
-        <Sidebar />
+        <Sidebar><input id="comp-name" name="comp-name" type="text"/></Sidebar>
 
         
-      </div>
+      </div> 
+
   }
 }
 
