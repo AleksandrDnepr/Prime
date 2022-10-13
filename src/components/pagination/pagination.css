@@ -16,20 +16,3 @@
 .PaginationItem:not(:last-child){
     border-right: 1px solid #74777C;
 }
-
-.ShowNextBtn, 
-.ShowPrevBtn {
-    font-weight: 700;
-    border-radius: 2px;
-    padding-left: 19px;
-    padding-right: 19px;
-}
-.ShowNextBtn {
-    margin-left: 10px;
-}
-.ShowPrevBtn {
-    margin-right: 10px;
-}
-.PaginationPageBtn {
-    border: none;
-}

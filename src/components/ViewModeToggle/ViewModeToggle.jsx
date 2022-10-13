@@ -10,8 +10,8 @@ export default class ViewModeToggle extends Component {
     return (
       <div className="view-mode">
         <p className="view-mode-text">View mode:</p>
-        <Button className="for-grid-button" handleClick={() => onChange(mode)} isDisabled={mode === "grid"}><GridIcon className='btn-icon' /> </Button>
-        <Button className="for-list-button" handleClick={() => onChange(mode)} isDisabled={mode === "list"}><ListIcon className='btn-icon' /> </Button>
+        <Button size = "m" border = "left-round" changePage={() => onChange(mode)} isDisabled={mode === "grid"}><GridIcon className='btn-icon' /> </Button>
+        <Button size = "m" border = "right-round" changePage={() => onChange(mode)} isDisabled={mode === "list"}><ListIcon className='btn-icon' /> </Button>
       </div>
     )
   }

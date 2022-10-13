@@ -4,19 +4,6 @@
     padding-right: 12px;
 }
 
-.for-grid-button {
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
-.for-list-button {
-    border-radius: 2px;
-    border-left: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
 .view-mode {
     display: flex;
     align-items: center;

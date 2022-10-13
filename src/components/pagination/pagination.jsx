@@ -33,8 +33,9 @@ export default class Pagination extends Component {
     renderPrevPage(page, onChange) {
         if (this.props.page === 1) {return null;}
         return <Button 
-                    className="ShowPrevBtn"
-                    handleClick={() => onChange(page - 1)}
+                    size = "m"
+                    border = "round"
+                    changePage={() => onChange(page - 1)}
                 > 
                     {'\u003C'} 
                 </Button>;
@@ -43,8 +44,9 @@ export default class Pagination extends Component {
     renderNextPage(pages, page, onChange) {
         if (this.props.page === pages) {return null;}
         return <Button 
-                    className="ShowNextBtn" 
-                    handleClick={() => onChange(page + 1)}
+                    size = "m"
+                    border = "round"
+                    changePage={() => onChange(page + 1)}
                 > 
                     {'\u003E'} 
                 </Button>;
@@ -52,8 +54,9 @@ export default class Pagination extends Component {
     
     renderButton(button, page, onChange){
         return <Button
-                    className="PaginationPageBtn"
-                    handleClick={() => onChange(button)}
+                    size = "m"
+                    border = "none"
+                    changePage={() => onChange(button)}
                     isDisabled={button === page}
                 > 
                     {button} 
