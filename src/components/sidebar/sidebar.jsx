@@ -12,7 +12,7 @@ export class Sidebar extends Component {
                 <aside className="sidebar">
                     <div className="sidebar__container">
                         <Subtitle>Property search</Subtitle>
-                        <section className="sidebar__input">{children}</section>
+                        <section className="sidebar__filter">{children}</section>
                     </div>
                 </aside>
             </>

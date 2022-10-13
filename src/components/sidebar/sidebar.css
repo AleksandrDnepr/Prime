@@ -7,7 +7,7 @@
 
 }
 
-.sidebar__input{
+.sidebar__filter{
     display: flex;
     flex-direction: column;
     justify-content: center;    
