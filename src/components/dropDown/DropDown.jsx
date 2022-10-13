@@ -4,36 +4,37 @@ import "./dropDown.css"
 
 export default class DropDown extends Component {
     state = {
-        currentProperty: "",
+        currentProperty: this.props.value
     };
 
     render() {
 
         const getValue = () => {
-            return this.state.currentProperty ? options.find(selected => selected.value === this.state.currentProperty) : ""
+            return this.state.currentProperty ? options.find(selected => selected.value === this.state.currentProperty) : ''
         }
 
-        const changeValue = (selected,e) => {
+        const changeValue = (selected, e) => {
             if (e.action === 'clear') {
-                return this.setState({ currentProperty: '' })
+                this.setState({ currentProperty: '' })
+                this.props.onChange(undefined)
             }
-            return this.setState({ currentProperty: selected.value })
+            else {
+                this.setState({ currentProperty: selected.value })
+                this.props.onChange(selected.value)
+            }
         }
 
-        const options = [
-            { 'value': 'single', 'label': 'Single-family' },
-            { 'value': 'house', 'label': 'Townhouse' },
-            { 'value': 'apt', 'label': 'Apartment' },
-        ]
+        const { options, placeholder } = this.props;
 
         return (
             <div className='dropdown-input'>
                 <Select
-                    placeholder="Type"
+                    placeholder={placeholder}
                     onChange={changeValue}
                     value={getValue()}
                     options={options}
                     isClearable
+
                 />
             </div>
 
