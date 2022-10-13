@@ -3,31 +3,30 @@ import "./input.css";
 
 export default class Input extends Component {
     state = {
+        startValue: null,
         currentValue: this.props.value,
-        onFocusValue: "",
     };
 
-    convertValueType() {
-        const { type, value } = this.props;
-
-        switch (type) {
-        case "number":
-            return Number(value);
-        case "text":
-            return String(value);
-        default:
-            return null;
-        }
-    }
-
     changeValue(e) {
-        this.setState({ currentValue: e.target.value });
+        const { type } = this.props;
+        let value = e.target.value;
+        if (type === "number") { value = Number(value) };
+
+        this.setState({ currentValue: value });
     }
 
-    fireAction() {
-        const { onFocusValue, currentValue } = this.state;
-        if (currentValue !== onFocusValue) {
-        this.props.onChange(currentValue);
+    handleFocus(e) {
+        const { type } = this.props;
+        let value = e.target.value;
+        if (type === "number") { value = Number(value) };
+
+        this.setState({ startValue: value })
+    }
+
+    handleBlur = () => {
+        const { startValue, currentValue } = this.state;
+        if (currentValue !== startValue) {
+            this.props.onChange(currentValue);
         }
     }
 
@@ -41,10 +40,10 @@ export default class Input extends Component {
             value={currentValue}
             placeholder={placeholder}
             onChange={(e) => this.changeValue(e)}
-            onFocus={(e) => this.setState({ onFocusValue: e.target.value })}
-            onBlur={() => this.fireAction()}
+            onFocus={(e) => this.handleFocus(e)}
+            onBlur={this.handleBlur}
             autoComplete="off"
-            className="search-input"
+            className="input"
         />
     }
 }

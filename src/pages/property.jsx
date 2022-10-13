@@ -9,7 +9,6 @@ import AmenityList from "../components/amenitylist/amenitylist.jsx";
 import Features from "../components/features/features.jsx";
 import AgentCard from "../components/agentCard/agentCard.jsx";
 import Page from "../components/page/Page";
-import Input from "../components/input/input";
 
 
 
@@ -42,13 +41,7 @@ class Property extends Component {
     return (
       <>
         <Page title={flat.title}>
-          <Input 
-            type="text"
-            name="year" 
-            value="43" 
-            placeholder="...page" 
-            onChange={(value)=> console.log(value)}
-          />
+
           <Title
             name={flat.title}
             location={flat.location}
