@@ -1,9 +1,13 @@
-.features_main_container,
-.features {
-    display: flex;
-    justify-content: center;
+.features { 
+    display: flex;  
+    flex-direction: column;
+} 
+
+.features__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
 
-.features {   
-    flex-direction: column;
-}
+
+    
