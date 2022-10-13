@@ -27,8 +27,9 @@ export class Gallery extends Component {
     }
 
     render() {
-        const { pictGalery } = this.props
+        const { pictGalery} = this.props
         const { currentPhoto } = this.state
+        if(pictGalery.length === 0)return null
         return (
             <div className="gallery container__gallery">
                 <LeftArrow onClick={() => this.showPrev()} className="gallery__arrow-left" />

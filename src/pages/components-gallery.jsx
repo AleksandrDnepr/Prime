@@ -32,6 +32,8 @@ import {PropertyList} from "../components/propertyList/propertyList.jsx";
 
 import {Features} from "../components/features/features.jsx";
 
+import GoHomeButton from "../components/goHomeButton/GoHomeButton";
+
 import Input from "../components/input/input";
 
 import data from '../data.json';
@@ -68,13 +70,15 @@ export default class ComponentsGallery extends Component {
 
       <ViewModeToggle mode="grid" onClick={mode => console.log(`View mode changed to ${mode}`)} />
 
-      <Gallery pictGalery={[
-        "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
-        "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
-        "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InVtNTAxZDVrZXNiMDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.UNDsJPxwGoTRS5uAQPQJDD9jdvu7RfRG-f_rkK7rx6k/image;s=1280x1024;q=80",
-        "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InEwdnpwempjM3R5YjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ZZSYlUKNTJ3BSuvKe52tb19EDzYwHGL-a6Gu8QTnz7U/image;s=1280x1024;q=80",
-        "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNtMG9oamd2ZGllNjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8dNfmMw1opWxzknWxScMhnzQwjwTySxwl5OOACcHJ0Y/image;s=1280x1024;q=80"]
-      } />
+        <GoHomeButton />
+
+        <Gallery pictGalery={[
+          "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+          "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
+          "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InVtNTAxZDVrZXNiMDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.UNDsJPxwGoTRS5uAQPQJDD9jdvu7RfRG-f_rkK7rx6k/image;s=1280x1024;q=80",
+          "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InEwdnpwempjM3R5YjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ZZSYlUKNTJ3BSuvKe52tb19EDzYwHGL-a6Gu8QTnz7U/image;s=1280x1024;q=80",
+          "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNtMG9oamd2ZGllNjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8dNfmMw1opWxzknWxScMhnzQwjwTySxwl5OOACcHJ0Y/image;s=1280x1024;q=80"]
+        } />
 
       <Pagination
         pages={15}
