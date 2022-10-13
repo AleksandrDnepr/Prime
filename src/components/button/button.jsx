@@ -18,14 +18,16 @@ export default class Button extends Component {
     BtnBorder = () => {
         let { border } = this.props;
         switch (border) {
-        case "none":
-            return "Btn__border-none";
+        case "none-round":
+            return "Btn__border-round-none";
         case "right-round":
-            return "Btn__border-right";
+            return "Btn__border-round-right";
         case "left-round":
-            return "Btn__border-left";
-        case "round":
-            return "Btn__border-round";
+            return "Btn__border-round-left";
+        case "next-page-round":
+            return "Btn__border-round-next-page";
+        case "prev-page-round":
+            return "Btn__border-round-prev-page";
         default:
             break;
         }

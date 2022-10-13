@@ -34,7 +34,7 @@ export default class Pagination extends Component {
         if (this.props.page === 1) {return null;}
         return <Button 
                     size = "m"
-                    border = "round"
+                    border = "prev-page-round"
                     changePage={() => onChange(page - 1)}
                 > 
                     {'\u003C'} 
@@ -45,7 +45,7 @@ export default class Pagination extends Component {
         if (this.props.page === pages) {return null;}
         return <Button 
                     size = "m"
-                    border = "round"
+                    border = "next-page-round"
                     changePage={() => onChange(page + 1)}
                 > 
                     {'\u003E'} 
@@ -55,7 +55,7 @@ export default class Pagination extends Component {
     renderButton(button, page, onChange){
         return <Button
                     size = "m"
-                    border = "none"
+                    border = "none-round"
                     changePage={() => onChange(button)}
                     isDisabled={button === page}
                 > 

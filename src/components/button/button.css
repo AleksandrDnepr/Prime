@@ -3,6 +3,7 @@
     color: #74777C;
     background-color: #FFFFFF;
     border: 1px solid #74777C;
+    font-size: 16px;
 }
 
 .Btn__m_size {
@@ -15,21 +16,26 @@
     width: 150px;
 }
 
-.Btn__border-none {
+.Btn__border-round-none {
     border: none;
 }
 
-.Btn__border-left {
+.Btn__border-round-left {
     border-radius: 2px 0px 0px 2px; 
 }
 
-.Btn__border-round {
-    border-radius: 2px;
-    margin: 0 10px;
+.Btn__border-round-right{
+    border-radius: 0px 2px 2px 0px;
 }
 
-.Btn__border-right{
-    border-radius: 0px 2px 2px 0px;
+.Btn__border-round-next-page {
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.Btn__border-round-prev-page {
+    border-radius: 2px;
+    margin-right: 10px;
 }
 
 .Btn:disabled,
