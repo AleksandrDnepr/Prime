@@ -150,7 +150,7 @@ export default class ComponentsGallery extends Component {
         <Input 
           type="number"
           name="year" 
-          value="My text" 
+          value={42} 
           placeholder="Min. Year Built" 
           onChange={(value)=> console.log(value)}
         />
@@ -158,7 +158,7 @@ export default class ComponentsGallery extends Component {
         <Input 
           type="text"
           name="year" 
-          value={42} 
+          value="My text" 
           placeholder="Property title, Property content..." 
           onChange={(value) => console.log(value)}
         />

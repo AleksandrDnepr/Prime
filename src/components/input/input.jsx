@@ -3,7 +3,7 @@ import "./input.css";
 
 export default class Input extends Component {
     state = {
-        startValue: null,
+        startValue: this.props.value,
         currentValue: this.props.value,
     };
 
