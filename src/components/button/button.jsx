@@ -3,7 +3,7 @@ import "./button.css";
 
 export default class Button extends Component {
    
-    BtnSize = () => {
+    BtnSize() {
         let { size } = this.props;
         switch (size) {
         case "m":
@@ -15,7 +15,7 @@ export default class Button extends Component {
         }
     };
 
-    BtnBorder = () => {
+    BtnBorder() {
         let { rounding } = this.props;
         switch (rounding) {
         case "none":
@@ -31,12 +31,15 @@ export default class Button extends Component {
         }
     };
 
+    className() {
+        const { size, rounding } = this.props;
+        return `${this.BtnSize(size)} ${this.BtnBorder(rounding)}`
+    } 
+
     render() {
-        const { changePage, isDisabled, children, size, rounding} = this.props;
-        return (
-        <button type="button" className={`${this.BtnSize(size)} ${this.BtnBorder(rounding)}`} onClick={changePage} disabled={isDisabled} >
+        const { changePage, isDisabled, children } = this.props;
+        return <button type="button" className={this.className()} onClick={changePage} disabled={isDisabled} >
             {children}
         </button>
-        )
     }
 }
