@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ReactComponent as ApartmentSvg } from "./Apartment.svg"
 import { ReactComponent as TownHouseSvg } from "./townhouse.svg"
 
-export class PriceLabel extends Component {
+export default class PriceLabel extends Component {
     numberFormat = (price) => {
         const numbFmt = price.toLocaleString('ru-RU');
         return `$ ${numbFmt}`;

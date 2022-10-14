@@ -62,7 +62,7 @@ class Property extends Component {
           <AmenityList
             amenities={property.amenities} />
 
-          <Features features={flat.features}/>
+          <Features features={property.features}/>
 
           <AgentCard
             name={name}
