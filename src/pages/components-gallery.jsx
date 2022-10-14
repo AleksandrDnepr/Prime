@@ -200,22 +200,25 @@ export default class ComponentsGallery extends Component {
       />
 
         <PropertyFilter 
-            values={{ status: 'rent', bedrooms: 4 }}
+            values={{ 
+            type: "house",
+            minArea: "10",
+            maxArea: "1000",
+            deal: "sale",
+            bedrooms: "1",
+            bathrooms: "1",
+            location: "UA",
+            minPrice: "5",
+            maxPrice: "5000",
+            minYear: "2000" }}
             options={{
-              type: [
-                { 'value': 'single', 'label': 'Single-family' },
-                { 'value': 'house', 'label': 'Townhouse' },
-                { 'value': 'apt', 'label': 'Apartment' },
-              ],
-              minArea: ["10"],
-              maxArea: ["1000"],
-              status: ['sale', 'rent'],
-              bedrooms: "1",
-              bathrooms: "1",
-              location: ['CA', 'FL'],
-              minPrice: ["5"],
-              maxPrice: ["5000"],
-              minYear: "2000" 
+              type: ["single", 'house','apt'],
+              minArea: ["10", "20", "30"],
+              maxArea: ["1000", "2000", "3000"],
+              deal: ['sale', 'rent'],
+              location: ['CA', 'FL', "UA"],
+              minPrice: ["5", "10", "20"],
+              maxPrice: ["5000", "6000", "7000"]
             }}
             onSubmit={(nextValues) => console.log(`Next values are: ${JSON.stringify(nextValues)}`)}
           
