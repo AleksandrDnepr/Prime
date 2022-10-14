@@ -18,7 +18,6 @@ export default class DropDown extends Component {
 
             dropdownIndicator: (provided) => ({
                 ...provided,
-                // padding: '3px',
                 backgroundColor: 'white',
                 borderRadius: '4px'
             }),

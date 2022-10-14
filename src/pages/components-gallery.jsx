@@ -36,34 +36,17 @@ import Input from "../components/input/input";
 
 import data from '../data.json';
 
-import PropertyFilter from "../components/propertyFilter/propertyFilter";
 
+import DropDown from "../components/dropDown/DropDown";
+
+import PropertyFilter from "../components/propertyFilter/propertyFilter";
 
 export default class ComponentsGallery extends Component {
   render() {
     const { apartaments } = data;
     return <div>
 
-        <Link to="/properties">Properties</Link>
-
-        <PropertyFilter 
-            values={{ status: 'rent', bedrooms: 4 }}
-            options={{
-              type: ["house"],
-              minArea: ["10"],
-              maxArea: ["1000"],
-              status: ['sale', 'rent'],
-              bedrooms: "1",
-              bathrooms: "1",
-              location: ['CA', 'FL'],
-              minPrice: "",
-              maxPrice: "",
-              minYear: "" 
-            }}
-            onSubmit={(nextValues) => console.log(`Next values are: ${JSON.stringify(nextValues)}`)}
-          
-          />
-
+      <Link to="/properties">Properties</Link>
 
       <Header title="Properties" />
 
@@ -215,6 +198,28 @@ export default class ComponentsGallery extends Component {
         onChange={(name, value) => console.log(name, value)}
         size="large"
       />
+
+        <PropertyFilter 
+            values={{ status: 'rent', bedrooms: 4 }}
+            options={{
+              type: [
+                { 'value': 'single', 'label': 'Single-family' },
+                { 'value': 'house', 'label': 'Townhouse' },
+                { 'value': 'apt', 'label': 'Apartment' },
+              ],
+              minArea: ["10"],
+              maxArea: ["1000"],
+              status: ['sale', 'rent'],
+              bedrooms: "1",
+              bathrooms: "1",
+              location: ['CA', 'FL'],
+              minPrice: ["5"],
+              maxPrice: ["5000"],
+              minYear: "2000" 
+            }}
+            onSubmit={(nextValues) => console.log(`Next values are: ${JSON.stringify(nextValues)}`)}
+          
+          />
 
 
     </div>
