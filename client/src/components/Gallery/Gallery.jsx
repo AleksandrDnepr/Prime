@@ -11,18 +11,10 @@ export class Gallery extends Component {
     }
 
     showNext() {
-        if(this.state.currentPhoto>this.props.pictGalery.length-this.state.currentPhoto+1){
-            return;
-        }
-        else{
         this.setState(prev => ({ currentPhoto: prev.currentPhoto + 1 }))
-        }
     }
 
     showPrev() {
-        if(this.state.currentPhoto<=0){
-            return;
-        }
         this.setState(prev => ({ currentPhoto: prev.currentPhoto - 1 }))
     }
 
@@ -33,18 +25,17 @@ export class Gallery extends Component {
 
     renderRightArrow() {
         if (this.state.currentPhoto >= this.props.pictGalery.length-this.state.currentPhoto+1) {return null}
-        return  <RightArrow onClick={() => this.showNext()} className="gallery__arrow-right" />;
+        return <RightArrow onClick={() => this.showNext()} className="gallery__arrow-right" />;
     }
 
     render() {
         const { pictGalery } = this.props;
         const { currentPhoto } = this.state;
-        return (
-            <div className="gallery container__gallery">
+
+        return <div className="gallery container__gallery">
                 {this.renderLeftArrow()}
                 <img className="gallery__img" src={pictGalery[currentPhoto]} alt="First view with the property" />
                 {this.renderRightArrow()}
             </div>
-        )
     }
 }
