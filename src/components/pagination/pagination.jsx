@@ -34,10 +34,10 @@ export default class Pagination extends Component {
         if (this.props.page === 1) {return null;}
         return <Button 
                     size = "m"
-                    border = "prev-page-round"
+                    rounding = "both"
                     changePage={() => onChange(page - 1)}
                 > 
-                    {'\u003C'} 
+                    {'<'} 
                 </Button>;
     }
 
@@ -45,17 +45,17 @@ export default class Pagination extends Component {
         if (this.props.page === pages) {return null;}
         return <Button 
                     size = "m"
-                    border = "next-page-round"
+                    rounding = "both"
                     changePage={() => onChange(page + 1)}
                 > 
-                    {'\u003E'} 
+                   {'>'}
                 </Button>;
     }
     
     renderButton(button, page, onChange){
         return <Button
                     size = "m"
-                    border = "none-round"
+                    rounding = "none"
                     changePage={() => onChange(button)}
                     isDisabled={button === page}
                 > 

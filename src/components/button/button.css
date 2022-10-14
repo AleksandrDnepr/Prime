@@ -28,14 +28,8 @@
     border-radius: 0px 2px 2px 0px;
 }
 
-.Btn__border-round-next-page {
+.Btn__border-round-both {
     border-radius: 2px;
-    margin-left: 10px;
-}
-
-.Btn__border-round-prev-page {
-    border-radius: 2px;
-    margin-right: 10px;
 }
 
 .Btn:disabled,

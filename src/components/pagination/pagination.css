@@ -11,6 +11,7 @@
     display: flex;
     border: 1px solid #74777C;
     border-radius: 2px;
+    margin: 0 10px;
 }
 
 .PaginationItem:not(:last-child){

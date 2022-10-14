@@ -16,27 +16,25 @@ export default class Button extends Component {
     };
 
     BtnBorder = () => {
-        let { border } = this.props;
-        switch (border) {
-        case "none-round":
+        let { rounding } = this.props;
+        switch (rounding) {
+        case "none":
             return "Btn__border-round-none";
-        case "right-round":
+        case "right":
             return "Btn__border-round-right";
-        case "left-round":
+        case "left":
             return "Btn__border-round-left";
-        case "next-page-round":
-            return "Btn__border-round-next-page";
-        case "prev-page-round":
-            return "Btn__border-round-prev-page";
+        case "both":
+            return "Btn__border-round-both";
         default:
             break;
         }
     };
 
     render() {
-        const { changePage, isDisabled, children, size, border} = this.props;
+        const { changePage, isDisabled, children, size, rounding} = this.props;
         return (
-        <button type="button" className={`${this.BtnSize(size)} ${this.BtnBorder(border)}`} onClick={changePage} disabled={isDisabled} >
+        <button type="button" className={`${this.BtnSize(size)} ${this.BtnBorder(rounding)}`} onClick={changePage} disabled={isDisabled} >
             {children}
         </button>
         )
