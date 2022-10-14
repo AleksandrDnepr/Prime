@@ -3,6 +3,8 @@
 }
 
 .title__name {
+    display: flex;
+    justify-content: space-between;
     font-style: normal;
     font-size: 32px;
     font-weight: 400;
@@ -12,7 +14,7 @@
 
 .title__location {
     font-style: italic;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 19px;
     display: flex;
     align-items: center;
