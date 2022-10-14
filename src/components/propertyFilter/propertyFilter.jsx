@@ -34,9 +34,9 @@ class PropertyFilter extends Component {
       switch (type) {
         case "single":
           return { value: type, label: "Single-family" };
-        case "house":
+        case "townhouse":
           return { value: type, label: "Townhouse" };
-        case "apt":
+        case "apartment":
           return { value: type, label: "Apartment" };
         default:
           return;
@@ -127,11 +127,11 @@ class PropertyFilter extends Component {
     return location.map((location) => {
       switch (location) {
         case "CA":
-          return { value: location, label: "CA" };
+          return { value: location, label: location };
         case "FL":
-          return { value: location, label: "FL" };
+          return { value: location, label: location };
         case "UA":
-          return { value: location, label: "UA" };
+          return { value: location, label: location };
         default:
           return;
       }

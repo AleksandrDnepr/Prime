@@ -201,7 +201,7 @@ export default class ComponentsGallery extends Component {
 
         <PropertyFilter 
             values={{ 
-            type: "house",
+            type: "townhouse",
             minArea: "10",
             maxArea: "1000",
             deal: "sale",
@@ -212,7 +212,7 @@ export default class ComponentsGallery extends Component {
             maxPrice: "5000",
             minYear: "2000" }}
             options={{
-              type: ["single", 'house','apt'],
+              type: ["single", 'townhouse','apartment'],
               minArea: ["10", "20", "30"],
               maxArea: ["1000", "2000", "3000"],
               deal: ['sale', 'rent'],
