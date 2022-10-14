@@ -37,8 +37,8 @@ export default class Button extends Component {
     } 
 
     render() {
-        const { changePage, isDisabled, children } = this.props;
-        return <button type="button" className={this.className()} onClick={changePage} disabled={isDisabled} >
+        const { clickEvent, isDisabled, children } = this.props;
+        return <button type="button" className={this.className()} onClick={clickEvent} disabled={isDisabled} >
             {children}
         </button>
     }

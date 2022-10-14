@@ -35,7 +35,7 @@ export default class Pagination extends Component {
         return <Button 
                     size = "m"
                     rounding = "both"
-                    changePage={() => onChange(page - 1)}
+                    clickEvent={() => onChange(page - 1)}
                 > 
                     {'<'} 
                 </Button>;
@@ -46,7 +46,7 @@ export default class Pagination extends Component {
         return <Button 
                     size = "m"
                     rounding = "both"
-                    changePage={() => onChange(page + 1)}
+                    clickEvent={() => onChange(page + 1)}
                 > 
                    {'>'}
                 </Button>;
@@ -56,7 +56,7 @@ export default class Pagination extends Component {
         return <Button
                     size = "m"
                     rounding = "none"
-                    changePage={() => onChange(button)}
+                    clickEvent={() => onChange(button)}
                     isDisabled={button === page}
                 > 
                     {button} 
