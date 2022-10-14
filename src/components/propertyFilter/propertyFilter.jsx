@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "../button/button";
 
 import DropDown from "../dropDown/DropDown";
 
@@ -20,12 +21,23 @@ class PropertyFilter extends Component {
     minYear: this.props.values.minYear,
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state) {
+      this.handleSubmit()
+      console.log("new state")
+    }
+  }
+
   changeFilterParam(name, value) {
     this.setState({ [name]: value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
+    let idea = JSON.stringify(this.props.value);
+    if (JSON.stringify(this.state) !== idea) {
+      idea = JSON.stringify(this.state);
+    }
+    console.log( "after if" + idea)
   }
 
   typeOptions() {
@@ -217,9 +229,9 @@ class PropertyFilter extends Component {
           placeholder="Min. Year Built"
           onChange={(name, value) => this.changeFilterParam(name, value)}
         />
-        <button type="submit" onSubmit={(e) => this.handleSubmit(e)}>
+        <Button size="l" rounding="both" clickEvent={this.handleSubmit}>
           Search
-        </button>
+        </Button>
       </form>
     );
   }
