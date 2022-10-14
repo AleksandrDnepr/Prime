@@ -4,7 +4,8 @@ import { ReactComponent as EmailIcon } from "./icon-email.svg";
 import { ReactComponent as AdressIcon } from "./icon-address.svg";
 import "./contactInfo.css";
 
-export default class ContactInfo extends Component {
+export class ContactInfo extends Component {
+    
     createLinkHref = (type, info) => {
         switch (type) {
         case "tel":

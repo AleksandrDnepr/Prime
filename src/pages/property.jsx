@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import data from "../data.json";
-import Title from "../components/title/title.jsx";
-import Gallery from "../components/Gallery/Gallery";
-import Description from "../components/description/description.jsx";
-import FloorPlans from "../components/floorPlans/floorPlans.jsx";
-import AmenityList from "../components/amenitylist/amenitylist.jsx";
-import Features from "../components/features/features.jsx";
-import AgentCard from "../components/agentCard/agentCard.jsx";
-import Page from "../components/page/Page";
+import {Title} from "../components/title/title.jsx";
+import {Gallery} from "../components/Gallery/Gallery.jsx";
+import {Description} from "../components/description/description.jsx";
+import {FloorPlans} from "../components/floorPlans/floorPlans.jsx";
+import {AmenityList} from "../components/amenitylist/amenitylist.jsx";
+import {Features} from "../components/features/features.jsx";
+import {AgentCard} from "../components/agentCard/agentCard.jsx";
+import {Page} from "../components/page/Page.jsx";
 
 
 

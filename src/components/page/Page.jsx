@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import Footer from '../footer/footer'
-import HeaderMain from '../header/header'
+import {Footer} from '../footer/footer.jsx'
+import HeaderMain from '../header/header.jsx'
 import "./page.css"
 
-export default class Page extends Component {
+export class Page extends Component {
+  
   render() {
+    
     const { children, title } = this.props;
+
     return (
       <div>
         <HeaderMain title={title} />

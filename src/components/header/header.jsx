@@ -1,6 +1,6 @@
 import './header.css';
 import { Component } from "react";
-import Logo from "../logo/logo";
+import {Logo} from "../logo/logo.jsx";
 
 export default class HeaderMain extends Component {
 

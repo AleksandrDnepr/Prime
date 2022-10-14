@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./amenitylistitem.css";
 
-export default class AmenityListItem extends Component {
+export class AmenityListItem extends Component {
+  
   render() {
     const { isAvailable, title } = this.props.item;
     const status = isAvailable ? "✓" : "✗";

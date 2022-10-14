@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import AmenityListItem from "../amenitylistitem/amenitylistitem";
-import Subtitle from "../subtitle/subtitle";
+import {AmenityListItem} from "../amenitylistitem/amenitylistitem.jsx";
+import {Subtitle} from "../subtitle/subtitle.jsx";
 
 import "./amenitylist.css"
 
-export default class AmenityList extends Component {
+export class AmenityList extends Component {
+  
   render() {
     const { amenities }= this.props;
 

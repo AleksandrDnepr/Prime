@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../footer/footer";
+import {Footer} from "../footer/footer";
 import Header from "../header/header";
 import "./notFoundError.css";
 

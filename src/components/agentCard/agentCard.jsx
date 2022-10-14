@@ -1,12 +1,14 @@
 import { Component } from "react";
-import ContactInfo from "../contactInfo/contactInfo";
-import Subtitle from "../subtitle/subtitle";
+import {ContactInfo} from "../contactInfo/contactInfo.jsx";
+import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
 
 
-export default class AgentCard extends Component {
+export class AgentCard extends Component {
+
 render() {
     const {name, photoUrl, location, phone, email} = this.props;
+    
     return(
         <section className="agent__section">
             <Subtitle>AGENT INFORMATION</Subtitle>

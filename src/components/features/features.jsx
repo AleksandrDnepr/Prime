@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Feature from "./__feature/__feature.jsx";
 import "./features.css";
-import Subtitle from "../subtitle/subtitle";
+import {Subtitle} from "../subtitle/subtitle.jsx";
 
-export default class Features extends Component {
+export class Features extends Component {
+    
   render() {
     const { features } = this.props;
 

@@ -1,8 +1,8 @@
 import { Component } from "react";
-import Button from "../button/button";
+import {Button} from "../button/button.jsx";
 import "./pagination.css";
 
-export default class Pagination extends Component {
+export class Pagination extends Component {
 
     pageSeparating(pagesNumber) {
         let collection = [];
