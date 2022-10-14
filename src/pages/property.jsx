@@ -41,6 +41,7 @@ class Property extends Component {
     return (
       <>
         <Page title={flat.title}>
+
           <Title
             name={flat.title}
             location={flat.location}
