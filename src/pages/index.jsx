@@ -4,7 +4,7 @@ import {PropertyList} from "../components/propertyList/propertyList.jsx";
 import data from '../data.json';
 import {Page} from "../components/page/Page.jsx";
 
-class Index extends Component {
+class Index extends Component {  
 
   render() {    
 
@@ -12,7 +12,7 @@ const { apartaments } = data;
 
     return (
       <>
-        <Page title="PROPERTIES">
+        <Page title="PROPERTIES" withSidebar={true}>
           <PropertyList
             defaultView="grid"
             properties={apartaments}

@@ -7,5 +7,7 @@
 
 
 .page__sidebar{
-    background-color: aqua;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }

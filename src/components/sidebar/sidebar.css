@@ -1,7 +1,7 @@
 .sidebar__container{
     background-color: #F1F3F6;
     margin: auto;
-    width: 30%;
+    flex: 1;
     padding: 30px;
     height: 100%;
 
