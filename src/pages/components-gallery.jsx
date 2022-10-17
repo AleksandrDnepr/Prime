@@ -222,15 +222,11 @@ export default class ComponentsGallery extends Component {
               minYear: "2000" }}
             options={{
               type: ["single", 'townhouse','apartment'],
-              minArea: ["10", "20", "30"],
-              maxArea: ["1000", "2000", "3000"],
               deal: ['sale', 'rent'],
               location: ['CA', 'FL', "UA"],
-              minPrice: ["5", "10", "20"],
-              maxPrice: ["5000", "6000", "7000"]
             }}
             onSubmit={(nextValues) => {
-              this.setState({values: nextValues})
+              this.setState({ values: nextValues })
               console.log(`Next values are: ${JSON.stringify(nextValues)}`)
             }}
           
