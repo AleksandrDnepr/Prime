@@ -8,7 +8,7 @@ import {FloorPlans} from "../components/floorPlans/floorPlans.jsx";
 import {AmenityList} from "../components/amenitylist/amenitylist.jsx";
 import {Features} from "../components/features/features.jsx";
 import {AgentCard} from "../components/agentCard/agentCard.jsx";
-import {Page} from "../components/page/Page.jsx";
+import {Page} from "../components/page/page.jsx";
 
 
 
@@ -40,7 +40,7 @@ class Property extends Component {
 
     return (
       <>
-        <Page title={property.title}>
+        <Page title={property.title} withSidebar={false}>
           <Title
             name={property.title}
             location={property.location}            

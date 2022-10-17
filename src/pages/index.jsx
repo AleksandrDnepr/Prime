@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {PropertyList} from "../components/propertyList/propertyList.jsx";
 import data from '../data.json';
-import {Page} from "../components/page/Page.jsx";
+import {Page} from "../components/page/page.jsx";
+import {Sidebar} from "../components/sidebar/sidebar"
 
 class Index extends Component {  
 
