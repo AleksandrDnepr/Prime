@@ -42,6 +42,8 @@ import DropDown from "../components/dropDown/DropDown";
 import PropertyFilter from "../components/propertyFilter/propertyFilter";
 
 export default class ComponentsGallery extends Component {
+  state = {filterValues: {}};
+
   render() {
     const { apartaments } = data;
     return <div>
@@ -200,17 +202,7 @@ export default class ComponentsGallery extends Component {
       />
 
         <PropertyFilter 
-            values={{ 
-            type: "townhouse",
-            minArea: "10",
-            maxArea: "1000",
-            deal: "sale",
-            bedrooms: "1",
-            bathrooms: "1",
-            location: "UA",
-            minPrice: "5",
-            maxPrice: "5000",
-            minYear: "2000" }}
+            values={this.state.filterValues}
             options={{
               type: ["single", 'townhouse','apartment'],
               minArea: ["10", "20", "30"],
@@ -220,7 +212,10 @@ export default class ComponentsGallery extends Component {
               minPrice: ["5", "10", "20"],
               maxPrice: ["5000", "6000", "7000"]
             }}
-            onSubmit={(nextValues) => console.log(`Next values are: ${JSON.stringify(nextValues)}`)}
+            onSubmit={(nextValues) => {
+              this.setState({filterValues: nextValues})
+              console.log(`Next values are: ${JSON.stringify(nextValues)}`)
+            }}
           
           />
 

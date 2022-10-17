@@ -24,13 +24,19 @@ export default class DropDown extends Component {
 
             indicatorSeparator: (provided) => ({
                 ...provided,
-                margin:'3px',
+                margin:'0px',
                 backgroundColor:'#74777C'
+            }),
+
+            placeholder: (provided) => ({
+                ...provided,
+                color: '#74777c88',
             }),
 
             control: (provided) => ({
                 ...provided,
                 border:'1px solid #74777C',
+                padding: '14px',
                 borderRadius: '4px',
                 backgroundColor:'white'
             }),
@@ -74,6 +80,7 @@ export default class DropDown extends Component {
                 value={getValue()}
                 options={options}
                 isClearable
+                isDisabled={options.length === 0}
                 name={name}
             />
         </div>
