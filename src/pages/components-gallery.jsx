@@ -36,10 +36,12 @@ import Input from "../components/input/input";
 
 import data from '../data.json';
 
-
 import DropDown from "../components/dropDown/DropDown";
 
+import PropertyFilter from "../components/propertyFilter/propertyFilter";
+
 export default class ComponentsGallery extends Component {
+
   render() {
     const { apartaments } = data;
     return <div>
@@ -130,6 +132,7 @@ export default class ComponentsGallery extends Component {
         location={['Natomas', 'Sacramento']}
         type="apartment"
         details={{ area: 1320, bedrooms: 2, bathrooms: 2 }}
+        price={27000}
         id="A003N" />
 
       <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />
@@ -196,6 +199,34 @@ export default class ComponentsGallery extends Component {
         onChange={(name, value) => console.log(name, value)}
         size="large"
       />
+
+        <PropertyFilter 
+            values={{ 
+              type: "townhouse",
+              minArea: "10",
+              maxArea: "1000",
+              deal: "sale",
+              bedrooms: "1",
+              bathrooms: "1",
+              location: "UA",
+              minPrice: "5",
+              maxPrice: "5000",
+              minYear: "2000" }}
+            options={{
+              type: ["single", 'townhouse','apartment'],
+              minArea: ["10", "20", "30"],
+              maxArea: ["1000", "2000", "3000"],
+              deal: ['sale', 'rent'],
+              location: ['CA', 'FL', "UA"],
+              minPrice: ["5", "10", "20"],
+              maxPrice: ["5000", "6000", "7000"]
+            }}
+            onSubmit={(nextValues) => {
+              this.setState({values: nextValues})
+              console.log(`Next values are: ${JSON.stringify(nextValues)}`)
+            }}
+          
+          />
 
 
     </div>
