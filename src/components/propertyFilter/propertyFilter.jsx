@@ -3,19 +3,15 @@ import React, { Component } from "react";
 class Input extends Component {
   state = {
     startValue: this.props.value,
-
     currentValue: this.props.value,
   };
 
   changeValue(e) {
     const { type } = this.props;
-
     let value = e.target.value;
-
     if (type === "number") {
       value = Number(value);
     }
-
     this.setState({ currentValue: value });
   }
 
@@ -41,7 +37,6 @@ class Input extends Component {
 
   render() {
     const { type, name, placeholder } = this.props;
-
     const { currentValue } = this.state;
 
     return (
@@ -76,15 +71,15 @@ class PropertyFilter extends Component {
   };
 
   changeFilterParam(name, value) {
-console.log(name, value);
+    // console.log(name, value);
     this.setState({[name]: value}) 
   }
 
   render() {
     return <form>
-           <Input type="number" value={2} name="bedrooms" onChange={(name, value) => this.changeFilterParam(name, value)} />
-           <Input type="number" value={3} name="bathrooms" onChange={(name, value) => this.changeFilterParam(name, value)} />
-           <Input type="number" value={5} name="minYear" onChange={(name, value) => this.changeFilterParam(name, value)} /> 
+           <Input type="number" value={2} name="bedrooms" placeholder="Bedrooms" onChange={(name, value) => this.changeFilterParam(name, value)} />
+           <Input type="number" value={3} name="bathrooms" placeholder="Bathrooms" onChange={(name, value) => this.changeFilterParam(name, value)} />
+           <Input type="number" value={5} name="minYear" placeholder="Min. Year Built" onChange={(name, value) => this.changeFilterParam(name, value)} /> 
           </form>;
   }
 }
