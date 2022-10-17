@@ -11,16 +11,31 @@ import Subtitle from "../subtitle/subtitle";
 import "./propertyFilter.css";
 
 class PropertyFilter extends Component {
-  state = {};
+  state = {
+    type: this.props.values.type,
+    minArea: this.props.values.minArea,
+    maxArea: this.props.values.maxArea,
+    deal: this.props.values.deal,
+    bedrooms: this.props.values.bedrooms,
+    bathrooms: this.props.values.bathrooms,
+    location: this.props.values.location,
+    minPrice: this.props.values.minPrice,
+    maxPrice: this.props.values.maxPrice,
+    minYear: this.props.values.minYear,
+    prevValues: this.props.values
+  };
 
   changeFilterParam(name, value) {
     this.setState({ [name]: value });
   }
 
   handleSubmit() {
-    for(const key in this.state) {
-      if(this.state[key] !== this.props.values[key]) {
-        this.props.onSubmit(this.state)
+    const copyState = JSON.parse(JSON.stringify(this.state))
+    delete copyState.prevValues;
+    for(const key in copyState) {
+      if(copyState[key] !== this.state.prevValues[key]) {
+        this.setState({prevValues: copyState})
+        this.props.onSubmit(copyState)
         return;
       }
     }
