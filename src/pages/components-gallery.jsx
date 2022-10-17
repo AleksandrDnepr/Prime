@@ -36,15 +36,34 @@ import Input from "../components/input/input";
 
 import data from '../data.json';
 
+import PropertyFilter from "../components/propertyFilter/propertyFilter";
 
-import DropDown from "../components/dropDown/DropDown";
 
 export default class ComponentsGallery extends Component {
   render() {
     const { apartaments } = data;
     return <div>
 
-      <Link to="/properties">Properties</Link>
+        <Link to="/properties">Properties</Link>
+
+        <PropertyFilter 
+            values={{ status: 'rent', bedrooms: 4 }}
+            options={{
+              type: ["house"],
+              minArea: ["10"],
+              maxArea: ["1000"],
+              status: ['sale', 'rent'],
+              bedrooms: "1",
+              bathrooms: "1",
+              location: ['CA', 'FL'],
+              minPrice: "",
+              maxPrice: "",
+              minYear: "" 
+            }}
+            onSubmit={(nextValues) => console.log(`Next values are: ${JSON.stringify(nextValues)}`)}
+          
+          />
+
 
       <Header title="Properties" />
 
