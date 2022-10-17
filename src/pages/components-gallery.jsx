@@ -200,7 +200,6 @@ export default class ComponentsGallery extends Component {
       />
 
         <PropertyFilter 
-            // values={this.state.filterValues}
             values={{ 
               type: "townhouse",
               minArea: "10",
@@ -222,7 +221,6 @@ export default class ComponentsGallery extends Component {
               maxPrice: ["5000", "6000", "7000"]
             }}
             onSubmit={(nextValues) => {
-              // this.setState({filterValues: nextValues})
               this.setState({values: nextValues})
               console.log(`Next values are: ${JSON.stringify(nextValues)}`)
             }}
