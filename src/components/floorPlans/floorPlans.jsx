@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import Subtitle from '../subtitle/subtitle';
+import {Subtitle} from '../subtitle/subtitle.jsx';
 import "./floorPlans.css";
 
 
-export default class FloorPlans extends Component {
+export class FloorPlans extends Component {
     state = {
         currentFloor: this.props.plans[0],
     }

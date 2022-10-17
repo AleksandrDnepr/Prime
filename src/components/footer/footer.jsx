@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Logo from "../logo/logo";
+import {Logo} from "../logo/logo.jsx";
 import "./footer.css";
-import ContactInfo from "../contactInfo/contactInfo";
+import {ContactInfo} from "../contactInfo/contactInfo.jsx";
 
-export default class Footer extends Component {
+export class Footer extends Component {
+  
   render() {
     return (
       <footer className="footer">

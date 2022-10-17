@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ReactComponent as GridIcon } from "./grid.svg"
 import { ReactComponent as ListIcon } from "./list.svg"
 import "./ViewModeToggle.css"
-import Button from '../button/button'
+import {Button} from '../button/button.jsx'
 
 export default class ViewModeToggle extends Component {
   render() {

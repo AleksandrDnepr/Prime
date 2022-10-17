@@ -1,10 +1,7 @@
 import { Component } from "react";
 import "./subtitle.css";
 
-class Subtitle extends Component {
-    constructor(props) {
-        super(props);
-    }
+export class Subtitle extends Component {    
 
     render() {
         const {children} = this.props;
@@ -16,4 +13,3 @@ class Subtitle extends Component {
     }
 }
 
-export default Subtitle;

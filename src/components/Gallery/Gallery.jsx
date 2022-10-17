@@ -4,7 +4,8 @@ import { ReactComponent as LeftArrow } from "./leftArrow.svg"
 import { ReactComponent as RightArrow } from "./rightArrow.svg"
 
 
-export default class Gallery extends Component {
+export class Gallery extends Component {
+    
     state = {
         currentPhoto: 2
     }

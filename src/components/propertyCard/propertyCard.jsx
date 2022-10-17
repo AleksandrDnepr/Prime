@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./propertyCard.css";
-import PropertyDetails from "../propertyDetails/propertyDetails";
-import PriceLabel from "../priceLabel/priceLabel";
+import {PropertyDetails} from "../propertyDetails/propertyDetails.jsx";
+import {PriceLabel} from "../priceLabel/priceLabel.jsx";
 import { Link } from "react-router-dom";
 
-export default class PropertyCard extends Component {
+export class PropertyCard extends Component {
   render() {
     const {
       id,

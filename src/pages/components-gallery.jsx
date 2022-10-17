@@ -1,36 +1,36 @@
 import { Component } from "react";
 
-import Pagination from "../components/pagination/pagination";
+import {Pagination} from "../components/pagination/pagination.jsx";
 
-import Footer from "../components/footer/footer";
+import {Footer} from "../components/footer/footer.jsx";
 
-import PropertyCard from "../components/propertyCard/propertyCard";
+import {PropertyCard} from "../components/propertyCard/propertyCard.jsx";
 
-import AmenityList from "../components/amenitylist/amenitylist";
+import {AmenityList} from "../components/amenitylist/amenitylist.jsx";
 
-import PropertyDetails from "../components/propertyDetails/propertyDetails";
+import {PropertyDetails} from "../components/propertyDetails/propertyDetails.jsx";
 
-import Title from "../components/title/title";
+import {Title} from "../components/title/title.jsx";
 
 import Header from "../components/header/header";
 
 import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle";
 
-import Description from "../components/description/description";
+import {Description} from "../components/description/description.jsx";
 
-import Subtitle from "../components/subtitle/subtitle";
+import {Subtitle} from "../components/subtitle/subtitle.jsx";
 
-import AgentCard from "../components/agentCard/agentCard";
+import {AgentCard} from "../components/agentCard/agentCard.jsx";
 
-import FloorPlans from "../components/floorPlans/floorPlans";
+import {FloorPlans} from "../components/floorPlans/floorPlans.jsx";
 
-import Gallery from "../components/Gallery/Gallery";
+import {Gallery} from "../components/Gallery/Gallery.jsx";
 
 import { Link } from "react-router-dom";
 
-import PropertyList from "../components/propertyList/propertyList";
+import {PropertyList} from "../components/propertyList/propertyList.jsx";
 
-import Features from "../components/features/features";
+import {Features} from "../components/features/features.jsx";
 
 import Input from "../components/input/input";
 

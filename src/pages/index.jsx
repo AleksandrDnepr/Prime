@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import PropertyList from "../components/propertyList/propertyList";
+import {PropertyList} from "../components/propertyList/propertyList.jsx";
 import data from '../data.json';
-import Page from "../components/page/Page";
+import {Page} from "../components/page/Page.jsx";
 
 class Index extends Component {
 
   render() {
 
-    const { apartaments } = data;
+const { apartaments } = data;
 
     return (
       <>

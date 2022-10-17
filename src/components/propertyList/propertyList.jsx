@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import ViewModeToggle from '../ViewModeToggle/ViewModeToggle';
-import PropertyCard from '../propertyCard/propertyCard';
-import Pagination from '../pagination/pagination';
+import {PropertyCard} from '../propertyCard/propertyCard.jsx';
+import {Pagination} from '../pagination/pagination.jsx';
 import "./propertyList.css";
 
-export default class PropertyList extends Component {
+export class PropertyList extends Component {
     state = {
         currentPage: 1,
         currentMode: this.props.defaultView,

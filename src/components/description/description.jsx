@@ -1,21 +1,16 @@
 import { Component } from 'react';
 import './description.css';
 
-class Description extends Component {
-    constructor(props) {
-        super (props);
-    }
-
+export class Description extends Component {
+   
     render() {
         const {children} = this.props;
+
         return (
             <div className="text_description">
-                <p>{children}</p>
-                
+                <p>{children}</p>                
             </div>
         );
-        }
+    }
     
 }
-
-export default Description;
