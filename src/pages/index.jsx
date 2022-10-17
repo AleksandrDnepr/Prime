@@ -9,37 +9,36 @@ import {Sidebar} from "../components/sidebar/sidebar"
 
 class Index extends Component {
   state = {
+    properties: data.apartaments,
     filterOptions: {
       type: [],
       deal: [],
       location: [],
     },
-
     filterValues: {},
   }
   componentDidMount(){
-    const {apartaments} = data;
-    // const {filterOptions} = this.state;
+    const { properties } = this.state;
       
       const availableLocations = [];
-      apartaments.map(item => availableLocations.push(item.location[1]));
+      properties.map(item => availableLocations.push(item.location[1]));
       const unicLocations = [...new Set(availableLocations) ];
   
       const availableDeals = [];
-      apartaments.map(item => availableDeals.push(item.deal));
+      properties.map(item => availableDeals.push(item.deal));
       const unicDeals = [...new Set(availableDeals) ];
   
       const availableType = [];
-      apartaments.map(item => availableType.push(item.type));
+      properties.map(item => availableType.push(item.type));
       const unicTypes = [...new Set(availableType) ];
 
 
       this.setState({
         filterOptions: {
-              ...this.state.filterOptions,
-              type: unicTypes,
-              deal: unicDeals,
-              location: unicLocations
+          ...this.state.filterOptions,
+          type: unicTypes,
+          deal: unicDeals,
+          location: unicLocations
         }
     })
   }  
@@ -58,16 +57,15 @@ class Index extends Component {
   }
 
   render() {
+    const {properties, filterValues, filterOptions} = this.state;
     
-    const { apartaments } = data;
-    const {filterValues, filterOptions} = this.state;
     return (
       <>
         <Page title="PROPERTIES">
           <PropertyFilter values={filterValues} options={filterOptions} onSubmit={(nextVelues)=> this.filterAction(nextVelues)}/>
           <PropertyList
             defaultView="grid"
-            properties={apartaments}
+            properties={properties}
           />
           <Sidebar>
           <input id="comp-name" name="comp-name" type="text"/>
