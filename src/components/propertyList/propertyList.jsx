@@ -64,10 +64,10 @@ export default class PropertyList extends Component {
                         id={id}
                         picture={images.prewiew}
                         mode={mode}
-                        deal={"sale"}
+                        deal={deal}
                         type={type}
                         link={link}
-                        price={250000}
+                        price={price}
                         title={title}
                         location={location}
                         description={description} 

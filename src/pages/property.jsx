@@ -19,8 +19,8 @@ class Property extends Component {
     });
   }
 
-  getFlatByID(id, flats) {
-    return flats.find((item) => {
+  getPropertyByID(id, properties) {
+    return properties.find((item) => {
       return item.id === id;
     });
   }
@@ -28,42 +28,41 @@ class Property extends Component {
   render() {
     const { apartaments, agents_info } = data;
     const { property_id } = this.props.match.params;
-    const flat = this.getFlatByID(property_id, apartaments);
+    const property = this.getPropertyByID(property_id, apartaments);
 
 
-    if (!flat) {
+    if (!property) {
       this.props.history.push("/page_not_found");
       return;
     }
-    const atachedAgent = this.getAgentByID(flat.attached_agents_id, agents_info);
+    const atachedAgent = this.getAgentByID(property.attached_agents_id, agents_info);
     const { name, photo, location, tel, email } = atachedAgent;
 
     return (
       <>
-        <Page title={flat.title}>
-
+        <Page title={property.title}>
           <Title
-            name={flat.title}
-            location={flat.location}
-            type={flat.type}
-            details={flat.details}
-            id={flat.id} />
+            name={property.title}
+            location={property.location}            
+            details={property.details}
+            id={property.id}
+            price={property.price} />
 
-          {flat.images.galery.length === 0 ?
+          {property.images.galery.length === 0 ?
             null :
             <Gallery
-              pictGalery={flat.images.galery} />}
+              pictGalery={property.images.galery} />}
 
-          <Description>{flat.description}</Description>
+          <Description>{property.description}</Description>
 
-          {flat.plans.length === 0 ?
+          {property.plans.length === 0 ?
             null :
-            <FloorPlans plans={flat.plans} />}
+            <FloorPlans plans={property.plans} />}
 
           <AmenityList
-            amenities={flat.amenities} />
+            amenities={property.amenities} />
 
-          <Features features={flat.features}/>
+          <Features features={property.features}/>
 
           <AgentCard
             name={name}
