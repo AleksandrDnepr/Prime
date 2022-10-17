@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "./button.css";
 
-export default class Button extends Component {
+export class Button extends Component {
    
     BtnSize() {
         let { size } = this.props;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropertyDetails from '../propertyDetails/propertyDetails.jsx';
+import {PropertyDetails} from '../propertyDetails/propertyDetails.jsx';
 import "./title.css";
 import { ReactComponent as TownHouseSvg } from "../priceLabel/townhouse.svg";
 import { ReactComponent as ApartmentSvg } from "../priceLabel/Apartment.svg";
 
-export default class Title extends Component {
+export class Title extends Component {
 
   chooseImage = (type) => {
     switch (type) {
