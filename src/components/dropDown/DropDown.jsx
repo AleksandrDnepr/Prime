@@ -62,7 +62,7 @@ export default class DropDown extends Component {
         const changeValue = (selected, e) => {
             if (e.action === 'clear') {
                 this.setState({ currentProperty: '' })
-                this.props.onChange(name, undefined)
+                this.props.onChange(name, null)
             }
             else {
                 this.setState({ currentProperty: selected.value })
