@@ -32,7 +32,7 @@ import {PropertyList} from "../components/propertyList/propertyList.jsx";
 
 import {Features} from "../components/features/features.jsx";
 
-import GoHomeButton from "../components/goHomeButton/GoHomeButton";
+import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
 
 import Input from "../components/input/input";
 
