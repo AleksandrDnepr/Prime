@@ -37,7 +37,10 @@ import Input from "../components/input/input";
 import data from '../data.json';
 
 import DropDown from "../components/dropDown/DropDown";
-import Sidebar from "../components/sidebar/sidebar";
+
+import {Sidebar} from "../components/sidebar/sidebar.jsx";
+
+
 
 import PropertyFilter from "../components/propertyFilter/propertyFilter";
 
