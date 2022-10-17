@@ -132,6 +132,7 @@ export default class ComponentsGallery extends Component {
         location={['Natomas', 'Sacramento']}
         type="apartment"
         details={{ area: 1320, bedrooms: 2, bathrooms: 2 }}
+        price={27000}
         id="A003N" />
 
       <PropertyDetails details={{ area: 1320, bedrooms: 2, bathrooms: 2 }} mode="list" />

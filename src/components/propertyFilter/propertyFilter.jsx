@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import Button from "../button/button";
+import {Button} from "../button/button";
 
 import DropDown from "../dropDown/DropDown";
 
 import Input from "../input/input";
 
-import Subtitle from "../subtitle/subtitle";
+import {Subtitle} from "../subtitle/subtitle";
 
 import "./propertyFilter.css";
 
