@@ -1,12 +1,11 @@
-.container__gallery {
+.gallery__main {
     position: relative;
-    margin: 36px auto 65px;
     height: 615px;
     overflow: hidden;
     object-fit: contain;
 }
 
-.container__gallery:hover>svg {
+.gallery__main:hover>svg {
     opacity: 1;
 }
 
@@ -26,6 +25,25 @@
     right: 25px;
 }
 
-.gallery__img{
+.gallery__main_img {
+    width: 100%;
+}
+
+.gallery__slider_img{
+    height: 153px;
+    /* width: 100%; */
+}
+
+.gallery__slider {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 153px;
+    object-fit: contain;
+}
+
+.gallery {
+    height: 768px;
     width: 100%;
 }
