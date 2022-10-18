@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { PropertyList } from "../components/propertyList/propertyList.jsx";
 import { Page } from "../components/page/page.jsx";
@@ -67,28 +67,27 @@ class Index extends Component {
     this.setState({
       filterValues: nextValues, 
       isFiltred: true, 
-      filtredProperties: shownPropeties});
+      filtredProperties: shownPropeties
+    });
   }
 
   render() {
     const {properties, filterValues, filterOptions, filtredProperties, isFiltred} = this.state;
     
     return (
-      <>
-        <Page title="PROPERTIES" withSidebar>
-          <PropertyList
-            defaultView="grid"
-            properties={isFiltred ? filtredProperties : properties}
+      <Page title="PROPERTIES" withSidebar>
+        <PropertyList
+          defaultView="grid"
+          properties={isFiltred ? filtredProperties : properties}
+        />
+        <Sidebar>
+          <PropertyFilter
+            values={filterValues}
+            options={filterOptions}
+            onSubmit={(nextValues) => this.filterAction(nextValues)}
           />
-          <Sidebar>
-            <PropertyFilter
-              values={filterValues}
-              options={filterOptions}
-              onSubmit={(nextValues) => this.filterAction(nextValues)}
-            />
-          </Sidebar>
-        </Page>
-      </>
+        </Sidebar>
+      </Page>
     );
   }
 }
