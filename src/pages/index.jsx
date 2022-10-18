@@ -42,8 +42,8 @@ class Index extends Component {
     })
   }  
   
-  filterAction(nextVelues) {
-    this.setState({filterValues: nextVelues})
+  filterAction(nextValues) {
+    this.setState({filterValues: nextValues})
   }
 
   filtredData(values){
@@ -61,19 +61,20 @@ class Index extends Component {
     return (
       <>
         <Page title="PROPERTIES">
-          <PropertyFilter values={filterValues} options={filterOptions} onSubmit={(nextVelues)=> this.filterAction(nextVelues)}/>
+          
           <PropertyList
             defaultView="grid"
             properties={properties}
           />
           <Sidebar>
-          <input id="comp-name" name="comp-name" type="text"/>
-          <input id="comp-name" name="comp-name" type="text"/>
-          <input id="comp-name" name="comp-name" type="text"/>
-          <input id="comp-name" name="comp-name" type="text"/>
-          <input id="comp-name" name="comp-name" type="text"/>
-          <input id="comp-name" name="comp-name" type="text"/>
-          <input id="comp-name" name="comp-name" type="text"/>
+            <PropertyFilter
+              values={filterValues}
+              options={filterOptions}
+              onSubmit={(nextValues) => {
+                this.filterAction(nextValues)
+                console.log(`Next values are: ${JSON.stringify(nextValues)}`)
+            }}
+            />
           </Sidebar>
         </Page>
       </>
