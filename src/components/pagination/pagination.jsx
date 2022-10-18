@@ -42,7 +42,8 @@ export class Pagination extends Component {
     }
 
     renderNextPage(pages, page, onChange) {
-        if (this.props.page === pages) {return null;}
+        if (this.props.page === pages) {return null}
+        if (pages === 0) {return null}
         return <Button 
                     size = "m"
                     rounding = "both"

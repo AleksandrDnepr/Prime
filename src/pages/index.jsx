@@ -51,7 +51,7 @@ class Index extends Component {
       if(nextValues.location && property.location[1] !== nextValues.location) {return false};
       if(nextValues.type && property.type !== nextValues.type) {return false};
       if(nextValues.deal && property.deal !== nextValues.deal) {return false};
-      if(nextValues.minYear && property.year < nextValues.minYear) {return false};
+      if(nextValues.minYear && property.details.year < nextValues.minYear) {return false};
       if(nextValues.bedrooms && property.details.bedrooms !== nextValues.bedrooms) {return false};
       if(nextValues.bathrooms && property.details.bathrooms !== nextValues.bathrooms) {return false};
       if(nextValues.minPrice && property.price < nextValues.minPrice) {return false}
@@ -67,7 +67,6 @@ class Index extends Component {
       isFiltred: true, 
       filtredProperties: shownPropeties});
   }
-
 
   render() {
     const {properties, filterValues, filterOptions, filtredProperties, isFiltred} = this.state;
