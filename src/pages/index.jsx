@@ -32,7 +32,6 @@ class Index extends Component {
       properties.map(item => availableType.push(item.type));
       const unicTypes = [...new Set(availableType) ];
 
-
       this.setState({
         filterOptions: {
           ...this.state.filterOptions,
