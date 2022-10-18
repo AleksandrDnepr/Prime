@@ -45,19 +45,21 @@ class Index extends Component {
   }  
   
   filterAction(nextValues) {
-    console.log("start filterAction");
+    const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea } = nextValues;
     const { properties } = this.state;
-    const shownPropeties = properties.filter(property => {
-      if(nextValues.location && property.location[1] !== nextValues.location) {return false};
-      if(nextValues.type && property.type !== nextValues.type) {return false};
-      if(nextValues.deal && property.deal !== nextValues.deal) {return false};
-      if(nextValues.minYear && property.details.year < nextValues.minYear) {return false};
-      if(nextValues.bedrooms && property.details.bedrooms !== nextValues.bedrooms) {return false};
-      if(nextValues.bathrooms && property.details.bathrooms !== nextValues.bathrooms) {return false};
-      if(nextValues.minPrice && property.price < nextValues.minPrice) {return false}
-      if(nextValues.maxPrice && property.price > nextValues.maxPrice) {return false}
-      if(nextValues.minArea && property.details.area < nextValues.minArea) {return false}
-      if(nextValues.maxArea && property.details.area > nextValues.maxArea) {return false}
+    const isNumber = (value) => typeof value === "number";
+    const shownPropeties = properties.filter( property => {
+
+      if (location && property.location[1] !== location) {return false};
+      if (type && property.type !== type) {return false};
+      if (deal && property.deal !== deal) {return false};
+      if (isNumber(bedrooms) && property.details.bedrooms !== bedrooms) {return false};
+      if (isNumber(bathrooms) && property.details.bathrooms !== bathrooms) {return false};
+      if (minYear && property.details.year < minYear) {return false};
+      if (minPrice && property.price < minPrice) {return false}
+      if (maxPrice && property.price > maxPrice) {return false}
+      if (minArea && property.details.area < minArea) {return false}
+      if (maxArea && property.details.area > maxArea) {return false}
 
       return true;
     })
@@ -74,7 +76,6 @@ class Index extends Component {
     return (
       <>
         <Page title="PROPERTIES" withSidebar>
-          
           <PropertyList
             defaultView="grid"
             properties={isFiltred ? filtredProperties : properties}
@@ -83,7 +84,7 @@ class Index extends Component {
             <PropertyFilter
               values={filterValues}
               options={filterOptions}
-              onSubmit={ (nextValues) => this.filterAction(nextValues)}
+              onSubmit={(nextValues) => this.filterAction(nextValues)}
             />
           </Sidebar>
         </Page>

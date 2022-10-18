@@ -117,7 +117,8 @@ export class PropertyFilter extends Component {
               <Input
                 type="number"
                 size="large"
-                value={minArea}
+                value={minArea || ""}
+                min={0}
                 name="minArea"
                 placeholder="Min. Area"
                 onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -127,7 +128,8 @@ export class PropertyFilter extends Component {
             <Input
                 type="number"
                 size="large"
-                value={maxArea}
+                value={maxArea || ""}
+                min={0}
                 name="maxArea"
                 placeholder="Max. Area"
                 onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -138,7 +140,8 @@ export class PropertyFilter extends Component {
             <Input
               type="number"
               size="large"
-              value={bedrooms}
+              value={bedrooms || ""}
+              min={0}
               name="bedrooms"
               placeholder="Bedrooms"
               onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -148,7 +151,8 @@ export class PropertyFilter extends Component {
             <Input
               type="number"
               size="large"
-              value={bathrooms}
+              value={bathrooms || ""}
+              min={0}
               name="bathrooms"
               placeholder="Bathrooms"
               onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -159,7 +163,8 @@ export class PropertyFilter extends Component {
               <Input
                 type="number"
                 size="large"
-                value={minPrice}
+                value={minPrice || ""}
+                min={0}
                 name="minPrice"
                 placeholder="Min. Price"
                 onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -169,7 +174,8 @@ export class PropertyFilter extends Component {
               <Input
                   type="number"
                   size="large"
-                  value={maxPrice}
+                  value={maxPrice || ""}
+                  min={0}
                   name="maxPrice"
                   placeholder="Max. Price"
                   onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -189,7 +195,8 @@ export class PropertyFilter extends Component {
             <Input
               type="number"
               size="large"
-              value={minYear}
+              value={minYear || ""}
+              min={0}
               name="minYear"
               placeholder="Min. Year Built"
               onChange={(name, value) => this.changeFilterParam(name, value)}
