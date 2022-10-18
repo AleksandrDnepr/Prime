@@ -2,21 +2,31 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import {PropertyList} from "../components/propertyList/propertyList.jsx";
 import data from '../data.json';
-import {Page} from "../components/page/Page.jsx";
+import {Page} from "../components/page/page.jsx";
+import {Sidebar} from "../components/sidebar/sidebar"
 
-class Index extends Component {
+class Index extends Component {  
 
-  render() {
+  render() {    
 
 const { apartaments } = data;
 
     return (
       <>
-        <Page title="PROPERTIES">
+        <Page title="PROPERTIES" withSidebar={true}>
           <PropertyList
             defaultView="grid"
             properties={apartaments}
           />
+          <Sidebar>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          <input id="comp-name" name="comp-name" type="text"/>
+          </Sidebar>
         </Page>
       </>
     );
