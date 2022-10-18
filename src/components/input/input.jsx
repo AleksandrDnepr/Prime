@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "./input.css";
 
-export default class Input extends Component {
+export class Input extends Component {
     state = {
         startValue: this.props.value,
         currentValue: this.props.value,

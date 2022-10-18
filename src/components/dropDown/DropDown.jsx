@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Select from 'react-select'
 import "./dropDown.css"
 
-export default class DropDown extends Component {
+export class DropDown extends Component {
     state = {
         currentProperty: this.props.value
     };
