@@ -3,9 +3,9 @@ import { withRouter } from "react-router-dom";
 import {PropertyList} from "../components/propertyList/propertyList.jsx";
 import data from '../data.json';
 import {Page} from "../components/page/page.jsx";
-import {Sidebar} from "../components/sidebar/sidebar"
 import PropertyFilter from "../components/propertyFilter/propertyFilter.jsx";
 
+import {Sidebar} from "../components/sidebar/sidebar"
 
 class Index extends Component {
   state = {
@@ -60,7 +60,8 @@ class Index extends Component {
     
     return (
       <>
-        <Page title="PROPERTIES" withSidebar={true}>
+        <Page title="PROPERTIES">
+          <PropertyFilter values={filterValues} options={filterOptions} onSubmit={(nextVelues)=> this.filterAction(nextVelues)}/>
           <PropertyList
             defaultView="grid"
             properties={properties}
