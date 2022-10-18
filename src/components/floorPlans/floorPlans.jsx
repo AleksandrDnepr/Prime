@@ -13,8 +13,10 @@ export class FloorPlans extends Component {
     }
 
     render() {
+        
         const { plans } = this.props;
         const { currentFloor } = this.state;
+        if (plans.length === 0) return null;
         return (
         <section className="floorplan__section">
             <Subtitle>FLOOR PLANS</Subtitle>

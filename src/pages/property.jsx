@@ -8,8 +8,8 @@ import {FloorPlans} from "../components/floorPlans/floorPlans.jsx";
 import {AmenityList} from "../components/amenitylist/amenitylist.jsx";
 import {Features} from "../components/features/features.jsx";
 import {AgentCard} from "../components/agentCard/agentCard.jsx";
-import {Page} from "../components/page/page.jsx";
-
+import {Page} from "../components/page/page.jsx"
+import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
 
 
 class Property extends Component {
@@ -40,7 +40,10 @@ class Property extends Component {
 
     return (
       <>
-        <Page title={property.title} withSidebar={false}>
+        <Page title={property.title}>
+
+        <GoHomeButton />
+
           <Title
             name={property.title}
             location={property.location}            
@@ -48,16 +51,12 @@ class Property extends Component {
             id={property.id}
             price={property.price} />
 
-          {property.images.galery.length === 0 ?
-            null :
-            <Gallery
-              pictGalery={property.images.galery} />}
+          <Gallery
+            pictGalery={property.images.galery} />
 
           <Description>{property.description}</Description>
 
-          {property.plans.length === 0 ?
-            null :
-            <FloorPlans plans={property.plans} />}
+          <FloorPlans plans={property.plans} />
 
           <AmenityList
             amenities={property.amenities} />
