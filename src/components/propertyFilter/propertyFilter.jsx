@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-import {Button} from "../button/button";
+import { Button } from "../button/button.jsx";
 
-import DropDown from "../dropDown/DropDown";
+import { DropDown } from "../dropDown/DropDown.jsx";
 
-import Input from "../input/input";
+import { Input } from "../input/input.jsx";
 
-import {Subtitle} from "../subtitle/subtitle";
+import { Subtitle } from "../subtitle/subtitle.jsx";
 
 import "./propertyFilter.css";
 
-class PropertyFilter extends Component {
+export class PropertyFilter extends Component {
   state = {
     type: this.props.values.type,
     minArea: this.props.values.minArea,
@@ -35,7 +35,7 @@ class PropertyFilter extends Component {
     for(const key in copyState) {
       if(copyState[key] !== this.state.prevValues[key]) {
         this.setState({ prevValues: copyState })
-        this.props.onSubmit(copyState)
+        this.props.onSubmit(copyState);
         return;
       }
     }
@@ -206,5 +206,3 @@ class PropertyFilter extends Component {
   }
 }
 
-
-export default PropertyFilter;

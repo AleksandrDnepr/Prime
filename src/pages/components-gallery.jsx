@@ -32,19 +32,17 @@ import {PropertyList} from "../components/propertyList/propertyList.jsx";
 
 import {Features} from "../components/features/features.jsx";
 
-import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
+import {GoHomeButton} from "../components/goHomeButton/GoHomeButton.jsx";
 
-import Input from "../components/input/input";
+import { Input } from "../components/input/input.jsx";
 
 import data from '../data.json';
 
-import DropDown from "../components/dropDown/DropDown";
+import {DropDown} from "../components/dropDown/DropDown.jsx";
 
 import {Sidebar} from "../components/sidebar/sidebar.jsx";
 
-
-
-import PropertyFilter from "../components/propertyFilter/propertyFilter";
+import {PropertyFilter} from "../components/propertyFilter/propertyFilter.jsx";
 
 export default class ComponentsGallery extends Component {
 
