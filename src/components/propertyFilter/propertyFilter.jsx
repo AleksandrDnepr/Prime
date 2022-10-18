@@ -197,7 +197,7 @@ class PropertyFilter extends Component {
           </li>
           <li className="property-filter__search">
             <Button size="l" rounding="both" clickEvent={() => this.handleSubmit()}>
-               Search
+                SEARCH
             </Button>
           </li>
         </ul>
