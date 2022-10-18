@@ -35,7 +35,7 @@ class PropertyFilter extends Component {
     for(const key in copyState) {
       if(copyState[key] !== this.state.prevValues[key]) {
         this.setState({ prevValues: copyState })
-        this.props.onSubmit(copyState)
+        this.props.onSubmit(copyState);
         return;
       }
     }
