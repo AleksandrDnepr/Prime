@@ -21,25 +21,22 @@ class Index extends Component {
 
   componentDidMount(){
     const { properties } = this.state;
-      
-      const availableLocations = [];
-      properties.map(item => availableLocations.push(item.location[1]));
-      const unicLocations = [...new Set(availableLocations) ];
-  
-      const availableDeals = [];
-      properties.map(item => availableDeals.push(item.deal));
-      const unicDeals = [...new Set(availableDeals) ];
-  
-      const availableType = [];
-      properties.map(item => availableType.push(item.type));
-      const unicTypes = [...new Set(availableType) ];
+
+      const unicLocations = new Set();
+      properties.forEach(property => unicLocations.add(property.location[1]));
+
+      const unicDeals = new Set();
+      properties.forEach(property => unicDeals.add(property.deal));
+
+      const unicTypes = new Set();
+      properties.forEach(property => unicTypes.add(property.type));
 
       this.setState({
         filterOptions: {
           ...this.state.filterOptions,
-          type: unicTypes,
-          deal: unicDeals,
-          location: unicLocations
+          type: Array.from(unicTypes),
+          deal: Array.from(unicDeals),
+          location: Array.from(unicLocations)
         }
     })
   }  

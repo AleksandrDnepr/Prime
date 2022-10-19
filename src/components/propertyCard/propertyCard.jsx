@@ -5,6 +5,10 @@ import {PriceLabel} from "../priceLabel/priceLabel.jsx";
 import { Link } from "react-router-dom";
 
 export class PropertyCard extends Component {
+  handleClick = () => {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const {
       id,
@@ -20,7 +24,7 @@ export class PropertyCard extends Component {
     } = this.props;
 
     return (
-      <Link to={`/${id}`} className={`container_${mode}`}>
+      <Link to={`/${id}`} className={`container_${mode}`} onClick={this.handleClick}>
         <section className="label__info">
           <img className="property-photo" src={picture} alt="Property view" />
           <PriceLabel price={price} deal={deal} type={type} />

@@ -29,7 +29,7 @@ export class PropertyFilter extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit() {
+  handleSubmit = () => {
     const copyState = JSON.parse(JSON.stringify(this.state))
     delete copyState.prevValues;
     for(const key in copyState) {
@@ -203,7 +203,7 @@ export class PropertyFilter extends Component {
             />
           </li>
           <li className="property-filter__search">
-            <Button size="l" rounding="both" clickEvent={() => this.handleSubmit()}>
+            <Button size="l" rounding="both" clickEvent={this.handleSubmit}>
                 SEARCH
             </Button>
           </li>
