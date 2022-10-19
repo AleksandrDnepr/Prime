@@ -45,6 +45,8 @@ class Index extends Component {
   }  
   
   filterAction(nextValues) {
+    window.scrollTo(0, 0);
+
     const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea } = nextValues;
     const { properties } = this.state;
     const isNumber = (value) => typeof value === "number";

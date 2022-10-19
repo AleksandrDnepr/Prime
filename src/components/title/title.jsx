@@ -39,7 +39,7 @@ numberFormat = (price) => {
         <h2 className="title__name"><span>{name}</span><span>{this.numberFormat(price)}</span></h2>
         <p className="title__location">{location[0]}, {location[1]}</p>
         <ul className="title__details details">
-            <li className="details__type-card"><TownHouseSvg />{this.chooseImage(type)}</li>
+            <li className="details__type-card">{this.chooseImage(type)} {this.apartOrHouse(type)}</li>
             <li><PropertyDetails details={{ area, bedrooms, bathrooms, year }} mode="list"/></li>           
             <li className="details__id-card">ID: {id}</li>
         </ul>
