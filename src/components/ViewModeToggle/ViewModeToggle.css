@@ -10,6 +10,10 @@
     justify-content: right;
 }
 
+.view-mode > .Btn__border-round-left {
+    border-right: none;
+}
+
 .btn-icon {
     vertical-align: middle;
 }
