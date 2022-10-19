@@ -3,9 +3,9 @@
         {
           "id": "A003N",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -80,9 +80,9 @@
         {
           "id": "B193N",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "FL"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 250000,
           "deal": "sale",
           "images": {
@@ -156,10 +156,10 @@
         {
           "id": "C193N",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "UA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
-          "price": 5000,
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
+          "price": 5000,         
           "deal": "rent",
           "images": {
             "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
@@ -232,10 +232,10 @@
         {
           "id": "D493N",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "UA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
-          "price": 1000000,
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2000 },
+          "price": 100000,
           "deal": "sale",
           "images": {
             "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
@@ -308,9 +308,9 @@
         {
           "id": "A0031",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "UA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 2020 },
           "price": 530000,
           "deal": "sale",
           "images": {
@@ -385,9 +385,9 @@
         {
           "id": "B1932",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -461,9 +461,9 @@
         {
           "id": "C1933",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 2000 },
           "price": 650000,
           "deal": "sale",
           "images": {
@@ -537,9 +537,9 @@
         {
           "id": "D4934",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2021 },
           "price": 10000,
           "deal": "rent",
           "images": {
@@ -613,9 +613,9 @@
         {
           "id": "A0035",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 2020 },
           "price": 26000,
           "deal": "sale",
           "images": {
@@ -690,9 +690,9 @@
         {
           "id": "B1936",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 2011 },
           "price": 20500,
           "deal": "rent",
           "images": {
@@ -766,9 +766,9 @@
         {
           "id": "C1937",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 2011 },
           "price": 262000,
           "deal": "sale",
           "images": {
@@ -842,9 +842,9 @@
         {
           "id": "D4938",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2014 },
           "price": 25000,
           "deal": "rent",
           "images": {
@@ -918,9 +918,9 @@
         {
           "id": "A0039",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -995,9 +995,9 @@
         {
           "id": "B1940",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "sale",
           "images": {
@@ -1071,9 +1071,9 @@
         {
           "id": "C1941",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 2022 },
           "price": 255000,
           "deal": "rent",
           "images": {
@@ -1147,9 +1147,9 @@
         {
           "id": "D4942",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
           "price": 25600,
           "deal": "rent",
           "images": {
@@ -1223,9 +1223,9 @@
         {
           "id": "A0043",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 2000 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -1300,9 +1300,9 @@
         {
           "id": "B1944",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20500,
           "deal": "rent",
           "images": {
@@ -1376,9 +1376,9 @@
         {
           "id": "C1945",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 2014 },
           "price": 250000,
           "deal": "rent",
           "images": {
@@ -1452,9 +1452,9 @@
         {
           "id": "D4946",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2014 },
           "price": 200000,
           "deal": "sale",
           "images": {
@@ -1528,9 +1528,9 @@
         {
           "id": "A0047",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 2011 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -1605,10 +1605,10 @@
         {
           "id": "B1948",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
-          "price": 2000000,
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
+          "price": 200000,
           "deal": "sale",
           "images": {
             "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
@@ -1681,9 +1681,9 @@
         {
           "id": "C1949",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -1757,9 +1757,9 @@
         {
           "id": "D4950",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -1833,9 +1833,9 @@
         {
           "id": "A0051",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2,  "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -1910,9 +1910,9 @@
         {
           "id": "B1952",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -1986,9 +1986,9 @@
         {
           "id": "C1953",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -2062,9 +2062,9 @@
         {
           "id": "D4954",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
           "price": 20500,
           "deal": "rent",
           "images": {
@@ -2138,10 +2138,10 @@
         {
           "id": "A0055",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
-          "price": 2500000,
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
+          "price": 250000,
           "deal": "sale",
           "images": {
             "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
@@ -2215,9 +2215,9 @@
         {
           "id": "B1956",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -2291,9 +2291,9 @@
         {
           "id": "C1957",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -2367,9 +2367,9 @@
         {
           "id": "D4958",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "sale",
           "images": {
@@ -2443,9 +2443,9 @@
         {
           "id": "A0059",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
           "price": 25000,
           "deal": "rent",
           "images": {
@@ -2520,9 +2520,9 @@
         {
           "id": "B1960",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -2596,9 +2596,9 @@
         {
           "id": "C1961",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
           "price": 200000,
           "deal": "sale",
           "images": {
@@ -2672,10 +2672,10 @@
         {
           "id": "D4962",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
-          "price": 20000000,
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
+          "price": 200000,
           "deal": "sale",
           "images": {
             "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
@@ -2748,9 +2748,9 @@
         {
           "id": "A0063",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -2825,9 +2825,9 @@
         {
           "id": "B1964",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -2901,9 +2901,9 @@
         {
           "id": "C1965",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "sale",
           "images": {
@@ -2977,9 +2977,9 @@
         {
           "id": "D4966",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
           "price": 20500,
           "deal": "rent",
           "images": {
@@ -3053,9 +3053,9 @@
         {
           "id": "A0067",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -3130,9 +3130,9 @@
         {
           "id": "B1968",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -3206,10 +3206,10 @@
         {
           "id": "C1969",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
-          "price": 200000000,
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2,  "year": 1920 },
+          "price": 200000,
           "deal": "sale",
           "images": {
             "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
@@ -3282,9 +3282,9 @@
         {
           "id": "D4970",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -3358,10 +3358,10 @@
         {
           "id": "A0071",
           "title": "Luxury Apartment with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2 },
-          "price": 2550000,
+          "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },
+          "price": 255000,
           "deal": "sale",
           "images": {
             "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
@@ -3435,9 +3435,9 @@
         {
           "id": "B1972",
           "title": "Beautiful lote near Samara",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -3511,9 +3511,9 @@
         {
           "id": "C1973",
           "title": "Luxury house with great views",
-          "location": ["Natomas", "Sacramento"],
+          "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1940 },
           "price": 25000,
           "deal": "rent",
           "images": {

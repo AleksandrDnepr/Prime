@@ -49,6 +49,7 @@ class Property extends Component {
             location={property.location}            
             details={property.details}
             id={property.id}
+            type={property.type}
             price={property.price} />
 
           <Gallery

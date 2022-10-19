@@ -11,7 +11,6 @@ export class PropertyList extends Component {
     }
     
     componentDidUpdate(prevProps, prevState) {
-        // Типове використання (не забудьте порівняти пропси):
         if (this.state.currentMode !== prevState.currentMode) {
             const maxPage = Math.ceil(prevProps.properties.length/12)
             if(maxPage < this.state.currentPage) {
@@ -77,16 +76,24 @@ export class PropertyList extends Component {
             </ul>
         )
     }
-    render() {
-        const {properties} = this.props;
-        const {currentPage, currentMode} = this.state;
-        return (
-            <section className="propertyList__section">
-                <ViewModeToggle     
+
+    showToggle() {
+        const { properties } = this.props;
+        const { currentMode } = this.state;
+
+        if(properties.length === 0) {return null}
+        return <ViewModeToggle 
                     mode={currentMode} 
                     onChange={(mode) => this.changeMode(mode)}
                 />
-
+    }
+    
+    render() {
+        const { properties } = this.props;
+        const { currentPage, currentMode } = this.state;
+        return (
+            <section className="propertyList__section">
+                {this.showToggle()}
                 {this.propertyListCompiling(currentMode, properties)}
                 
                 <Pagination 

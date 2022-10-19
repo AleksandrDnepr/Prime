@@ -1,3 +1,7 @@
+.property-filter > .subtitle {
+  margin-top: 80px;
+}
+
 .property-filter__min-max-property {
   display: flex;
   justify-content: space-between;

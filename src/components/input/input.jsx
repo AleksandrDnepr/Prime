@@ -1,7 +1,7 @@
 import { Component } from "react";
 import "./input.css";
 
-export default class Input extends Component {
+export class Input extends Component {
     state = {
         startValue: this.props.value,
         currentValue: this.props.value,
@@ -11,7 +11,9 @@ export default class Input extends Component {
         const { type } = this.props;
         let value = e.target.value;
 
-        if (type === "number") { value = Number(value) };
+        if (type === "number" && value !== "") { 
+            value = Number(value) 
+        };
 
         switch (e.type) {
             case "focus":
@@ -26,6 +28,8 @@ export default class Input extends Component {
         }
     }
 
+
+
     handleBlur = () => {
         const { startValue, currentValue } = this.state;
         const { name, onChange } = this.props;
@@ -35,16 +39,17 @@ export default class Input extends Component {
     }
 
     render() {
-        const { type, name, placeholder, size, children } = this.props;
+        const { type, name, placeholder, size, children, min } = this.props;
         const { currentValue } = this.state;
 
         return <label>
                     {children}
-                    <input
+                <input
                     type={type}
                     name={name}
                     id={name}
                     value={currentValue}
+                    min={min}
                     placeholder={placeholder}
                     onChange={this.changeValue}
                     onFocus={this.changeValue}

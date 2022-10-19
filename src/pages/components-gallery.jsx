@@ -32,19 +32,17 @@ import {PropertyList} from "../components/propertyList/propertyList.jsx";
 
 import {Features} from "../components/features/features.jsx";
 
-import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
+import {GoHomeButton} from "../components/goHomeButton/GoHomeButton.jsx";
 
-import Input from "../components/input/input";
+import { Input } from "../components/input/input.jsx";
 
 import data from '../data.json';
 
-import DropDown from "../components/dropDown/DropDown";
+import {DropDown} from "../components/dropDown/DropDown.jsx";
 
 import {Sidebar} from "../components/sidebar/sidebar.jsx";
 
-
-
-import PropertyFilter from "../components/propertyFilter/propertyFilter";
+import {PropertyFilter} from "../components/propertyFilter/propertyFilter.jsx";
 
 export default class ComponentsGallery extends Component {
 
@@ -222,15 +220,11 @@ export default class ComponentsGallery extends Component {
               minYear: "2000" }}
             options={{
               type: ["single", 'townhouse','apartment'],
-              minArea: ["10", "20", "30"],
-              maxArea: ["1000", "2000", "3000"],
               deal: ['sale', 'rent'],
               location: ['CA', 'FL', "UA"],
-              minPrice: ["5", "10", "20"],
-              maxPrice: ["5000", "6000", "7000"]
             }}
             onSubmit={(nextValues) => {
-              this.setState({values: nextValues})
+              this.setState({ values: nextValues })
               console.log(`Next values are: ${JSON.stringify(nextValues)}`)
             }}
           

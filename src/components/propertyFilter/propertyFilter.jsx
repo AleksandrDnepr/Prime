@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-import {Button} from "../button/button";
+import { Button } from "../button/button.jsx";
 
-import DropDown from "../dropDown/DropDown";
+import { DropDown } from "../dropDown/DropDown.jsx";
 
-import Input from "../input/input";
+import { Input } from "../input/input.jsx";
 
-import {Subtitle} from "../subtitle/subtitle";
+import { Subtitle } from "../subtitle/subtitle.jsx";
 
 import "./propertyFilter.css";
 
-class PropertyFilter extends Component {
+export class PropertyFilter extends Component {
   state = {
     type: this.props.values.type,
     minArea: this.props.values.minArea,
@@ -29,13 +29,13 @@ class PropertyFilter extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit() {
+  handleSubmit = () => {
     const copyState = JSON.parse(JSON.stringify(this.state))
     delete copyState.prevValues;
     for(const key in copyState) {
       if(copyState[key] !== this.state.prevValues[key]) {
-        this.setState({prevValues: copyState})
-        this.props.onSubmit(copyState)
+        this.setState({ prevValues: copyState })
+        this.props.onSubmit(copyState);
         return;
       }
     }
@@ -52,7 +52,7 @@ class PropertyFilter extends Component {
         case "apartment":
           return { value: type, label: "Apartment" };
         default:
-          return;
+          return null;
       }
     });
   }
@@ -66,75 +66,11 @@ class PropertyFilter extends Component {
         case "rent":
           return { value: deal, label: "Rent" };
         default:
-          return;
+          return null;
       }
     });
   }
-
-  minAreaOptions() {
-    const { minArea } = this.props.options;
-    return minArea.map((minArea) => {
-      switch (minArea) {
-        case "10":
-          return { value: minArea, label: "10" };
-        case "20":
-          return { value: minArea, label: "20" };
-        case "30":
-          return { value: minArea, label: "30" };
-        default:
-          return;
-      }
-    });
-  }
-
-  maxAreaOptions() {
-    const { maxArea } = this.props.options;
-    return maxArea.map((maxArea) => {
-      switch (maxArea) {
-        case "1000":
-          return { value: maxArea, label: "1000" };
-        case "2000":
-          return { value: maxArea, label: "2000" };
-        case "3000":
-          return { value: maxArea, label: "3000" };
-        default:
-          return;
-      }
-    });
-  }
-
-  minPriceOptions() {
-    const { minPrice } = this.props.options;
-    return minPrice.map((minPrice) => {
-      switch (minPrice) {
-        case "5":
-          return { value: minPrice, label: "5" };
-        case "10":
-          return { value: minPrice, label: "10" };
-        case "20":
-          return { value: minPrice, label: "20" };
-        default:
-          return;
-      }
-    });
-  }
-
-  maxPriceOptions() {
-    const { maxPrice } = this.props.options;
-    return maxPrice.map((maxPrice) => {
-      switch (maxPrice) {
-        case "5000":
-          return { value: maxPrice, label: "5000" };
-        case "6000":
-          return { value: maxPrice, label: "6000" };
-        case "7000":
-          return { value: maxPrice, label: "7000" };
-        default:
-          return;
-      }
-    });
-  }
-
+  
   locationOptions() {
     const { location } = this.props.options;
     return location.map((location) => {
@@ -146,7 +82,7 @@ class PropertyFilter extends Component {
         case "UA":
           return { value: location, label: location };
         default:
-          return;
+          return null;
       }
     });
   }
@@ -178,20 +114,24 @@ class PropertyFilter extends Component {
           </li>
           <li className="property-filter__min-max-property">
             <label className="property-filter__mini-drop-down">
-              <DropDown
+              <Input
+                type="number"
+                size="large"
+                value={minArea || ""}
+                min={0}
                 name="minArea"
                 placeholder="Min. Area"
-                value={minArea}
-                options={this.minAreaOptions()}
                 onChange={(name, value) => this.changeFilterParam(name, value)}
               />
             </label>
             <label className="property-filter__mini-drop-down">
-              <DropDown
+            <Input
+                type="number"
+                size="large"
+                value={maxArea || ""}
+                min={0}
                 name="maxArea"
                 placeholder="Max. Area"
-                value={maxArea}
-                options={this.maxAreaOptions()}
                 onChange={(name, value) => this.changeFilterParam(name, value)}
               />
             </label>
@@ -200,7 +140,8 @@ class PropertyFilter extends Component {
             <Input
               type="number"
               size="large"
-              value={bedrooms}
+              value={bedrooms || ""}
+              min={0}
               name="bedrooms"
               placeholder="Bedrooms"
               onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -210,7 +151,8 @@ class PropertyFilter extends Component {
             <Input
               type="number"
               size="large"
-              value={bathrooms}
+              value={bathrooms || ""}
+              min={0}
               name="bathrooms"
               placeholder="Bathrooms"
               onChange={(name, value) => this.changeFilterParam(name, value)}
@@ -218,22 +160,26 @@ class PropertyFilter extends Component {
           </li>
           <li className="property-filter__min-max-property">
             <label className="property-filter__mini-drop-down">
-              <DropDown
+              <Input
+                type="number"
+                size="large"
+                value={minPrice || ""}
+                min={0}
                 name="minPrice"
                 placeholder="Min. Price"
-                value={minPrice}
-                options={this.minPriceOptions()}
                 onChange={(name, value) => this.changeFilterParam(name, value)}
-              />
+                />
             </label>
             <label className="property-filter__mini-drop-down">
-              <DropDown
-                name="maxPrice"
-                placeholder="Max. Price"
-                value={maxPrice}
-                options={this.maxPriceOptions()}
-                onChange={(name, value) => this.changeFilterParam(name, value)}
-              />
+              <Input
+                  type="number"
+                  size="large"
+                  value={maxPrice || ""}
+                  min={0}
+                  name="maxPrice"
+                  placeholder="Max. Price"
+                  onChange={(name, value) => this.changeFilterParam(name, value)}
+                />
             </label>
           </li>
           <li>
@@ -249,15 +195,16 @@ class PropertyFilter extends Component {
             <Input
               type="number"
               size="large"
-              value={minYear}
+              value={minYear || ""}
+              min={0}
               name="minYear"
               placeholder="Min. Year Built"
               onChange={(name, value) => this.changeFilterParam(name, value)}
             />
           </li>
           <li className="property-filter__search">
-            <Button size="l" rounding="both" clickEvent={() => this.handleSubmit()}>
-               Search
+            <Button size="l" rounding="both" clickEvent={this.handleSubmit}>
+                SEARCH
             </Button>
           </li>
         </ul>
@@ -266,5 +213,3 @@ class PropertyFilter extends Component {
   }
 }
 
-
-export default PropertyFilter;
