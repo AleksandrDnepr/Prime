@@ -1,0 +1,9 @@
+.contact-form {
+  background-color: #F1F3F6;
+  margin-top: 100px;
+  max-width: 100%;
+}
+
+.contact-form__inputs {
+  display: flex; 
+}
