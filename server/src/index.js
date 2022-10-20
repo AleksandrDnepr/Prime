@@ -1,5 +1,7 @@
 const express = require('express');
+const router = require('./routes/');
 
 express()
-  .get('/api/status', (req, res) => res.json({ status: 'ok' }))
-  .listen(3100, () => console.log('Started on :3100'));
+    .use(express.json())
+    .use('/api', router)
+    .listen(3100, () => console.log('Started on :3100'));
