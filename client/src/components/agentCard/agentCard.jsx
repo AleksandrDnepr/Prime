@@ -1,5 +1,4 @@
 import { Component } from "react";
-import {ContactInfo} from "../contactInfo/contactInfo.jsx";
 import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
 
@@ -7,7 +6,7 @@ import "./agentCard.css";
 export class AgentCard extends Component {
 
 render() {
-    const {name, photoUrl, location, phone, email} = this.props;
+    const {name, photoUrl, location } = this.props;
     
     return(
         <section className="agent__section">
@@ -22,17 +21,12 @@ render() {
                 <li className="agent__location">
                     {location}
                 </li>
-                <ContactInfo 
-                    type="tel" 
-                    border={false}>
-                    {phone}
-                </ContactInfo>
-                <ContactInfo 
-                    type="mail" 
-                    border={false}>
-                    {email}
-                </ContactInfo>
-            </ul>
+                <li className="agent__form">
+                    {/* <ContactForm /> */}
+                    <p className="agent__form_text"><span className="agent__form_thanks">Thank you!</span>
+                    Your message was send succesfully. Our agent will contact you as soon as possible!</p>
+                </li>
+                </ul>
         </section>
     )
 }
