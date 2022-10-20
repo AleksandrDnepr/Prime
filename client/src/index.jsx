@@ -29,7 +29,10 @@ export default class App extends React.Component  {
   }
 }
 
-function main() {
+async function main() {
+  const api = await fetch('/api/status').then(res => res.json());
+  console.log('API is', api);
+
   const root = document.createElement('div');
   document.querySelector('body').appendChild(root);
   ReactDOM.createRoot(root).render(<App />);
