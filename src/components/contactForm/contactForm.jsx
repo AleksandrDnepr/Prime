@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 import { Input } from "../input/input.jsx";
 
@@ -6,65 +6,158 @@ import { Button } from "../button/button.jsx";
 
 import "./contactForm.css";
 
-
 export class ContactForm extends Component {
+  state = {
+    name: "",
+    email: "",
+    message: "",
+    errors: {},
+  };
 
-state = {
-  name: "",
-  email: "",
-  message: ""
-}
+  validation = {
+    name: {
+      isRequired: true,
+    },
+    email: {
+      isRequired: true,
+      isEmail: true,
+    },
+    message: {
+      isRequired: true,
+    },
+  };
 
-changeFormParam(name, value) {
-  this.setState({ [name]: value });
-}
+  validateField(fieldName, value) {
+    const fieldValidation = this.validation[fieldName];
 
-handleSubmit = (event) => {
-  console.log("email was changed", event.target.value);
-  this.setState({name: event.target.value, email: event.target.value})
-}
+    console.log({ fieldName, value });
+
+    let error;
+
+    if (fieldValidation.isRequired && !value) {
+      error = "This field is required";
+    } else if (fieldValidation.isEmail) {
+      const regexp = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
+
+      if (!regexp.test(value)) {
+        error = "This field should be a valid email";
+      }
+    }
+
+    return error;
+  }
+
+  validate() {
+    const fields = ["name", "email", "message"];
+    const { errors } = this.state;
+    let formIsValid = true;
+
+    fields.forEach((fieldName) => {
+      const value = this.state[fieldName];
+      const error = this.validateField(fieldName, value);
+
+      if (error) {
+        errors[fieldName] = error;
+        formIsValid = false;
+      } else {
+        delete errors[fieldName];
+      }
+    });
+
+    this.setState({ errors });
+    return formIsValid;
+  }
+
+  changeFormParam = (fieldName, value) => {
+    const { errors } = this.state;
+    this.setState({ [fieldName]: value });
+    const error = this.validateField(fieldName, value);
+
+    if (error) {
+      errors[fieldName] = error;
+    } else {
+      delete errors[fieldName];
+    }
+
+    this.setState({ errors });
+  };
+
+  changeMessage(event) {
+    console.log(event);
+    this.changeFormParam("message", event.target.value);
+  }
+
+  handleSubmit() {
+    const formIsValid = this.validate();
+    const { name, email, message } = this.state;
+    const { onSubmit } = this.props;
+
+    if (formIsValid && onSubmit) {
+      onSubmit({ name, email, message });
+    }
+  }
 
   render() {
-const { name, email, message } = this.state;
+    const { name, email, message, errors } = this.state;
 
     return (
       <form className="contact-form">
         <ul className="contact-form__list">
           <li className="contact-form__input">
             <Input
+              required
               type="text"
-              size="small"
+              size="large"
               value={name}
-              name="yourName"
+              name="name"
               placeholder="Your name"
-              onChange={(name, value) => this.changeFormParam(name, value)}
+              onChange={this.changeFormParam}
             />
+            <FormError error={errors.name} />
           </li>
-          <li className="contact-form__input">  
+          <li className="contact-form__input">
             <Input
+              required
               type="text"
-              size="small"
+              size="large"
               value={email}
-              name="yourEmail"
+              name="email"
               placeholder="Your Email"
-              onChange={(email, value) => this.changeFormParam(email, value)} 
+              onChange={this.changeFormParam}
             />
+            <FormError error={errors.email} />
           </li>
-          <li className="contact-form__textarea">  
-            <textarea 
+          <li className="contact-form__textarea">
+            <textarea
+              required
               type="text"
               value={message}
               name="message"
               placeholder="Message"
-              onChange={(message, value) => this.changeFormParam(message, value)} />
+              onChange={(event) => this.changeMessage(event)}
+            />
+            <FormError error={errors.message} />
           </li>
           <li className="contact-form__button">
-            <Button size="l" rounding="both" clickEvent={this.handleSubmit}>
-                SEND MESSAGE
+            <Button
+              size="l"
+              rounding="both"
+              clickEvent={(event) => this.handleSubmit(event)}
+              disabled={!this.state.formValid}
+            >
+              SEND MESSAGE
             </Button>
           </li>
         </ul>
       </form>
-    )
+    );
+  }
+}
+
+class FormError  extends Component{
+  render() {
+    const { error } = this.props;
+
+    return error && <span>{error}</span>;
   }
 }
