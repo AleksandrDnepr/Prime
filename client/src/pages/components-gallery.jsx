@@ -46,6 +46,8 @@ import {PropertyFilter} from "../components/propertyFilter/propertyFilter.jsx";
 
 import { ContactForm } from "../components/contactForm/contactForm.jsx";
 
+
+
 export default class ComponentsGallery extends Component {
 
   render() {

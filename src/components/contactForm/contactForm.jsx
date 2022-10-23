@@ -4,6 +4,8 @@ import { Input } from "../input/input.jsx";
 
 import { Button } from "../button/button.jsx";
 
+import { FormError } from "../formError/formError.jsx";
+
 import "./contactForm.css";
 
 export class ContactForm extends Component {
@@ -29,8 +31,6 @@ export class ContactForm extends Component {
 
   validateField(fieldName, value) {
     const fieldValidation = this.validation[fieldName];
-
-    console.log({ fieldName, value });
 
     let error;
 
@@ -83,7 +83,6 @@ export class ContactForm extends Component {
   };
 
   changeMessage(event) {
-    console.log(event);
     this.changeFormParam("message", event.target.value);
   }
 
@@ -104,36 +103,41 @@ export class ContactForm extends Component {
       <form className="contact-form">
         <ul className="contact-form__list">
           <li className="contact-form__input">
-            <Input
-              required
-              type="text"
-              size="large"
-              value={name}
-              name="name"
-              placeholder="Your name"
-              onChange={this.changeFormParam}
-            />
-            <FormError error={errors.name} />
+            
+              <div>
+                <Input
+                  required
+                  type="text"
+                  size="large"
+                  value={name}
+                  name="name"
+                  placeholder="Your name"
+                  onChange={this.changeFormParam}
+                />
+                <FormError error={errors.name} />
+              </div>
+              <div>
+                <Input
+                  required
+                  type="text"
+                  size="large"
+                  value={email}
+                  name="email"
+                  placeholder="Your Email"
+                  onChange={this.changeFormParam}
+                />
+                <FormError error={errors.email} />
+              </div>
           </li>
-          <li className="contact-form__input">
-            <Input
-              required
-              type="text"
-              size="large"
-              value={email}
-              name="email"
-              placeholder="Your Email"
-              onChange={this.changeFormParam}
-            />
-            <FormError error={errors.email} />
-          </li>
-          <li className="contact-form__textarea">
+          <li className="contact-form__textarea textarea">
             <textarea
               required
+              rows={8}
               type="text"
               value={message}
               name="message"
               placeholder="Message"
+              className="textarea__element"
               onChange={(event) => this.changeMessage(event)}
             />
             <FormError error={errors.message} />
@@ -151,13 +155,5 @@ export class ContactForm extends Component {
         </ul>
       </form>
     );
-  }
-}
-
-class FormError  extends Component{
-  render() {
-    const { error } = this.props;
-
-    return error && <span>{error}</span>;
   }
 }
