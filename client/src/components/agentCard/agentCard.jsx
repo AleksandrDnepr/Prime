@@ -1,6 +1,7 @@
 import { Component } from "react";
 import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
+import loading from "./loading.webp";
 
 
 export class AgentCard extends Component {
@@ -24,7 +25,8 @@ render() {
                 <li className="agent__form">
                     {/* <ContactForm /> */}
                     <p className="agent__form_text"><span className="agent__form_thanks">Thank you!</span>
-                    Your message was send succesfully. Our agent will contact you as soon as possible!</p>
+                    Your message was sent succesfully. Our agent will contact you as soon as possible!</p>
+                    <img className="agent__loading" src={loading} alt="loading..." />
                 </li>
                 </ul>
         </section>
