@@ -44,6 +44,10 @@ import {Sidebar} from "../components/sidebar/sidebar.jsx";
 
 import {PropertyFilter} from "../components/propertyFilter/propertyFilter.jsx";
 
+import { ContactForm } from "../components/contactForm/contactForm.jsx";
+
+
+
 export default class ComponentsGallery extends Component {
 
   render() {
@@ -300,6 +304,7 @@ export default class ComponentsGallery extends Component {
         
         <Sidebar><input id="comp-name" name="comp-name" type="text"/></Sidebar>
 
+        <ContactForm />
         
       </div> 
 

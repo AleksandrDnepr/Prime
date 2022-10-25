@@ -60,4 +60,3 @@ export class Input extends Component {
             </label>
     }
 }
-
