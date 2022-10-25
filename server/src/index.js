@@ -2,6 +2,8 @@ const express = require('express');
 const router = require('./routes/');
 const path = require('path');
 
+const mailer = require("./routes/nodemailer");
+
 express()
     .use(express.static('static'))
     .use(express.json())
