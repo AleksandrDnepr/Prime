@@ -104,7 +104,7 @@ export class ContactForm extends Component {
         <ul className="contact-form__list">
           <li className="contact-form__input">
             
-              <div>
+              <div className="contact-form__field">
                 <Input
                   required
                   type="text"
@@ -116,7 +116,7 @@ export class ContactForm extends Component {
                 />
                 <FormError error={errors.name} />
               </div>
-              <div>
+              <div className="contact-form__field">
                 <Input
                   required
                   type="text"
@@ -129,7 +129,7 @@ export class ContactForm extends Component {
                 <FormError error={errors.email} />
               </div>
           </li>
-          <li className="contact-form__textarea textarea">
+          <li className="contact-form__textarea">
             <textarea
               required
               rows={8}

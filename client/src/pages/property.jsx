@@ -70,6 +70,7 @@ class Property extends Component {
             location={location}
             phone={tel}
             email={email}
+            status="default"
           />
         </Page>
       </>

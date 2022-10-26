@@ -1,13 +1,29 @@
 import { Component } from "react";
 import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
-import loading from "./loading.webp";
+import loading from "../loading/loading.webp";
+import { ContactForm } from "../contactForm/contactForm.jsx"
 
 
 export class AgentCard extends Component {
 
+statusForm() {
+    const { status } = this.props;
+
+    switch (status) {
+    case "success": 
+        return <p className="agent__form_text"><span className="agent__form_thanks">Thank you!</span>
+        Your message was sent succesfully. Our agent will contact you as soon as possible!</p>;
+    case "loading": 
+        return <img className="agent__loading" src={loading} alt="loading..." />;
+    case "default": 
+        return <ContactForm />;
+    default:
+        break;
+}
+}
 render() {
-    const {name, photoUrl, location } = this.props;
+    const {name, photoUrl, location, status } = this.props;
     
     return(
         <section className="agent__section">
@@ -23,10 +39,7 @@ render() {
                     {location}
                 </li>
                 <li className="agent__form">
-                    {/* <ContactForm /> */}
-                    <p className="agent__form_text"><span className="agent__form_thanks">Thank you!</span>
-                    Your message was sent succesfully. Our agent will contact you as soon as possible!</p>
-                    <img className="agent__loading" src={loading} alt="loading..." />
+                    {this.statusForm()}
                 </li>
                 </ul>
         </section>
