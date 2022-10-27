@@ -30,7 +30,7 @@ export default class App extends React.Component  {
 }
 
 async function main() {
-  const api = await fetch('/api/status').then(res => res.json());
+  const api = await fetch('/api/status').then(res => res.json()).catch(console.error);
   console.log('API is', api);
 
   const root = document.createElement('div');
