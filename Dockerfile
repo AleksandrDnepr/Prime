@@ -8,9 +8,9 @@ WORKDIR /server
 RUN yarn install
 
 FROM node:18-alpine
-COPY --from=static server /app
-COPY --from=static /client/build /app/public
-WORKDIR /app
+COPY --from=static server /server
+COPY --from=static /client/build /server/static
+WORKDIR /server
 EXPOSE 3100
 CMD yarn start
 
