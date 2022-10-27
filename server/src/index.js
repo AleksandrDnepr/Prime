@@ -9,5 +9,4 @@ express()
     .use((req, res, next) => {
         res.sendFile(path.join(__dirname, "..", "static", "index.html"));
     })
-    .listen(3100, () => console.log('Started on :3100'))
-    
+    .listen(3100, () => console.log('Started on :3100'));
