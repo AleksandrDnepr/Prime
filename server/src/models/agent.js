@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const config = require("config");
 
 module.exports = class Agent {
   static AGENTS = [];
@@ -17,12 +18,12 @@ async function sendEmail({info, email}) {
 
   const transporter = nodemailer.createTransport(
     {
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false,
-      auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
+      host: config.get('emailConfig.host'),
+        port: config.get('emailConfig.port'),
+        secure: config.get('emailConfig.secure'),
+        auth: {
+            user: config.get('emailConfig.auth.user'),
+            pass: config.get('emailConfig.auth.pass')
       },
     },
     {
@@ -34,6 +35,7 @@ async function sendEmail({info, email}) {
     .sendMail({
       from: `"${info.name}" <${info.email}>`,
       to: email,
+      subject: 'Dear Agent!',
       text: `${info.message}`,
     })
     .catch(console.log);
