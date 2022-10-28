@@ -3,7 +3,7 @@ const router = require('./routes/');
 const path = require('path');
 
 express()
-    .use(express.static('static')
+    .use(express.static('static'))
     .use(express.json())
     .use('/api', router)
     .use((req, res, next) => {
