@@ -15,13 +15,13 @@ import {ContactForm} from "../components/contactForm/contactForm.jsx"
 
 class Property extends Component {
 
-  async sendMail(info) {
-    await  fetch('api/contact', {
+  async sendMail(info, email) {
+    await  fetch('api/agents/001/send-mail', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(info),
+      body: JSON.stringify(info, email),
     })
       .then((response) => response.json())
       .then((info) => {console.log(info);})
@@ -88,7 +88,7 @@ class Property extends Component {
             status="default"
           />
           <ContactForm 
-            onSubmit={ info => this.sendMail(info) }
+            onSubmit={ info => this.sendMail(info, email) }
             />
         </Page>
       </>
