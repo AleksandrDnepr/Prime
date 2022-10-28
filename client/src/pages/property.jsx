@@ -15,18 +15,18 @@ import {ContactForm} from "../components/contactForm/contactForm.jsx"
 
 class Property extends Component {
 
-  async sendMail(info, email) {
-    await  fetch('api/agents/001/send-mail', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(info, email),
-    })
-      .then((response) => response.json())
-      .then((info) => {console.log(info);})
-      .catch((err) => {console.log(err.message);})
-  }
+  // async sendMail(info, email) {
+  //   await  fetch('api/agents/001/send-mail', {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify(info, email),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((info) => {console.log(info);})
+  //     .catch((err) => {console.log(err.message);})
+  // }
 
   getAgentByID(id, agents) {
     return agents.find((agent) => {
@@ -87,9 +87,6 @@ class Property extends Component {
             email={email}
             status="default"
           />
-          <ContactForm 
-            onSubmit={ info => this.sendMail(info, email) }
-            />
         </Page>
       </>
     );

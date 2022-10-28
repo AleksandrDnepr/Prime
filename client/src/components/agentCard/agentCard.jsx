@@ -7,8 +7,21 @@ import { ContactForm } from "../contactForm/contactForm.jsx"
 
 export class AgentCard extends Component {
 
+    async sendMail(info, email) {
+        await  fetch('api/agents/001/send-mail', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({info, email}),
+        })
+          .then((response) => response.json())
+          .then((info) => {console.log(info);})
+          .catch((err) => {console.log(err.message);})
+      }
+
 statusForm() {
-    const { status } = this.props;
+    const { status, email } = this.props;
 
     switch (status) {
     case "success": 
@@ -17,13 +30,14 @@ statusForm() {
     case "loading": 
         return <img className="agent__loading" src={loading} alt="loading..." />;
     case "default": 
-        return <ContactForm />;
+        return <ContactForm onSubmit={info => this.sendMail(info, email)}/>;
     default:
         break;
 }
 }
+
 render() {
-    const {name, photoUrl, location, status } = this.props;
+    const {name, photoUrl, location } = this.props;
     
     return(
         <section className="agent__section">

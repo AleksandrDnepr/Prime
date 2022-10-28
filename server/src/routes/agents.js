@@ -13,8 +13,7 @@ async function read(req, res) {
     res.json({ agent });
 }
 
-async function sendMailToAgent({body, params}, res) {
-  const { id } = params;
+async function sendMailToAgent({body}, res) {
 
   Agent.sendEmail(body)
   .then(() => res.json({ body }))
