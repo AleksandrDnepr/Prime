@@ -3,14 +3,15 @@ ADD client /client
 WORKDIR /client
 RUN yarn install
 RUN yarn build
-ADD server /server
-WORKDIR /server
-RUN yarn install
+
 
 FROM node:18-alpine
-COPY --from=static server /server
+ENV NODE_ENV=production
 COPY --from=static /client/build /server/static
+ADD server /server
 WORKDIR /server
-EXPOSE 3100
+RUN yarn install --production
+WORKDIR /server
+EXPOSE 80
 CMD yarn start
 
