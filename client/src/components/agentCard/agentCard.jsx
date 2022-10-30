@@ -1,8 +1,9 @@
 import { Component } from "react";
 import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
-import loading from "../loading/loading.webp";
+// import loading from "../loading/loading.webp";
 import { ContactForm } from "../contactForm/contactForm.jsx"
+import { Loading } from "../loading/loading.jsx";
 
 
 export class AgentCard extends Component {
@@ -15,7 +16,7 @@ statusForm() {
         return <p className="agent__form_text"><span className="agent__form_thanks">Thank you!</span>
         Your message was sent succesfully. Our agent will contact you as soon as possible!</p>;
     case "loading": 
-        return <img className="agent__loading" src={loading} alt="loading..." />;
+        return <Loading />;
     case "default": 
         return <ContactForm />;
     default:
