@@ -1,11 +1,27 @@
 const nodemailer = require("nodemailer");
 const config = require("config");
+const agents = require("../data/agents.json");
 
 module.exports = class Agent {
-  static AGENTS = [];
+  static AGENTS = agents.agents_info;
+
+  constructor(body) {
+    const agent = {};
+    agent.id = Agent.AGENTS.length + 1;
+    agent.name = body.name;
+    agent.photo = body.photo;
+    agent.location = body.location;
+    agent.tel = body.tel;
+    agent.email = body.email;
+    Agent.AGENTS.push(agent);
+  }
 
   static findById(id) {
     return Agent.AGENTS.find((agent) => agent.id === id);
+  }
+
+  static findAll() {
+    return [...Agent.AGENTS];
   }
 
   static async sendEmail(data) {
@@ -14,7 +30,7 @@ module.exports = class Agent {
 };
 
 async function sendEmail({info, email}) {
-  const testAccount = await nodemailer.createTestAccount();
+  // const testAccount = await nodemailer.createTestAccount();
 
   const transporter = nodemailer.createTransport(
     {

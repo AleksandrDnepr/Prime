@@ -10,15 +10,16 @@ import {Features} from "../components/features/features.jsx";
 import {AgentCard} from "../components/agentCard/agentCard.jsx";
 import {Page} from "../components/page/page.jsx"
 import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
-import {ContactForm} from "../components/contactForm/contactForm.jsx"
 
 
 class Property extends Component {
 
-  getAgentByID(id, agents) {
-    return agents.find((agent) => {
-      return agent.id === id;
-    });
+  async getAgentByID(id) {
+    const agent = await fetch(`api/agents/${id}/`)
+              .then(res => res.json())
+              .then(data => data.agent)
+      console.log(agent)        
+    return agent;
   }
 
   getPropertyByID(id, properties) {
@@ -28,7 +29,7 @@ class Property extends Component {
   }
 
   render() {
-    const { apartaments, agents_info } = data;
+    const { apartaments } = data;
     const { property_id } = this.props.match.params;
     const property = this.getPropertyByID(property_id, apartaments);
 
@@ -37,8 +38,11 @@ class Property extends Component {
       this.props.history.push("/page_not_found");
       return;
     }
-    const atachedAgent = this.getAgentByID(property.attached_agents_id, agents_info);
-    const { name, photo, location, tel, email } = atachedAgent;
+
+    const atachedAgent = this.getAgentByID(property.attached_agents_id);
+    // console.log(object);
+    const { name, photo, location, tel, email, id } = atachedAgent;
+    console.log(atachedAgent);
 
     return (
       <>
@@ -67,6 +71,7 @@ class Property extends Component {
           <Features features={property.features}/>
 
           <AgentCard
+            id={id}
             name={name}
             photoUrl={photo}
             location={location}
