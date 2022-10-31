@@ -11,7 +11,6 @@ COPY --from=static /client/build /server/static
 ADD server /server
 WORKDIR /server
 RUN yarn install --production
-WORKDIR /server
 EXPOSE 80
 CMD yarn start
 
