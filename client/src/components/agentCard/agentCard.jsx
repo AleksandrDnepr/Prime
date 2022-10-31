@@ -1,7 +1,6 @@
 import { Component } from "react";
 import {Subtitle} from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
-// import loading from "../loading/loading.webp";
 import { ContactForm } from "../contactForm/contactForm.jsx"
 import { Loading } from "../loading/loading.jsx";
 
