@@ -1,25 +1,11 @@
-const { Router } = require('express');
-const Agent = require('../models/agent.js');
+const { Router } = require("express");
+const Agent = require("../models/agent.js");
 
-
-async function index(req, res) {
-    const agents = Agent.findAll();
-
-    res.json({ agents });
-}
-
-async function create(req, res) {
-    const { body } = req;
-
-    const agent = new Agent(body);
-
-    res.json({ agent });
-}
 
 async function read(req, res) {
     const { id } = req.params;
-
     const agent = Agent.findById(id);
+    
     if (!agent) {
         return res.status(404).json({ error: `Agent with id ${id} not found` });
     }
@@ -27,17 +13,14 @@ async function read(req, res) {
     res.json({ agent });
 }
 
-async function sendMailToAgent({body}, res) {
+async function sendMailToAgent({ body, params }, res) {
+    const agent = Agent.findById(params.id);
 
-  Agent.sendEmail(body)
-  .then(() => res.json({ body }))
-  .catch(() => res.json({error: 'Something wrong'}));
+    Agent.sendEmail({ ...body, email: agent.email })
+        .then(() => res.json({ body }))
+        .catch(() => res.json({ error: "Something wrong" }));
 }
 
 module.exports = Router()
-    .get('/', index)
-    .post('/', create)
-    .get('/:id', read)
-    .post('/:id/send-mail', sendMailToAgent)
-
-    
+    .get("/:id", read)
+    .post("/:id/send-mail", sendMailToAgent);

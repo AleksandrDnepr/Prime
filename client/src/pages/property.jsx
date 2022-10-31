@@ -13,37 +13,24 @@ import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
 
 
 class Property extends Component {
-
-  async getAgentByID(id) {
-    const agent = await fetch(`api/agents/${id}/`)
-              .then(res => res.json())
-              .then(data => data.agent)
-      console.log(agent)        
-    return agent;
-  }
-
+  
   getPropertyByID(id, properties) {
     return properties.find((item) => {
       return item.id === id;
     });
   }
-
+  
   render() {
     const { apartaments } = data;
     const { property_id } = this.props.match.params;
     const property = this.getPropertyByID(property_id, apartaments);
-
-
+    const agentId = property.attached_agents_id;
+    
     if (!property) {
       this.props.history.push("/page_not_found");
       return;
     }
-
-    const atachedAgent = this.getAgentByID(property.attached_agents_id);
-    // console.log(object);
-    const { name, photo, location, tel, email, id } = atachedAgent;
-    console.log(atachedAgent);
-
+    
     return (
       <>
         <Page title={property.title}>
@@ -71,12 +58,7 @@ class Property extends Component {
           <Features features={property.features}/>
 
           <AgentCard
-            id={id}
-            name={name}
-            photoUrl={photo}
-            location={location}
-            phone={tel}
-            email={email}
+            agentId={agentId}
             status="default"
           />
         </Page>
