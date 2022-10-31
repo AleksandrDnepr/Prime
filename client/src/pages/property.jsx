@@ -10,9 +10,28 @@ import {Features} from "../components/features/features.jsx";
 import {AgentCard} from "../components/agentCard/agentCard.jsx";
 import {Page} from "../components/page/page.jsx"
 import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
+import {ContactForm} from "../components/contactForm/contactForm.jsx"
 
 
 class Property extends Component {
+
+  async sendMail(info) {
+    await  fetch('api/mailer', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(info),
+    })
+      .then((response) => response.json())
+      .then((info) => {
+          console.log(info);
+      })
+      .catch((err) => {
+          console.log(err.message);
+      })
+  }
+
   getAgentByID(id, agents) {
     return agents.find((agent) => {
       return agent.id === id;
@@ -72,6 +91,9 @@ class Property extends Component {
             email={email}
             status="default"
           />
+          <ContactForm 
+            onSubmit={ info => this.sendMail(info) }
+            />
         </Page>
       </>
     );
@@ -79,3 +101,5 @@ class Property extends Component {
 }
 
 export default withRouter(Property);
+
+

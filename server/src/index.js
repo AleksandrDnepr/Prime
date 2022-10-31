@@ -2,11 +2,11 @@ const express = require('express');
 const router = require('./routes/');
 const path = require('path');
 
-const mailer = require("./routes/nodemailer");
 
 express()
     .use(express.static('static'))
     .use(express.json())
+    .use(require('body-parser').urlencoded({ extended: false }))
     .use('/api', router)
     .use((req, res, next) => {
         res.sendFile(path.join(__dirname, "..", "static", "index.html"));
