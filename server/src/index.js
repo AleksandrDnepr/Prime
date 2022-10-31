@@ -6,7 +6,6 @@ const path = require('path');
 express()
     .use(express.static('static'))
     .use(express.json())
-    .use(require('body-parser').urlencoded({ extended: false }))
     .use('/api', router)
     .use((req, res, next) => {
         res.sendFile(path.join(__dirname, "..", "static", "index.html"));

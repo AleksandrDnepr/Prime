@@ -16,7 +16,7 @@ import {ContactForm} from "../components/contactForm/contactForm.jsx"
 class Property extends Component {
 
   async sendMail(info) {
-    await  fetch('api/mailer', {
+    await  fetch('api/contact', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -24,12 +24,8 @@ class Property extends Component {
       body: JSON.stringify(info),
     })
       .then((response) => response.json())
-      .then((info) => {
-          console.log(info);
-      })
-      .catch((err) => {
-          console.log(err.message);
-      })
+      .then((info) => {console.log(info);})
+      .catch((err) => {console.log(err.message);})
   }
 
   getAgentByID(id, agents) {
