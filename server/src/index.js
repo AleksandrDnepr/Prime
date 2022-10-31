@@ -7,7 +7,6 @@ const path = require('path');
 express()
     .use(express.static('static'))
     .use(express.json())
-    .use(require('body-parser').urlencoded({ extended: false }))
     .use('/api', router)
     .listen(3100, () => console.log('Started on :3100'))
     
