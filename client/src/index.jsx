@@ -34,7 +34,10 @@ async function main() {
   console.log('API is', api);
 
   const root = document.createElement('div');
+  const modalRoot = document.createElement('div');
+  modalRoot.id = 'modal-root'
   document.querySelector('body').appendChild(root);
+  document.querySelector('body').appendChild(modalRoot);
   ReactDOM.createRoot(root).render(<App />);
 }
 

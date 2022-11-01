@@ -10,6 +10,8 @@ import { Features } from "../components/features/features.jsx";
 import { AgentCard } from "../components/agentCard/agentCard.jsx";
 import { Page } from "../components/page/page.jsx";
 import { GoHomeButton } from "../components/goHomeButton/GoHomeButton";
+import { Loading } from "../components/loading/loading";
+import { ErrorMessage } from "../components/errorMessage/errorMessage";
 
 class Property extends Component {
   state = {
@@ -23,8 +25,7 @@ class Property extends Component {
     fetch(`/api/properties/${property_id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        this.setState({ property: data.property })
+        this.setState({ property: data.property });
       })
       .catch(() => this.setState({ error: "Something went wrong" }))
       .finally(() => this.setState({ isLoading: false }));
@@ -41,14 +42,12 @@ class Property extends Component {
   render() {
     const { property, isLoading, error } = this.state;
     const agentId = property.attached_agents_id;
-    console.log({ property, isLoading, error });
-
     if (isLoading) {
-      return "Loading";
+      return <Loading />;
     }
 
     if (error) {
-      return error;
+      return <ErrorMessage>{error}</ErrorMessage>;
     }
 
     if (!property) {
