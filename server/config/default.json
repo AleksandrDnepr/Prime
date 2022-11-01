@@ -1,0 +1,12 @@
+{
+    "emailConfig": {
+      "host": "smtp.ethereal.email",
+      "port": 587,
+      "secure": false,
+      "dbName": "customers",
+      "auth":{
+        "user":"jeff77@ethereal.email",
+        "pass":"9XVjJt1zkbzMNVTPnG"
+      }
+    }
+}

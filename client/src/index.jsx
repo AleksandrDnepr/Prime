@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ComponentsGallery from "./pages/components-gallery";
-import { HashRouter, Switch, Route} from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Index from "./pages/index.jsx";
 import Property from "./pages/property";
 import NotFoundError from "./components/notFoundError/notFoundError";
@@ -30,13 +30,16 @@ export default class App extends React.Component  {
 }
 
 async function main() {
-  const api = await fetch('/api/status').then(res => res.json()).catch(console.error);
+  const api = await fetch('/api/status').then(res => res.json()).catch(console.error).catch(console.error);
   console.log('API is', api);
 
   const root = document.createElement('div');
   const modalRoot = document.createElement('div');
   modalRoot.id = 'modal-root'
+  const modalRoot = document.createElement('div');
+  modalRoot.id = 'modal-root'
   document.querySelector('body').appendChild(root);
+  document.querySelector('body').appendChild(modalRoot);
   document.querySelector('body').appendChild(modalRoot);
   ReactDOM.createRoot(root).render(<App />);
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import data from "../data.json";
+// import data from "../data.json";
 import { Title } from "../components/title/title.jsx";
 import { Gallery } from "../components/Gallery/Gallery.jsx";
 import { Description } from "../components/description/description.jsx";
@@ -31,40 +31,24 @@ class Property extends Component {
       .catch(() => this.setState({ error: "Something went wrong" }))
       .finally(() => this.setState({ isLoading: false }));
   }
-
-  getAgentByID(id, agents) {
-    return agents.find((agent) => {
-      return agent.id === id;
-    });
-  }
-
-  // getPropertyByID(id, properties) {
-  //   return properties.find((item) => {
-  //     return item.id === id;
-  //   });
-  // }
-
+  
   render() {
-    const { agents_info } = data;
     const { property, isLoading, error } = this.state;
-
+    
     if (isLoading) {
       return <Loading />;
     }
-
+    
     if (error) {
       return <ErrorMessage>{error}</ErrorMessage>;
     }
-
+    
     if (!property) {
       return <Redirect to="/page_not_found" />;
     }
-    const atachedAgent = this.getAgentByID(
-      property.attached_agents_id,
-      agents_info
-    );
-    const { name, photo, location } = atachedAgent;
 
+    const agentId = property.attached_agents_id;
+    
     return (
       <>
         <Page title={property.title}>
@@ -90,9 +74,7 @@ class Property extends Component {
           <Features features={property.features} />
 
           <AgentCard
-            name={name}
-            photoUrl={photo}
-            location={location}
+            agentId={agentId}
             status="default"
           />
         </Page>
@@ -102,3 +84,5 @@ class Property extends Component {
 }
 
 export default withRouter(Property);
+
+
