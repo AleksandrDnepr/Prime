@@ -35,9 +35,7 @@ async function main() {
 
   const root = document.createElement('div');
   const modalRoot = document.createElement('div');
-  modalRoot.id = 'modal-root'
-  const modalRoot = document.createElement('div');
-  modalRoot.id = 'modal-root'
+  modalRoot.id = 'modal-root';
   document.querySelector('body').appendChild(root);
   document.querySelector('body').appendChild(modalRoot);
   document.querySelector('body').appendChild(modalRoot);
