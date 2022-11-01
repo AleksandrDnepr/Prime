@@ -38,11 +38,11 @@ class Property extends Component {
     });
   }
 
-  getPropertyByID(id, properties) {
-    return properties.find((item) => {
-      return item.id === id;
-    });
-  }
+  // getPropertyByID(id, properties) {
+  //   return properties.find((item) => {
+  //     return item.id === id;
+  //   });
+  // }
 
   render() {
     const { agents_info } = data;
@@ -63,7 +63,7 @@ class Property extends Component {
       property.attached_agents_id,
       agents_info
     );
-    const { name, photo, location, tel, email } = atachedAgent;
+    const { name, photo, location } = atachedAgent;
 
     return (
       <>
@@ -93,8 +93,6 @@ class Property extends Component {
             name={name}
             photoUrl={photo}
             location={location}
-            phone={tel}
-            email={email}
             status="default"
           />
         </Page>
