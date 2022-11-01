@@ -12,6 +12,7 @@ import { Page } from "../components/page/page.jsx";
 import { GoHomeButton } from "../components/goHomeButton/GoHomeButton";
 import { Loading } from "../components/loading/loading";
 import { ErrorMessage } from "../components/errorMessage/errorMessage";
+import { Redirect } from 'react-router-dom';
 
 class Property extends Component {
   state = {
@@ -51,8 +52,7 @@ class Property extends Component {
     }
 
     if (!property) {
-      this.props.history.push("/page_not_found");
-      return;
+      return <Redirect to="/page_not_found" />;
     }
     
     return (

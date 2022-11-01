@@ -1,12 +1,6 @@
 const { Router } = require('express');
 const Property = require('../models/property.js');
 
-async function index(res) {
-    const properties = Property.findAll();
-
-    res.json({ properties });
-}
-
 async function create(req, res) {
     const { body } = req;
 
@@ -27,6 +21,5 @@ async function read(req, res) {
 }
 
 module.exports = Router()
-    .get('/', index)
     .post('/', create)
     .get('/:id', read);
