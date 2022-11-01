@@ -1,13 +1,7 @@
 const { Router } = require('express');
 const Property = require('../models/property.js');
 
-// GET /api/things => list all things
-// GET /api/things/:id => show particular thing
-// POST /api/things => create new thing
-// PUT /api/things/:id => edit particular thing
-// DELETE /api/things/:id => removes particular thing
-
-async function index(req, res) {
+async function index(res) {
     const properties = Property.findAll();
 
     res.json({ properties });
