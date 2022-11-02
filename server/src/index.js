@@ -1,12 +1,7 @@
 const express = require('express');
 const router = require('./routes/');
-const path = require('path');
 
-express()
-    .use(express.static('static'))
+express()    
     .use(express.json())
-    .use('/api', router)
-    .use((req, res, next) => {
-        res.sendFile(path.join(__dirname, "..", "static", "index.html"));
-    })
+    .use('/api', router)    
     .listen(80, () => console.log('Started on :80'));
