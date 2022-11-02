@@ -1,66 +1,76 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import data from "../data.json";
-import {Title} from "../components/title/title.jsx";
-import {Gallery} from "../components/Gallery/Gallery.jsx";
-import {Description} from "../components/description/description.jsx";
-import {FloorPlans} from "../components/floorPlans/floorPlans.jsx";
-import {AmenityList} from "../components/amenitylist/amenitylist.jsx";
-import {Features} from "../components/features/features.jsx";
-import {AgentCard} from "../components/agentCard/agentCard.jsx";
-import {Page} from "../components/page/page.jsx"
-import {GoHomeButton} from "../components/goHomeButton/GoHomeButton";
-
+import { Title } from "../components/title/title.jsx";
+import { Gallery } from "../components/Gallery/Gallery.jsx";
+import { Description } from "../components/description/description.jsx";
+import { FloorPlans } from "../components/floorPlans/floorPlans.jsx";
+import { AmenityList } from "../components/amenitylist/amenitylist.jsx";
+import { Features } from "../components/features/features.jsx";
+import { AgentCard } from "../components/agentCard/agentCard.jsx";
+import { Page } from "../components/page/page.jsx";
+import { GoHomeButton } from "../components/goHomeButton/GoHomeButton";
+import { Loading } from "../components/loading/loading";
+import { ErrorMessage } from "../components/errorMessage/errorMessage";
+import { Redirect } from "react-router-dom";
 
 class Property extends Component {
-  
-  getPropertyByID(id, properties) {
-    return properties.find((item) => {
-      return item.id === id;
-    });
-  }
-  
-  render() {
-    const { apartaments } = data;
+  state = {
+    property: null,
+    isLoading: true,
+  };
+
+  componentDidMount() {
     const { property_id } = this.props.match.params;
-    const property = this.getPropertyByID(property_id, apartaments);
-    const agentId = property.attached_agents_id;
-    
-    if (!property) {
-      this.props.history.push("/page_not_found");
-      return;
+
+    fetch(`/api/properties/${property_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ property: data.property });
+      })
+      .catch(() => this.setState({ error: "Something went wrong" }))
+      .finally(() => this.setState({ isLoading: false }));
+  }
+
+  render() {
+    const { property, isLoading, error } = this.state;
+
+    if (isLoading) {
+      return <Loading />;
     }
-    
+
+    if (error) {
+      return <ErrorMessage>{error}</ErrorMessage>;
+    }
+
+    if (!property) {
+      return <Redirect to="/page_not_found" />;
+    }
+
     return (
       <>
         <Page title={property.title}>
-
-        <GoHomeButton />
+          <GoHomeButton />
 
           <Title
             name={property.title}
-            location={property.location}            
+            location={property.location}
             details={property.details}
             id={property.id}
             type={property.type}
-            price={property.price} />
+            price={property.price}
+          />
 
-          <Gallery
-            pictGalery={property.images.galery} />
+          <Gallery pictGalery={property.images.galery} />
 
           <Description>{property.description}</Description>
 
           <FloorPlans plans={property.plans} />
 
-          <AmenityList
-            amenities={property.amenities} />
+          <AmenityList amenities={property.amenities} />
 
-          <Features features={property.features}/>
+          <Features features={property.features} />
 
-          <AgentCard
-            agentId={agentId}
-            status="default"
-          />
+          <AgentCard agentId={property.attached_agents_id} status="default" />
         </Page>
       </>
     );
@@ -68,5 +78,3 @@ class Property extends Component {
 }
 
 export default withRouter(Property);
-
-

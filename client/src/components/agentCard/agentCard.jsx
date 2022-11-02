@@ -1,8 +1,9 @@
 import { Component } from "react";
 import { Subtitle } from "../subtitle/subtitle.jsx";
 import "./agentCard.css";
-import loading from "../loading/loading.webp";
-import { ContactForm } from "../contactForm/contactForm.jsx";
+import { ContactForm } from "../contactForm/contactForm.jsx"
+import { Loading } from "../loading/loading.jsx";
+
 
 export class AgentCard extends Component {
     state = {
@@ -65,7 +66,7 @@ export class AgentCard extends Component {
             );
         case "loading":
             return (
-            <img className="agent__loading" src={loading} alt="loading..." />
+            <Loading />
             );
         case "default":
             return <ContactForm onSubmit={(info) => this.sendMail(info)} />;
