@@ -12,6 +12,6 @@ ADD server /server
 WORKDIR /server
 RUN yarn install --production
 EXPOSE 80
-CMD yarn start
+CMD yarn serve
 
 
