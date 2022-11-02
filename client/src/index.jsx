@@ -30,9 +30,6 @@ export default class App extends React.Component  {
 }
 
 async function main() {
-  const api = await fetch('/api/status').then(res => res.json()).catch(console.error).catch(console.error);
-  console.log('API is', api);
-
   const root = document.createElement('div');
   const modalRoot = document.createElement('div');
   modalRoot.id = 'modal-root';

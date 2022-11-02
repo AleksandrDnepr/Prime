@@ -46,8 +46,6 @@ class Property extends Component {
       return <Redirect to="/page_not_found" />;
     }
 
-    const agentId = property.attached_agents_id;
-
     return (
       <>
         <Page title={property.title}>
@@ -72,7 +70,7 @@ class Property extends Component {
 
           <Features features={property.features} />
 
-          <AgentCard agentId={agentId} status="default" />
+          <AgentCard agentId={property.attached_agents_id} status="default" />
         </Page>
       </>
     );
