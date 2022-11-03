@@ -40,5 +40,11 @@ module.exports = class Property {
       
     return filtredPropeties;
   }
+
+    static pageLimit() {
+      return Property.PROPERTIES.find(property => property.id === id);
+  }
+
+
 };
 
