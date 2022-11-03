@@ -12,5 +12,13 @@ async function read(req, res) {
     res.json({ property });
 }
 
+async function index(req, res) {
+    const properties = Property.findAll();
+
+    res.json({ properties });
+}
+
+
 module.exports = Router()
+    .get('/', index)
     .get('/:id', read);

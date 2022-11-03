@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import { PropertyList } from "../components/propertyList/propertyList.jsx";
 import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
-import { Sidebar } from "../components/sidebar/sidebar.jsx"
-// import data from '../data.json';
+import { Sidebar } from "../components/sidebar/sidebar.jsx";
+import { Loading } from "../components/loading/loading.jsx";
 
 class Index extends Component {
   state = {
@@ -30,7 +30,7 @@ class Index extends Component {
     
     fetchProperties()
       .then(data => 
-        setTimeout(()=> { this.setState({ properties: data.properties, isLoading: false }) }, 2000));
+          this.setState({ properties: data.properties, isLoading: false }) )
 
     fetchProperties()
       .then((data) => {
@@ -85,11 +85,16 @@ class Index extends Component {
     });
   }
 
+  showLoader(isLoading) {
+    return isLoading && <Loading/>;
+  }
+
   render() {
-    const {properties, filterValues, filterOptions, filtredProperties, isFiltred} = this.state;
+    const {properties, filterValues, filterOptions, filtredProperties, isFiltred, isLoading} = this.state;
     
     return (
       <Page title="PROPERTIES" withSidebar>
+        {this.showLoader(isLoading)}
         <PropertyList
           defaultView="grid"
           properties={isFiltred ? filtredProperties : properties}
