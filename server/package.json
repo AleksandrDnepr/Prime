@@ -10,6 +10,9 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "nodemon src/"
+    "start": "nodemon src/",
+    "serve": "node src/"
+
+    
   }
 }

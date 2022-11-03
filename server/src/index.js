@@ -1,6 +1,8 @@
 const express = require('express');
 const router = require('./routes/');
 const path = require('path');
+const config = require('config');
+const PORT = config.get('port');
 
 express()
     .use(express.static('static'))
@@ -9,5 +11,4 @@ express()
     .use((req, res, next) => {
         res.sendFile(path.join(__dirname, "..", "static", "index.html"));
     })
-    .listen(3100, () => console.log('Started on :3100'))
-    
+    .listen(PORT, () => console.log(`Started on :${PORT}`));
