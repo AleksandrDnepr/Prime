@@ -12,10 +12,11 @@ module.exports = class Property {
   }
 
   static filterAll(filterParams) {
+
     const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea } = filterParams;
     
     const isNumber = (value) => typeof value === "number";
-    const shownPropeties = Property.PROPERTIES.filter( property => {
+    const filtredPropeties = Property.PROPERTIES.filter( property => {
       
         if (location && property.location[1] !== location) {return false};
         if (type && property.type !== type) {return false};
@@ -31,6 +32,12 @@ module.exports = class Property {
         return true;
       })
       
-    return shownPropeties;
+    return filtredPropeties;
   }
+
+    static pageLimit() {
+      return Property.PROPERTIES.find(property => property.id === id);
+  }
+
+
 };

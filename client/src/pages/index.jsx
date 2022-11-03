@@ -71,7 +71,6 @@ class Index extends Component {
         properties: data.properties
       }))
       .catch((err) => { console.log(err) });
-
   }
 
   showLoader(isLoading) {
