@@ -37,8 +37,8 @@ class Index extends Component {
     );
   }
 
-  changeFilters(filters) {
-    window.scrollTo(0, 0);
+    changeFilters(filters) {
+      window.scrollTo(0, 0);
 
     Properties.setFilters(filters).then((state) => 
       this.setState({
