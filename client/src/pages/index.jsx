@@ -4,11 +4,11 @@ import { PropertyList } from "../components/propertyList/propertyList.jsx";
 import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx"
-import data from '../data.json';
+// import data from '../data.json';
 
 class Index extends Component {
   state = {
-    properties: data.apartaments,
+    properties: null,
     isFiltred: false,
     filtredProperties: [],
     filterOptions: {
@@ -17,28 +17,43 @@ class Index extends Component {
       location: [],
     },
     filterValues: {},
+    isLoading: true,
   }
 
   componentDidMount(){
-    const { properties } = this.state;
 
-      const unicLocations = new Set();
-      properties.forEach(property => unicLocations.add(property.location[1]));
+    async function fetchProperties() {
+      const response = await fetch('/api/properties');
+      const properties = await response.json();
+      return properties;
+    }
+    
+    fetchProperties()
+      .then(data => 
+        setTimeout(()=> { this.setState({ properties: data.properties, isLoading: false }) }, 2000));
 
-      const unicDeals = new Set();
-      properties.forEach(property => unicDeals.add(property.deal));
+    fetchProperties()
+      .then((data) => {
+        const { properties } = data;
+        
+        const unicLocations = new Set();
+        properties.forEach(property => unicLocations.add(property.location[1]));
 
-      const unicTypes = new Set();
-      properties.forEach(property => unicTypes.add(property.type));
+        const unicDeals = new Set();
+        properties.forEach(property => unicDeals.add(property.deal));
 
-      this.setState({
-        filterOptions: {
-          ...this.state.filterOptions,
-          type: Array.from(unicTypes),
-          deal: Array.from(unicDeals),
-          location: Array.from(unicLocations)
-        }
-    })
+        const unicTypes = new Set();
+        properties.forEach(property => unicTypes.add(property.type));
+
+        this.setState({
+          filterOptions: {
+            ...this.state.filterOptions,
+            type: Array.from(unicTypes),
+            deal: Array.from(unicDeals),
+            location: Array.from(unicLocations)
+          }
+        })
+    });
   }  
   
   filterAction(nextValues) {

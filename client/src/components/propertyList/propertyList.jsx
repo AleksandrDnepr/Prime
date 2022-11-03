@@ -90,6 +90,7 @@ export class PropertyList extends Component {
     
     render() {
         const { properties } = this.props;
+        if (!properties) {return null}
         const { currentPage, currentMode } = this.state;
         return (
             <section className="propertyList__section">
