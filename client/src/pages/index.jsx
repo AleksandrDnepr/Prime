@@ -52,7 +52,7 @@ class Index extends Component {
       }));
   }
 
-  changePage(page) {
+  async changePage(page) {
     window.scrollTo(0, 0);
 
     Properties.setPage(page).then((state) => this.setState({
