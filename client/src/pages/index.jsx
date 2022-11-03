@@ -9,8 +9,6 @@ import { Loading } from "../components/loading/loading.jsx";
 class Index extends Component {
   state = {
     properties: null,
-    isFiltred: false,
-    filtredProperties: [],
     filterOptions: {
       type: [],
       deal: [],
@@ -56,33 +54,24 @@ class Index extends Component {
     });
   }  
   
-  filterAction(nextValues) {
+  async filterAction(nextValues) {
     window.scrollTo(0, 0);
 
-    const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea } = nextValues;
-    const { properties } = this.state;
-    const isNumber = (value) => typeof value === "number";
-    const shownPropeties = properties.filter( property => {
+    await fetch(`api/properties/`, {
+      method: "POST",
+      headers: {
+          "content-type": "application/json",
+      },
+      body: JSON.stringify(nextValues),
+      })
+      .then((response) => response.json())
+      .then(data =>  this.setState({
+        filterValues: nextValues, 
+        isFiltred: true, 
+        properties: data.properties
+      }))
+      .catch((err) => { console.log(err) });
 
-      if (location && property.location[1] !== location) {return false};
-      if (type && property.type !== type) {return false};
-      if (deal && property.deal !== deal) {return false};
-      if (isNumber(bedrooms) && property.details.bedrooms !== bedrooms) {return false};
-      if (isNumber(bathrooms) && property.details.bathrooms !== bathrooms) {return false};
-      if (minYear && property.details.year < minYear) {return false};
-      if (minPrice && property.price < minPrice) {return false}
-      if (maxPrice && property.price > maxPrice) {return false}
-      if (minArea && property.details.area < minArea) {return false}
-      if (maxArea && property.details.area > maxArea) {return false}
-
-      return true;
-    })
-    
-    this.setState({
-      filterValues: nextValues, 
-      isFiltred: true, 
-      filtredProperties: shownPropeties
-    });
   }
 
   showLoader(isLoading) {
@@ -90,14 +79,14 @@ class Index extends Component {
   }
 
   render() {
-    const {properties, filterValues, filterOptions, filtredProperties, isFiltred, isLoading} = this.state;
+    const { properties, filterValues, filterOptions, isLoading } = this.state;
     
     return (
       <Page title="PROPERTIES" withSidebar>
         {this.showLoader(isLoading)}
         <PropertyList
           defaultView="grid"
-          properties={isFiltred ? filtredProperties : properties}
+          properties={properties}
         />
         <Sidebar>
           <PropertyFilter
