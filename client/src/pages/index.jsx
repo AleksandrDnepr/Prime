@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { PropertyList } from "../components/propertyList/propertyList.jsx";
@@ -63,38 +64,42 @@ class Index extends Component {
     });
   }  
 
-  async fetchPage(page){
-    await fetch('/api/properties', {
-      method: "POST",
-      headers: {
-          "content-type": "application/json",
-      },
-      body: JSON.stringify({page: page}),
-      })
-      .then((response) => response.json())
-      .then(data => {this.setState({
-        properties: data.properties, 
-        page: data.page,
-        pages: data.pages,
-        mode: data.mode,
-        isLoading: false 
-      });
-      })
-      .catch((err) => {
-          console.log(err)
-      });
+  // async fetchPage(page){
+  //   await fetch('/api/properties', {
+  //     method: "POST",
+  //     headers: {
+  //         "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({page: page}),
+  //     })
+  //     .then((response) => response.json())
+  //     .then(data => {this.setState({
+  //       properties: data.properties, 
+  //       page: data.page,
+  //       pages: data.pages,
+  //       mode: data.mode,
+  //       isLoading: false 
+  //     });
+  //     })
+  //     .catch((err) => {
+  //         console.log(err)
+  //     });
 
-  }
+  // }
   
-  async filterAction(nextValues) {
+  async filterAction(values) {
     window.scrollTo(0, 0);
-
+    console.log(...Object.keys(values));
+    let req = values;
+    if (this.state.filterValues !== {}) {
+      req = {filterParam: this.state.filterValues, ...values}
+    }
     await fetch('/api/properties', {
       method: "POST",
       headers: {
           "content-type": "application/json",
       },
-      body: JSON.stringify({filterParam: nextValues}),
+      body: JSON.stringify(req),
       })
       .then((response) => response.json())
       .then(data => {this.setState({
@@ -102,7 +107,7 @@ class Index extends Component {
         page: data.page,
         pages: data.pages,
         mode: data.mode,
-        filterValues: nextValues, 
+        filterValues: values.filterParam || this.state.filterValues, 
         isLoading: false 
       });
       })
@@ -130,14 +135,14 @@ class Index extends Component {
           pages={pages}
           defaultView={mode}
           properties={properties}
-          handleChange={(page)=> this.fetchPage(page)}
+          handleChange={(page)=> this.filterAction({page: page})}
         />
 
         <Sidebar>
           <PropertyFilter
             values={filterValues}
             options={filterOptions}
-            onSubmit={(nextValues) => this.filterAction(nextValues)}
+            onSubmit={(nextValues) => this.filterAction({filterParam: nextValues})}
           />
         </Sidebar>
       </Page>
