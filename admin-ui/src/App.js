@@ -1,16 +1,9 @@
-import "uikit/dist/css/uikit.css";
-import "uikit/dist/js/uikit.js";
+import Button from '@mui/material/Button';
 
 function App() {
   return (
     <div className="App">
-      <ul uk-accordion="true">
-        <li>
-          <a className="uk-accordion-title" href="#">acardion</a>
-          <div className="uk-accordion-content">open</div>
-        </li>
-      </ul>
-      <button className="uk-button uk-button-primary">click me</button>
+      <Button variant="contained">Hello World</Button>
       <header className="App-header">
         <p>ADMIN UI</p>
       </header>
