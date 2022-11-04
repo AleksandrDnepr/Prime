@@ -44,5 +44,5 @@ async function filter(req, res) {
 module.exports = Router()
     .get('/', index)
     .post('/', index)
-    .post('/', filter)
+    // .post('/', filter)
     .get('/:id', read);
