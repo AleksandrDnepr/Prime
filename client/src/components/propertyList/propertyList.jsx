@@ -6,7 +6,7 @@ import "./propertyList.css";
 
 export class PropertyList extends Component {
     state = {
-        currentPage: 1,
+        currentPage: this.props.page,
         currentMode: this.props.defaultView,
     }
     
@@ -42,9 +42,11 @@ export class PropertyList extends Component {
         }
     }
     
-    changePage(page) {
+    
+    async changePage(page) {
         window.scrollTo(0, 0);
-        this.setState({currentPage: page});
+
+        // fetchProperties().then(this.setState({currentPage: data.page})) 
     }
 
     showCurrentPage(mode, properties){
@@ -89,7 +91,7 @@ export class PropertyList extends Component {
     }
     
     render() {
-        const { properties } = this.props;
+        const { properties, pages, page, mode, handleChange } = this.props;
         if (!properties) {return null}
         const { currentPage, currentMode } = this.state;
         return (
@@ -98,9 +100,9 @@ export class PropertyList extends Component {
                 {this.propertyListCompiling(currentMode, properties)}
                 
                 <Pagination 
-                    pages={this.avalaiblePages(currentMode, properties)}
-                    page={currentPage}
-                    onChange={(page) => this.changePage(page)}
+                    pages={pages}
+                    page={page}
+                    onChange={(page) => handleChange(page)}
                 />
             </section>
         )

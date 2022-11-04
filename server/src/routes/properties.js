@@ -13,14 +13,24 @@ async function read(req, res) {
 }
 
 async function index(req, res) {
-    const properties = Property.findAll();
+    let { page, mode } = req.body;
+    if (!page) {page = 1;}
+    if (!mode) {mode = "grid";}
+    const perPage = mode === "grid" ? 12 : 8;
+    const offset = (page - 1) * perPage;
+    const limit = offset + perPage;
 
-    res.json({ properties });
+    const pages = Math.ceil(Property.findAll().length/perPage);
+
+    const properties  = Property.findAll().slice(offset, limit);
+
+    res.json({ page, pages, mode, properties });
 }
+
 
 async function filter(req, res) {
     const { body } = req;
-    const properties = Property.filterAll(body);
+    const {properties} = Property.filterAll(body);
 
     res.json({ properties });
 }
@@ -28,5 +38,6 @@ async function filter(req, res) {
 
 module.exports = Router()
     .get('/', index)
+    .post('/', index)
     .post('/', filter)
     .get('/:id', read);

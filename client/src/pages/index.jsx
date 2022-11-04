@@ -9,6 +9,9 @@ import { Loading } from "../components/loading/loading.jsx";
 class Index extends Component {
   state = {
     properties: null,
+    page: null,
+    pages: null,
+    mode: null,
     filterOptions: {
       type: [],
       deal: [],
@@ -28,7 +31,13 @@ class Index extends Component {
     
     fetchProperties()
       .then(data => 
-          this.setState({ properties: data.properties, isLoading: false }) )
+          this.setState({ 
+            properties: data.properties, 
+            page: data.page,
+            pages: data.pages,
+            mode: data.mode,
+            isLoading: false 
+          }) )
 
     fetchProperties()
       .then((data) => {
@@ -53,6 +62,29 @@ class Index extends Component {
         })
     });
   }  
+
+  async fetchPage(page){
+    await fetch('/api/properties', {
+      method: "POST",
+      headers: {
+          "content-type": "application/json",
+      },
+      body: JSON.stringify({page: page}),
+      })
+      .then((response) => response.json())
+      .then(data => {this.setState({
+        properties: data.properties, 
+        page: data.page,
+        pages: data.pages,
+        mode: data.mode,
+        isLoading: false 
+      });
+      })
+      .catch((err) => {
+          console.log(err)
+      });
+
+  }
   
   async filterAction(nextValues) {
     window.scrollTo(0, 0);
@@ -78,15 +110,21 @@ class Index extends Component {
   }
 
   render() {
-    const { properties, filterValues, filterOptions, isLoading } = this.state;
-    
+    const { properties, filterValues, filterOptions, isLoading, page, pages, mode } = this.state;
+
+    if (!properties) {return}
+
     return (
       <Page title="PROPERTIES" withSidebar>
         {this.showLoader(isLoading)}
         <PropertyList
-          defaultView="grid"
+          page={page}
+          pages={pages}
+          defaultView={mode}
           properties={properties}
+          handleChange={(page)=> this.fetchPage(page)}
         />
+
         <Sidebar>
           <PropertyFilter
             values={filterValues}

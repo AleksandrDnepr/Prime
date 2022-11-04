@@ -1,0 +1,30 @@
+###
+GET http://localhost:3100/api/things
+
+
+###
+POST http://localhost:3100/api/things
+
+
+###
+GET http://localhost:3100/api/agents/001
+
+
+###
+POST http://localhost:3100/api/properties
+
+
+###
+GET http://localhost:3100/api/properties
+
+
+
+
+###
+GET http://localhost:3100/api/properties/A003N
+
+
+###
+POST http://localhost:3100/api/agents/001/send-mail
+
+
