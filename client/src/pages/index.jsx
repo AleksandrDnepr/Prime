@@ -89,20 +89,28 @@ class Index extends Component {
   async filterAction(nextValues) {
     window.scrollTo(0, 0);
 
-    await fetch(`api/properties/`, {
+    await fetch('/api/properties', {
       method: "POST",
       headers: {
           "content-type": "application/json",
       },
-      body: JSON.stringify(nextValues),
+      body: JSON.stringify({filterParam: nextValues}),
       })
       .then((response) => response.json())
-      .then(data =>  this.setState({
+      .then(data => {this.setState({
+        properties: data.properties, 
+        page: data.page,
+        pages: data.pages,
+        mode: data.mode,
         filterValues: nextValues, 
-        isFiltred: true, 
-        properties: data.properties
-      }))
-      .catch((err) => { console.log(err) });
+        isLoading: false 
+      });
+      })
+      .catch((err) => {
+          console.log(err)
+      });
+
+
   }
 
   showLoader(isLoading) {
