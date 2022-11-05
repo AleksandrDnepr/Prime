@@ -12,7 +12,7 @@ class Index extends Component {
     properties: null,
     page: null,
     pages: null,
-    mode: null,
+    mode: "grid",
     filterOptions: {
       type: [],
       deal: [],
@@ -20,6 +20,7 @@ class Index extends Component {
     },
     filterValues: {},
     isLoading: true,
+    queryParams: {}
   }
 
   componentDidMount(){
@@ -36,12 +37,11 @@ class Index extends Component {
             properties: data.properties, 
             page: data.page,
             pages: data.pages,
-            mode: data.mode,
             isLoading: false 
           }))
 
     fetchProperties()
-      .then((data) => {
+      .then(data => {
         const { properties } = data;
         
         const unicLocations = new Set();
@@ -85,7 +85,6 @@ class Index extends Component {
         properties: data.properties, 
         page: data.page,
         pages: data.pages,
-        mode: data.mode,
         filterValues: values.filterParam || this.state.filterValues, 
         isLoading: false 
       });
@@ -93,6 +92,21 @@ class Index extends Component {
       .catch((err) => {
           console.log(err)
       });
+
+
+      await fetch('/api/properties/agent', {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify({email: "adam@example.com"}),
+        })
+        .then((response) => response.json())
+        .then(data => console.log(data))
+        .catch((err) => {
+            console.log(err)
+        });
+  
   }
 
   showLoader(isLoading) {
@@ -100,6 +114,7 @@ class Index extends Component {
   }
 
   render() {
+
     const { 
       properties, 
       filterValues, 
@@ -123,7 +138,7 @@ class Index extends Component {
           pages={pages}
           mode={mode}
           changePage={page => this.filterAction({page: page})}
-          changeMode={mode => this.filterAction({mode: mode})}
+          changeMode={mode => this.setState({mode: mode})}
         />
 
         <Sidebar>

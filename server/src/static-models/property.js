@@ -1,4 +1,5 @@
-const properties = require('../data/properties.json')
+const properties = require('../data/properties.json');
+const Agent = require("../models/agent.js");
 
 module.exports = class Property {
   static PROPERTIES = properties.apartaments;
@@ -16,7 +17,7 @@ module.exports = class Property {
 
     if(filterParams === {}) {filtredPropeties = [...Property.PROPERTIES]}
     
-    const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea } = filterParams;
+    const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea, agent } = filterParams;
     
     const isNumber = (value) => typeof value === "number";
     filtredPropeties = Property.PROPERTIES.filter( property => {
@@ -38,7 +39,9 @@ module.exports = class Property {
     return filtredPropeties;
   }
 
-    static pageLimit() {
-      return Property.PROPERTIES.find(property => property.id === id);
+    static filterByAgent(email) {
+      const attachedAgents = Agent.findByEmail(email);
+
+      return Property.PROPERTIES.filter(property => property.attached_agents_id === attachedAgents.id);
   }
 };

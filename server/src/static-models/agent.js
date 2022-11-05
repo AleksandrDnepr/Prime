@@ -9,6 +9,10 @@ module.exports = class Agent {
     return Agent.AGENTS.find((agent) => agent.id === id);
   }
 
+  static findByEmail(email) {
+    return Agent.AGENTS.find((agent) => agent.email === email);
+  }
+
   static async sendEmail(data) {
     return sendEmail(data);
   }

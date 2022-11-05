@@ -28,3 +28,5 @@ GET http://localhost:3100/api/properties/A003N
 POST http://localhost:3100/api/agents/001/send-mail
 
 
+###
+GET http://localhost:3100/api/properties/agent

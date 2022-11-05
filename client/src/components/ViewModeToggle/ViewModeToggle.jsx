@@ -4,7 +4,7 @@ import { ReactComponent as ListIcon } from "./list.svg"
 import "./ViewModeToggle.css"
 import {Button} from '../button/button.jsx'
 
-export default class ViewModeToggle extends Component {
+export class ViewModeToggle extends Component {
   render() {
     const { mode, onChange } = this.props;
     return (
