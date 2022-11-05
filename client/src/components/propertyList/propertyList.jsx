@@ -7,7 +7,7 @@ import "./propertyList.css";
 export class PropertyList extends Component {
     state = {
         currentPage: this.props.page,
-        currentMode: this.props.defaultView,
+        currentMode: this.props.mode,
     }
     
     componentDidUpdate(prevProps, prevState) {
@@ -19,47 +19,24 @@ export class PropertyList extends Component {
         }
     }
 
-    changeMode(mode) {  
-        switch (mode) {
-            case "grid":
-            this.setState({currentMode: "list"});
-            break;
-            case "list":
+    // changeMode(mode) {  
+    //     switch (mode) {
+    //         case "grid":
+    //         this.setState({currentMode: "list"});
+    //         break;
+    //         case "list":
 
-            this.setState({currentMode: "grid"});
-            break;
-        default: return;
-        }
-    }
+    //         this.setState({currentMode: "grid"});
+    //         break;
+    //     default: return;
+    //     }
+    // }
 
-    avalaiblePages(mode, properties) {
-        switch (mode) {
-            case "grid":
-                return Math.ceil(properties.length/12);
-            case "list":
-                return Math.ceil(properties.length/8);
-            default: return;
-        }
-    }
     
-    
-    async changePage(page) {
-        window.scrollTo(0, 0);
-
-        // fetchProperties().then(this.setState({currentPage: data.page})) 
-    }
-
-    showCurrentPage(mode, properties){
-        const perPage = mode === "grid" ? 12 : 8;
-        const firstOnCurrentPage = (this.state.currentPage - 1) * perPage;
-        return properties.slice(firstOnCurrentPage, (firstOnCurrentPage + perPage))
-    }
-
     propertyListCompiling(mode, properties) {
-        const visibleProperties = this.showCurrentPage(mode, properties);
         return (
             <ul className={`propertyList__list ${mode}`}>
-                { visibleProperties.map(({ id, images, deal, type, link, price, title, location, description, details }, i) => 
+                { properties.map(({ id, images, deal, type, link, price, title, location, description, details }, i) => 
                 <li key={id}>
                     <PropertyCard  
                         id={id}
@@ -81,28 +58,26 @@ export class PropertyList extends Component {
 
     showToggle() {
         const { properties } = this.props;
-        const { currentMode } = this.state;
 
         if(properties.length === 0) {return null}
         return <ViewModeToggle 
-                    mode={currentMode} 
-                    onChange={(mode) => this.changeMode(mode)}
+                    mode={this.props.mode} 
+                    onChange={(mode) => this.props.changeMode(mode)}
                 />
     }
     
     render() {
-        const { properties, pages, page, mode, handleChange } = this.props;
+        const { properties, pages, page, mode, changePage } = this.props;
         if (!properties) {return null}
-        const { currentPage, currentMode } = this.state;
         return (
             <section className="propertyList__section">
                 {this.showToggle()}
-                {this.propertyListCompiling(currentMode, properties)}
+                {this.propertyListCompiling(mode, properties)}
                 
                 <Pagination 
                     pages={pages}
                     page={page}
-                    onChange={(page) => handleChange(page)}
+                    onChange={(page) => changePage(page)}
                 />
             </section>
         )

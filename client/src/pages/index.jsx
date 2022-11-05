@@ -38,7 +38,7 @@ class Index extends Component {
             pages: data.pages,
             mode: data.mode,
             isLoading: false 
-          }) )
+          }))
 
     fetchProperties()
       .then((data) => {
@@ -64,35 +64,14 @@ class Index extends Component {
     });
   }  
 
-  // async fetchPage(page){
-  //   await fetch('/api/properties', {
-  //     method: "POST",
-  //     headers: {
-  //         "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify({page: page}),
-  //     })
-  //     .then((response) => response.json())
-  //     .then(data => {this.setState({
-  //       properties: data.properties, 
-  //       page: data.page,
-  //       pages: data.pages,
-  //       mode: data.mode,
-  //       isLoading: false 
-  //     });
-  //     })
-  //     .catch((err) => {
-  //         console.log(err)
-  //     });
-
-  // }
-  
   async filterAction(values) {
     window.scrollTo(0, 0);
-    console.log(...Object.keys(values));
+
     let req = values;
-    if (this.state.filterValues !== {}) {
-      req = {filterParam: this.state.filterValues, ...values}
+    const { filterValues } = this.state;
+
+    if (filterValues !== {}) {
+      req = {filterParam: filterValues, ...values}
     }
     await fetch('/api/properties', {
       method: "POST",
@@ -114,8 +93,6 @@ class Index extends Component {
       .catch((err) => {
           console.log(err)
       });
-
-
   }
 
   showLoader(isLoading) {
@@ -123,19 +100,30 @@ class Index extends Component {
   }
 
   render() {
-    const { properties, filterValues, filterOptions, isLoading, page, pages, mode } = this.state;
+    const { 
+      properties, 
+      filterValues, 
+      filterOptions, 
+      isLoading, 
+      page, 
+      pages, 
+      mode 
+    } = this.state;
 
     if (!properties) {return}
 
     return (
       <Page title="PROPERTIES" withSidebar>
+
         {this.showLoader(isLoading)}
+
         <PropertyList
+          properties={properties}
           page={page}
           pages={pages}
-          defaultView={mode}
-          properties={properties}
-          handleChange={(page)=> this.filterAction({page: page})}
+          mode={mode}
+          changePage={page => this.filterAction({page: page})}
+          changeMode={mode => this.filterAction({mode: mode})}
         />
 
         <Sidebar>
@@ -145,6 +133,7 @@ class Index extends Component {
             onSubmit={(nextValues) => this.filterAction({filterParam: nextValues})}
           />
         </Sidebar>
+
       </Page>
     );
   }

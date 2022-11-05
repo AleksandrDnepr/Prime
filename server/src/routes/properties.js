@@ -14,16 +14,17 @@ async function read(req, res) {
 
 async function index(req, res) {
     let { page, mode, filterParam } = req.body;
+
     if (!page) {page = 1;}
     if (!mode) {mode = "grid";}
     if (!filterParam) {filterParam = {};}
+
     const perPage = mode === "grid" ? 12 : 8;
     const offset = (page - 1) * perPage;
     const limit = offset + perPage;
-
     
     const filtredProperties = Property.filterAll(filterParam);
-    
+
     const pages = Math.ceil(filtredProperties.length / perPage);
 
     const properties  = filtredProperties.slice(offset, limit);
@@ -32,12 +33,12 @@ async function index(req, res) {
 }
 
 
-async function filter(req, res) {
-    const { body } = req;
-    const {properties} = Property.filterAll(body);
+// async function filter(req, res) {
+//     const { body } = req;
+//     const {properties} = Property.filterAll(body);
 
-    res.json({ properties });
-}
+//     res.json({ properties });
+// }
 
 
 module.exports = Router()
