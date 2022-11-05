@@ -39,6 +39,8 @@ async function filter(req, res) {
     res.json({ properties });
 }
 
+    res.json({ property });
+}
 
 module.exports = Router()
     .get('/', index)

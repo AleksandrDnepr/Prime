@@ -41,8 +41,10 @@ module.exports = class Property {
     return filtredPropeties;
   }
 
-    static pageLimit() {
-      return Property.PROPERTIES.find(property => property.id === id);
+    static filterByAgent(email) {
+      const attachedAgents = Agent.findByEmail(email);
+
+      return Property.PROPERTIES.filter(property => property.attached_agents_id === attachedAgents.id);
   }
 };
 
