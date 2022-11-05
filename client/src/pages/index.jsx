@@ -88,6 +88,7 @@ class Index extends Component {
 
     return (
       <Page title="PROPERTIES" withSidebar>
+
         {this.showLoader(isLoading)}
 
         <PropertyList
@@ -106,6 +107,7 @@ class Index extends Component {
             onSubmit={(nextValues) => this.changeFilters(nextValues)}
           />
         </Sidebar>
+
       </Page>
     );
   }

@@ -33,12 +33,12 @@ async function index(req, res) {
 }
 
 
-async function filter(req, res) {
-    const { body } = req;
-    const {properties} = Property.filterAll(body);
+// async function filter(req, res) {
+//     const { body } = req;
+//     const {properties} = Property.filterAll(body);
 
-    res.json({ properties });
-}
+//     res.json({ properties });
+// }
 
 
 module.exports = Router()
