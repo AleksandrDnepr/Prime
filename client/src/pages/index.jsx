@@ -5,6 +5,7 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
+import { Properties } from "../service/Properties.jsx";
 
 class Index extends Component {
   state = {
@@ -19,49 +20,68 @@ class Index extends Component {
     },
     filterValues: {},
     isLoading: true,
-    queryParams: {}
+  };
+
+  componentDidMount() {
+    Properties.loadData().then((state) =>
+      this.setState({
+        properties: state.properties,
+        pages: state.pages,
+        page: state.page,
+        filterOptions: state.options,
+        filterValues: state.filters,
+
+        isLoading: false,
+      })
+    );
+
+    // async function fetchProperties() {
+    //   const response = await fetch('/api/properties');
+    //   const properties = await response.json();
+    //   return properties;
+
+    // }
+
+    // fetchProperties()
+    //   .then(data =>
+    //       this.setState({
+    //         properties: data.properties,
+    //         page: data.page,
+    //         pages: data.pages,
+    //         isLoading: false
+    //       }))
+
+    // fetchProperties()
+    //   .then(data => {
+    //     const { properties } = data;
+
+    //     const unicLocations = new Set();
+    //     properties.forEach(property => unicLocations.add(property.location[1]));
+
+    //     const unicDeals = new Set();
+    //     properties.forEach(property => unicDeals.add(property.deal));
+
+    //     const unicTypes = new Set();
+    //     properties.forEach(property => unicTypes.add(property.type));
+
+    //     this.setState({
+    //       filterOptions: {
+    //         ...this.state.filterOptions,
+    //         type: Array.from(unicTypes),
+    //         deal: Array.from(unicDeals),
+    //         location: Array.from(unicLocations)
+    //       }
+    //     })
+    // });
   }
 
-  componentDidMount(){
+  changeFilters(filters) {
+    Properties.setFilters(filters).then((state) => this.setState(state));
+  }
 
-    async function fetchProperties() {
-      const response = await fetch('/api/properties');
-      const properties = await response.json();
-      return properties;
-    }
-    
-    fetchProperties()
-      .then(data => 
-          this.setState({ 
-            properties: data.properties, 
-            page: data.page,
-            pages: data.pages,
-            isLoading: false 
-          }))
-
-    fetchProperties()
-      .then(data => {
-        const { properties } = data;
-        
-        const unicLocations = new Set();
-        properties.forEach(property => unicLocations.add(property.location[1]));
-
-        const unicDeals = new Set();
-        properties.forEach(property => unicDeals.add(property.deal));
-
-        const unicTypes = new Set();
-        properties.forEach(property => unicTypes.add(property.type));
-
-        this.setState({
-          filterOptions: {
-            ...this.state.filterOptions,
-            type: Array.from(unicTypes),
-            deal: Array.from(unicDeals),
-            location: Array.from(unicLocations)
-          }
-        })
-    });
-  }  
+  changePage(page) {
+    Properties.setPage(page).then((state) => this.setState(state));
+  }
 
   async filterAction(values) {
     window.scrollTo(0, 0);
@@ -70,48 +90,51 @@ class Index extends Component {
     const { filterValues } = this.state;
 
     if (filterValues !== {}) {
-      req = {filterParam: filterValues, ...values}
+      req = { filterParam: filterValues, ...values };
     }
-    await fetch('/api/properties', {
+    await fetch("/api/properties", {
       method: "POST",
       headers: {
-          "content-type": "application/json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(req),
-      })
+    })
       .then((response) => response.json())
-      .then(data => {this.setState({
-        properties: data.properties, 
-        page: data.page,
-        pages: data.pages,
-        filterValues: values.filterParam || this.state.filterValues, 
-        isLoading: false 
-      });
+      .then((data) => {
+        this.setState({
+          properties: data.properties,
+          page: data.page,
+          pages: data.pages,
+          filterValues: values.filterParam || this.state.filterValues,
+          isLoading: false,
+        });
       })
-      .catch((err) => {console.log(err)});
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   showLoader(isLoading) {
-    return isLoading && <Loading/>;
+    return isLoading && <Loading />;
   }
 
   render() {
-
-    const { 
-      properties, 
-      filterValues, 
-      filterOptions, 
-      isLoading, 
-      page, 
-      pages, 
-      mode 
+    const {
+      properties,
+      filterValues,
+      filterOptions,
+      isLoading,
+      page,
+      pages,
+      mode,
     } = this.state;
 
-    if (!properties) {return}
+    if (!properties) {
+      return;
+    }
 
     return (
       <Page title="PROPERTIES" withSidebar>
-
         {this.showLoader(isLoading)}
 
         <PropertyList
@@ -119,18 +142,17 @@ class Index extends Component {
           page={page}
           pages={pages}
           mode={mode}
-          changePage={page => this.filterAction({page: page})}
-          changeMode={mode => this.setState({mode: mode})}
+          changePage={(page) => this.changePage(page)}
+          changeMode={(mode) => this.setState({ mode: mode })}
         />
 
         <Sidebar>
           <PropertyFilter
             values={filterValues}
             options={filterOptions}
-            onSubmit={(nextValues) => this.filterAction({filterParam: nextValues})}
+            onSubmit={(nextValues) => this.changeFilters(nextValues)}
           />
         </Sidebar>
-
       </Page>
     );
   }

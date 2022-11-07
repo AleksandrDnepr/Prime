@@ -27,9 +27,9 @@ async function index(req, res) {
     const pages = Math.ceil(filtredProperties.length / perPage);
 
     const properties  = filtredProperties.slice(offset, limit);
-    const propLength = properties.length;
+    
 
-    res.json({ page, pages, propLength, properties });
+    res.json({ pages,  properties });
 }
 
 async function agentsProperties(req, res){
