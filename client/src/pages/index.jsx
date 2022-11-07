@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { PropertyList } from "../components/propertyList/propertyList.jsx";
@@ -89,24 +88,7 @@ class Index extends Component {
         isLoading: false 
       });
       })
-      .catch((err) => {
-          console.log(err)
-      });
-
-
-      await fetch('/api/properties/agent', {
-        method: "POST",
-        headers: {
-            "content-type": "application/json",
-        },
-        body: JSON.stringify({email: "adam@example.com"}),
-        })
-        .then((response) => response.json())
-        .then(data => console.log(data))
-        .catch((err) => {
-            console.log(err)
-        });
-  
+      .catch((err) => {console.log(err)});
   }
 
   showLoader(isLoading) {
