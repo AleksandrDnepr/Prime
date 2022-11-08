@@ -32,19 +32,7 @@ async function index(req, res) {
     res.json({ pages,  properties });
 }
 
-async function agentsProperties(req, res){
-    const { email } = req.body;
-
-    const property = Property.filterByAgent(email);
-    if (!property) {
-        return res.status(404).json({ error: `Property by email ${email} not found` });
-    }
-
-    res.json({ property });
-}
 
 module.exports = Router()
     .get('/', index)
-    .post('/', index)
-    .get('/:id', read)
-    .post('/agent', agentsProperties);
+    .get('/:id', read);
