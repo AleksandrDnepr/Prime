@@ -46,5 +46,11 @@ module.exports = class Property {
 
       return Property.PROPERTIES.filter(property => property.attached_agents_id === attachedAgents.id);
   }
+
+    static pageLimit() {
+      return Property.PROPERTIES.find(property => property.id === id);
+  }
+
+
 };
 
