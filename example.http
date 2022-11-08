@@ -19,7 +19,6 @@ GET http://localhost:3100/api/properties
 
 
 
-
 ###
 GET http://localhost:3100/api/properties/A003N
 

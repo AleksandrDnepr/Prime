@@ -13,7 +13,8 @@ async function read(req, res) {
 }
 
 async function index(req, res) {
-    let { page, filterParam } = req.body;
+    let { query } = req;
+    let {page, ...filterParam} = query;
 
     if (!page) {page = 1;}
     if (!filterParam) {filterParam = {}}
@@ -28,7 +29,6 @@ async function index(req, res) {
 
     const properties  = filtredProperties.slice(offset, limit);
     
-
     res.json({ pages,  properties });
 }
 

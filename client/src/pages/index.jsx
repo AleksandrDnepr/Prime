@@ -5,7 +5,7 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
-import { Properties } from "../service/Properties.jsx";
+import { Properties } from "../service/Properties.js";
 
 class Index extends Component {
   state = {
@@ -23,95 +23,43 @@ class Index extends Component {
   };
 
   componentDidMount() {
-    Properties.loadData().then((state) =>
+    Properties.loadData().then((state) => {
+
       this.setState({
         properties: state.properties,
         pages: state.pages,
         page: state.page,
         filterOptions: state.options,
         filterValues: state.filters,
-
+        
         isLoading: false,
-      })
+      })}
     );
-
-    // async function fetchProperties() {
-    //   const response = await fetch('/api/properties');
-    //   const properties = await response.json();
-    //   return properties;
-
-    // }
-
-    // fetchProperties()
-    //   .then(data =>
-    //       this.setState({
-    //         properties: data.properties,
-    //         page: data.page,
-    //         pages: data.pages,
-    //         isLoading: false
-    //       }))
-
-    // fetchProperties()
-    //   .then(data => {
-    //     const { properties } = data;
-
-    //     const unicLocations = new Set();
-    //     properties.forEach(property => unicLocations.add(property.location[1]));
-
-    //     const unicDeals = new Set();
-    //     properties.forEach(property => unicDeals.add(property.deal));
-
-    //     const unicTypes = new Set();
-    //     properties.forEach(property => unicTypes.add(property.type));
-
-    //     this.setState({
-    //       filterOptions: {
-    //         ...this.state.filterOptions,
-    //         type: Array.from(unicTypes),
-    //         deal: Array.from(unicDeals),
-    //         location: Array.from(unicLocations)
-    //       }
-    //     })
-    // });
   }
 
   changeFilters(filters) {
-    Properties.setFilters(filters).then((state) => this.setState(state));
+    Properties.setFilters(filters).then((state) => 
+      this.setState({
+        properties: state.properties,
+        pages: state.pages,
+        page: state.page,
+        filterOptions: state.options,
+        filterValues: state.filters,
+        
+        isLoading: false,
+      }));
   }
 
   changePage(page) {
-    Properties.setPage(page).then((state) => this.setState(state));
-  }
-
-  async filterAction(values) {
-    window.scrollTo(0, 0);
-
-    let req = values;
-    const { filterValues } = this.state;
-
-    if (filterValues !== {}) {
-      req = { filterParam: filterValues, ...values };
-    }
-    await fetch("/api/properties", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(req),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          properties: data.properties,
-          page: data.page,
-          pages: data.pages,
-          filterValues: values.filterParam || this.state.filterValues,
-          isLoading: false,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Properties.setPage(page).then((state) => this.setState({
+      properties: state.properties,
+      pages: state.pages,
+      page: state.page,
+      filterOptions: state.options,
+      filterValues: state.filters,
+      
+      isLoading: false,
+    }));
   }
 
   showLoader(isLoading) {
