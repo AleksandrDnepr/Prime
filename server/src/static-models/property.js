@@ -17,9 +17,10 @@ module.exports = class Property {
 
     if(filterParams === {}) {filtredPropeties = [...Property.PROPERTIES]}
     
-    const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea, agent } = filterParams;
+    const { location, type, deal, minYear, bedrooms, bathrooms, minPrice, maxPrice, minArea, maxArea, agentEmail } = filterParams;
     
     const isNumber = (value) => typeof value === "number";
+
     filtredPropeties = Property.PROPERTIES.filter( property => {
       
         if (location && property.location[1] !== location) {return false};
@@ -32,20 +33,13 @@ module.exports = class Property {
         if (maxPrice && property.price > maxPrice) {return false}
         if (minArea && property.details.area < minArea) {return false}
         if (maxArea && property.details.area > maxArea) {return false}
+        if (agentEmail && property.attached_agents_id !== Agent.findByEmail(agentEmail).id) {return false}
         
         return true;
       })
       
     return filtredPropeties;
   }
-
-    static filterByAgent(email) {
-      const attachedAgents = Agent.findByEmail(email);
-
-      return Property.PROPERTIES.filter(property => property.attached_agents_id === attachedAgents.id);
-  }
-
-    static pageLimit() {
-      return Property.PROPERTIES.find(property => property.id === id);
-  }
 };
+
+

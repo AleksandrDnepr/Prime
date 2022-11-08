@@ -26,40 +26,41 @@ export class Properties {
                 .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(this.filters.filters[key]))
                 .join("&") + "&";
 
-                const pageParams = !this.page ? "page=1" : `page=${this.page}`
+        const pageParams = !this.page ? "page=1" : `page=${this.page}`
+
         return "?" + filterParams + pageParams;
     }
 }
 
-    async function loadData() {
-        const params = Properties.buildParams();
-        
-        const result = await fetch("/api/properties" + params)
-                                .then((data) => data.json());
+async function loadData() {
+    const params = Properties.buildParams();
 
-        const options = {type: [], deal: [], location: [],};
+    const result = await fetch("/api/properties" + params)
+                            .then((data) => data.json());
 
-        const unicLocations = new Set();
-        result.properties.forEach((property) =>
-            unicLocations.add(property.location[1]));
+    const options = {type: [], deal: [], location: [],};
 
-        const unicDeals = new Set();
-        result.properties.forEach((property) => unicDeals.add(property.deal));
-        
-        const unicTypes = new Set();
-        result.properties.forEach((property) => unicTypes.add(property.type));
-        
-        options.type = [...unicTypes];
-        options.deal = [...unicDeals];
-        options.location = [...unicLocations];
+    const unicLocations = new Set();
+    result.properties.forEach((property) =>
+        unicLocations.add(property.location[1]));
 
-        const response = {
-            properties: result.properties,
-            pages: result.pages,
-            page: Properties.page || 1,
-            options,
-            filters: Properties.filters || {},
-            };
+    const unicDeals = new Set();
+    result.properties.forEach((property) => unicDeals.add(property.deal));
+    
+    const unicTypes = new Set();
+    result.properties.forEach((property) => unicTypes.add(property.type));
+    
+    options.type = [...unicTypes];
+    options.deal = [...unicDeals];
+    options.location = [...unicLocations];
 
-        return response;
-    }
+    const response = {
+        properties: result.properties,
+        pages: result.pages,
+        page: Properties.page || 1,
+        options,
+        filters: Properties.filters || {},
+        };
+
+    return response;
+}

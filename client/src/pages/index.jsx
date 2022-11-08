@@ -38,6 +38,8 @@ class Index extends Component {
   }
 
   changeFilters(filters) {
+    window.scrollTo(0, 0);
+
     Properties.setFilters(filters).then((state) => 
       this.setState({
         properties: state.properties,
@@ -51,6 +53,8 @@ class Index extends Component {
   }
 
   changePage(page) {
+    window.scrollTo(0, 0);
+
     Properties.setPage(page).then((state) => this.setState({
       properties: state.properties,
       pages: state.pages,

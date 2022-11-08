@@ -47,7 +47,7 @@ export class PropertyList extends Component {
                 <Pagination 
                     pages={pages}
                     page={page}
-                    onChange={(page) => changePage(page)}
+                    onChange={page => changePage(page)}
                 />
 
             </section>
