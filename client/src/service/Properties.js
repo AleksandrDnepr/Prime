@@ -20,14 +20,21 @@ export class Properties {
     }
 
     static buildParams() {
-
-        const filterParams = !this.filters ? "" :
-            Object.keys(this.filters.filters)
-                .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(this.filters.filters[key]))
-                .join("&") + "&";
+        const filterParams = !this.filters
+          ? ""
+          : Object.keys(this.filters.filters)
+              .map((key) =>
+                this.filters.filters[key] === null ||
+                this.filters.filters[key] === ''
+                  ? ""
+                  : encodeURIComponent(key) +
+                    "=" +
+                    encodeURIComponent(this.filters.filters[key])
+              )
+              .join("&") + "&";
 
         const pageParams = !this.page ? "page=1" : `page=${this.page}`
-
+        
         return "?" + filterParams + pageParams;
     }
 }
