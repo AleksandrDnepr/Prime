@@ -9,7 +9,7 @@ export default class App extends React.Component {
       <React.StrictMode>
         <HashRouter basename="/admin">
           <Switch>
-            <Route path="/login" component={Login} />
+            <Route path="/" component={Login} />
           </Switch>
         </HashRouter>
       </React.StrictMode>
