@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oidc');
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const router = express.Router();
 
 router.get('/login', function(req, res, next) {
