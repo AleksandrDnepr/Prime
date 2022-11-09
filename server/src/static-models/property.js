@@ -1,5 +1,5 @@
 const properties = require('../data/properties.json');
-const Agent = require("../models/agent.js");
+const Agent = require("../static-models/agent.js");
 
 module.exports = class Property {
   static PROPERTIES = properties.apartaments;
