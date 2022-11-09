@@ -1,19 +1,14 @@
-module.exports = class Thing {
-    static THINGS = [
-        { 'id': 1, name: 'room' },
-    ]
+'use strict';
+const { Model } = require('sequelize');
 
-    constructor(body) {
-        const thing = {...body};
-        thing.id = Thing.THINGS.length + 1;
-        Thing.THINGS.push(thing);
-    }
+module.exports = (sequelize, DataTypes) => {
+  class Thing extends Model {}
 
-    static findById(id) {
-        return Thing.THINGS.find(thing => thing.id === id);
-    }
+  Thing.init({
+    name: DataTypes.STRING,
+    size: DataTypes.INTEGER,
+    color: DataTypes.STRING,
+  }, { sequelize, modelName: 'Thing', });
 
-    static findAll() {
-        return [...Thing.THINGS];
-    }
+  return Thing;
 };

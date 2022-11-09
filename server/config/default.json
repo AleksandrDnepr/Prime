@@ -9,5 +9,6 @@
         "pass":"9XVjJt1zkbzMNVTPnG"
       }
     },
+    "database_url": "sqlite://db/main.db",
     "port": 3100
 }
