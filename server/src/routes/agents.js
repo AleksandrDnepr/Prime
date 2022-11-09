@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const Agent = require("../models/agent.js");
+const Agent = require("../static-models/agent.js");
 
 
 async function read(req, res) {

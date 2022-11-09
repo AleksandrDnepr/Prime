@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const Property = require('../models/property.js');
+const Property = require('../static-models/property.js');
 
 async function read(req, res) {
     const { id } = req.params;
