@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const passport = require('passport');
 const status = require('./status.js');
 const agents = require("./agents.js");
 const properties = require('./properties.js');
