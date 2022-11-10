@@ -24,46 +24,33 @@ class Index extends Component {
 
   componentDidMount() {
     Properties.loadData().then((state) => {
-
       this.setState({
-        properties: state.properties,
-        pages: state.pages,
-        page: state.page,
-        filterOptions: state.options,
-        filterValues: state.filters,
-        
+        ...state,
         isLoading: false,
-      })}
-    );
+      });
+    });
   }
 
-    changeFilters(filters) {
-      window.scrollTo(0, 0);
+  changeFilters(filters) {
+    window.scrollTo(0, 0);
 
-    Properties.setFilters(filters).then((state) => 
+    Properties.setFilters(filters).then((state) =>
       this.setState({
-        properties: state.properties,
-        pages: state.pages,
-        page: state.page,
-        filterOptions: state.options,
-        filterValues: state.filters,
-        
+        ...state,
         isLoading: false,
-      }));
+      })
+    );
   }
 
   async changePage(page) {
     window.scrollTo(0, 0);
 
-    Properties.setPage(page).then((state) => this.setState({
-      properties: state.properties,
-      pages: state.pages,
-      page: state.page,
-      filterOptions: state.options,
-      filterValues: state.filters,
-      
-      isLoading: false,
-    }));
+    Properties.setPage(page).then((state) =>
+      this.setState({
+        ...state,
+        isLoading: false,
+      })
+    );
   }
 
   showLoader(isLoading) {

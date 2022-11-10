@@ -15,43 +15,33 @@ export class PropertyList extends Component {
                     onChange={(mode) => changeMode(mode)}
                 />
     }
-    
+
     render() {
         const { properties, pages, page, mode, changePage } = this.props;
         if (!properties) {return null}
 
         return (
-            <section className="propertyList__section">
+          <section className="propertyList__section">
+            {this.showToggle()}
 
-                {this.showToggle()}
+            <ul className={`propertyList__list ${mode}`}>
+              {properties.map((property) => (
+                <li key={property.id}>
+                  <PropertyCard 
+                  mode={mode} 
+                  picture={property.images.prewiew}
+                  {...property} />
+                </li>
+              ))}
+            </ul>
 
-                <ul className={`propertyList__list ${mode}`}>
-                { properties.map(({ id, images, deal, type, link, price, title, location, description, details }) => 
-                    <li key={id}>
-                        <PropertyCard  
-                            id={id}
-                            picture={images.prewiew}
-                            mode={mode}
-                            deal={deal}
-                            type={type}
-                            link={link}
-                            price={price}
-                            title={title}
-                            location={location}
-                            description={description} 
-                            details={details} 
-                        />
-                    </li> )}
-                </ul>
-
-                <Pagination 
-                    pages={pages}
-                    page={page}
-                    onChange={page => changePage(page)}
-                />
-
-            </section>
-        )
+            <Pagination
+              pages={pages}
+              page={page}
+              onChange={(page) => changePage(page)}
+            />
+          </section>
+        );
     }
 }
 

@@ -1,73 +1,71 @@
 export class Properties {
-    constructor(page, filters) {
-        this.page = page;
-        this.filters = filters;
-    }
+  constructor(page, filterValues) {
+    this.page = page;
+    this.filterValues = filterValues;
+  }
 
-    static setPage(page) {
-        this.page = page;
-        return this.loadData();
-    }
+  static setPage(page) {
+    this.page = page;
+    return this.loadData();
+  }
 
-    static setFilters(filters) {
-        this.filters = { ...this.filters, filters };
-        this.setPage(1);
-        return this.loadData();
-    }
+  static setFilters(filterValues) {
+    this.filterValues = { ...this.filterValues, filterValues };
+    this.setPage(1);
+    return this.loadData();
+  }
 
-    static loadData() {
-        return loadData();
-    }
-
-    static buildParams() {
-        const filterParams = !this.filters
-          ? ""
-          : Object.keys(this.filters.filters)
-              .map((key) =>
-                this.filters.filters[key] === null ||
-                this.filters.filters[key] === ''
-                  ? ""
-                  : encodeURIComponent(key) +
-                    "=" +
-                    encodeURIComponent(this.filters.filters[key])
-              )
-              .join("&") + "&";
-
-        const pageParams = !this.page ? "page=1" : `page=${this.page}`
-        
-        return "?" + filterParams + pageParams;
-    }
-}
-
-async function loadData() {
+   static async loadData() {
     const params = Properties.buildParams();
 
-    const result = await fetch("/api/properties" + params)
-                            .then((data) => data.json());
+  const result = await fetch("/api/properties" + params).then((data) =>
+    data.json()
+  );
 
-    const options = {type: [], deal: [], location: [],};
+  const filterOptions = { type: [], deal: [], location: [] };
 
-    const unicLocations = new Set();
-    result.properties.forEach((property) =>
-        unicLocations.add(property.location[1]));
+  const unicLocations = new Set();
+  result.properties.forEach((property) =>
+    unicLocations.add(property.location[1])
+  );
 
-    const unicDeals = new Set();
-    result.properties.forEach((property) => unicDeals.add(property.deal));
-    
-    const unicTypes = new Set();
-    result.properties.forEach((property) => unicTypes.add(property.type));
-    
-    options.type = [...unicTypes];
-    options.deal = [...unicDeals];
-    options.location = [...unicLocations];
+  const unicDeals = new Set();
+  result.properties.forEach((property) => unicDeals.add(property.deal));
 
-    const response = {
-        properties: result.properties,
-        pages: result.pages,
-        page: Properties.page || 1,
-        options,
-        filters: Properties.filters || {},
-        };
+  const unicTypes = new Set();
+  result.properties.forEach((property) => unicTypes.add(property.type));
 
-    return response;
+  filterOptions.type = [...unicTypes];
+  filterOptions.deal = [...unicDeals];
+  filterOptions.location = [...unicLocations];
+
+  const response = {
+    properties: result.properties,
+    pages: result.pages,
+    page: Properties.page || 1,
+    filterOptions,
+    filterValues: Properties.filterValues || {},
+  };
+
+  return response;
+}
+  
+  static buildParams() {
+    const filterParams = !this.filterValues
+      ? ""
+      : Object.keys(this.filterValues.filterValues)
+          .map((key) =>
+            this.filterValues.filterValues[key] === null ||
+            this.filterValues.filterValues[key] === ""
+              ? ""
+              : encodeURIComponent(key) +
+                "=" +
+                encodeURIComponent(this.filterValues.filterValues[key])
+          )
+          .join("&") + "&";
+
+    const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+
+    return "?" + filterParams + pageParams;
+  }
 }

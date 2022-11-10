@@ -32,14 +32,6 @@ async function index(req, res) {
     res.json({ pages,  properties });
 }
 
-async function filter(req, res) {
-    const { body } = req;
-    const properties = Property.filterAll(body);
-
-    res.json({ properties });
-}
-
 module.exports = Router()
     .get('/', index)
-    .post('/', filter)
     .get('/:id', read);
