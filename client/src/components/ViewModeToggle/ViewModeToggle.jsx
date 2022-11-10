@@ -4,14 +4,14 @@ import { ReactComponent as ListIcon } from "./list.svg"
 import "./ViewModeToggle.css"
 import {Button} from '../button/button.jsx'
 
-export default class ViewModeToggle extends Component {
+export class ViewModeToggle extends Component {
   render() {
     const { mode, onChange } = this.props;
     return (
       <div className="view-mode">
         <p className="view-mode-text">View mode:</p>
-        <Button size = "m" rounding = "left" clickEvent={() => onChange(mode)} isDisabled={mode === "grid"}><GridIcon className='btn-icon' /> </Button>
-        <Button size = "m" rounding = "right" clickEvent={() => onChange(mode)} isDisabled={mode === "list"}><ListIcon className='btn-icon' /> </Button>
+        <Button size = "m" rounding = "left" clickEvent={() => onChange("grid")} isDisabled={mode === "grid"}><GridIcon className='btn-icon' /> </Button>
+        <Button size = "m" rounding = "right" clickEvent={() => onChange("list")} isDisabled={mode === "list"}><ListIcon className='btn-icon' /> </Button>
       </div>
     )
   }
