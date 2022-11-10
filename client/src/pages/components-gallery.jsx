@@ -14,7 +14,7 @@ import {Title} from "../components/title/title.jsx";
 
 import Header from "../components/header/header";
 
-import ViewModeToggle from "../components/ViewModeToggle/ViewModeToggle";
+import {ViewModeToggle} from "../components/ViewModeToggle/ViewModeToggle.jsx";
 
 import {Description} from "../components/description/description.jsx";
 

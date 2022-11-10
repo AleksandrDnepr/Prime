@@ -1,110 +1,50 @@
 import { Component } from 'react';
-import ViewModeToggle from '../ViewModeToggle/ViewModeToggle';
-import {PropertyCard} from '../propertyCard/propertyCard.jsx';
-import {Pagination} from '../pagination/pagination.jsx';
+import { ViewModeToggle } from '../ViewModeToggle/ViewModeToggle.jsx';
+import { PropertyCard } from '../propertyCard/propertyCard.jsx';
+import { Pagination } from '../pagination/pagination.jsx';
 import "./propertyList.css";
 
 export class PropertyList extends Component {
-    state = {
-        currentPage: 1,
-        currentMode: this.props.defaultView,
-    }
     
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.currentMode !== prevState.currentMode) {
-            const maxPage = Math.ceil(prevProps.properties.length/12)
-            if(maxPage < this.state.currentPage) {
-                this.setState({currentPage: maxPage});
-            };
-        }
-    }
-
-    changeMode(mode) {  
-        switch (mode) {
-            case "grid":
-            this.setState({currentMode: "list"});
-            break;
-            case "list":
-
-            this.setState({currentMode: "grid"});
-            break;
-        default: return;
-        }
-    }
-
-    avalaiblePages(mode, properties) {
-        switch (mode) {
-            case "grid":
-                return Math.ceil(properties.length/12);
-            case "list":
-                return Math.ceil(properties.length/8);
-            default: return;
-        }
-    }
-    
-    changePage(page) {
-        window.scrollTo(0, 0);
-        this.setState({currentPage: page});
-    }
-
-    showCurrentPage(mode, properties){
-        const perPage = mode === "grid" ? 12 : 8;
-        const firstOnCurrentPage = (this.state.currentPage - 1) * perPage;
-        return properties.slice(firstOnCurrentPage, (firstOnCurrentPage + perPage))
-    }
-
-    propertyListCompiling(mode, properties) {
-        const visibleProperties = this.showCurrentPage(mode, properties);
-        return (
-            <ul className={`propertyList__list ${mode}`}>
-                { visibleProperties.map(({ id, images, deal, type, link, price, title, location, description, details }, i) => 
-                <li key={id}>
-                    <PropertyCard  
-                        id={id}
-                        picture={images.prewiew}
-                        mode={mode}
-                        deal={deal}
-                        type={type}
-                        link={link}
-                        price={price}
-                        title={title}
-                        location={location}
-                        description={description} 
-                        details={details} 
-                    />
-                </li> )}
-            </ul>
-        )
-    }
-
     showToggle() {
-        const { properties } = this.props;
-        const { currentMode } = this.state;
-
+        const { properties, changeMode } = this.props;
         if(properties.length === 0) {return null}
+
         return <ViewModeToggle 
-                    mode={currentMode} 
-                    onChange={(mode) => this.changeMode(mode)}
+                    mode={this.props.mode} 
+                    onChange={(mode) => changeMode(mode)}
                 />
     }
-    
+
     render() {
-        const { properties } = this.props;
-        const { currentPage, currentMode } = this.state;
+        const { properties, pages, page, mode, changePage } = this.props;
+        if (!properties) {return null}
+
         return (
-            <section className="propertyList__section">
-                {this.showToggle()}
-                {this.propertyListCompiling(currentMode, properties)}
-                
-                <Pagination 
-                    pages={this.avalaiblePages(currentMode, properties)}
-                    page={currentPage}
-                    onChange={(page) => this.changePage(page)}
-                />
-            </section>
-        )
+          <section className="propertyList__section">
+            {this.showToggle()}
+
+            <ul className={`propertyList__list ${mode}`}>
+              {properties.map((property) => (
+                <li key={property.id}>
+                  <PropertyCard 
+                  mode={mode} 
+                  picture={property.images.prewiew}
+                  {...property} />
+                </li>
+              ))}
+            </ul>
+
+            <Pagination
+              pages={pages}
+              page={page}
+              onChange={(page) => changePage(page)}
+            />
+          </section>
+        );
     }
 }
+
 
 
 

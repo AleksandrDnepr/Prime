@@ -12,5 +12,26 @@ async function read(req, res) {
     res.json({ property });
 }
 
+async function index(req, res) {
+    let { query } = req;
+    let {page, ...filterParam} = query;
+
+    if (!page) {page = 1;}
+    if (!filterParam) {filterParam = {}}
+
+    const perPage = 8;
+    const offset = (page - 1) * perPage;
+    const limit = offset + perPage;
+    
+    const filtredProperties = Property.filterAll(filterParam);
+
+    const pages = Math.ceil(filtredProperties.length / perPage);
+
+    const properties  = filtredProperties.slice(offset, limit);
+    
+    res.json({ pages,  properties });
+}
+
 module.exports = Router()
+    .get('/', index)
     .get('/:id', read);
