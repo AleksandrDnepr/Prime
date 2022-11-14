@@ -1,17 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Login } from "./pages/login";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { Properties } from "./pages/properties";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 export default class App extends React.Component {
   render() {
     return (
       <React.StrictMode>
-        <HashRouter basename="/admin">
+        <BrowserRouter basename="/admin">
           <Switch>
+            <Route path="/properties" component={Properties} />
             <Route path="/" component={Login} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </React.StrictMode>
     );
   }

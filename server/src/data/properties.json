@@ -1756,7 +1756,7 @@
         },
         {
           "id": "D4924",
-          "title": "Luxury house with great views",
+          "title": "VERY Luxury house with great views",
           "location": ["Natomas", "CA"],
           "type": "townhouse",
           "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 1920 },
@@ -3357,7 +3357,7 @@
         },
         {
           "id": "A0045",
-          "title": "Luxury Apartment with great views",
+          "title": "Apartment near sea",
           "location": ["Natomas", "CA"],
           "type": "townhouse",
           "details": { "area": 1320, "bedrooms": 2, "bathrooms": 2, "year": 1920 },

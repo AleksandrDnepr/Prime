@@ -1,0 +1,29 @@
+###
+GET http://localhost:3100/api/things
+
+
+###
+POST http://localhost:3100/api/things
+
+
+###
+GET http://localhost:3100/api/agents/001
+
+
+###
+GET http://localhost:3100/api/properties?agentEmail=adamexample001@gmail.com
+
+
+###
+GET http://localhost:3100/api/properties?agentEmail=olga@example.com&minPrice=200000
+
+###
+GET http://localhost:3100/api/properties/A003N
+
+
+###
+POST http://localhost:3100/api/agents/001/send-mail
+
+
+###
+GET http://localhost:3100/api/properties/agent
