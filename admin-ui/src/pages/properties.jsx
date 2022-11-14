@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Background from "./background.jpg";
 
-export class Login extends Component {
+export class Properties extends Component {
   render() {
     return (
       <Box
@@ -18,6 +18,7 @@ export class Login extends Component {
           lineHeight: 30,
         }}
       >
+        <p>properties</p>
         <Button
           component="a"
           href="http://localhost:3100/api/auth/login/federated/google"

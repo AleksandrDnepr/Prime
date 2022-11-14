@@ -7,11 +7,13 @@ const config = require('config');
 passport.use(new GoogleStrategy({
   clientID: config.get('client_id'),
   clientSecret: config.get('client_secret'),
-  callbackURL: '/oauth2/redirect/google',
-  scope: [ 'profile', 'e-mail' ],
+  callbackURL: 'http://localhost:3000/admin/properties',
+  scope: [ "https://www.googleapis.com/auth/userinfo.profile" ],
   state: true
 },
 function(accessToken, refreshToken, profile, cb) {
+  console.log({ accessToken, refreshToken, profile });
+
   let user = {
     name: profile.displayName
   };
@@ -30,17 +32,13 @@ passport.deserializeUser(function(user, cb) {
   });
 });
 
-// router.get('/login', function(req, res, next) {
-//   res.render('login');
-// });
-
 router.get('/login/federated/google', passport.authenticate('google'));
 
 router.get('/oauth2/redirect/google', passport.authenticate('google', {
-    successRedirect: '/admin/property',
+    successRedirect: '/admin/properties',
     failureRedirect: '/admin'
   }))
-  router.post('/logout', function(req, res, next) {
+  router.get('/logout', function(req, res, next) {
     req.logout();
     res.redirect('/admin');
   });
