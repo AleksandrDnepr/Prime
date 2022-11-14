@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     text: DataTypes.STRING,
-    prop_id: DataTypes.INTEGER,
+    prop_id: DataTypes.STRING,
   }, { sequelize, modelName: 'Message',
   });
   return Message;
