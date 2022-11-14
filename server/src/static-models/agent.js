@@ -31,7 +31,7 @@ async function sendEmail({info, email}) {
       },
     },
     {
-      from: "Jeff Agent <jeff77@ethereal.email>",
+      from: "Jeff Agent <maiya59@ethereal.email>",
     }
   );
 
