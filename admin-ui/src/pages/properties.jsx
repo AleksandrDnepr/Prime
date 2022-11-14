@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { flexbox } from "@mui/system";
 import Stack from '@mui/material/Stack';
+import { Link } from "@mui/material";
 
 
 export class Properties extends Component {
@@ -64,7 +65,7 @@ export class Properties extends Component {
       }
 
         return (
-        <Box
+          <Box
             component="div"
             sx={{
             display: flexbox,
@@ -81,30 +82,42 @@ export class Properties extends Component {
                 label={`Hello, ${this.props.user.name}!`}
                 variant="outlined"
                 color="primary"
-            />
+              />
 
             <Button variant="outlined" size="small" href="#" >
               <a href="/api/auth/logout">Sign out</a>
             </Button>
         </Stack>
 
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', ml: 2 }}>
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 360,
+                bgcolor: "background.paper",
+                ml: 2,
+              }}
+            >
+              {properties.map((property) => (
+                <>
+                  <Link underline='hover' href={`/properties/${property.id}/messages`}>
+                    <ListItem key={property.id} alignItems="flex-start">
+                      <ListItemAvatar>
+                        <Avatar
+                          variant="square"
+                          alt={property.title}
+                          src={property.images.prewiew}
+                        />
+                      </ListItemAvatar>
+                      <ListItemText primary={property.title} />
+                    </ListItem>
+                  </Link>
+                  <Divider variant="inset" component="li" />
+                </>
+              ))}
+            </List>
 
-            {properties.map(property => <>
-                <ListItem key={property.id} alignItems="flex-start">
-                    <ListItemAvatar>
-                        <Avatar variant="square" alt={property.title} src={property.images.prewiew} />
-                    </ListItemAvatar>
-                    <ListItemText primary={property.title}/>
-                </ListItem>
-                <Divider variant="inset" component="li" />
-            </>)}
-
-        </List>
-
-        {this.showMoreBtn()}
-
-        </Box>
+            {this.showMoreBtn()}
+          </Box>
         );
     }
 }
