@@ -8,6 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { flexbox } from "@mui/system";
 import Stack from "@mui/material/Stack";
+import { Breadcrumbs, Link, Typography } from '@mui/material';
 
 
 
@@ -41,6 +42,14 @@ export class Messages extends Component {
             {"Sign out"}
           </Button>
         </Stack>
+
+        <Breadcrumbs 
+        separator='>'
+        sx={{ml:2, mb:2}}
+        aria-label="breadcrumb">
+          <Link href="/properties">Properties</Link>
+          <Typography>Property short description</Typography>
+        </Breadcrumbs>
 
         <List
           sx={{
