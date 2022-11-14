@@ -27,6 +27,9 @@ export class AgentCard extends Component {
     async sendMail(info) {
     const { agentId } = this.props;
 
+    const propertyId = window.location.hash.replace("#/./", "");
+    info.propertyId = propertyId;
+
     this.setState({ status: "loading", });
 
     await fetch(`api/agents/${agentId}/send-mail`, {

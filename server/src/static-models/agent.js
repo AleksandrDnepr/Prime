@@ -31,7 +31,7 @@ async function sendEmail({info, email}) {
       },
     },
     {
-      from: "Jeff Agent <jeff77@ethereal.email>",
+      from: "Jeff Agent <maiya59@ethereal.email>",
     }
   );
 
@@ -41,7 +41,7 @@ async function sendEmail({info, email}) {
       to: email,
       subject: 'Dear Agent!',
       text: `Client ${info.name} (email: ${info.email}), 
-      asked about property. 
+      asked about property id:${info.propertyId}. 
       Here's his/her massage: 
       "${info.message}"`,
     })
