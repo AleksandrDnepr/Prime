@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Login } from "./pages/login";
+import { Messages } from "./pages/messages";
 import { Properties } from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -11,6 +12,7 @@ export default class App extends React.Component {
         <BrowserRouter basename="/admin">
           <Switch>
             <Route path="/properties"><Properties user={this.props.user} /></Route>
+            <Route path="/messages" component={Messages} />
             <Route path="/"><Login user={this.props.user} /></Route>
           </Switch>
         </BrowserRouter>
