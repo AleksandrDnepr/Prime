@@ -99,7 +99,7 @@ if(messages.length===0){
         {messages.map((message) => (
           <>
             <ListItem key={message.id} alignItems="flex-start">
-              <Typography>Meassage from {message.name} ({message.email}) about id {message.propId} :</Typography>
+              <Typography>Message from {message.name} ({message.email}) about id {message.propId} :</Typography>
               <ListItemText secondary={message.text} />
             </ListItem>
             <Divider variant="inset" component="li" />
