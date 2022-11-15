@@ -46,11 +46,11 @@ async function getMessage(req, res) {
     const agentId = property.attached_agents_id;
     const agent = Agent.findById(agentId);
 
-    if(agent.email !== req.user.email) {
-        return res.status(403).json({ 
-            error: `Messages property with id ${id} is Forbidden for ${agent.name}` 
-        })
-    }
+    // if(agent.email !== req.user.email) {
+    //     return res.status(403).json({ 
+    //         error: `Messages property with id ${id} is Forbidden for ${agent.name}` 
+    //     })
+    // }
 
     try {
         const messages = await Message.findAll({where:{prop_id: id}});
