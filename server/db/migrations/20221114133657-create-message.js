@@ -12,6 +12,15 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
+      text: {
+        type: Sequelize.TEXT
+      },
+      prop_id : {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

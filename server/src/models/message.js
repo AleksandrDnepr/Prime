@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Message.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    text: DataTypes.STRING,
+    text: DataTypes.TEXT,
     prop_id: DataTypes.STRING,
   }, { sequelize, modelName: 'Message',
   });
