@@ -9,6 +9,7 @@ import { flexbox } from "@mui/system";
 import Stack from "@mui/material/Stack";
 import { withRouter } from "react-router-dom";
 import { Breadcrumbs, Link, Typography } from "@mui/material";
+import { blue } from "@mui/material/colors";
 
 class Messages extends Component {
   state = {
@@ -72,18 +73,30 @@ class Messages extends Component {
         <List
           sx={{
             width: "100%",
-            maxWidth: 360,
+            maxWidth: "70%",
             bgcolor: "background.paper",
             ml: 2,
           }}
         >
           {messages.map((message) => (
-            <ListItem key={message.id} alignItems="flex-start">
+            <ListItem
+              sx={{
+                borderBottom: 1,
+                borderColor: "lightgrey",
+              }}
+              key={message.id}
+              alignItems="flex-start"
+            >
               <Typography>
                 Message from {message.name} ({message.email}) about id{" "}
                 {message.prop_id} :
               </Typography>
-              <ListItemText secondary={message.text} />
+              <ListItemText
+                sx={{
+                  ml:2
+                }}
+                secondary={message.text}
+              />
             </ListItem>
           ))}
         </List>
