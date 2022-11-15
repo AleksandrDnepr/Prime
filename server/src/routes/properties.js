@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const Property = require('../static-models/property.js');
 const Agent = require("../static-models/agent.js");
+const { Message } = require('../models');
 
 
 async function read(req, res) {
@@ -46,10 +47,18 @@ async function getMessage(req, res) {
     const agent = Agent.findById(agentId);
 
     if(agent.email !== req.user.email) {
-        return res.status(403).json({ error: `Messages property with id ${id} is Forbidden for ${agent.name}` })
+        return res.status(403).json({ 
+            error: `Messages property with id ${id} is Forbidden for ${agent.name}` 
+        })
     }
 
-    res.send(`Messages ${property.id}`)
+    try {
+        const messages = await Message.findAll({where:{prop_id: id}});
+        return res.json(messages);
+    } catch(err) {
+        return res.status(500).json({err: "An error occured"});
+    }
+
 }
 
 module.exports = Router()
