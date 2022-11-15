@@ -40,9 +40,9 @@ async function sendEmail({info, email}) {
       from: `"${info.name}" <${info.email}>`,
       to: email,
       subject: 'Dear Agent!',
-      text: `Client ${info.name} (email: ${info.email}), 
-      asked about property. 
-      Here's his/her massage: 
+      text: `Client ${info.name} (email: ${info.email}),
+      asked about property id:${info.propertyId}.
+      Here's his/her massage:
       "${info.message}"`,
     })
     .catch(console.log);
