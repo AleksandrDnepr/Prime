@@ -5,8 +5,8 @@
       "secure": false,
       "dbName": "customers",
       "auth":{
-        "user":"jeff77@ethereal.email",
-        "pass":"9XVjJt1zkbzMNVTPnG"
+        "user":"maiya59@ethereal.email",
+        "pass":"cVjntXUmgy2Cz31rS6"
       }
     },
     "database_url": "sqlite://db/main.db",

@@ -13,9 +13,11 @@ async function read(req, res) {
     res.json({ agent });
 }
 
-async function sendMailToAgent({ body, params }, res) {
+async function sendMailToAgent(req, res) {
+    const {body, params} = req;
+
     const agent = Agent.findById(params.id);
-    const message = await Message.create({
+     await Message.create({
         name: body.info.name,
         email: body.info.email,
         text: body.info.message,
@@ -25,6 +27,7 @@ async function sendMailToAgent({ body, params }, res) {
     Agent.sendEmail({ ...body, email: agent.email })
         .then(() => res.json({ body }))
         .catch(() => res.json({ error: "Something wrong" }));
+
 }
 
 module.exports = Router()
