@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const Agent = require("../static-models/agent.js");
-
+const {Message} = require('../models');
 
 async function read(req, res) {
     const { id } = req.params;
@@ -15,7 +15,13 @@ async function read(req, res) {
 
 async function sendMailToAgent({ body, params }, res) {
     const agent = Agent.findById(params.id);
-
+    const message = await Message.create({
+        name: body.info.name,
+        email: body.info.email,
+        text: body.info.message,
+        prop_id: body.info.propertyId,
+    })
+    
     Agent.sendEmail({ ...body, email: agent.email })
         .then(() => res.json({ body }))
         .catch(() => res.json({ error: "Something wrong" }));
