@@ -15,5 +15,6 @@
       "id": "",
       "secret": ""
     },
-    "app_host": "http://localhost:3000"
+    "app_host": "http://localhost:3000",
+    "session_secret": "🐱"
 }
