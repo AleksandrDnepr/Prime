@@ -14,6 +14,8 @@ client/build/
 # dev database
 server/db/main.db
 
+server/config/local.json
+
 # misc
 .DS_Store
 .env.local
