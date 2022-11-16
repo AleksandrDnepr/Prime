@@ -13,6 +13,9 @@ express()
     .use(session({ secret: config.get('session_secret'), resave: true, saveUninitialized: true }))
     .use(passport.session())
     .use('/api', router)
+    .use('/admin', (req, res, next) => {
+        res.sendFile(path.join(__dirname, "..", "admin", "index.html"));
+    })
     .use((req, res, next) => {
         res.sendFile(path.join(__dirname, "..", "static", "index.html"));
     })
