@@ -10,7 +10,7 @@ const callbackURL = config.get('app_host') + '/api/auth/callback';
 
 passport.use(new GoogleStrategy(
   { clientID, clientSecret, callbackURL },
-  (accessToken, refreshToken, profile, done) => done(null, profile)
+  (accessToken, refreshToken, profile, done) => done(null, { email: profile.email, name: profile.name.givenName })
 ));
 passport.serializeUser((user, done) => done(null, JSON.stringify(user)))
 passport.deserializeUser((user, done) => done(null, JSON.parse(user)))
@@ -18,4 +18,4 @@ passport.deserializeUser((user, done) => done(null, JSON.parse(user)))
 module.exports = Router()
   .get('/', passport.authenticate('google', { scope: ['email', 'profile'] }))
   .get('/callback', passport.authenticate('google', { successRedirect: '/admin', failureRedirect: '/admin' }))
-  .get('/status', (req, res) => res.json(req.user));
+  .get('/status', (req, res) => res.json(req.user || {}));

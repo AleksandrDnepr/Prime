@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -58,6 +59,10 @@ export class Properties extends Component {
         const {properties} = this.state;
         if(!properties){return null}
 
+      if (!this.props.user.email) {
+        return <Redirect to="/" />;
+      }
+
         return (
         <Box
             component="div"
@@ -73,7 +78,7 @@ export class Properties extends Component {
             <Chip
                 sx={{p: 2, m: 2}}  
                 avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
-                label="Hello, Adam Conover!"
+                label={`Hello, ${this.props.user.name}!`}
                 variant="outlined"
                 color="primary"
             />
