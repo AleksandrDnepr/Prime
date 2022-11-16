@@ -84,7 +84,7 @@ export class Properties extends Component {
             />
 
             <Button variant="outlined" size="small" href="#" >
-                    {'Sign out'}
+              <a href="/api/auth/logout">Sign out</a>
             </Button>
         </Stack>
 

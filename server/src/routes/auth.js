@@ -18,4 +18,5 @@ passport.deserializeUser((user, done) => done(null, JSON.parse(user)))
 module.exports = Router()
   .get('/', passport.authenticate('google', { scope: ['email', 'profile'] }))
   .get('/callback', passport.authenticate('google', { successRedirect: '/admin', failureRedirect: '/admin' }))
-  .get('/status', (req, res) => res.json(req.user || {}));
+  .get('/status', (req, res) => res.json(req.user || {}))
+  .get('/logout', (req, res) => req.logout(() => res.redirect('/admin')));
