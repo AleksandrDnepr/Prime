@@ -10,5 +10,10 @@
       }
     },
     "database_url": "sqlite://db/main.db",
-    "port": 3100
+    "port": 3100,
+    "google_client": {
+      "id": "",
+      "secret": ""
+    },
+    "app_host": "http://localhost:3000"
 }
