@@ -11,13 +11,14 @@ export default class App extends React.Component {
       <React.StrictMode>
         <BrowserRouter basename="/admin">
           <Switch>
+            <Route
+              path="/properties/:property_id/messages"
+            >
+            <Messages user={this.props.user}/>
+            </Route>
             <Route path="/properties">
               <Properties user={this.props.user} />
             </Route>
-            <Route
-              path="/properties/:property_id/messages"
-              component={Messages}
-            />
             <Route path="/">
               <Login user={this.props.user} />
             </Route>

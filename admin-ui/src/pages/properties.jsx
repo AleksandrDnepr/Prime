@@ -84,58 +84,64 @@ export class Properties extends Component {
           <Box
             component="div"
             sx={{
-            display: flexbox,
-            width: `calc(100vw)`,
-            backgroundColor:"#b8bde8ae",
-            lineHeight: 30,
-            }}  
-        >
-            
-        <Stack direction="row" spacing={1} sx={{p:1}}>
-            <Chip
-                sx={{p: 2, m: 2}}  
-                avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
+              display: flexbox,
+              width: `calc(100vw)`,
+              backgroundColor: "#b8bde8ae",
+              lineHeight: 30,
+            }}
+          >
+            <Stack direction="row" spacing={1} sx={{ p: 1 }}>
+              <Chip
+                sx={{ p: 2, m: 2 }}
+                avatar={
+                  <Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />
+                }
                 label={`Hello, ${this.props.user.name}!`}
                 variant="outlined"
                 color="primary"
               />
 
-            <Button variant="outlined" size="small" href="#" >
-              <a href="/api/auth/logout">Sign out</a>
-            </Button>
-        </Stack>
+              <Button
+                component="a"
+                href="/api/auth/logout"
+                variant="outlined"
+                size="small"
+              >
+                Sign out
+              </Button>
+            </Stack>
 
-        <List
-          sx={{
-            width: "100%",
-            maxWidth: 360,
-            bgcolor: "background.paper",
-            ml: 2,
-          }}
-        >
-          {properties.map((property) => (
-            <Link
-              key={property.id}
-              underline="hover"
-              href={`/properties/${property.id}/messages`}
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 360,
+                bgcolor: "background.paper",
+                ml: 2,
+              }}
             >
-              <ListItem alignItems="flex-start">
-                <ListItemAvatar>
-                  <Avatar
-                    variant="square"
-                    alt={property.title}
-                    src={property.images.prewiew}
-                  />
-                </ListItemAvatar>
-                <ListItemText primary={property.title} />
-              </ListItem>
-              <Divider variant="inset" component="li" />
-            </Link>
-          ))}
-        </List>
+              {properties.map((property) => (
+                <Link
+                  key={property.id}
+                  underline="hover"
+                  href={`/properties/${property.id}/messages`}
+                >
+                  <ListItem alignItems="flex-start">
+                    <ListItemAvatar>
+                      <Avatar
+                        variant="square"
+                        alt={property.title}
+                        src={property.images.prewiew}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText primary={property.title} />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                </Link>
+              ))}
+            </List>
 
-        {this.showMoreBtn()}
-      </Box>
-    );
+            {this.showMoreBtn()}
+          </Box>
+        );
   }
 }

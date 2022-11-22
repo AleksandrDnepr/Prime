@@ -49,13 +49,18 @@ class Messages extends Component {
         <Stack direction="row" spacing={1} sx={{ p: 1 }}>
           <Chip
             sx={{ p: 2, m: 2 }}
-            label={`Hello, ${agent}!`}
+            label={`Hello, ${this.props.user.name}!`}
             variant="outlined"
             color="primary"
           />
 
-          <Button variant="outlined" size="small" href="#">
-            {"Sign out"}
+          <Button
+            component="a"
+            href="/api/auth/logout"
+            variant="outlined"
+            size="small"
+          >
+            Sign out
           </Button>
         </Stack>
 
@@ -93,7 +98,7 @@ class Messages extends Component {
               </Typography>
               <ListItemText
                 sx={{
-                  ml:2
+                  ml: 2,
                 }}
                 secondary={message.text}
               />
