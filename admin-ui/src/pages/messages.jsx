@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import { flexbox } from "@mui/system";
-import Stack from "@mui/material/Stack";
 import { withRouter } from "react-router-dom";
-import { Breadcrumbs, Link, Typography } from "@mui/material";
-import { blue } from "@mui/material/colors";
+import HeaderAdmin from "../components/header";
+import MessageList from "../components/messageList";
+import Background from "./background.jpg";
+import Breadcrumps from "../components/breadcrumps";
 
 class Messages extends Component {
   state = {
@@ -26,7 +21,7 @@ class Messages extends Component {
       .catch(() => this.setState({ error: "Something went wrong" }));
   }
   render() {
-    const { messages, agent } = this.state;
+    const { messages } = this.state;
 
     if (!messages) {
       return null;
@@ -40,71 +35,20 @@ class Messages extends Component {
       <Box
         component="div"
         sx={{
-          display: flexbox,
           width: `calc(100vw)`,
-          backgroundColor: "#b8bde8ae",
+          height: `calc(100vh)`,
+          backgroundImage: `url(${Background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          textAlign: "center",
           lineHeight: 30,
         }}
       >
-        <Stack direction="row" spacing={1} sx={{ p: 1 }}>
-          <Chip
-            sx={{ p: 2, m: 2 }}
-            label={`Hello, ${this.props.user.name}!`}
-            variant="outlined"
-            color="primary"
-          />
+        <HeaderAdmin user={this.props.user} />
 
-          <Button
-            component="a"
-            href="/api/auth/logout"
-            variant="outlined"
-            size="small"
-          >
-            Sign out
-          </Button>
-        </Stack>
+        <Breadcrumps />
 
-        <Breadcrumbs
-          separator=">"
-          sx={{ ml: 2, mb: 2 }}
-          aria-label="breadcrumb"
-        >
-          <Link underline="hover" href="/properties">
-            Properties
-          </Link>
-          <Typography>Property short description</Typography>
-        </Breadcrumbs>
-
-        <List
-          sx={{
-            width: "100%",
-            maxWidth: "70%",
-            bgcolor: "background.paper",
-            ml: 2,
-          }}
-        >
-          {messages.map((message) => (
-            <ListItem
-              sx={{
-                borderBottom: 1,
-                borderColor: "lightgrey",
-              }}
-              key={message.id}
-              alignItems="flex-start"
-            >
-              <Typography>
-                Message from {message.name} ({message.email}) about id{" "}
-                {message.prop_id} :
-              </Typography>
-              <ListItemText
-                sx={{
-                  ml: 2,
-                }}
-                secondary={message.text}
-              />
-            </ListItem>
-          ))}
-        </List>
+        <MessageList messages={this.state.messages} />
       </Box>
     );
   }

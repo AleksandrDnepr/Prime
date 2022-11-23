@@ -11,10 +11,8 @@ export default class App extends React.Component {
       <React.StrictMode>
         <BrowserRouter basename="/admin">
           <Switch>
-            <Route
-              path="/properties/:property_id/messages"
-            >
-            <Messages user={this.props.user}/>
+            <Route path="/properties/:property_id/messages">
+              <Messages user={this.props.user} />
             </Route>
             <Route path="/properties">
               <Properties user={this.props.user} />
@@ -30,11 +28,11 @@ export default class App extends React.Component {
 }
 
 async function main() {
-  const user = await fetch('/api/auth/status').then(res => res.json());
+  const user = await fetch("/api/auth/status").then((res) => res.json());
 
-  ReactDOM
-    .createRoot(document.getElementById("root"))
-    .render(<App user={user} />);
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <App user={user} />
+  );
 }
 
 main();
