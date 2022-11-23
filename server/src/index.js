@@ -5,12 +5,21 @@ const router = require('./routes/');
 const path = require('path');
 const config = require('config');
 const PORT = config.get('port');
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const db = require('./models/');
+const sessionSecret = config.get('session_secret');
+
+const store = new SequelizeStore({
+    db: db.sequelize,
+  });
+
+store.sync();
 
 express()
     .use('/admin', express.static('admin'))
     .use('/', express.static('static'))
     .use(express.json())
-    .use(session({ secret: config.get('session_secret'), resave: true, saveUninitialized: true }))
+    .use(session({ secret: sessionSecret, store: store, resave: false, saveUninitialized: true }))
     .use(passport.session())
     .use('/api', router)
     .use('/admin', (req, res, next) => {
