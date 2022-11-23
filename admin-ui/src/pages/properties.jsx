@@ -23,7 +23,7 @@ export class Properties extends Component {
 
   async componentDidMount() {
     await fetch(
-      `/api/properties?agentEmail=adamexample001@gmail.com&page=${this.state.page}`
+      `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
     )
       .then((data) => data.json())
       .then((data) => this.setState({ ...data }));
@@ -35,7 +35,7 @@ export class Properties extends Component {
     if (page < pages) {
       this.setState((state) => ({ page: state.page + 1 }));
       await fetch(
-        `/api/properties?agentEmail=adamexample001@gmail.com&page=${page}`
+        `/api/properties?agentEmail=${this.props.user.email}&page=${page}`
       )
         .then((data) => data.json())
         .then((data) =>
