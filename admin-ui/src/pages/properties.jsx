@@ -41,9 +41,6 @@ export class Properties extends Component {
         }
     }
 
-        
-
-
     showMoreBtn() {
         const {page, pages, properties} = this.state;
         if(pages === 1) {return null}
@@ -62,21 +59,17 @@ export class Properties extends Component {
     }
 
     render() {
-        const {properties, error} = this.state;
-        const { name } = this.props.user;
+        const { properties, error } = this.state;
+        const { name, email } = this.props.user;
 
-        if(error){return <p>{error}</p>}
+        if(error) {return <p>{error}</p> }
 
-        if (!this.props.user.email) {
+        if (!email) {
             return <Redirect to="/" />;
         }
 
-        if(!properties){return null}
+        if(!properties){ return null }
         
-        if(properties.length === 0) {
-            return <p>{`Dear agent ${name}, you havn't attached properties yet`}</p>
-        }
-
         return (
         <Box
             component="div"
@@ -91,7 +84,7 @@ export class Properties extends Component {
         <Stack direction="row" spacing={1} sx={{p:1}}>
             <Chip
                 sx={{p: 2, m: 2}}  
-                label={`Hello, ${this.props.user.name}!`}
+                label={`Hello, ${name}!`}
                 variant="outlined"
                 color="primary"
             />
