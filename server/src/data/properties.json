@@ -82,7 +82,7 @@
           "title": "Beautiful lote near Samara",
           "location": ["Natomas", "FL"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 1, "year": 1920 },
           "price": 250000,
           "deal": "sale",
           "images": {
@@ -158,7 +158,7 @@
           "title": "Luxury house with great views",
           "location": ["Natomas", "UA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 1920 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 3, "year": 1920 },
           "price": 5000,         
           "deal": "rent",
           "images": {
@@ -234,7 +234,7 @@
           "title": "Luxury house with great views",
           "location": ["Natomas", "UA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2000 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 4, "year": 2000 },
           "price": 100000,
           "deal": "sale",
           "images": {
@@ -387,7 +387,7 @@
           "title": "Beautiful lote near Samara",
           "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 1, "year": 1920 },
           "price": 20000,
           "deal": "rent",
           "images": {
@@ -463,7 +463,7 @@
           "title": "Luxury house with great views",
           "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 2, "year": 2000 },
+          "details": { "area": 2000, "bedrooms": 4, "bathrooms": 3, "year": 2000 },
           "price": 650000,
           "deal": "sale",
           "images": {
@@ -539,7 +539,7 @@
           "title": "Luxury house with great views",
           "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2021 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 4, "year": 2021 },
           "price": 10000,
           "deal": "rent",
           "images": {
@@ -692,7 +692,7 @@
           "title": "Beautiful lote near Samara",
           "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 2011 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 1, "year": 2011 },
           "price": 20500,
           "deal": "rent",
           "images": {
@@ -844,7 +844,7 @@
           "title": "Luxury house with great views",
           "location": ["Natomas", "CA"],
           "type": "townhouse",
-          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 2, "year": 2014 },
+          "details": { "area": 9020, "bedrooms": 7, "bathrooms": 4, "year": 2014 },
           "price": 25000,
           "deal": "rent",
           "images": {
@@ -997,7 +997,7 @@
           "title": "Beautiful lote near Samara",
           "location": ["Natomas", "CA"],
           "type": "apartment",
-          "details": { "area": 720, "bedrooms": 1, "bathrooms": 2, "year": 1920 },
+          "details": { "area": 720, "bedrooms": 1, "bathrooms": 1, "year": 1920 },
           "price": 20000,
           "deal": "sale",
           "images": {
