@@ -70,7 +70,7 @@ class Property extends Component {
 
           <Features features={property.features} />
 
-          <AgentCard agentId={property.attached_agents_id} status="default" />
+          <AgentCard agentId={property.attached_agents_id} propertyId={property.id} status="default" />
         </Page>
       </>
     );
