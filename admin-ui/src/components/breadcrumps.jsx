@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 export default class Breadcrumps extends Component {
   render() {
+    const { title } = this.props
     return (
       <Box>
         <Breadcrumbs
@@ -13,7 +14,7 @@ export default class Breadcrumps extends Component {
           <Link underline="hover" href="/properties">
             Properties
           </Link>
-          <Typography>Property short description</Typography>
+          <Typography>{ title }</Typography>
         </Breadcrumbs>
       </Box>
     );

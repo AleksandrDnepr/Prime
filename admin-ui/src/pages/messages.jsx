@@ -19,6 +19,11 @@ class Messages extends Component {
       .then((res) => res.json())
       .then((data) => this.setState({ messages: data }))
       .catch(() => this.setState({ error: "Something went wrong" }));
+
+      await fetch(`/api/properties/${property_id}`)
+        .then((res) => res.json())
+        .then((data) => this.setState({title:data.property.title}))
+        
   }
   render() {
     const { messages } = this.state;
@@ -46,7 +51,7 @@ class Messages extends Component {
       >
         <HeaderAdmin user={this.props.user} />
 
-        <Breadcrumps />
+        <Breadcrumps title={this.state.title}/>
 
         <MessageList messages={this.state.messages} />
       </Box>
