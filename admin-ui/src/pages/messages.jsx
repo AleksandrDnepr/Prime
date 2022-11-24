@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import HeaderAdmin from "../components/header";
 import MessageList from "../components/messageList";
 import Background from "./background.jpg";
-import Breadcrumps from "../components/breadcrumps";
+import Breadcrumps from "../components/breadcrumbs";
 
 class Messages extends Component {
   state = {
@@ -27,6 +27,7 @@ class Messages extends Component {
   }
   render() {
     const { messages } = this.state;
+    const breadcrumbs = [{ "name": "Properties", "link": "/properties" }]
 
     if (!messages) {
       return null;
@@ -51,8 +52,8 @@ class Messages extends Component {
       >
         <HeaderAdmin user={this.props.user} />
 
-        <Breadcrumps title={this.state.title}/>
-
+        <Breadcrumps title={this.state.title} breadcrumbs={breadcrumbs} lastBreadcrumbs="true" />
+          
         <MessageList messages={this.state.messages} />
       </Box>
     );

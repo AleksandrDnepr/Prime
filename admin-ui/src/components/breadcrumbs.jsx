@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 export default class Breadcrumps extends Component {
   render() {
-    const { title } = this.props
+    const { title, breadcrumbs, lastBreadcrumbs } = this.props
     return (
       <Box>
         <Breadcrumbs
@@ -11,10 +11,13 @@ export default class Breadcrumps extends Component {
           sx={{ ml: 2, mb: 2 }}
           aria-label="breadcrumb"
         >
-          <Link underline="hover" href="/properties">
-            Properties
-          </Link>
-          <Typography>{ title }</Typography>
+          {breadcrumbs.map((item, index)=>(
+            <Link key={index} underline="hover" href={item.link}>
+              {item.name}
+            </Link>
+          )
+          )}
+          {(lastBreadcrumbs ==="true")?<Typography>{title}</Typography>:null}
         </Breadcrumbs>
       </Box>
     );
