@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Login } from "./pages/login";
+import Messages from "./pages/messages";
 import { Properties } from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -10,8 +11,15 @@ export default class App extends React.Component {
       <React.StrictMode>
         <BrowserRouter basename="/admin">
           <Switch>
-            <Route path="/properties"><Properties user={this.props.user} /></Route>
-            <Route path="/"><Login user={this.props.user} /></Route>
+            <Route path="/properties/:property_id/messages">
+              <Messages user={this.props.user} />
+            </Route>
+            <Route path="/properties">
+              <Properties user={this.props.user} />
+            </Route>
+            <Route path="/">
+              <Login user={this.props.user} />
+            </Route>
           </Switch>
         </BrowserRouter>
       </React.StrictMode>
@@ -20,11 +28,11 @@ export default class App extends React.Component {
 }
 
 async function main() {
-  const user = await fetch('/api/auth/status').then(res => res.json());
+  const user = await fetch("/api/auth/status").then((res) => res.json());
 
-  ReactDOM
-    .createRoot(document.getElementById("root"))
-    .render(<App user={user} />);
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <App user={user} />
+  );
 }
 
 main();

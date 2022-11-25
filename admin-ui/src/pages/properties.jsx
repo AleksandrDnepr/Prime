@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import { flexbox } from "@mui/system";
+import { flexbox } from '@mui/system';
 import Stack from '@mui/material/Stack';
+import { Link } from '@mui/material';
 
 
 export class Properties extends Component {
@@ -22,7 +23,7 @@ export class Properties extends Component {
     }
 
     async componentDidMount(){
-        await fetch(`/api/properties?agentEmail=adamexample001@gmail.com&page=${this.state.page}`)
+        await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
         .then((data) => data.json())
         .then(data => this.setState({...data}));
     }
@@ -32,13 +33,13 @@ export class Properties extends Component {
 
         if (page < pages) {
             this.setState(state => ({ page: state.page + 1 }))
-            await fetch(`/api/properties?agentEmail=adamexample001@gmail.com&page=${page}`)
+            await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${page}`)
             .then((data) => data.json())
             .then(data => this.setState(state => ({properties: [...state.properties, ...data.properties]})));
         }
     }
 
-    showMoreBtn() {
+showMoreBtn() {
         const {page, pages} = this.state;
         if(pages === 1) {return null}
 
@@ -83,14 +84,13 @@ export class Properties extends Component {
                 color="primary"
             />
 
-            <Button variant="outlined" size="small" href="#" >
-              <a href="/api/auth/logout">Sign out</a>
-            </Button>
+            <Button component="a" href="/api/auth/logout" variant="outlined" size="small">Sign out</Button>
         </Stack>
 
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', ml: 2 }}>
 
-            {properties.map(property => <>
+            {properties.map(property => (
+            <Link key={property.id} underline="hover" href={`/properties/${property.id}/messages`}>
                 <ListItem key={property.id} alignItems="flex-start">
                     <ListItemAvatar>
                         <Avatar variant="square" alt={property.title} src={property.images.prewiew} />
@@ -98,8 +98,8 @@ export class Properties extends Component {
                     <ListItemText primary={property.title}/>
                 </ListItem>
                 <Divider variant="inset" component="li" />
-            </>)}
-
+              </Link>
+            ))}
         </List>
 
         {this.showMoreBtn()}
