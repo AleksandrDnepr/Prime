@@ -13,7 +13,7 @@ module.exports = class Property {
   }
 
   static filterAll(filterParams) {
-    let filtredPropeties;
+    let filtredPropeties = [];
 
     if(filterParams === {}) {filtredPropeties = [...Property.PROPERTIES]}
     

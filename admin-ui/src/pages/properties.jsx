@@ -12,6 +12,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { flexbox } from '@mui/system';
 import Stack from '@mui/material/Stack';
 import { Link } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
 
 
 export class Properties extends Component {
@@ -24,25 +25,29 @@ export class Properties extends Component {
 
     async componentDidMount(){
         await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
-        .then((data) => data.json())
-        .then(data => this.setState({...data}));
+        .then(data => data.json())
+        .then(data => this.setState({...data}))
+        .catch(error => this.setState({error}));
     }
 
-    async showMore(){
-        const {page, pages} = this.state;
+    async showMore() {
+        const { page, pages } = this.state;
 
         if (page < pages) {
             this.setState(state => ({ page: state.page + 1 }))
             await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${page}`)
-            .then((data) => data.json())
+            .then(data => data.json())
             .then(data => this.setState(state => ({properties: [...state.properties, ...data.properties]})));
         }
     }
 
-showMoreBtn() {
-        const {page, pages} = this.state;
-        if(pages === 1) {return null}
+        
 
+
+    showMoreBtn() {
+        const {page, pages, properties} = this.state;
+        if(pages === 1) {return null}
+        if(properties.length === 0) {return null}
         if(page !== pages) {
             return <ListItem>
                 <Button 
@@ -50,19 +55,27 @@ showMoreBtn() {
                 size="medium" 
                 onClick={() => {this.showMore()}}
                 sx={{position:"sticky"}}>
-                    {"+"}
+                    {"Show more"}
                 </Button>
             </ListItem>
         }
     }
 
     render() {
-        const {properties} = this.state;
-        if(!properties){return null}
+        const {properties, error} = this.state;
+        const { name } = this.props.user;
 
-      if (!this.props.user.email) {
-        return <Redirect to="/" />;
-      }
+        if(error){return <p>{error}</p>}
+
+        if (!this.props.user.email) {
+            return <Redirect to="/" />;
+        }
+
+        if(!properties){return null}
+        
+        if(properties.length === 0) {
+            return <p>{`Dear agent ${name}, you havn't attached properties yet`}</p>
+        }
 
         return (
         <Box
@@ -78,7 +91,6 @@ showMoreBtn() {
         <Stack direction="row" spacing={1} sx={{p:1}}>
             <Chip
                 sx={{p: 2, m: 2}}  
-                avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
                 label={`Hello, ${this.props.user.name}!`}
                 variant="outlined"
                 color="primary"

@@ -32,7 +32,14 @@ async function index(req, res) {
 
     const properties  = filtredProperties.slice(offset, limit);
     
-    res.json({ pages,  properties });
+    const agents = Agent.agentsEmails();
+    const isOurAgent = agents.includes(filterParam.agentEmail);
+    
+    if(!filterParam.agentEmail || isOurAgent) {
+        return res.json({ pages,  properties });
+    }
+    
+    return res.status(401).json({error: `ERROR 401! User ${filterParam.agentEmail} is STRANGER` })
 }
 
 async function getMessage(req, res) {
