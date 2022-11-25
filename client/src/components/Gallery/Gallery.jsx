@@ -32,33 +32,14 @@ export class Gallery extends Component {
         return <RightArrow onClick={this.showNext} className="gallery__arrow-right" />;
     }
 
-    onSliredClick = () => {
-         const { pictures } = this.props;
-         const { currentIndex } = this.state;
-         this.setState(prev => ( console.log(pictures)))
-    // return this.setState(prev => ({ currentIndex: (pictures.length - prev.currentIndex)}))
-    }
-
-    renderSlider()   {
-        const { pictures } = this.props;
-        return pictures.map((picture) => 
-       <img className="gallery__slider_img" src={picture} alt="First view with the property" 
-       onClick={this.onSliredClick} key={picture}/>)
-    }
-
     render() {
         const { pictures } = this.props;
         const { currentIndex } = this.state;
 
-        return <div className = "gallery">
-            <div className = "gallery__main">
+        return <div className="gallery container__gallery">
                 {this.renderLeftArrow()}
-                <img className="gallery__main_img" src={pictures[currentIndex]} alt="First view with the property" />
+                <img className="gallery__img" src={pictures[currentIndex]} alt="First view with the property" />
                 {this.renderRightArrow()}
-            </div>
-            <div className="gallery__slider">
-              {this.renderSlider()}
-            </div>
             </div>
     }
 }
