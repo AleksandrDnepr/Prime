@@ -31,14 +31,25 @@ export class Gallery extends Component {
         return <RightArrow onClick={this.showNext} className="gallery__arrow-right" />;
     }
 
+    renderSlider() {
+        const { pictures } = this.props;
+        return pictures.map((picture) => 
+        <img className="gallery__slider_img" src={picture} alt="Slider with appartment's images" />)
+    }
+
     render() {
         const { pictures } = this.props;
         const { currentIndex } = this.state;
 
-        return <div className="gallery container__gallery">
-                {this.renderLeftArrow()}
-                <img className="gallery__img" src={pictures[currentIndex]} alt="First view with the property" />
-                {this.renderRightArrow()}
-            </div>
+        return <div className="gallery">
+                    <div className="gallery__main">
+                        {this.renderLeftArrow()}
+                        <img className="gallery__main_img" src={pictures[currentIndex]} alt="First view with the property" />
+                        {this.renderRightArrow()}
+                    </div>
+                    <div className="gallery__slider">
+                        {this.renderSlider()}
+                    </div>
+                </div>
     }
 }
