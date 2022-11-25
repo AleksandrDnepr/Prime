@@ -12,7 +12,6 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { flexbox } from '@mui/system';
 import Stack from '@mui/material/Stack';
 import { Link } from '@mui/material';
-import Snackbar from '@mui/material/Snackbar';
 
 
 export class Properties extends Component {
@@ -37,7 +36,8 @@ export class Properties extends Component {
             this.setState(state => ({ page: state.page + 1 }))
             await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${page}`)
             .then(data => data.json())
-            .then(data => this.setState(state => ({properties: [...state.properties, ...data.properties]})));
+            .then(data => this.setState(state => ({properties: [...state.properties, ...data.properties]})))
+            .catch(error => this.setState({error}));
         }
     }
 
