@@ -31,7 +31,10 @@ module.exports = class Property {
         if (maxPrice && property.price > maxPrice) {return false}
         if (minArea && property.details.area < minArea) {return false}
         if (maxArea && property.details.area > maxArea) {return false}
-        if (agentEmail && property.attached_agents_id !== Agent.findByEmail(agentEmail).id) {return false}
+
+        const agent = Agent.findByEmail(agentEmail);
+
+        if (!agent || agentEmail && property.attached_agents_id !== agent.id) {return false}      
         
         return true;
       })
