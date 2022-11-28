@@ -26,15 +26,15 @@ export class Gallery extends Component {
     renderRightArrow() {
         const { currentIndex } = this.state;
         const { pictures } = this.props;
-        const lastPhotoIndex = pictures.length - currentIndex + 1;
-        if (currentIndex >= lastPhotoIndex) {return null}
+        const lastPhotoIndex = pictures.length - currentIndex;
+        if (lastPhotoIndex <= 1) {return null}
         return <RightArrow onClick={this.showNext} className="gallery__arrow-right" />;
     }
 
     renderSlider() {
         const { pictures } = this.props;
         return pictures.map((picture) => 
-        <img className="gallery__slider_img" src={picture} alt="Slider with appartment's images" />)
+        <img className="gallery__slider_img" src={picture} key={picture} alt="Slider with apartment's images" />)
     }
 
     render() {
