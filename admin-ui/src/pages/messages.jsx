@@ -19,12 +19,9 @@ class Messages extends Component {
     fetch(`/api/properties/${property_id}/messages`)
       .then((res) => { 
         if (res.ok) {
-          res.json().then((data) => {
-            this.setState({ messages: data })
-          });
-        } else { 
-          console.log('error')       
-            this.setState({ error: `Messages property with id ${property_id} is forbidden for ${this.props.user.name}`})
+          res.json().then((data) => { this.setState({ messages: data })});
+        } else {             
+          this.setState({ error: `Messages property with id ${property_id} is forbidden for ${this.props.user.name}`})
         }
       })      
       .catch(() => this.setState({ error: "Something went wrong" }))  
@@ -37,10 +34,11 @@ class Messages extends Component {
   }
   render() {
     const { messages, error } = this.state;
+
     const breadcrumbs = [{ "name": "Properties", "link": "/properties" }]    
 
     if (error) {      
-      return <p>{error}</p>;
+      return <Error errorTitle={`Error 403`}>{error}</Error>;
     }
 
     if (!messages) {
@@ -48,7 +46,7 @@ class Messages extends Component {
     }
 
     if (messages.length === 0) {
-      return "There are no messages by the now";
+      return <Error>{"There are no messages for you by the now"}</Error>;
     }
 
     return (
