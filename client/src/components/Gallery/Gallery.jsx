@@ -33,8 +33,15 @@ export class Gallery extends Component {
 
     renderSlider() {
         const { pictures } = this.props;
-        return pictures.map((picture) => 
-        <img className="gallery__slider_img" src={picture} key={picture} alt="Slider with apartment's images" />)
+        return pictures.map((picture,index) => 
+            <img className="gallery__slider_img" src={picture} key={index} alt="Slider with apartment's images" 
+            onClick={() => this.onPicClick(index)}
+            />)
+    }
+
+    onPicClick(index) {
+        this.setState({currentIndex:index});
+        console.log(index);
     }
 
     render() {
