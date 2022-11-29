@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Alert, AlertTitle } from "@mui/material";
 
-export class Erorr extends Component {
+export class Error extends Component {
   render() {
     const { errorTitle, children } = this.props;
     return (

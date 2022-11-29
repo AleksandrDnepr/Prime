@@ -5,6 +5,7 @@ import HeaderAdmin from "../components/header";
 import MessageList from "../components/messageList";
 import Background from "./background.jpg";
 import Breadcrumps from "../components/breadcrumbs";
+import {Error} from "../components/error.jsx"
 
 class Messages extends Component {
   state = {
@@ -12,29 +13,40 @@ class Messages extends Component {
     agent: null,
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     const { property_id } = this.props.match.params;
 
-    await fetch(`/api/properties/${property_id}/messages`)
-      .then((res) => res.json())
-      .then((data) => this.setState({ messages: data }))
-      .catch(() => this.setState({ error: "Something went wrong" }));
+    fetch(`/api/properties/${property_id}/messages`)
+      .then((res) => { 
+        if (res.ok) {
+          res.json().then((data) => { this.setState({ messages: data })});
+        } else {             
+          this.setState({ error: `Messages property with id ${property_id} is forbidden for ${this.props.user.name}`})
+        }
+      })      
+      .catch(() => this.setState({ error: "Something went wrong" }))  
 
-      await fetch(`/api/properties/${property_id}`)
+
+      fetch(`/api/properties/${property_id}`)
         .then((res) => res.json())
         .then((data) => this.setState({title:data.property.title}))
         
   }
   render() {
-    const { messages } = this.state;
-    const breadcrumbs = [{ "name": "Properties", "link": "/properties" }]
+    const { messages, error } = this.state;
+
+    const breadcrumbs = [{ "name": "Properties", "link": "/properties" }]    
+
+    if (error) {      
+      return <Error errorTitle={`Error 403`}>{error}</Error>;
+    }
 
     if (!messages) {
       return null;
     }
 
     if (messages.length === 0) {
-      return "There are no messages by the now";
+      return <Error>{"There are no messages for you by the now"}</Error>;
     }
 
     return (
