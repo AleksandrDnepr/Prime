@@ -36,8 +36,6 @@ import {GoHomeButton} from "../components/goHomeButton/GoHomeButton.jsx";
 
 import { Input } from "../components/input/input.jsx";
 
-import data from '../data.json';
-
 import {DropDown} from "../components/dropDown/DropDown.jsx";
 
 import {Sidebar} from "../components/sidebar/sidebar.jsx";
@@ -50,8 +48,25 @@ import { ContactForm } from "../components/contactForm/contactForm.jsx";
 
 export default class ComponentsGallery extends Component {
 
+  state = {
+    property: null,
+    isLoading: true,
+  };
+
+  componentDidMount() {
+    const { property_id } = this.props.match.params;
+
+    fetch(`/api/properties/${property_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ property: data.property });
+      })
+      .catch(() => this.setState({ error: "Something went wrong" }))
+      .finally(() => this.setState({ isLoading: false }));
+  }
+
   render() {
-    const { apartaments } = data;
+    const { apartaments } = this.state.property;
     return <div>
 
       <Link to="/properties">Properties</Link>
