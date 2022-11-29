@@ -4,10 +4,12 @@ import { Login } from "./pages/login";
 import Messages from "./pages/messages";
 import { Properties } from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import CssBaseline from '@mui/material/CssBaseline';
 
 export default class App extends React.Component {
   render() {
-    return (
+    return (<>
+      <CssBaseline />
       <React.StrictMode>
         <BrowserRouter basename="/admin">
           <Switch>
@@ -23,6 +25,7 @@ export default class App extends React.Component {
           </Switch>
         </BrowserRouter>
       </React.StrictMode>
+    </>
     );
   }
 }

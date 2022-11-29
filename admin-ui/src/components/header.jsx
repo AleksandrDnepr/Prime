@@ -11,9 +11,9 @@ export default class HeaderAdmin extends Component {
   render() {
     return (
       <Box>
-        <Stack direction="row" spacing={1} sx={{ p: 1 }}>
+        <Stack direction="row" spacing={1} sx={{ p: 1, marginBottom: 2 }}>
           <Chip
-            sx={{ p: 2, m: 2 }}
+            sx={{ p: 2 }}
             label={`Hello, ${this.props.user.name}!`}
             variant="outlined"
             color="primary"
@@ -21,7 +21,7 @@ export default class HeaderAdmin extends Component {
           <Button
             component="a"
             href="/api/auth/logout"
-            variant="outlined"
+            variant="contained"
             size="small"
           >
             Sign out

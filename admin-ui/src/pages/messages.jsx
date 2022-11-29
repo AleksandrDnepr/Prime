@@ -60,6 +60,7 @@ class Messages extends Component {
           backgroundPosition: "center",
           textAlign: "center",
           lineHeight: 30,
+          padding: 4,
         }}
       >
         <HeaderAdmin user={this.props.user} />

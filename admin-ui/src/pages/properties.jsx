@@ -1,22 +1,14 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import { flexbox } from '@mui/system';
-import Stack from '@mui/material/Stack';
-import { Link } from '@mui/material';
+import { Button, Box, ListItem } from '@mui/material';
+
+import HeaderAdmin from "../components/header";
+import Breadcrumps from "../components/breadcrumbs";
+import { PropertyList } from "../components/propertyList";
 
 
 export class Properties extends Component {
     state = {
-        agent: null,
         page: 1,
         pages: null,
         properties: null
@@ -74,40 +66,21 @@ export class Properties extends Component {
         <Box
             component="div"
             sx={{
-            display: flexbox,
-            width: `calc(100vw)`,
-            backgroundColor:"#b8bde8ae",
-            lineHeight: 30,
+                minWidth: `100%`,
+                backgroundColor: `#94c5e6`,
+                textAlign: "center",
+                lineHeight: 30,
+                padding: 4,
             }}  
         >
             
-        <Stack direction="row" spacing={1} sx={{p:1}}>
-            <Chip
-                sx={{p: 2, m: 2}}  
-                label={`Hello, ${name}!`}
-                variant="outlined"
-                color="primary"
-            />
+            <HeaderAdmin user={this.props.user} />
 
-            <Button component="a" href="/api/auth/logout" variant="outlined" size="small">Sign out</Button>
-        </Stack>
+            <Breadcrumps title="Properties" breadcrumbs={[]} lastBreadcrumbs="true" />
 
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', ml: 2 }}>
+            <PropertyList properties={ properties }/>
 
-            {properties.map(property => (
-            <Link key={property.id} underline="hover" href={`/properties/${property.id}/messages`}>
-                <ListItem key={property.id} alignItems="flex-start">
-                    <ListItemAvatar>
-                        <Avatar variant="square" alt={property.title} src={property.images.prewiew} />
-                    </ListItemAvatar>
-                    <ListItemText primary={property.title}/>
-                </ListItem>
-                <Divider variant="inset" component="li" />
-              </Link>
-            ))}
-        </List>
-
-        {this.showMoreBtn()}
+            {this.showMoreBtn()}
 
         </Box>
         );

@@ -18,7 +18,6 @@ class MessageList extends Component {
             width: "100%",
             maxWidth: "70%",
             bgcolor: "#aceafa",
-            ml: 2,
           }}
         >
           {messages.map((message) => (
