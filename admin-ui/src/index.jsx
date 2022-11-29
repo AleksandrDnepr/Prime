@@ -8,9 +8,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 export default class App extends React.Component {
   render() {
-    return (<>
-      <CssBaseline />
+    return (
       <React.StrictMode>
+      <CssBaseline />
         <BrowserRouter basename="/admin">
           <Switch>
             <Route path="/properties/:property_id/messages">
@@ -25,7 +25,6 @@ export default class App extends React.Component {
           </Switch>
         </BrowserRouter>
       </React.StrictMode>
-    </>
     );
   }
 }

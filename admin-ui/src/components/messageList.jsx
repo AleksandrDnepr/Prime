@@ -1,6 +1,6 @@
+import { Component } from "react";
 import { List, ListItem, ListItemText, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 class MessageList extends Component {

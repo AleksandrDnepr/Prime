@@ -1,53 +1,48 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Button, Box, ListItem, Link } from '@mui/material';
+import { Box } from '@mui/material';
 
-import HeaderAdmin from "../components/header";
-import Breadcrumps from "../components/breadcrumbs";
+import { HeaderAdmin } from "../components/header.jsx";
+import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { PropertyList } from "../components/propertyList.jsx";
-import { Error } from "../components/error.jsx"
+import { AuthError } from "../components/authError.jsx";
 
+
+import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 
 export class Properties extends Component {
     state = {
         page: 1,
         pages: null,
-        properties: null,
+        properties: [],
     }
 
-    componentDidMount(){
+    componentDidMount() {
         fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
         .then(data => data.json())
         .then(data => this.setState({...data}))
         .catch(error => this.setState({error}));
     }
 
-    showMore(){
+    showMore = async() => {
         const { page, pages } = this.state;
 
         if (page < pages) {
-            this.setState(state => ({ page: state.page + 1 }))
-            fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${page}`)
+            await this.setState(state => ({ page: state.page + 1 }))
+
+            await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
             .then((data) => data.json())
             .then(data => this.setState(state => ({properties: [...state.properties, ...data.properties]})))
             .catch(error => this.setState({error}));
         }
     }
 
-    showMoreBtn() {
+    loadMoreBtn() {
         const {page, pages, properties} = this.state;
         if(pages === 1) {return null}
         if(properties.length === 0) {return null}
         if(page !== pages) {
-            return <ListItem>
-                <Button 
-                variant="contained" 
-                size="medium" 
-                onClick={() => {this.showMore()}}
-                sx={{position:"sticky"}}>
-                    {"Show more"}
-                </Button>
-            </ListItem>
+            return <LoadMoreBtn handleClick={this.showMore}/>
         }
     }
 
@@ -56,14 +51,7 @@ export class Properties extends Component {
         const { user } = this.props;
 
         if(error) {
-            return <> 
-            <Error errorTitle="Error 401">{ error }</Error>
-            <Button variant="contained" size="lg" sx={{margin: "20px 40px"}}>
-                <Link underline="hover" href={`/api/auth/logout`} color="#ffffff">
-                Try again
-                </Link>
-            </Button>
-        </>
+            return <AuthError error={error}/>
         }
 
         if(!properties) { return null }
@@ -90,7 +78,7 @@ export class Properties extends Component {
 
             <PropertyList properties={properties}/>
 
-            {this.showMoreBtn()}
+            {this.loadMoreBtn()}
 
         </Box>
         );

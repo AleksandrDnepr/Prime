@@ -11,7 +11,7 @@ import {
 
 export class PropertyItem extends Component {
   render() {
-    const { propertyId, title, image } = this.props;
+    const { id, title, image } = this.props;
 
     return (
         <ListItem
@@ -19,11 +19,11 @@ export class PropertyItem extends Component {
           sx={{
             flexDirection:"column",
             alignItems: "flex-start",
-            paddingTop: `4px`,
-            paddingBottom: `4px`,
+            paddingTop: 0.5,
+            paddingBottom: 0.5,
           }}
         >
-          <Link  underline="hover" href={`/properties/${propertyId}/messages`} sx={{display: "flex",}}>
+          <Link  underline="hover" href={`/properties/${id}/messages`} sx={{display: "flex",}}>
               <ListItemAvatar>
                 <Avatar variant="square" alt={title} src={image} />
               </ListItemAvatar>

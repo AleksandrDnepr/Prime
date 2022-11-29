@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import Box from "@mui/material/Box";
+import { Component } from "react";
 import { withRouter } from "react-router-dom";
-import HeaderAdmin from "../components/header";
+import { Box } from "@mui/material";
+import { HeaderAdmin } from "../components/header.jsx";
 import MessageList from "../components/messageList";
 import Background from "./background.jpg";
-import Breadcrumps from "../components/breadcrumbs";
-import {Error} from "../components/error.jsx"
+import { Breadcrumps } from "../components/breadcrumbs.jsx";
+import { Error } from "../components/error.jsx"
 
 class Messages extends Component {
   state = {

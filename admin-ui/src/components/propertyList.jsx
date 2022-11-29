@@ -1,5 +1,5 @@
 import { Component } from "react";
-import List from "@mui/material/List";
+import { List } from "@mui/material";
 import { PropertyItem } from "../components/propertyItem";
 
 export class PropertyList extends Component {
@@ -16,8 +16,8 @@ export class PropertyList extends Component {
         {properties.map((property) => (
           <PropertyItem
             key={property.id}
-            propertyId={property.id}
-            title={property.title}
+            id={property.id}
+            title={property.title + " " + property.id}
             image={property.images.prewiew}
           />
         ))}

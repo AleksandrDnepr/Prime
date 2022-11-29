@@ -11,7 +11,7 @@ GET http://localhost:3100/api/agents/001
 
 
 ###
-GET http://localhost:3100/api/properties?agentEmail=adamexample001@gmail.com
+GET http://localhost:3100/api/properties?agentEmail=nickexample003@gmail.com&page=2
 
 
 ###
