@@ -13,7 +13,6 @@ export class Properties extends Component {
         page: 1,
         pages: null,
         properties: null,
-        error: "You are srtanger"
     }
 
     componentDidMount(){
@@ -54,11 +53,11 @@ export class Properties extends Component {
 
     render() {
         const { properties, error } = this.state;
-        const { name, email } = this.props.user;
+        const { user } = this.props;
 
         if(error) {
             return <> 
-            <Error errorTitle="Error 401">{error}</Error>
+            <Error errorTitle="Error 401">{ error }</Error>
             <Button variant="contained" size="lg" sx={{margin: "20px 40px"}}>
                 <Link underline="hover" href={`/api/auth/logout`} color="#ffffff">
                 Try again
@@ -67,13 +66,11 @@ export class Properties extends Component {
         </>
         }
 
-        if(!properties){return null}
+        if(!properties) { return null }
 
-        if (!email) {
+        if (!user.email) {
             return <Redirect to="/" />;
         }
-
-        if(!properties){ return null }
         
         return (
         <Box
@@ -87,11 +84,11 @@ export class Properties extends Component {
             }}  
         >
             
-            <HeaderAdmin user={this.props.user} />
+            <HeaderAdmin user={user} />
 
             <Breadcrumps title="Properties" breadcrumbs={[]} lastBreadcrumbs="true" />
 
-            <PropertyList properties={ properties }/>
+            <PropertyList properties={properties}/>
 
             {this.showMoreBtn()}
 
