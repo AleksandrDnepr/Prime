@@ -10,11 +10,19 @@ module.exports = class Agent {
   }
 
   static findByEmail(email) {
-    return Agent.AGENTS.find((agent) => agent.email === email);
+    return Agent.agentsEmails().includes(email) ?
+    Agent.AGENTS.find((agent) => agent.email === email) 
+    : {name: "stranger", email: "stranger", id: "stranger"};
   }
 
   static async sendEmail(data) {
     return sendEmail(data);
+  }
+
+  static agentsEmails() {
+    const emails = [];
+    Agent.AGENTS.map(agent => emails.push(agent.email));
+    return emails;
   }
 };
 

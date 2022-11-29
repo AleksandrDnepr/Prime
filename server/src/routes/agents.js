@@ -17,7 +17,7 @@ async function sendMailToAgent(req, res) {
     const {body, params} = req;
 
     const agent = Agent.findById(params.id);
-     await Message.create({
+    await Message.create({
         name: body.info.name,
         email: body.info.email,
         text: body.info.message,
