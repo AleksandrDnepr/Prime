@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "husky": "^8.0.2",
-    "lint-staged": "^13.0.4"
+    "lint-staged": "^13.0.4",
+    "query-string": "^7.1.1"
   },
   "devDependencies": {
     "prettier": "2.8.0"

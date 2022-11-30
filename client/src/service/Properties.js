@@ -1,3 +1,5 @@
+import queryString from 'query-string'
+
 export class Properties {
   constructor(page, filterValues) {
     this.page = page;
@@ -10,15 +12,29 @@ export class Properties {
   }
 
   static setFilters(filterValues) {
-    this.filterValues = { ...this.filterValues, filterValues };
+    this.filterValues = { ...this.filterValues, filterValues};
     this.setPage(1);
     return this.loadData();
   }
 
    static async loadData() {
+     const parsed = queryString.parse(window.location.search);
+     
+     const fromUrl = Object.keys(parsed)
+       .map((key) =>
+         (key) +
+           "=" +
+          (parsed[key])
+       )
+       .join("&");
+       const out =("?"+fromUrl);
+       console.log("This is: "+out);
+    //  console.log("parsed values:"+parsed)
     const params = Properties.buildParams();
-
-  const result = await fetch("/api/properties" + params).then((data) =>
+    //  console.log("Params from url:" )
+    // console.log("Params from load data:"+params)
+     
+  const result = await fetch("/api/properties" + ((Object.keys(parsed)===0)?params:out)).then((data) =>
     data.json()
   );
 
@@ -51,6 +67,7 @@ export class Properties {
 }
   
   static buildParams() {
+    
     const filterParams = !this.filterValues
       ? ""
       : Object.keys(this.filterValues.filterValues)
@@ -65,7 +82,8 @@ export class Properties {
           .join("&") + "&";
 
     const pageParams = !this.page ? "page=1" : `page=${this.page}`;
-
-    return "?" + filterParams + pageParams;
+    // console.log('?' + filterParams + pageParams);
+    // console.log(window.location)
+    return '?' + filterParams + pageParams;
   }
 }

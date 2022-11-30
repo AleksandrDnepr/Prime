@@ -7,6 +7,7 @@ import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
 import { Properties } from "../service/Properties.js";
 
+
 class Index extends Component {
   state = {
     properties: null,
@@ -33,7 +34,7 @@ class Index extends Component {
 
   changeFilters(filters) {
     window.scrollTo(0, 0);
-
+    
     Properties.setFilters(filters).then((state) =>
       this.setState({
         ...state,
