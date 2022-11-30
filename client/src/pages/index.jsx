@@ -8,6 +8,7 @@ import { Loading } from "../components/loading/loading.jsx";
 import queryStr from 'query-string';
 
 
+
 class Index extends Component {
   state = {
     properties: null,
@@ -101,7 +102,7 @@ class Index extends Component {
           isLoading: false,
         });
       });
-    })
+    });
   }
 
  
@@ -120,6 +121,7 @@ class Index extends Component {
   }
 
 
+
   updateFilterValues(newFilterValues){
     window.scrollTo(0, 0);
     this.setState(prevState => ({
@@ -131,8 +133,6 @@ class Index extends Component {
       this.updateUrl(queryString)
       this.fetchData(queryString);
     });
-  }
-
 
   showLoader(isLoading) {
     return isLoading && <Loading />;
