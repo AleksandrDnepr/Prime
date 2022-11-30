@@ -24,12 +24,12 @@ export class ErrorMessage extends Component {
 
     return ReactDOM.createPortal(
       <section className="error-message">
-      <div className="error-message__block">
-        {this.props.children}{" "}
-        <Button size="m" clickEvent={() => this.onClose()}>
-          ×
-        </Button>
-      </div>
+        <div className="error-message__block">
+          {this.props.children}{" "}
+          <Button size="m" clickEvent={() => this.onClose()}>
+            ×
+          </Button>
+        </div>
       </section>,
       this.modalRoot
     );

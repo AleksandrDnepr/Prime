@@ -103,31 +103,30 @@ export class ContactForm extends Component {
       <form className="contact-form">
         <ul className="contact-form__list">
           <li className="contact-form__input">
-            
-              <div className="contact-form__field">
-                <Input
-                  required
-                  type="text"
-                  size="large"
-                  value={name}
-                  name="name"
-                  placeholder="Your name"
-                  onChange={this.changeFormParam}
-                />
-                <FormError error={errors.name} />
-              </div>
-              <div className="contact-form__field">
-                <Input
-                  required
-                  type="text"
-                  size="large"
-                  value={email}
-                  name="email"
-                  placeholder="Your Email"
-                  onChange={this.changeFormParam}
-                />
-                <FormError error={errors.email} />
-              </div>
+            <div className="contact-form__field">
+              <Input
+                required
+                type="text"
+                size="large"
+                value={name}
+                name="name"
+                placeholder="Your name"
+                onChange={this.changeFormParam}
+              />
+              <FormError error={errors.name} />
+            </div>
+            <div className="contact-form__field">
+              <Input
+                required
+                type="text"
+                size="large"
+                value={email}
+                name="email"
+                placeholder="Your Email"
+                onChange={this.changeFormParam}
+              />
+              <FormError error={errors.email} />
+            </div>
           </li>
           <li className="contact-form__textarea">
             <textarea

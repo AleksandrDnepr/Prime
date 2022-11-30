@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./propertyCard.css";
-import {PropertyDetails} from "../propertyDetails/propertyDetails.jsx";
-import {PriceLabel} from "../priceLabel/priceLabel.jsx";
+import { PropertyDetails } from "../propertyDetails/propertyDetails.jsx";
+import { PriceLabel } from "../priceLabel/priceLabel.jsx";
 import { Link } from "react-router-dom";
 
 export class PropertyCard extends Component {
   handleClick = () => {
     window.scrollTo(0, 0);
-  }
+  };
 
   render() {
     const {
@@ -24,7 +24,11 @@ export class PropertyCard extends Component {
     } = this.props;
 
     return (
-      <Link to={`/${id}`} className={`container_${mode}`} onClick={this.handleClick}>
+      <Link
+        to={`/${id}`}
+        className={`container_${mode}`}
+        onClick={this.handleClick}
+      >
         <section className="label__info">
           <img className="property-photo" src={preview} alt="Property view" />
           <PriceLabel price={price} deal={deal} type={type} />

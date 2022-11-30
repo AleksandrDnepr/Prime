@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./formError.css";
 
-export class FormError  extends Component{
+export class FormError extends Component {
   render() {
     const { error } = this.props;
 
