@@ -9,7 +9,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -86,7 +86,7 @@
           "price": 250000,
           "deal": "sale",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -162,7 +162,7 @@
           "price": 5000,         
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -238,7 +238,7 @@
           "price": 100000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -314,7 +314,7 @@
           "price": 530000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -391,7 +391,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -467,7 +467,7 @@
           "price": 650000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -543,7 +543,7 @@
           "price": 10000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -619,7 +619,7 @@
           "price": 26000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -696,7 +696,7 @@
           "price": 20500,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -772,7 +772,7 @@
           "price": 262000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -848,7 +848,7 @@
           "price": 25000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -924,7 +924,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -1001,7 +1001,7 @@
           "price": 20000,
           "deal": "sale",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -1077,7 +1077,7 @@
           "price": 255000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -1153,7 +1153,7 @@
           "price": 25600,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -1229,7 +1229,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -1306,7 +1306,7 @@
           "price": 20500,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -1382,7 +1382,7 @@
           "price": 250000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -1458,7 +1458,7 @@
           "price": 200000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -1534,7 +1534,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -1611,7 +1611,7 @@
           "price": 200000,
           "deal": "sale",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -1687,7 +1687,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -1763,7 +1763,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -1839,7 +1839,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -1916,7 +1916,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -1992,7 +1992,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -2068,7 +2068,7 @@
           "price": 20500,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -2144,7 +2144,7 @@
           "price": 250000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -2221,7 +2221,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -2297,7 +2297,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -2373,7 +2373,7 @@
           "price": 20000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -2449,7 +2449,7 @@
           "price": 25000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -2526,7 +2526,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -2602,7 +2602,7 @@
           "price": 200000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -2678,7 +2678,7 @@
           "price": 200000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -2754,7 +2754,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -2831,7 +2831,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -2907,7 +2907,7 @@
           "price": 20000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -2983,7 +2983,7 @@
           "price": 20500,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -3059,7 +3059,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -3136,7 +3136,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -3212,7 +3212,7 @@
           "price": 200000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",
@@ -3288,7 +3288,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://pechenyi.com/info/gostinaya-38-2.jpg",
+            "preview": "https://pechenyi.com/info/gostinaya-38-2.jpg",
             "galery": [
               "https://pechenyi.com/info/gostinaya-36-1.jpg",
               "https://pechenyi.com/info/gostinaya-28-2.jpg",
@@ -3364,7 +3364,7 @@
           "price": 255000,
           "deal": "sale",
           "images": {
-            "prewiew": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
+            "preview": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
             "galery": [
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ5bDE1emd3YTdmYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.YAMeK2W-sw2n0PRoaYZUWnjgb3-li1hDdEhZxR1TB2Q/image;s=1280x1024;q=80",
               "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijlpb3FxOHdscDg4ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.nx5hjgihxP4j40cKX2U0r0eai6DcbDEuZNNzr6EQ5Bw/image;s=1280x1024;q=80",
@@ -3441,7 +3441,7 @@
           "price": 20000,
           "deal": "rent",
           "images": {
-            "prewiew": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
+            "preview": "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
             "galery": [
               "http://tvoemisto.tv/media/gallery/full/c/4/c4440000.jpg?timestamp=1489412160",
               "https://hammer-shop.ru/800/600/https/planner5d.com/storage/s/aae8985aaaa35aa65d377c50540e13d9_53.jpg",
@@ -3517,7 +3517,7 @@
           "price": 25000,
           "deal": "rent",
           "images": {
-            "prewiew": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+            "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
             "galery": [
               "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
               "https://klike.net/uploads/posts/2020-03/1583054460_1.jpg",

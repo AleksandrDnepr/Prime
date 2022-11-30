@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Redirect } from 'react-router-dom';
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import { Button, Box, Link } from "@mui/material";
 import Background from './background.jpg'
 
 export class Login extends Component {
@@ -12,8 +11,8 @@ export class Login extends Component {
     }
 
     return <Box component="div" sx={{
-      width: `calc(100vw)`,
-      height: `calc(100vh)`,
+      width: "calc(100vw)",
+      height: "calc(100vh)",
         backgroundImage: `url(${Background})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -22,7 +21,9 @@ export class Login extends Component {
        }}>
     
       <Button variant="contained" size="lg">
-        <a href="/api/auth">Sign in with Google</a>
+        <Link underline="hover" href="/api/auth" color="#ffffff">
+          Sign in with Google
+        </Link>
       </Button>
     </Box>
   }

@@ -1,7 +1,7 @@
+import { Component } from "react";
 import { Box, Breadcrumbs, Link, Typography } from "@mui/material";
-import React, { Component } from "react";
 
-export default class Breadcrumps extends Component {
+export class Breadcrumps extends Component {
   render() {
     const { title, breadcrumbs, lastBreadcrumbs } = this.props
     return (
