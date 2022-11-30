@@ -19,7 +19,6 @@ export class Properties {
 
    static async loadData() {
      const parsed = queryString.parse(window.location.search);
-     
      const fromUrl = Object.keys(parsed)
        .map((key) =>
          (key) +
@@ -29,12 +28,15 @@ export class Properties {
        .join("&");
        const out =("?"+fromUrl);
        console.log("This is: "+out);
-    //  console.log("parsed values:"+parsed)
+       console.log(parsed)
+ 
+
     const params = Properties.buildParams();
-    //  console.log("Params from url:" )
-    // console.log("Params from load data:"+params)
-     
-  const result = await fetch("/api/properties" + ((Object.keys(parsed)===0)?params:out)).then((data) =>
+
+     const emptyParsed = Object.keys(parsed).length === 0
+   
+    
+  const result = await fetch("/api/properties" + ((emptyParsed)?params:out)).then((data) =>
     data.json()
   );
 
@@ -60,11 +62,12 @@ export class Properties {
     pages: result.pages,
     page: Properties.page || 1,
     filterOptions,
-    filterValues: Properties.filterValues || {},
+    filterValues: Properties.filterValues || parsed,
   };
 
   return response;
 }
+
   
   static buildParams() {
     
