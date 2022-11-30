@@ -15,15 +15,17 @@ const store = new SequelizeStore({
 
 store.sync();
 
-express()
-    .use('/admin', express.static('admin'))
-    .use('/', express.static('static'))
+// const returnIndexHtml = (path) => (req, res, next) => {
+//     res.sendFile(path.join(__dirname, `../${path}/index.html`))};
+
+express()    
+    .use('/', express.static(path.join(__dirname, "..", "static")))
     .use(express.json())
     .use(session({ secret: sessionSecret, store: store, resave: false, saveUninitialized: true }))
     .use(passport.session())
     .use('/api', router)
     .use('/admin', (req, res, next) => {
-        res.sendFile(path.join(__dirname, "..", "admin", "index.html"));
+        res.sendFile(path.join(__dirname, "..", "static", "admin", "index.html"));
     })
     .use((req, res, next) => {
         res.sendFile(path.join(__dirname, "..", "static", "index.html"));
