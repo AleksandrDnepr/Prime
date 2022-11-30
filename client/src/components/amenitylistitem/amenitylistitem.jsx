@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./amenitylistitem.css";
 
 export class AmenityListItem extends Component {
-  
   render() {
     const { isAvailable, title } = this.props.item;
     const status = isAvailable ? "✓" : "✗";
@@ -15,4 +14,3 @@ export class AmenityListItem extends Component {
     );
   }
 }
-
