@@ -8,6 +8,19 @@
     "install": "yarn install:client && yarn install:server && yarn install:admin",
     "start:client": "cd client && yarn start",
     "start:admin": "cd admin-ui && yarn start",
-    "start:server": "cd server && yarn start"
+    "start:server": "cd server && yarn start",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4"
+  },
+  "devDependencies": {
+    "prettier": "2.8.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,json,css, html}": [
+      "prettier --write"
+    ]
   }
 }
