@@ -1,74 +1,78 @@
-const { Router } = require('express');
-const Property = require('../static-models/property.js');
+const { Router } = require("express");
+const Property = require("../static-models/property.js");
 const Agent = require("../static-models/agent.js");
-const { Message } = require('../models');
-
+const { Message } = require("../models");
 
 async function read(req, res) {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    const property = Property.findById(id);
-    if (!property) {
-        return res.status(404).json({ error: `Property with id ${id} not found` });
-    }
+  const property = Property.findById(id);
+  if (!property) {
+    return res.status(404).json({ error: `Property with id ${id} not found` });
+  }
 
-    res.json({ property });
+  res.json({ property });
 }
 
 async function index(req, res) {
-    let { query } = req;
-    let {page, ...filterParam} = query;
+  let { query } = req;
+  let { page, ...filterParam } = query;
 
-    if (!page) {page = 1;}
-    if (!filterParam) {filterParam = {}}
+  if (!page) {
+    page = 1;
+  }
+  if (!filterParam) {
+    filterParam = {};
+  }
 
-    const perPage = 8;
-    const offset = (page - 1) * perPage;
-    const limit = offset + perPage;
-    
-    const filtredProperties = Property.filterAll(filterParam);
+  const perPage = 8;
+  const offset = (page - 1) * perPage;
+  const limit = offset + perPage;
 
-    const pages = Math.ceil(filtredProperties.length / perPage);
+  const filtredProperties = Property.filterAll(filterParam);
 
-    const properties  = filtredProperties.slice(offset, limit);
-    
-    const agents = Agent.agentsEmails();
-    const isOurAgent = agents.includes(filterParam.agentEmail);
-    
-    if(!filterParam.agentEmail || isOurAgent) {
-        return res.json({ pages,  properties });
-    }
-    
-    return res.status(401).json({error: `ERROR 401! User ${filterParam.agentEmail} is STRANGER` })
+  const pages = Math.ceil(filtredProperties.length / perPage);
+
+  const properties = filtredProperties.slice(offset, limit);
+
+  const agents = Agent.agentsEmails();
+  const isOurAgent = agents.includes(filterParam.agentEmail);
+
+  if (!filterParam.agentEmail || isOurAgent) {
+    return res.json({ pages, properties });
+  }
+
+  return res
+    .status(401)
+    .json({ error: `ERROR 401! User ${filterParam.agentEmail} is STRANGER` });
 }
 
 async function getMessage(req, res) {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    const property = Property.findById(id);
-    if (!property) {
-        return res.status(404).json({ error: `Property with id ${id} not found` });
-    }
+  const property = Property.findById(id);
+  if (!property) {
+    return res.status(404).json({ error: `Property with id ${id} not found` });
+  }
 
-    const agentId = property.attached_agents_id;
-    const agent = Agent.findById(agentId);
+  const agentId = property.attached_agents_id;
+  const agent = Agent.findById(agentId);
 
-    if(agent.email !== req.user.email) {
-        return res.status(403).json({ 
-            error: `Messages property with id ${id} is Forbidden for ${agent.name}` 
-        })
-    }
+  if (agent.email !== req.user.email) {
+    return res.status(403).json({
+      error: `Messages property with id ${id} is Forbidden for ${agent.name}`,
+    });
+  }
 
-    try {
-        const messages = await Message.findAll({where:{prop_id: id}});
-        return res.json(messages);
-    } catch(err) {
-        return res.status(500).json({err: "An error occured"});
-    }
-
+  try {
+    const messages = await Message.findAll({ where: { prop_id: id } });
+    return res.json(messages);
+  } catch (err) {
+    return res.status(500).json({ err: "An error occured" });
+  }
 }
 
 module.exports = Router()
-    .get('/', index)
-    .get('/:id', read)
-    .get('/:id/messages', getMessage);
+  .get("/", index)
+  .get("/:id", read)
+  .get("/:id/messages", getMessage);

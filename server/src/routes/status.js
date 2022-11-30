@@ -1,3 +1,3 @@
 module.exports = function status(req, res) {
-  res.json({ status: 'ok' });
+  res.json({ status: "ok" });
 };
