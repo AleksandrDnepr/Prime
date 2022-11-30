@@ -54,8 +54,6 @@ export class Properties extends Component {
             return <AuthError error={error}/>
         }
 
-        if(!properties) { return null }
-
         if (!user.email) {
             return <Redirect to="/" />;
         }
@@ -64,8 +62,9 @@ export class Properties extends Component {
         <Box
             component="div"
             sx={{
-                minWidth: `100%`,
-                backgroundColor: `#94c5e6`,
+                minWidth: "100%",
+                height: "100vh",
+                backgroundColor: "#94c5e6",
                 textAlign: "center",
                 lineHeight: 30,
                 padding: 4,

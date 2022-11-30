@@ -11,9 +11,13 @@ export class PropertyList extends Component {
         sx={{
           maxWidth: "95%",
           bgcolor: "background.paper",
+          '&:empty::before': {
+            content: '"Sorry... No properties found 😅"',
+            display: 'block',
+          }
         }}
       >
-        {properties.map((property) => (
+        {properties.map(property => (
           <PropertyItem
             key={property.id}
             id={property.id}

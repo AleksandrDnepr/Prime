@@ -38,7 +38,7 @@ class Messages extends Component {
     const breadcrumbs = [{ "name": "Properties", "link": "/properties" }]    
 
     if (error) {      
-      return <Error errorTitle={`Error 403`}>{error}</Error>;
+      return <Error errorTitle={"Error 403"}>{error}</Error>;
     }
 
     if (!messages) {
@@ -53,8 +53,8 @@ class Messages extends Component {
       <Box
         component="div"
         sx={{
-          width: `calc(100vw)`,
-          height: `calc(100vh)`,
+          width: "calc(100vw)",
+          height: "calc(100vh)",
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
