@@ -15,8 +15,8 @@ const store = new SequelizeStore({
 
 store.sync();
 
-// const returnIndexHtml = (path) => (req, res, next) => {
-//     res.sendFile(path.join(__dirname, `../${path}/index.html`))};
+const returnIndexHtml = (staticPath) => (req, res, next) => {
+    res.sendFile(path.join(__dirname, `../${staticPath}/index.html`))};
 
 express()    
     .use('/', express.static(path.join(__dirname, "..", "static")))
@@ -24,10 +24,6 @@ express()
     .use(session({ secret: sessionSecret, store: store, resave: false, saveUninitialized: true }))
     .use(passport.session())
     .use('/api', router)
-    .use('/admin', (req, res, next) => {
-        res.sendFile(path.join(__dirname, "..", "static", "admin", "index.html"));
-    })
-    .use((req, res, next) => {
-        res.sendFile(path.join(__dirname, "..", "static", "index.html"));
-    })
+    .use('/admin', returnIndexHtml('static/admin'))
+    .use('/', returnIndexHtml('static'))
     .listen(PORT, () => console.log(`Started on :${PORT}`));
