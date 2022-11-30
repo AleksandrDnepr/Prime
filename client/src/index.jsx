@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ComponentsGallery from "./pages/components-gallery";
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { HashRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
 import Index from "./pages/index.jsx";
 import Property from "./pages/property";
 import NotFoundError from "./components/notFoundError/notFoundError";
