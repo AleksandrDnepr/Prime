@@ -12,7 +12,7 @@ export class PropertyCard extends Component {
   render() {
     const {
       id,
-      picture,
+      preview,
       mode,
       deal,
       type,
@@ -26,7 +26,7 @@ export class PropertyCard extends Component {
     return (
       <Link to={`/${id}`} className={`container_${mode}`} onClick={this.handleClick}>
         <section className="label__info">
-          <img className="property-photo" src={picture} alt="Property view" />
+          <img className="property-photo" src={preview} alt="Property view" />
           <PriceLabel price={price} deal={deal} type={type} />
         </section>
         <section className={`description_${mode}`}>

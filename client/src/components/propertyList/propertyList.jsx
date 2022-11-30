@@ -29,7 +29,6 @@ export class PropertyList extends Component {
                 <li key={property.id}>
                   <PropertyCard 
                   mode={mode} 
-                  picture={property.images.prewiew}
                   {...property} />
                 </li>
               ))}
