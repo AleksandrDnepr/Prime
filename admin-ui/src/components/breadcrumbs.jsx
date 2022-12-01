@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Box, Breadcrumbs, Link, Typography } from "@mui/material";
+import {Link as RouterLink} from 'react-router-dom';
 
 export class Breadcrumps extends Component {
   render() {
@@ -11,8 +12,8 @@ export class Breadcrumps extends Component {
           sx={{ ml: 2, mb: 2 }}
           aria-label="breadcrumb"
         >
-          {breadcrumbs.map((item, index) => (
-            <Link key={index} underline="hover" href={item.link}>
+          {breadcrumbs.map((item, index)=>(
+            <Link key={index} underline="hover" component={RouterLink} to={item.link}>
               {item.name}
             </Link>
           ))}
