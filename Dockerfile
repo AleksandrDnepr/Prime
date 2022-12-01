@@ -8,14 +8,14 @@ ADD client /client
 WORKDIR /client
 RUN yarn install
 RUN yarn build
-RUN /client/build/ /server/static
+RUN mv /client/build/* /server/static
 RUN rm -rf /client
 
 ADD admin-ui /admin
 WORKDIR /admin
 RUN yarn install
 RUN yarn build
-RUN /admin/build/ /server/static/admin
+RUN mv /admin/build/* /server/static/admin
 RUN rm -rf /admin
 
 EXPOSE 80
