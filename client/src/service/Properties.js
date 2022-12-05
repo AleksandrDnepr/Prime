@@ -18,27 +18,15 @@ export class Properties {
   }
 
    static async loadData() {
-     const parsed = queryString.parse(window.location.search);
-     const fromUrl = Object.keys(parsed)
-       .map((key) =>
-         (key) +
-           "=" +
-          (parsed[key])
-       )
-       .join("&");
-       const out =("?"+fromUrl);
-       console.log("This is: "+out);
-       console.log(parsed)
- 
-
+    
     const params = Properties.buildParams();
-
-     const emptyParsed = Object.keys(parsed).length === 0
+    
    
     
-  const result = await fetch("/api/properties" + ((emptyParsed)?params:out)).then((data) =>
+  const result = await fetch("/api/properties" + params).then((data) =>
     data.json()
   );
+
 
   const filterOptions = { type: [], deal: [], location: [] };
 
@@ -57,12 +45,13 @@ export class Properties {
   filterOptions.deal = [...unicDeals];
   filterOptions.location = [...unicLocations];
 
+
   const response = {
     properties: result.properties,
     pages: result.pages,
     page: Properties.page || 1,
     filterOptions,
-    filterValues: Properties.filterValues || parsed,
+    filterValues: Properties.filterValues || queryString.parse(window.location.search),
   };
 
   return response;
@@ -70,6 +59,20 @@ export class Properties {
 
   
   static buildParams() {
+    if(this.filterValues===undefined){
+      const parsed = queryString.parse(window.location.search);
+      const fromUrl = Object.keys(parsed)
+        .map((key) =>
+          (key) +
+          "=" +
+          (parsed[key])
+        )
+        .join("&");
+      
+      const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+      const out = ("?" + fromUrl+pageParams);
+return out;
+    }
     
     const filterParams = !this.filterValues
       ? ""
@@ -85,8 +88,7 @@ export class Properties {
           .join("&") + "&";
 
     const pageParams = !this.page ? "page=1" : `page=${this.page}`;
-    // console.log('?' + filterParams + pageParams);
-    // console.log(window.location)
+
     return '?' + filterParams + pageParams;
   }
 }

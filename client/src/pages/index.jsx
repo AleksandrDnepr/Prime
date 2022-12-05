@@ -41,6 +41,8 @@ class Index extends Component {
         isLoading: false,
       })
     );
+    const url = Properties.buildParams();
+    window.history.pushState({}, '', url);
   }
 
   async changePage(page) {
