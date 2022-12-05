@@ -1,13 +1,10 @@
 import { Component } from "react";
-import { List, ListItem, ListItemText, Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import { withRouter } from "react-router-dom";
+import { Box } from "@mui/system";
+import { List, ListItem, ListItemText, Typography } from "@mui/material";
 
 class MessageList extends Component {
-  state = {
-    messages: null,
-    agent: null,
-  };
+
   render() {
     const { messages } = this.props;
 
@@ -18,26 +15,31 @@ class MessageList extends Component {
             width: "100%",
             maxWidth: "70%",
             bgcolor: "#aceafa",
+            ml: 2,
+            '&:empty::before': {
+              content: '"No messages found 😅"',
+              display: 'block',
+            }
           }}
         >
-          {messages.map((message) => (
+          {messages.map(({id, name, email, text, prop_id}) => (
             <ListItem
               sx={{
                 borderBottom: 1,
                 borderColor: "lightgrey",
               }}
-              key={message.id}
+              key={id}
               alignItems="flex-start"
             >
               <Typography>
-                Message from {message.name} ({message.email}) about id{" "}
-                {message.prop_id} :
+                from {name} ({email}) about id{" "}
+                {prop_id} :
               </Typography>
               <ListItemText
                 sx={{
                   ml: 2,
                 }}
-                secondary={message.text}
+                secondary={text}
               />
             </ListItem>
           ))}

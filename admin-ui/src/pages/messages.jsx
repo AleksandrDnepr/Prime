@@ -9,15 +9,15 @@ import { Error } from "../components/error.jsx";
 
 class Messages extends Component {
   state = {
-    messages: null,
-    agent: null,
+    messages: [],
   };
 
   componentDidMount() {
     const { property_id } = this.props.match.params;
+    const { user } = this.props;
 
     fetch(`/api/properties/${property_id}/messages`)
-      .then((res) => {
+      .then(res => { 
         if (res.ok) {
           res.json().then((data) => {
             this.setState({ messages: data });
@@ -30,25 +30,19 @@ class Messages extends Component {
       })
       .catch(() => this.setState({ error: "Something went wrong" }));
 
-    fetch(`/api/properties/${property_id}`)
-      .then((res) => res.json())
-      .then((data) => this.setState({ title: data.property.title }));
+      fetch(`/api/properties/${property_id}`)
+        .then(res => res.json())
+        .then(data => this.setState({title: data.property.title}))
+        
   }
   render() {
-    const { messages, error } = this.state;
+    const { messages, error, title } = this.state;
+    const { user } = this.props;
 
     const breadcrumbs = [{ name: "Properties", link: "/properties" }];
 
     if (error) {
       return <Error errorTitle={"Error 403"}>{error}</Error>;
-    }
-
-    if (!messages) {
-      return null;
-    }
-
-    if (messages.length === 0) {
-      return <Error>{"There are no messages for you by the now"}</Error>;
     }
 
     return (
@@ -65,15 +59,11 @@ class Messages extends Component {
           padding: 4,
         }}
       >
-        <HeaderAdmin user={this.props.user} />
+        <HeaderAdmin user={user} />
 
-        <Breadcrumps
-          title={this.state.title}
-          breadcrumbs={breadcrumbs}
-          lastBreadcrumbs="true"
-        />
+        <Breadcrumps title={title} breadcrumbs={breadcrumbs} lastBreadcrumbs="true" />
 
-        <MessageList messages={this.state.messages} />
+        <MessageList messages={messages} />
       </Box>
     );
   }
