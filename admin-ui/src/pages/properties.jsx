@@ -5,22 +5,23 @@ import { PropertyList } from "../components/propertyList.jsx";
 import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
+import { Loading } from "../components/loading.jsx";
 
 export class Properties extends Component {
-  state = {
-    page: 1,
-    pages: null,
-    properties: [],
-  };
+    state = {
+        page: 1,
+        pages: null,
+        properties: [],
+        isLoading: true,
+    }
 
-  componentDidMount() {
-    fetch(
-      `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
-    )
-      .then((data) => data.json())
-      .then((data) => this.setState({ ...data }))
-      .catch((error) => this.setState({ error }));
-  }
+    componentDidMount() {
+        fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
+        .then(data => data.json())
+        .then(data => this.setState({...data}))
+        .catch(error => this.setState({error}))
+        .finally(() => this.setState({ isLoading: false }));
+    }
 
   showMore = async () => {
     const { page, pages } = this.state;
@@ -39,11 +40,12 @@ export class Properties extends Component {
         )
         .catch((error) => this.setState({ error }));
     }
-  };
+    }
 
-  render() {
-    const { page, pages, properties, error } = this.state;
-    const { user } = this.props;
+    render() {
+        const { page, pages, properties, error, isLoading } = this.state;
+        const { user } = this.props;
+        const content = isLoading ? <Loading /> :  <MessageList messages={this.state.messages} />;   
 
     if (error) {
       return <AuthError error={error} />;
@@ -61,15 +63,11 @@ export class Properties extends Component {
           lastBreadcrumbs="true"
         />
 
-        <PropertyList properties={properties} />
+        {content}
 
-        <LoadMoreBtn
-          handleClick={this.showMore}
-          page={page}
-          pages={pages}
-          properties={properties}
-        />
-      </FullScreenPage>
-    );
-  }
+        <LoadMoreBtn handleClick={this.showMore} page={page} pages={pages} properties={properties}/>
+
+        </FullScreenPage>
+        );
+    }
 }

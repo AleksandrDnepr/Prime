@@ -8,6 +8,7 @@ import { FullScreenPage } from "../components/fullScreenPage.jsx";
 class Messages extends Component {
   state = {
     messages: [],
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -25,8 +26,9 @@ class Messages extends Component {
             error: `Messages property with id ${property_id} is forbidden for ${user.name}`,
           });
         }
-      })
-      .catch(() => this.setState({ error: "Something went wrong" }));
+      })      
+      .catch(() => this.setState({ error: "Something went wrong" }))  
+      .finally(() => this.setState({ isLoading: false })); 
 
     fetch(`/api/properties/${property_id}`)
       .then((res) => res.json())
@@ -34,16 +36,16 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages, error, title } = this.state;
+    const { messages, error, title, isLoading } = this.state;
     const { user } = this.props;
 
-    const breadcrumbs = [{ name: "Properties", link: "/properties" }];
+    const breadcrumbs = [{ "name": "Properties", "link": "/properties" }];
+    const content = isLoading ? <Loading /> :  <MessageList messages={this.state.messages} />;   
+    const result = error ? 
+      <Error errorTitle={"Error 403"}>{error}</Error> : 
+      content
 
-    const result = error ? (
-      <Error errorTitle={"Error 403"}>{error}</Error>
-    ) : (
-      <MessageList messages={messages} />
-    );
+    
 
     return (
       <FullScreenPage user={user}>
@@ -54,6 +56,7 @@ class Messages extends Component {
         />
 
         {result}
+
       </FullScreenPage>
     );
   }
