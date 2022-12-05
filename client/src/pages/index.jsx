@@ -23,8 +23,46 @@ class Index extends Component {
     isLoading: true,
   };
 
+
+async fetchData(){
+  const fetchDataResult = await fetch("/api/properties").then((result) => 
+    result.json()
+  );
+  
+  const filterOptions = { type: [], deal: [], location: [] };
+
+  const unicLocations = new Set();
+  fetchDataResult.properties.forEach((property) =>
+    unicLocations.add(property.location[1])
+  );
+
+  const unicDeals = new Set();
+  fetchDataResult.properties.forEach((property) => unicDeals.add(property.deal));
+
+  const unicTypes = new Set();
+  fetchDataResult.properties.forEach((property) => unicTypes.add(property.type));
+
+  filterOptions.type = [...unicTypes];
+  filterOptions.deal = [...unicDeals];
+  filterOptions.location = [...unicLocations];
+
+
+  const response = {
+    properties: fetchDataResult.properties,
+    pages: fetchDataResult.pages,
+    page:  1,
+    filterOptions,
+    filterValues: {},
+  };
+
+  return response;
+}
+
+
+
   componentDidMount() {
-    Properties.loadData().then((state) => {
+    
+    this.fetchData().then((state) => {
       this.setState({
         ...state,
         isLoading: false,

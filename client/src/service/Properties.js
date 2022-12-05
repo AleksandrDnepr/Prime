@@ -17,45 +17,45 @@ export class Properties {
     return this.loadData();
   }
 
-   static async loadData() {
+//    static async loadData() {
     
-    const params = Properties.buildParams();
+//     const params = Properties.buildParams();
     
    
     
-  const result = await fetch("/api/properties" + params).then((data) =>
-    data.json()
-  );
+//   const result = await fetch("/api/properties" + params).then((data) =>
+//     data.json()
+//   );
 
 
-  const filterOptions = { type: [], deal: [], location: [] };
+//   const filterOptions = { type: [], deal: [], location: [] };
 
-  const unicLocations = new Set();
-  result.properties.forEach((property) =>
-    unicLocations.add(property.location[1])
-  );
+//   const unicLocations = new Set();
+//   result.properties.forEach((property) =>
+//     unicLocations.add(property.location[1])
+//   );
 
-  const unicDeals = new Set();
-  result.properties.forEach((property) => unicDeals.add(property.deal));
+//   const unicDeals = new Set();
+//   result.properties.forEach((property) => unicDeals.add(property.deal));
 
-  const unicTypes = new Set();
-  result.properties.forEach((property) => unicTypes.add(property.type));
+//   const unicTypes = new Set();
+//   result.properties.forEach((property) => unicTypes.add(property.type));
 
-  filterOptions.type = [...unicTypes];
-  filterOptions.deal = [...unicDeals];
-  filterOptions.location = [...unicLocations];
+//   filterOptions.type = [...unicTypes];
+//   filterOptions.deal = [...unicDeals];
+//   filterOptions.location = [...unicLocations];
 
 
-  const response = {
-    properties: result.properties,
-    pages: result.pages,
-    page: Properties.page || 1,
-    filterOptions,
-    filterValues: Properties.filterValues || queryString.parse(window.location.search),
-  };
+//   const response = {
+//     properties: result.properties,
+//     pages: result.pages,
+//     page: Properties.page || 1,
+//     filterOptions,
+//     filterValues: Properties.filterValues || queryString.parse(window.location.search),
+//   };
 
-  return response;
-}
+//   return response;
+// }
 
   
   static buildParams() {
