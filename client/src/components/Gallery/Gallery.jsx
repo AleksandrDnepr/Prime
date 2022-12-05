@@ -33,15 +33,20 @@ export class Gallery extends Component {
 
     renderSlider() {
         const { pictures } = this.props;
+        const { currentIndex } = this.state;
         return pictures.map((picture,index) => 
-            <img className="gallery__slider_img" src={picture} key={index} alt="Slider with apartment's images" 
+            <img className={index === currentIndex ? 
+            "gallery__slider_img gallery__slider_img_active" : 
+            "gallery__slider_img gallery__slider_img_disabled"} 
+            src={picture} 
+            key={index} 
+            alt="Slider with apartment's images" 
             onClick={() => this.onPicClick(index)}
             />)
     }
 
     onPicClick(index) {
         this.setState({currentIndex:index});
-        console.log(index);
     }
 
     render() {
@@ -51,7 +56,11 @@ export class Gallery extends Component {
         return <div className="gallery">
                     <div className="gallery__main">
                         {this.renderLeftArrow()}
-                        <img className="gallery__main_img" src={pictures[currentIndex]} alt="First view with the property" />
+
+                        <img className="gallery__main_img" 
+                        src={pictures[currentIndex]} 
+                        alt="First view with the property" />
+                        
                         {this.renderRightArrow()}
                     </div>
                     <div className="gallery__slider">

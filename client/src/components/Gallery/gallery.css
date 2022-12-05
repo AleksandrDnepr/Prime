@@ -39,8 +39,9 @@
 .gallery__slider {
     display: flex;
     height: 153px;
-    overflow: hidden;
     align-items: flex-start;
+    background: black;
+    overflow: hidden;
 
     overflow-x: scroll;
     scroll-behavior: smooth;
@@ -55,4 +56,14 @@
 
 .gallery__slider_img:first-child {
     border-left: none;
+}
+
+.gallery__slider_img_active {
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.gallery__slider_img_disabled {
+    object-fit: cover;
+    opacity: 0.4;
 }
