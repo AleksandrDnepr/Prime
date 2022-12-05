@@ -69,8 +69,8 @@ export class Properties {
         )
         .join("&");
       
-      const pageParams = !this.page ? "page=1" : `page=${this.page}`;
-      const out = ("?" + fromUrl+pageParams);
+      // const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+      const out = ("?" + fromUrl);
 return out;
     }
     
