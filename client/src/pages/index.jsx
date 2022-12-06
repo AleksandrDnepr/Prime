@@ -23,9 +23,13 @@ class Index extends Component {
     isLoading: true,
   };
 
+  
+
 
 async fetchData(){
-  const fetchDataResult = await fetch("/api/properties").then((result) => 
+  console.log(this.calculateFilterOptions());
+  const xxx = this.calculateFilterOptions();
+  const fetchDataResult = await fetch("/api/properties/"+xxx).then((result) => 
     result.json()
   );
   
@@ -52,13 +56,37 @@ async fetchData(){
     pages: fetchDataResult.pages,
     page:  1,
     filterOptions,
-    filterValues: {},
+    filterValues: this.state.filterValues,
   };
 
   return response;
 }
 
+  calculateFilterOptions(){
+    console.log(this.state.filterValues);
+    const filterParams = !this.filterValues
+      ? ""
+      : Object.keys(this.filterValues.filterValues)
+        .map((key) =>
+          this.filterValues.filterValues[key] === null ||
+            this.filterValues.filterValues[key] === ""
+            ? ""
+            : encodeURIComponent(key) +
+            "=" +
+            encodeURIComponent(this.filterValues.filterValues[key])
+        )
+        .join("&") + "&";
 
+    const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+
+    return '?' + filterParams + pageParams;
+  }
+
+  buildQueryString() {}
+
+  updateUrl(){
+
+  }
 
   componentDidMount() {
     
@@ -70,29 +98,53 @@ async fetchData(){
     });
   }
 
-  changeFilters(filters) {
-    window.scrollTo(0, 0);
+  changePage(newPage){
+this.setState ( prevState => ({
+  ...prevState,
+page: newPage,
+  
+  }));
+  const queryString = this.buildQueryString();
+    this.updateUrl(queryString)
+    this.fetchData(queryString);
+  }
+
+
+  updateFilterValues(newFilterValues){
+    this.setState(prevState => ({
+      ...prevState,
+      filterValues: newFilterValues,
+
+    }));
+    const queryString = this.buildQueryString();
+    this.updateUrl(queryString)
+    this.fetchData(queryString);
+  }
+
+
+  // changeFilters(filters) {
+  //   window.scrollTo(0, 0);
     
-    Properties.setFilters(filters).then((state) =>
-      this.setState({
-        ...state,
-        isLoading: false,
-      })
-    );
-    const url = Properties.buildParams();
-    window.history.pushState({}, '', url);
-  }
+  //   Properties.setFilters(filters).then((state) =>
+  //     this.setState({
+  //       ...state,
+  //       isLoading: false,
+  //     })
+  //   );
+  //   const url = Properties.buildParams();
+  //   window.history.pushState({}, '', url);
+  // }
 
-  async changePage(page) {
-    window.scrollTo(0, 0);
+  // async changePage(page) {
+  //   window.scrollTo(0, 0);
 
-    Properties.setPage(page).then((state) =>
-      this.setState({
-        ...state,
-        isLoading: false,
-      })
-    );
-  }
+  //   Properties.setPage(page).then((state) =>
+  //     this.setState({
+  //       ...state,
+  //       isLoading: false,
+  //     })
+  //   );
+  // }
 
   showLoader(isLoading) {
     return isLoading && <Loading />;
@@ -130,7 +182,7 @@ async fetchData(){
           <PropertyFilter
             values={filterValues}
             options={filterOptions}
-            onSubmit={(nextValues) => this.changeFilters(nextValues)}
+            onSubmit={(nextValues) => this.updateFilterValues(nextValues)}
           />
         </Sidebar>
       </Page>

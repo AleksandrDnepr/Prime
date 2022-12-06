@@ -6,16 +6,16 @@ export class Properties {
     this.filterValues = filterValues;
   }
 
-  static setPage(page) {
-    this.page = page;
-    return this.loadData();
-  }
+  // static setPage(page) {
+  //   this.page = page;
+  //   return this.loadData();
+  // }
 
-  static setFilters(filterValues) {
-    this.filterValues = { ...this.filterValues, filterValues};
-    this.setPage(1);
-    return this.loadData();
-  }
+  // static setFilters(filterValues) {
+  //   this.filterValues = { ...this.filterValues, filterValues};
+  //   this.setPage(1);
+  //   return this.loadData();
+  // }
 
 //    static async loadData() {
     
@@ -58,37 +58,37 @@ export class Properties {
 // }
 
   
-  static buildParams() {
-    if(this.filterValues===undefined){
-      const parsed = queryString.parse(window.location.search);
-      const fromUrl = Object.keys(parsed)
-        .map((key) =>
-          (key) +
-          "=" +
-          (parsed[key])
-        )
-        .join("&");
+//   static buildParams() {
+//     if(this.filterValues===undefined){
+//       const parsed = queryString.parse(window.location.search);
+//       const fromUrl = Object.keys(parsed)
+//         .map((key) =>
+//           (key) +
+//           "=" +
+//           (parsed[key])
+//         )
+//         .join("&");
       
-      // const pageParams = !this.page ? "page=1" : `page=${this.page}`;
-      const out = ("?" + fromUrl);
-return out;
-    }
+//       // const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+//       const out = ("?" + fromUrl);
+// return out;
+//     }
     
-    const filterParams = !this.filterValues
-      ? ""
-      : Object.keys(this.filterValues.filterValues)
-          .map((key) =>
-            this.filterValues.filterValues[key] === null ||
-            this.filterValues.filterValues[key] === ""
-              ? ""
-              : encodeURIComponent(key) +
-                "=" +
-                encodeURIComponent(this.filterValues.filterValues[key])
-          )
-          .join("&") + "&";
+//     const filterParams = !this.filterValues
+//       ? ""
+//       : Object.keys(this.filterValues.filterValues)
+//           .map((key) =>
+//             this.filterValues.filterValues[key] === null ||
+//             this.filterValues.filterValues[key] === ""
+//               ? ""
+//               : encodeURIComponent(key) +
+//                 "=" +
+//                 encodeURIComponent(this.filterValues.filterValues[key])
+//           )
+//           .join("&") + "&";
 
-    const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+//     const pageParams = !this.page ? "page=1" : `page=${this.page}`;
 
-    return '?' + filterParams + pageParams;
-  }
+//     return '?' + filterParams + pageParams;
+//   }
 }
