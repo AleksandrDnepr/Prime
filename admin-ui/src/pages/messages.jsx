@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import MessageList from "../components/messageList";
 import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { Error } from "../components/error.jsx";
+import { Loading } from "../components/loading.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 
 class Messages extends Component {
@@ -27,9 +28,9 @@ class Messages extends Component {
             error: `Messages property with id ${property_id} is forbidden for ${user.name}`,
           });
         }
-      })      
-      .catch(() => this.setState({ error: "Something went wrong" }))  
-      .finally(() => this.setState({ isLoading: false })); 
+      })
+      .catch(() => this.setState({ error: "Something went wrong" }))
+      .finally(() => this.setState({ isLoading: false }));
 
     fetch(`/api/properties/${property_id}`)
       .then((res) => res.json())
@@ -37,7 +38,7 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages, error, title, isLoading } = this.state;
+    const { messages, error, isLoading } = this.state;
     const { user } = this.props;
 
     const breadcrumbs = [{ "name": "Properties", "link": "/properties" }];
@@ -55,8 +56,7 @@ class Messages extends Component {
           breadcrumbs={breadcrumbs}
           lastBreadcrumbs="true"
         />
-
-        {result}
+{result}
 
       </FullScreenPage>
     );
