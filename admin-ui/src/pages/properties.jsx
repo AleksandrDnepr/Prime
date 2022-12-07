@@ -8,20 +8,22 @@ import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 import { Loading } from "../components/loading.jsx";
 
 export class Properties extends Component {
-    state = {
-        page: 1,
-        pages: null,
-        properties: [],
-        isLoading: true,
-    }
+  state = {
+    page: 1,
+    pages: null,
+    properties: [],
+    isLoading: true,
+  };
 
-    componentDidMount() {
-        fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
-        .then(data => data.json())
-        .then(data => this.setState({...data}))
-        .catch(error => this.setState({error}))
-        .finally(() => this.setState({ isLoading: false }));
-    }
+  componentDidMount() {
+    fetch(
+      `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
+    )
+      .then((data) => data.json())
+      .then((data) => this.setState({ ...data }))
+      .catch((error) => this.setState({ error }))
+      .finally(() => this.setState({ isLoading: false }));
+  }
 
   showMore = async () => {
     const { page, pages } = this.state;
