@@ -19,15 +19,14 @@ class Messages extends Component {
     fetch(`/api/properties/${property_id}/messages`)
       .then(res => { 
         if (res.ok) {
-          res.json().then((data) => {
+          res.json().then(data => {
             this.setState({ messages: data });
           });
         } else {
           this.setState({
-            error: `Messages property with id ${property_id} is forbidden for ${this.props.user.name}`,
+            error: `Messages property with id ${property_id} is forbidden for ${user.name}`,
           });
         }
-<<<<<<< HEAD
       })
       .catch(() => this.setState({ error: "Something went wrong" }));
 
@@ -35,33 +34,17 @@ class Messages extends Component {
         .then(res => res.json())
         .then(data => this.setState({title: data.property.title}))
         
-=======
-      })      
-      .catch(() => this.setState({ error: "Something went wrong" }))
-
-    fetch(`/api/properties/${property_id}`)
-      .then(res => res.json())
-      .then(data => this.setState({title: data.property.title}))
->>>>>>> c14171e (finished improving massage error display)
   }
 
   render() {
     const { messages, error, title } = this.state;
     const { user } = this.props;
 
-<<<<<<< HEAD
-    const breadcrumbs = [{ name: "Properties", link: "/properties" }];
-
-    if (error) {
-      return <Error errorTitle={"Error 403"}>{error}</Error>;
-    }
-=======
     const breadcrumbs = [{ "name": "Properties", "link": "/properties" }];
     
     const result = error ? 
       <Error errorTitle={"Error 403"}>{error}</Error> : 
       <MessageList messages={messages} />
->>>>>>> c14171e (finished improving massage error display)
 
     return (
       <Box
