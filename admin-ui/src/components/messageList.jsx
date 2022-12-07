@@ -12,7 +12,7 @@ class MessageList extends Component {
       <Box>
         <List
           sx={{
-            width: "100%",
+            width: "90%",
             maxWidth: "70%",
             bgcolor: "#aceafa",
             ml: 2,
