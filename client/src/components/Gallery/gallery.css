@@ -37,15 +37,20 @@
 }
 
 .gallery__slider {
-    display: flex;
+    /* display: flex; */
     height: 153px;
     align-items: flex-start;
     background: black;
     overflow: hidden;
+    box-sizing: border-box;
 
     overflow-x: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+}
+
+.gallery__slider .tmp {
+    display: flex;
 }
 
 .gallery {
