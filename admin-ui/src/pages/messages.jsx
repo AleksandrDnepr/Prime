@@ -8,6 +8,7 @@ import { FullScreenPage } from "../components/fullScreenPage.jsx";
 class Messages extends Component {
   state = {
     messages: [],
+    agent: null,
     isLoading: true,
   };
 
