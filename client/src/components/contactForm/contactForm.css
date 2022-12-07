@@ -1,5 +1,5 @@
 .contact-form {
-  background-color: #F1F3F6;
+  background-color: #f1f3f6;
 }
 
 .contact-form__list {
@@ -8,19 +8,19 @@
 
 .contact-form__list > li {
   margin-bottom: 40px;
-  }
+}
 
 .contact-form__textarea {
   box-sizing: border-box;
   font-size: 20px;
-  color: #4D4F52;;
+  color: #4d4f52;
   border-radius: 4px;
-  outline: none;  
-  width: 100%;  
+  outline: none;
+  width: 100%;
   position: relative;
 }
 
-.contact-form__textarea ::placeholder{
+.contact-form__textarea ::placeholder {
   color: #74777c88;
 }
 
@@ -31,8 +31,8 @@
   outline: none;
 }
 
-.contact-form__textarea:not(:placeholder-shown){
-  border-color: #4D4F52;
+.contact-form__textarea:not(:placeholder-shown) {
+  border-color: #4d4f52;
 }
 
 .contact-form__input {
@@ -59,4 +59,3 @@
 .contact-form__field {
   position: relative;
 }
-

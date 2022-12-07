@@ -22,7 +22,7 @@ export class PropertyFilter extends Component {
     minPrice: this.props.values.minPrice,
     maxPrice: this.props.values.maxPrice,
     minYear: this.props.values.minYear,
-    prevValues: this.props.values
+    prevValues: this.props.values,
   };
 
   changeFilterParam(name, value) {
@@ -30,16 +30,16 @@ export class PropertyFilter extends Component {
   }
 
   handleSubmit = () => {
-    const copyState = JSON.parse(JSON.stringify(this.state))
+    const copyState = JSON.parse(JSON.stringify(this.state));
     delete copyState.prevValues;
-    for(const key in copyState) {
-      if(copyState[key] !== this.state.prevValues[key]) {
-        this.setState({ prevValues: copyState })
+    for (const key in copyState) {
+      if (copyState[key] !== this.state.prevValues[key]) {
+        this.setState({ prevValues: copyState });
         this.props.onSubmit(copyState);
         return;
       }
     }
-  }
+  };
 
   typeOptions() {
     const { type } = this.props.options;
@@ -70,7 +70,7 @@ export class PropertyFilter extends Component {
       }
     });
   }
-  
+
   locationOptions() {
     const { location } = this.props.options;
     return location.map((location) => {
@@ -88,7 +88,18 @@ export class PropertyFilter extends Component {
   }
 
   render() {
-    const { type, deal, bedrooms, bathrooms, minArea, maxArea, minPrice, maxPrice, location, minYear } = this.state;
+    const {
+      type,
+      deal,
+      bedrooms,
+      bathrooms,
+      minArea,
+      maxArea,
+      minPrice,
+      maxPrice,
+      location,
+      minYear,
+    } = this.state;
 
     return (
       <form className="property-filter">
@@ -125,7 +136,7 @@ export class PropertyFilter extends Component {
               />
             </label>
             <label className="property-filter__mini-drop-down">
-            <Input
+              <Input
                 type="number"
                 size="large"
                 value={maxArea || ""}
@@ -135,7 +146,7 @@ export class PropertyFilter extends Component {
                 onChange={(name, value) => this.changeFilterParam(name, value)}
               />
             </label>
-          </li> 
+          </li>
           <li>
             <Input
               type="number"
@@ -168,18 +179,18 @@ export class PropertyFilter extends Component {
                 name="minPrice"
                 placeholder="Min. Price"
                 onChange={(name, value) => this.changeFilterParam(name, value)}
-                />
+              />
             </label>
             <label className="property-filter__mini-drop-down">
               <Input
-                  type="number"
-                  size="large"
-                  value={maxPrice || ""}
-                  min={0}
-                  name="maxPrice"
-                  placeholder="Max. Price"
-                  onChange={(name, value) => this.changeFilterParam(name, value)}
-                />
+                type="number"
+                size="large"
+                value={maxPrice || ""}
+                min={0}
+                name="maxPrice"
+                placeholder="Max. Price"
+                onChange={(name, value) => this.changeFilterParam(name, value)}
+              />
             </label>
           </li>
           <li>
@@ -204,7 +215,7 @@ export class PropertyFilter extends Component {
           </li>
           <li className="property-filter__search">
             <Button size="l" rounding="both" clickEvent={this.handleSubmit}>
-                SEARCH
+              SEARCH
             </Button>
           </li>
         </ul>
@@ -212,4 +223,3 @@ export class PropertyFilter extends Component {
     );
   }
 }
-

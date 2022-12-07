@@ -10,9 +10,9 @@ module.exports = class Agent {
   }
 
   static findByEmail(email) {
-    return Agent.agentsEmails().includes(email) ?
-    Agent.AGENTS.find((agent) => agent.email === email) 
-    : {name: "stranger", email: "stranger", id: "stranger"};
+    return Agent.agentsEmails().includes(email)
+      ? Agent.AGENTS.find((agent) => agent.email === email)
+      : { name: "stranger", email: "stranger", id: "stranger" };
   }
 
   static async sendEmail(data) {
@@ -21,21 +21,20 @@ module.exports = class Agent {
 
   static agentsEmails() {
     const emails = [];
-    Agent.AGENTS.map(agent => emails.push(agent.email));
+    Agent.AGENTS.map((agent) => emails.push(agent.email));
     return emails;
   }
 };
 
-async function sendEmail({info, email}) {
-
+async function sendEmail({ info, email }) {
   const transporter = nodemailer.createTransport(
     {
-      host: config.get('emailConfig.host'),
-        port: config.get('emailConfig.port'),
-        secure: config.get('emailConfig.secure'),
-        auth: {
-            user: config.get('emailConfig.auth.user'),
-            pass: config.get('emailConfig.auth.pass')
+      host: config.get("emailConfig.host"),
+      port: config.get("emailConfig.port"),
+      secure: config.get("emailConfig.secure"),
+      auth: {
+        user: config.get("emailConfig.auth.user"),
+        pass: config.get("emailConfig.auth.pass"),
       },
     },
     {
@@ -47,7 +46,7 @@ async function sendEmail({info, email}) {
     .sendMail({
       from: `"${info.name}" <${info.email}>`,
       to: email,
-      subject: 'Dear Agent!',
+      subject: "Dear Agent!",
       text: `Client ${info.name} (email: ${info.email}),
       asked about property id:${info.propertyId}.
       Here's his/her massage:

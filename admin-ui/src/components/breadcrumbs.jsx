@@ -3,7 +3,7 @@ import { Box, Breadcrumbs, Link, Typography } from "@mui/material";
 
 export class Breadcrumps extends Component {
   render() {
-    const { title, breadcrumbs, lastBreadcrumbs } = this.props
+    const { title, breadcrumbs, lastBreadcrumbs } = this.props;
     return (
       <Box>
         <Breadcrumbs
@@ -11,13 +11,12 @@ export class Breadcrumps extends Component {
           sx={{ ml: 2, mb: 2 }}
           aria-label="breadcrumb"
         >
-          {breadcrumbs.map((item, index)=>(
+          {breadcrumbs.map((item, index) => (
             <Link key={index} underline="hover" href={item.link}>
               {item.name}
             </Link>
-          )
-          )}
-          {(lastBreadcrumbs ==="true")?<Typography>{title}</Typography>:null}
+          ))}
+          {lastBreadcrumbs === "true" ? <Typography>{title}</Typography> : null}
         </Breadcrumbs>
       </Box>
     );
