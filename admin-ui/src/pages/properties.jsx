@@ -42,24 +42,11 @@ export class Properties extends Component {
         )
         .catch((error) => this.setState({ error }));
     }
-  };
+    }
 
-  loadMoreBtn() {
-    const { page, pages, properties } = this.state;
-    if (pages === 1) {
-      return null;
-    }
-    if (properties.length === 0) {
-      return null;
-    }
-    if (page !== pages) {
-      return <LoadMoreBtn handleClick={this.showMore} />;
-    }
-  }
-
-  render() {
-    const { properties, error } = this.state;
-    const { user } = this.props;
+    render() {
+        const { page, pages, properties, error } = this.state;
+        const { user } = this.props;
 
     if (error) {
       return <AuthError error={error} />;
@@ -91,8 +78,9 @@ export class Properties extends Component {
 
         <PropertyList properties={properties} />
 
-        {this.loadMoreBtn()}
-      </Box>
-    );
-  }
+        <LoadMoreBtn handleClick={this.showMore} page={page} pages={pages} properties={properties}/>
+
+        </Box>
+        );
+    }
 }
