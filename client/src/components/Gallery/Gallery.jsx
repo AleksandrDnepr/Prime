@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import "./gallery.css";
-import { ReactComponent as LeftArrow } from "./leftArrow.svg";
-import { ReactComponent as RightArrow } from "./rightArrow.svg";
+import React, { Component } from 'react'
+import "./gallery.css"
+import { ReactComponent as LeftArrow } from "./leftArrow.svg"
+import { ReactComponent as RightArrow } from "./rightArrow.svg"
+
 
 export class Gallery extends Component {
     
@@ -10,16 +11,33 @@ export class Gallery extends Component {
     }
 
     showNext = () => {
-        this.setState(prev => ({ currentIndex: prev.currentIndex + 1 }))
+        const { pictures } = this.props;
+        let track = document.querySelector('.tmp'); 
+        sectionIndex++ ; 
+
+        if (sectionIndex <= pictures.length-4) {
+            track.style.transform = `translateX(${sectionIndex*(-273)}px)`;
+        }
+
+        this.setState(prev => ({ currentIndex: prev.currentIndex + 1 }));        
     }
 
     showPrev = () => {
-        this.setState(prev => ({ currentIndex: prev.currentIndex - 1 }))
+        const { pictures } = this.props;
+        const track = document.querySelector('.tmp');
+        sectionIndex--;
+
+        if (sectionIndex >= 0 && sectionIndex<pictures.length-4) {
+            track.style.transform = `translateX(${sectionIndex*(-273)}px)`;
+        }
+       
+        this.setState(prev => ({ currentIndex: prev.currentIndex - 1 }));
     }
 
     renderLeftArrow() {
         const { currentIndex } = this.state;
         if (currentIndex <= 0) {return null}
+
         return <LeftArrow onClick={this.showPrev} className="gallery__arrow-left" />;
     }
 
@@ -28,25 +46,24 @@ export class Gallery extends Component {
         const { pictures } = this.props;
         const lastPhotoIndex = pictures.length - currentIndex;
         if (lastPhotoIndex <= 1) {return null}
+
         return <RightArrow onClick={this.showNext} className="gallery__arrow-right" />;
     }
 
     renderSlider() {
         const { pictures } = this.props;
-        const { currentIndex } = this.state;
-        return pictures.map((picture,index) => 
-            <img className={index === currentIndex ? 
-            "gallery__slider_img gallery__slider_img_active" : 
-            "gallery__slider_img gallery__slider_img_disabled"} 
-            src={picture} 
-            key={index} 
-            alt="Slider with apartment's images" 
-            onClick={() => this.onPicClick(index)}
-            />)
-    }
-
-    onPicClick(index) {
-        this.setState({currentIndex:index});
+        let { currentIndex } = this.state;
+    
+        return pictures.map((picture,index) =>
+                <img className={index === currentIndex ? 
+                "gallery__slider_img gallery__slider_img_active" : 
+                "gallery__slider_img gallery__slider_img_disabled"} 
+                src={picture} 
+                key={index} 
+                alt="Slider with apartment's images" 
+                onClick={() => this.setState({currentIndex:index})}
+                />)
+  
     }
 
     render() {
@@ -64,7 +81,9 @@ export class Gallery extends Component {
                         {this.renderRightArrow()}
                     </div>
                     <div className="gallery__slider">
+                        <div className='tmp'>
                         {this.renderSlider()}
+                        </div>
                     </div>
                 </div>
     }
