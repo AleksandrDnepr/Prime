@@ -1,10 +1,10 @@
-import queryString from 'query-string'
+// import queryString from 'query-string'
 
-export class Properties {
-  constructor(page, filterValues) {
-    this.page = page;
-    this.filterValues = filterValues;
-  }
+// export class Properties {
+//   constructor(page, filterValues) {
+//     this.page = page;
+//     this.filterValues = filterValues;
+//   }
 
   // static setPage(page) {
   //   this.page = page;
@@ -91,4 +91,4 @@ export class Properties {
 
 //     return '?' + filterParams + pageParams;
 //   }
-}
+// }

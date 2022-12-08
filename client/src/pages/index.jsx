@@ -5,7 +5,6 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
-import { Properties } from "../service/Properties.js";
 
 
 class Index extends Component {
@@ -24,73 +23,73 @@ class Index extends Component {
   };
 
   
-
-
-async fetchData(){
-  console.log(this.calculateFilterOptions());
-  const xxx = this.calculateFilterOptions();
-  const fetchDataResult = await fetch("/api/properties/"+xxx).then((result) => 
-    result.json()
-  );
-  
-  const filterOptions = { type: [], deal: [], location: [] };
-
-  const unicLocations = new Set();
-  fetchDataResult.properties.forEach((property) =>
-    unicLocations.add(property.location[1])
-  );
-
-  const unicDeals = new Set();
-  fetchDataResult.properties.forEach((property) => unicDeals.add(property.deal));
-
-  const unicTypes = new Set();
-  fetchDataResult.properties.forEach((property) => unicTypes.add(property.type));
-
-  filterOptions.type = [...unicTypes];
-  filterOptions.deal = [...unicDeals];
-  filterOptions.location = [...unicLocations];
-
-
-  const response = {
-    properties: fetchDataResult.properties,
-    pages: fetchDataResult.pages,
-    page:  1,
-    filterOptions,
-    filterValues: this.state.filterValues,
-  };
-
-  return response;
-}
-
-  calculateFilterOptions(){
+  buildQueryString() {
+    console.log("buildQuery started")
     console.log(this.state.filterValues);
-    const filterParams = !this.filterValues
+    const filterParams = !this.state.filterValues
       ? ""
-      : Object.keys(this.filterValues.filterValues)
+      : Object.keys(this.state.filterValues)
         .map((key) =>
-          this.filterValues.filterValues[key] === null ||
-            this.filterValues.filterValues[key] === ""
+          this.state.filterValues[key] === null ||
+            this.state.filterValues[key] === ""
             ? ""
             : encodeURIComponent(key) +
             "=" +
-            encodeURIComponent(this.filterValues.filterValues[key])
+            encodeURIComponent(this.state.filterValues[key])
         )
         .join("&") + "&";
 
     const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+    console.log(filterParams)
 
-    return '?' + filterParams + pageParams;
+    let qStr = '?' + filterParams + pageParams;
+    console.log(qStr)
+
+    return qStr
   }
 
-  buildQueryString() {}
+  calcFilterOptions(properties) {
+    const filterOptions = { type: [], deal: [], location: [] };
 
+    const unicLocations = new Set();
+    properties.forEach((property) =>
+      unicLocations.add(property.location[1])
+    );
+
+    const unicDeals = new Set();
+    properties.forEach((property) => unicDeals.add(property.deal));
+
+    const unicTypes = new Set();
+    properties.forEach((property) => unicTypes.add(property.type));
+
+    filterOptions.type = [...unicTypes];
+    filterOptions.deal = [...unicDeals];
+    filterOptions.location = [...unicLocations];
+
+    return filterOptions
+  }
+
+  async fetchData(queryString){
+  console.log(queryString)
+  // onsole.log("fetchData was made")
+    const answer = queryString;
+  // console.log(answer)
+ 
+ 
+  await fetch("/api/properties/"+answer).then((result) => 
+    result.json()
+  ).then((result)=>{
+    this.setState({properties:result.properties,page:result.page,pages:result.pages,filterOptions:this.calcFilterOptions(result.properties)})});
+}
+
+  
   updateUrl(){
 
   }
 
   componentDidMount() {
-    
-    this.fetchData().then((state) => {
+    const queryString = this.buildQueryString(this.state.filterValues);
+    this.fetchData(queryString).then((state) => {
       this.setState({
         ...state,
         isLoading: false,
@@ -114,12 +113,19 @@ page: newPage,
     this.setState(prevState => ({
       ...prevState,
       filterValues: newFilterValues,
-
-    }));
-    const queryString = this.buildQueryString();
-    this.updateUrl(queryString)
-    this.fetchData(queryString);
+    }), (prevState) => this.qwert(newFilterValues)
+  );
   }
+
+  qwert(newFilterValues) {
+  const queryString = this.buildQueryString(newFilterValues);
+  console.log(queryString)
+  this.updateUrl(queryString)
+  this.fetchData(queryString);
+}
+
+  
+
 
 
   // changeFilters(filters) {
