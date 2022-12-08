@@ -44,7 +44,7 @@
     box-sizing: border-box;
 }
 
-.gallery__slider .tmp {
+.gallery__slider .gallery__slider_container {
     display: flex;
 }
 
