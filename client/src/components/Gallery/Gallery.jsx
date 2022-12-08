@@ -3,6 +3,7 @@ import "./gallery.css"
 import { ReactComponent as LeftArrow } from "./leftArrow.svg"
 import { ReactComponent as RightArrow } from "./rightArrow.svg"
 
+let sectionIndex = 0;
 
 export class Gallery extends Component {
     
@@ -13,11 +14,12 @@ export class Gallery extends Component {
     showNext = () => {
         const { pictures } = this.props;
         let track = document.querySelector('.tmp'); 
-        sectionIndex++ ; 
 
-        if (sectionIndex <= pictures.length-4) {
+        if (sectionIndex < pictures.length-3) {
             track.style.transform = `translateX(${sectionIndex*(-273)}px)`;
         }
+        sectionIndex++ ; 
+        if (sectionIndex-1 === pictures.length) {sectionIndex --}
 
         this.setState(prev => ({ currentIndex: prev.currentIndex + 1 }));        
     }
@@ -25,12 +27,12 @@ export class Gallery extends Component {
     showPrev = () => {
         const { pictures } = this.props;
         const track = document.querySelector('.tmp');
-        sectionIndex--;
+        sectionIndex--;      
 
-        if (sectionIndex >= 0 && sectionIndex<pictures.length-4) {
-            track.style.transform = `translateX(${sectionIndex*(-273)}px)`;
+        if (sectionIndex <= pictures.length-3 && sectionIndex >= 2) {
+            track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`;
         }
-       
+
         this.setState(prev => ({ currentIndex: prev.currentIndex - 1 }));
     }
 
@@ -61,10 +63,15 @@ export class Gallery extends Component {
                 src={picture} 
                 key={index} 
                 alt="Slider with apartment's images" 
-                onClick={() => this.setState({currentIndex:index})}
-                />)
-  
+                onClick={() => this.onPicClick(index)}
+                />)  
     }
+
+    onPicClick(index) {
+        this.setState({currentIndex:index});
+        sectionIndex = index;
+    }
+
 
     render() {
         const { pictures } = this.props;
