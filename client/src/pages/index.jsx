@@ -5,6 +5,7 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
+import queryStr from 'query-string';
 
 
 class Index extends Component {
@@ -39,7 +40,7 @@ class Index extends Component {
         )
         .join("&") + "&";
 
-    const pageParams = !this.page ? "page=1" : `page=${this.page}`;
+    const pageParams = !this.state.page ? "page=1" : `page=${this.state.page}`;
     console.log(filterParams)
 
     let qStr = '?' + filterParams + pageParams;
@@ -70,8 +71,9 @@ class Index extends Component {
   }
 
   async fetchData(queryString){
+    console.log("This fetch data started")
   console.log(queryString)
-  // onsole.log("fetchData was made")
+  
     const answer = queryString;
   // console.log(answer)
  
@@ -79,16 +81,24 @@ class Index extends Component {
   await fetch("/api/properties/"+answer).then((result) => 
     result.json()
   ).then((result)=>{
-    this.setState({properties:result.properties,page:result.page,pages:result.pages,filterOptions:this.calcFilterOptions(result.properties)})});
+    this.setState({properties:result.properties, pages:result.pages,filterOptions:this.calcFilterOptions(result.properties)})});
 }
 
   
   updateUrl(){
+   
+    const url = this.buildQueryString();
+    window.history.pushState({}, '', url);
 
   }
 
   componentDidMount() {
+    const filterNewValues = queryStr.parse(window.location.search);
+    this.setState(prevState => ({ ...prevState, filterValues: filterNewValues }), () => this.qwert2())
     const queryString = this.buildQueryString(this.state.filterValues);
+    console.log(queryString)
+
+    
     this.fetchData(queryString).then((state) => {
       this.setState({
         ...state,
@@ -97,23 +107,32 @@ class Index extends Component {
     });
   }
 
+  qwert2(newFilterValues) {
+    const queryString = this.buildQueryString(newFilterValues);
+    console.log(queryString)
+    this.fetchData(queryString);
+  }
+
+
   changePage(newPage){
 this.setState ( prevState => ({
   ...prevState,
 page: newPage,
   
   }));
-  const queryString = this.buildQueryString();
+    const queryString = this.buildQueryString(newPage);
     this.updateUrl(queryString)
     this.fetchData(queryString);
   }
+
+
 
 
   updateFilterValues(newFilterValues){
     this.setState(prevState => ({
       ...prevState,
       filterValues: newFilterValues,
-    }), (prevState) => this.qwert(newFilterValues)
+    }), () => this.qwert(newFilterValues)
   );
   }
 
