@@ -16,7 +16,7 @@ export class Gallery extends Component {
         let track = document.querySelector('.gallery__slider_container'); 
         sectionIndex++ ; 
 
-        if (sectionIndex < pictures.length-2) {
+        if (sectionIndex < pictures.length-2  && pictures.length > 6 ) {
             track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)`}
         if ((pictures.length === 5 && sectionIndex === 3) || 
             (pictures.length === 6 && sectionIndex === 4))
@@ -32,7 +32,7 @@ export class Gallery extends Component {
         const track = document.querySelector('.gallery__slider_container');
         sectionIndex--;      
 
-        if (sectionIndex <= pictures.length - 2) 
+        if (sectionIndex <= pictures.length - 2 && pictures.length > 6 ) 
             { track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
         if (sectionIndex === 0) { track.style.transform = `translateX(${(sectionIndex)*(-273)}px)` }
         if (sectionIndex === 1) { track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)` }
