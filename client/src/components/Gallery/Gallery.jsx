@@ -8,25 +8,23 @@ let sectionIndex = 0;
 export class Gallery extends Component {
     
     state = {
-        currentIndex: 0,
+        currentIndex: 0
     }
 
     showNext = () => {
         const { pictures } = this.props;
         let track = document.querySelector('.gallery__slider_container'); 
-
-        if (sectionIndex < pictures.length-3) {
-            track.style.transform = `translateX(${sectionIndex*(-273)}px)`}
-        if ((pictures.length === 5 && sectionIndex === 2) || 
-            (pictures.length === 6 && sectionIndex === 3))
-            {track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)`}
-        if (pictures.length === 5 && sectionIndex === 3)
-            {track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
-
         sectionIndex++ ; 
-        if (sectionIndex-1 === pictures.length) {sectionIndex --}
 
-        this.setState(prev => ({ currentIndex: prev.currentIndex + 1 }));        
+        if (sectionIndex < pictures.length-2) {
+            track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)`}
+        if ((pictures.length === 5 && sectionIndex === 3) || 
+            (pictures.length === 6 && sectionIndex === 4))
+            { track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
+        if (pictures.length === 5 && sectionIndex === 4)
+            { track.style.transform = `translateX(${(sectionIndex-3)*(-273)}px)`}
+
+        this.setState(prev => ({ currentIndex: prev.currentIndex + 1 })); 
     }
 
     showPrev = () => {
@@ -34,10 +32,10 @@ export class Gallery extends Component {
         const track = document.querySelector('.gallery__slider_container');
         sectionIndex--;      
 
-        if (sectionIndex <= pictures.length-3 || sectionIndex >= 2) {
-            track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
-        if (sectionIndex === 1 ) {track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)`}
-        if (sectionIndex === 0) {track.style.transform = `translateX(${(sectionIndex)*(-273)}px)`}
+        if (sectionIndex <= pictures.length - 2) 
+            { track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
+        if (sectionIndex === 0) { track.style.transform = `translateX(${(sectionIndex)*(-273)}px)` }
+        if (sectionIndex === 1) { track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)` }
 
         this.setState(prev => ({ currentIndex: prev.currentIndex - 1 }));
     }
@@ -77,7 +75,6 @@ export class Gallery extends Component {
         this.setState({currentIndex:index});
         sectionIndex = index;
     }
-
 
     render() {
         const { pictures } = this.props;
