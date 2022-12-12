@@ -5,7 +5,7 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
-// import queryStr from 'query-string';
+import queryStr from 'query-string';
 
 
 class Index extends Component {
@@ -25,8 +25,6 @@ class Index extends Component {
 
   
   buildQueryString() {
-    console.log("buildQuery started")
-    console.log(this.state.filterValues);
     const filterParams = !this.state.filterValues
       ? ""
       : Object.keys(this.state.filterValues)
@@ -41,25 +39,16 @@ class Index extends Component {
         .join("&") + "&";
 
     const pageParams = !this.state.page ? "page=1" : `page=${this.state.page}`;
-    console.log(filterParams)
+    
 
-    let qStr = '?' + filterParams + pageParams;
-    console.log(qStr)
-
-    return qStr
+    let queryString = '?' + filterParams + pageParams;
+    
+    return queryString
   }
 
-  parseQueryString(queryString){
-    var queryParams = {};
-    queryString.replace("?", "")
-      .split("&")
-      .map(q => q.split("="))
-      .reduce((obj, arr) => { 
-        obj[arr[0]]=arr[1];
-        return obj;
-    }, queryParams);
-
-    let {page, ...filterValues} = queryParams;
+  parseQueryString(){
+    let queryParams = queryStr.parse(window.location.search)
+   let {page, ...filterValues} = queryParams;
     return [Number(page), filterValues]
   }
 
@@ -85,13 +74,7 @@ class Index extends Component {
   }
 
   async fetchData(queryString){
-    // console.log("This fetch data started")
-    // console.log(queryString)
-  
-    // const answer = queryString;
-  // console.log(answer)
- 
- 
+   
   await fetch("/api/properties/"+queryString).then((result) => 
     result.json()
   ).then((result)=>{
@@ -105,13 +88,12 @@ class Index extends Component {
   }
 
   componentDidMount() {
-    // const filterNewValues = queryStr.parse(window.location.search);
     const [page, filterValues] = this.parseQueryString(window.location.search);
 
     this.setState(prevState => ({ ...prevState, filterValues: filterValues, page: page }), () => {
       
       const queryString = this.buildQueryString(this.state.filterValues);
-      console.log(queryString)
+     
       
       this.fetchData(queryString).then((state) => {
         this.setState({
@@ -122,14 +104,11 @@ class Index extends Component {
     })
   }
 
-  // qwert2(newFilterValues) {
-  //   const queryString = this.buildQueryString(newFilterValues);
-  //   console.log(queryString)
-  //   this.fetchData(queryString);
-  // }
+ 
 
 
   changePage(newPage){
+    window.scrollTo(0, 0);
   this.setState ( prevState => ({
     ...prevState,
     page: newPage,
@@ -142,51 +121,18 @@ class Index extends Component {
 
 
   updateFilterValues(newFilterValues){
+    window.scrollTo(0, 0);
     this.setState(prevState => ({
       ...prevState,
       filterValues: newFilterValues,
     }), () => {
       const queryString = this.buildQueryString(newFilterValues);
-      console.log(queryString)
+      
       this.updateUrl(queryString)
       this.fetchData(queryString);
     });
   }
 
-//   qwert(newFilterValues) {
-//   const queryString = this.buildQueryString(newFilterValues);
-//   console.log(queryString)
-//   this.updateUrl(queryString)
-//   this.fetchData(queryString);
-// }
-
-  
-
-
-
-  // changeFilters(filters) {
-  //   window.scrollTo(0, 0);
-    
-  //   Properties.setFilters(filters).then((state) =>
-  //     this.setState({
-  //       ...state,
-  //       isLoading: false,
-  //     })
-  //   );
-  //   const url = Properties.buildParams();
-  //   window.history.pushState({}, '', url);
-  // }
-
-  // async changePage(page) {
-  //   window.scrollTo(0, 0);
-
-  //   Properties.setPage(page).then((state) =>
-  //     this.setState({
-  //       ...state,
-  //       isLoading: false,
-  //     })
-  //   );
-  // }
 
   showLoader(isLoading) {
     return isLoading && <Loading />;
