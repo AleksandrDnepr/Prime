@@ -38,11 +38,16 @@ export class Properties extends Component {
             
         }
     }
+  };
 
-    render() {
-        const { page, pages, properties, error, isLoading } = this.state;
-        const { user } = this.props;
-        const content = isLoading ? <Loading /> :  <MessageList messages={this.state.messages} />;   
+  render() {
+    const { page, pages, properties, error, isLoading } = this.state;
+    const { user } = this.props;
+    const content = isLoading ? (
+      <Loading />
+    ) : (
+      <PropertyList properties={properties} />
+    );
 
     if (error) {
       return <AuthError error={error} />;

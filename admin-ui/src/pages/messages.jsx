@@ -38,16 +38,20 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages, error, isLoading } = this.state;
+    const { messages, error, isLoading, title } = this.state;
     const { user } = this.props;
 
-    const breadcrumbs = [{ "name": "Properties", "link": "/properties" }];
-    const content = isLoading ? <Loading /> :  <MessageList messages={this.state.messages} />;   
-    const result = error ? 
-      <Error errorTitle={"Error 403"}>{error}</Error> : 
+    const breadcrumbs = [{ name: "Properties", link: "/properties" }];
+    const content = isLoading ? (
+      <Loading />
+    ) : (
+      <MessageList messages={this.state.messages} />
+    );
+    const result = error ? (
+      <Error errorTitle={"Error 403"}>{error}</Error>
+    ) : (
       content
-
-    
+    );
 
     return (
       <FullScreenPage user={user}>
