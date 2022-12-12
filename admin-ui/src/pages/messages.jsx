@@ -9,47 +9,42 @@ import { Error } from "../components/error.jsx";
 
 class Messages extends Component {
   state = {
-    messages: null,
-    agent: null,
+    messages: [],
   };
 
   componentDidMount() {
     const { property_id } = this.props.match.params;
+    const { user } = this.props;
 
     fetch(`/api/properties/${property_id}/messages`)
-      .then((res) => {
+      .then(res => { 
         if (res.ok) {
-          res.json().then((data) => {
+          res.json().then(data => {
             this.setState({ messages: data });
           });
         } else {
           this.setState({
-            error: `Messages property with id ${property_id} is forbidden for ${this.props.user.name}`,
+            error: `Messages property with id ${property_id} is forbidden for ${user.name}`,
           });
         }
       })
       .catch(() => this.setState({ error: "Something went wrong" }));
 
-    fetch(`/api/properties/${property_id}`)
-      .then((res) => res.json())
-      .then((data) => this.setState({ title: data.property.title }));
+      fetch(`/api/properties/${property_id}`)
+        .then(res => res.json())
+        .then(data => this.setState({title: data.property.title}))
+        
   }
+
   render() {
-    const { messages, error } = this.state;
+    const { messages, error, title } = this.state;
+    const { user } = this.props;
 
-    const breadcrumbs = [{ name: "Properties", link: "/properties" }];
-
-    if (error) {
-      return <Error errorTitle={"Error 403"}>{error}</Error>;
-    }
-
-    if (!messages) {
-      return null;
-    }
-
-    if (messages.length === 0) {
-      return <Error>{"There are no messages for you by the now"}</Error>;
-    }
+    const breadcrumbs = [{ "name": "Properties", "link": "/properties" }];
+    
+    const result = error ? 
+      <Error errorTitle={"Error 403"}>{error}</Error> : 
+      <MessageList messages={messages} />
 
     return (
       <Box
@@ -65,15 +60,12 @@ class Messages extends Component {
           padding: 4,
         }}
       >
-        <HeaderAdmin user={this.props.user} />
+        <HeaderAdmin user={user} />
 
-        <Breadcrumps
-          title={this.state.title}
-          breadcrumbs={breadcrumbs}
-          lastBreadcrumbs="true"
-        />
+        <Breadcrumps title={title} breadcrumbs={breadcrumbs} lastBreadcrumbs="true" />
 
-        <MessageList messages={this.state.messages} />
+        {result}
+
       </Box>
     );
   }
