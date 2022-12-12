@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {Link as RouterLink} from 'react-router-dom'
 
 import {
   Avatar,
@@ -23,7 +24,7 @@ export class PropertyItem extends Component {
             paddingBottom: 0.5,
           }}
         >
-          <Link  underline="hover" href={`/properties/${id}/messages`} sx={{display: "flex",}}>
+          <Link  underline="hover" component={RouterLink} to={`/properties/${id}/messages`} sx={{display: "flex",}}>
               <ListItemAvatar>
                 <Avatar variant="square" alt={title} src={preview} />
               </ListItemAvatar>
