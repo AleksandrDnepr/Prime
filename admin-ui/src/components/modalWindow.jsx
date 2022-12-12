@@ -3,7 +3,6 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
 
 const style = {
   position: "absolute",
@@ -11,45 +10,36 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "75%",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
+  bgcolor: "#c8e2ef",
+  border: "2px solid #253c5a",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  justifyContent: "center",
+  alineItems: "center",
 };
 
 export class ModalWindow extends Component {
-  state = {
-    isOpen: false,
-  };
-
   render() {
+    const { open, children } = this.props;
+
     return (
       <div>
-        <Button onClick={() => this.setState({ isOpen: true })}>
-          Open modal
-        </Button>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
-          open={this.state.isOpen}
-          onClose={() => this.setState({ isOpen: false })}
+          open={open}
           closeAfterTransition
           BackdropComponent={Backdrop}
           BackdropProps={{
             timeout: 500,
           }}
         >
-          <Fade in={this.state.isOpen}>
-            <Box sx={style}>{this.props.children}</Box>
+          <Fade in={open}>
+            <Box sx={style}>{children}</Box>
           </Fade>
         </Modal>
       </div>
     );
   }
 }
-// export default function TransitionsModal() {
-
-//   return (
-
-//   );
-// }
