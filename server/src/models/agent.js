@@ -3,7 +3,7 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Agent extends Model {
     static associate(models) {
-      // define association here
+      this.hasMany(models.Property, { foreignKey: "agentId" });
     }
   }
   Agent.init(

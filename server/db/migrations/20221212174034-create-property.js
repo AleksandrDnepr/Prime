@@ -9,8 +9,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      id: {
+      idProp: {
         type: Sequelize.STRING,
+      },
+      agentId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Agents",
+          key: "id",
+        },
       },
       title: {
         type: Sequelize.STRING,

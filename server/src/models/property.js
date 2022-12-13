@@ -3,12 +3,12 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Property extends Model {
     static associate(models) {
-      // define association here
+      this.belongsTo(models.Agent);
     }
   }
   Property.init(
     {
-      id: DataTypes.STRING,
+      idProp: DataTypes.STRING,
       title: DataTypes.STRING,
       area: DataTypes.INTEGER,
       bedrooms: DataTypes.INTEGER,
