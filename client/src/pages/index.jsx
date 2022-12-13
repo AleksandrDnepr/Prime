@@ -5,9 +5,7 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
-import queryStr from 'query-string';
-
-
+import queryStr from "query-string";
 
 class Index extends Component {
   state = {
@@ -24,42 +22,38 @@ class Index extends Component {
     isLoading: true,
   };
 
-  
   buildQueryString() {
     const filterParams = !this.state.filterValues
       ? ""
       : Object.keys(this.state.filterValues)
-        .map((key) =>
-          this.state.filterValues[key] === null ||
+          .map((key) =>
+            this.state.filterValues[key] === null ||
             this.state.filterValues[key] === ""
-            ? ""
-            : encodeURIComponent(key) +
-            "=" +
-            encodeURIComponent(this.state.filterValues[key])
-        )
-        .join("&") + "&";
+              ? ""
+              : encodeURIComponent(key) +
+                "=" +
+                encodeURIComponent(this.state.filterValues[key])
+          )
+          .join("&") + "&";
 
     const pageParams = !this.state.page ? "page=1" : `page=${this.state.page}`;
-    
 
-    let queryString = '?' + filterParams + pageParams;
-    
-    return queryString
+    let queryString = "?" + filterParams + pageParams;
+
+    return queryString;
   }
 
-  parseQueryString(){
-    let queryParams = queryStr.parse(window.location.search)
-   let {page, ...filterValues} = queryParams;
-    return [Number(page), filterValues]
+  parseQueryString() {
+    let queryParams = queryStr.parse(window.location.search);
+    let { page, ...filterValues } = queryParams;
+    return [Number(page), filterValues];
   }
 
   calcFilterOptions(properties) {
     const filterOptions = { type: [], deal: [], location: [] };
 
     const unicLocations = new Set();
-    properties.forEach((property) =>
-      unicLocations.add(property.location[1])
-    );
+    properties.forEach((property) => unicLocations.add(property.location[1]));
 
     const unicDeals = new Set();
     properties.forEach((property) => unicDeals.add(property.deal));
@@ -71,68 +65,74 @@ class Index extends Component {
     filterOptions.deal = [...unicDeals];
     filterOptions.location = [...unicLocations];
 
-    return filterOptions
+    return filterOptions;
   }
 
-  async fetchData(queryString){
-   
-  await fetch("/api/properties/"+queryString).then((result) => 
-    result.json()
-  ).then((result)=>{
-    this.setState({properties:result.properties, pages:result.pages,filterOptions:this.calcFilterOptions(result.properties)})});
-}
+  async fetchData(queryString) {
+    await fetch("/api/properties/" + queryString)
+      .then((result) => result.json())
+      .then((result) => {
+        this.setState({
+          properties: result.properties,
+          pages: result.pages,
+          filterOptions: this.calcFilterOptions(result.properties),
+        });
+      });
+  }
 
-  
-  updateUrl(){
+  updateUrl() {
     const url = this.buildQueryString();
-    window.history.pushState({}, '', url);
+    window.history.pushState({}, "", url);
   }
 
   componentDidMount() {
     const [page, filterValues] = this.parseQueryString(window.location.search);
 
-    this.setState(prevState => ({ ...prevState, filterValues: filterValues, page: page }), () => {
-      
-      const queryString = this.buildQueryString(this.state.filterValues);
-     
-      
-      this.fetchData(queryString).then((state) => {
-        this.setState({
-          ...state,
-          isLoading: false,
+    this.setState(
+      (prevState) => ({ ...prevState, filterValues: filterValues, page: page }),
+      () => {
+        const queryString = this.buildQueryString(this.state.filterValues);
+
+        this.fetchData(queryString).then((state) => {
+          this.setState({
+            ...state,
+            isLoading: false,
+          });
         });
-      });
-    });
+      }
+    );
   }
 
- 
-
-
-  changePage(newPage){
+  changePage(newPage) {
     window.scrollTo(0, 0);
-  this.setState ( prevState => ({
-    ...prevState,
-    page: newPage,
-    }), () => {
-      const queryString = this.buildQueryString(newPage);
-      this.updateUrl(queryString)
-      this.fetchData(queryString);
-    });
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        page: newPage,
+      }),
+      () => {
+        const queryString = this.buildQueryString(newPage);
+        this.updateUrl(queryString);
+        this.fetchData(queryString);
+      }
+    );
   }
 
-
-
-  updateFilterValues(newFilterValues){
+  updateFilterValues(newFilterValues) {
     window.scrollTo(0, 0);
-    this.setState(prevState => ({
-      ...prevState,
-      filterValues: newFilterValues,
-    }), () => {
-      const queryString = this.buildQueryString(newFilterValues);
-      
-      this.updateUrl(queryString)
-      this.fetchData(queryString);
-    });
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        filterValues: newFilterValues,
+      }),
+      () => {
+        const queryString = this.buildQueryString(newFilterValues);
+
+        this.updateUrl(queryString);
+        this.fetchData(queryString);
+      }
+    );
+  }
 
   showLoader(isLoading) {
     return isLoading && <Loading />;
