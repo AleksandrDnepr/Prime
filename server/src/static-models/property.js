@@ -16,8 +16,8 @@ module.exports = class Property {
 
   static async filterAll(filterParams) {
     let filtredPropeties = [];
-    console.log(manager);
-    if (filterParams === {} || filterParams.agentEmail === manager) {
+
+    if (filterParams === {}) {
       filtredPropeties = [...Property.PROPERTIES];
     }
 
