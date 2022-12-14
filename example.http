@@ -7,7 +7,7 @@ POST http://localhost:3100/api/things
 
 
 ###
-GET http://localhost:3100/api/agents/001
+GET http://localhost:3100/api/agents/1
 
 
 ###
@@ -22,8 +22,22 @@ GET http://localhost:3100/api/properties/A003N
 
 
 ###
-POST http://localhost:3100/api/agents/001/send-mail
+POST http://localhost:3100/api/agents/1/send-mail
+content-type: application/json
+
+{
+  "info": {
+    "name": "dfghjk",
+    "email": "g@example.com",
+    "message": "dfghjkl;",
+    "propertyId": "B1902"
+  }
+}
 
 
 ###
 GET http://localhost:3100/api/properties/agent
+
+###
+
+GET http://localhost:3100/api/agents

@@ -5,6 +5,7 @@ import Messages from "./pages/messages";
 import { Properties } from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Agents } from "./pages/agents.jsx";
 
 export default class App extends React.Component {
   render() {
@@ -15,6 +16,9 @@ export default class App extends React.Component {
           <Switch>
             <Route path="/properties/:property_id/messages">
               <Messages user={this.props.user} />
+            </Route>
+            <Route path="/agents">
+              <Agents user={this.props.user} />
             </Route>
             <Route path="/properties">
               <Properties user={this.props.user} />
