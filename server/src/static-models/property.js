@@ -73,9 +73,6 @@ module.exports = class Property {
 
       const attachedId = Number(property.attached_agents_id);
 
-      console.log(attachedId);
-      //  console.log("db %s", agent.id)
-
       if (!agent || (agentEmail && attachedId !== agent.id)) {
         return false;
       }
