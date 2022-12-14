@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-// import { Logo } from "./logo/logo.jsx";
 import { ReactComponent as LogoSvg } from "../header/logo.svg";
 
 export class HeaderAdmin extends Component {
