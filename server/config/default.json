@@ -7,9 +7,9 @@
     "auth": {
       "user": "maiya59@ethereal.email",
       "pass": "cVjntXUmgy2Cz31rS6"
-    },
-    "managerEmail": "alex.roy.manager@gmail.com"
+    }
   },
+  "managerEmail": "alex.roy.manager@gmail.com",
   "database_url": "sqlite://db/main.db",
   "port": 3100,
   "google_client": {
