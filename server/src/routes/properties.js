@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const Property = require("../static-models/property.js");
 const { Agent, Message } = require("../models");
+const config = require("config");
+const manager = config.get("managerEmail");
 
 async function read(req, res) {
   const { id } = req.params;
@@ -34,11 +36,13 @@ async function index(req, res) {
 
   const properties = filtredProperties.slice(offset, limit);
 
+  const agents = Agent.agentsEmails();
   const isOurAgent = await Agent.findOne({
     where: {
       email: filterParam.agentEmail,
     },
   });
+
 
   if (!filterParam.agentEmail || isOurAgent) {
     return res.json({ pages, properties });

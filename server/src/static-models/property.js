@@ -1,5 +1,7 @@
 const properties = require("../data/properties.json");
-const { Agent } = require("../models");
+const Agent = require("../models");
+const config = require("config");
+const manager = config.get("managerEmail");
 
 module.exports = class Property {
   static PROPERTIES = properties.apartaments;
@@ -14,8 +16,8 @@ module.exports = class Property {
 
   static async filterAll(filterParams) {
     let filtredPropeties = [];
-
-    if (filterParams === {}) {
+    console.log(manager);
+    if (filterParams === {} || filterParams.agentEmail === manager) {
       filtredPropeties = [...Property.PROPERTIES];
     }
 
