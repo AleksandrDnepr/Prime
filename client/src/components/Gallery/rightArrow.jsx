@@ -5,8 +5,10 @@ export class RightArrow extends Component {
     render() {
     const { pictures, currentIndex } = this.props;
     const lastPhotoIndex = pictures.length - currentIndex;
+
     if (lastPhotoIndex <= 1) {return null}
 
-    return <Svg onClick={() => this.props.onClick(currentIndex+1)} className="gallery__arrow-right" />;
-}
+    return <Svg onClick={() => this.props.onClick(currentIndex+1)} 
+        className="gallery__arrow-right" />;
+    }
 }
