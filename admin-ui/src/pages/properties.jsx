@@ -31,12 +31,16 @@ export class Properties extends Component {
     if (page < pages) {
       await this.setState((state) => ({ page: state.page + 1 }));
 
-            await fetch(`/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`)
-            .then((data) => data.json())
-            .then(data => this.setState(state => ({properties: [...state.properties, ...data.properties]})))
-            .catch(error => this.setState({error}))
-            
-        }
+      await fetch(
+        `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
+      )
+        .then((data) => data.json())
+        .then((data) =>
+          this.setState((state) => ({
+            properties: [...state.properties, ...data.properties],
+          }))
+        )
+        .catch((error) => this.setState({ error }));
     }
   };
 
@@ -67,9 +71,13 @@ export class Properties extends Component {
 
         {content}
 
-        <LoadMoreBtn handleClick={this.showMore} page={page} pages={pages} properties={properties}/>
-
-        </FullScreenPage>
-        );
-    }
+        <LoadMoreBtn
+          handleClick={this.showMore}
+          page={page}
+          pages={pages}
+          properties={properties}
+        />
+      </FullScreenPage>
+    );
+  }
 }
