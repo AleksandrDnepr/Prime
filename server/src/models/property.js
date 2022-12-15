@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Property.init(
     {
-      idProp: DataTypes.STRING,
+      prop_id: DataTypes.STRING,
       title: DataTypes.STRING,
       area: DataTypes.INTEGER,
       bedrooms: DataTypes.INTEGER,

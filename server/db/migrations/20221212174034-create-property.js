@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      idProp: {
+      prop_id: {
         type: Sequelize.STRING,
       },
       agentId: {
