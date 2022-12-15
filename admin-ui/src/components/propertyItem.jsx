@@ -8,6 +8,7 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Box,
 } from "@mui/material";
 import ButtonEdit from "./buttonEdit";
 import ButtonDelete from "./buttonDelete";
@@ -18,12 +19,15 @@ export class PropertyItem extends Component {
 
     return (
       <ListItem
-        alignItems="center"
+        // alignItems="center"
         sx={{
-          flexDirection: "column",
-          alignItems: "flex-start",
-          paddingTop: 0.5,
-          paddingBottom: 0.5,
+          justifyContent: "space-between",
+          alignItems: "center",
+          paddingTop: 1,
+          paddingBottom: 1,
+          paddingLeft: 0.5,
+          paddingRight: 0.5,
+          borderBottom: "1px solid grey",
         }}
       >
         <Link
@@ -35,11 +39,15 @@ export class PropertyItem extends Component {
           <ListItemAvatar>
             <Avatar variant="square" alt={title} src={preview} />
           </ListItemAvatar>
-          <ListItemText primary={title} />
+          <ListItemText
+            primary={title}
+            sx={{ display: "flex", alignItems: "center" }}
+          />
+        </Link>
+        <Box>
           <ButtonEdit />
           <ButtonDelete />
-        </Link>
-        <Divider sx={{ width: "100%" }} />
+        </Box>
       </ListItem>
     );
   }
