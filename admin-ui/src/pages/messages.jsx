@@ -45,7 +45,7 @@ class Messages extends Component {
     const content = isLoading ? (
       <Loading />
     ) : (
-      <MessageList messages={this.state.messages} />
+      <MessageList messages={messages} />
     );
     const result = error ? (
       <Error errorTitle={"Error 403"}>{error}</Error>
@@ -60,8 +60,7 @@ class Messages extends Component {
           breadcrumbs={breadcrumbs}
           lastBreadcrumbs="true"
         />
-{result}
-
+        {result}
       </FullScreenPage>
     );
   }
