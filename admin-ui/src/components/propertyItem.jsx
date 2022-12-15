@@ -3,15 +3,14 @@ import { Link as RouterLink } from "react-router-dom";
 
 import {
   Avatar,
-  Divider,
   Link,
   ListItem,
   ListItemAvatar,
   ListItemText,
   Box,
 } from "@mui/material";
-import ButtonEdit from "./buttonEdit";
-import ButtonDelete from "./buttonDelete";
+import { ButtonEdit } from "./buttonEdit";
+import { ButtonDelete } from "./buttonDelete";
 
 export class PropertyItem extends Component {
   render() {
@@ -19,12 +18,9 @@ export class PropertyItem extends Component {
 
     return (
       <ListItem
-        // alignItems="center"
         sx={{
           justifyContent: "space-between",
           alignItems: "center",
-          paddingTop: 1,
-          paddingBottom: 1,
           paddingLeft: 0.5,
           paddingRight: 0.5,
           borderBottom: "1px solid grey",
