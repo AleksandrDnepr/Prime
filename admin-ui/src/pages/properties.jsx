@@ -1,12 +1,9 @@
 import { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Box } from "@mui/material";
-
-import { HeaderAdmin } from "../components/header.jsx";
 import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { PropertyList } from "../components/propertyList.jsx";
 import { AuthError } from "../components/authError.jsx";
-
+import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 
 export class Properties extends Component {
@@ -42,11 +39,11 @@ export class Properties extends Component {
         )
         .catch((error) => this.setState({ error }));
     }
-    }
+  };
 
-    render() {
-        const { page, pages, properties, error } = this.state;
-        const { user } = this.props;
+  render() {
+    const { page, pages, properties, error } = this.state;
+    const { user } = this.props;
 
     if (error) {
       return <AuthError error={error} />;
@@ -57,19 +54,7 @@ export class Properties extends Component {
     }
 
     return (
-      <Box
-        component="div"
-        sx={{
-          minWidth: "100%",
-          height: "100vh",
-          backgroundColor: "#94c5e6",
-          textAlign: "center",
-          lineHeight: 30,
-          padding: 4,
-        }}
-      >
-        <HeaderAdmin user={user} />
-
+      <FullScreenPage user={user}>
         <Breadcrumps
           title="Properties"
           breadcrumbs={[]}
@@ -78,9 +63,13 @@ export class Properties extends Component {
 
         <PropertyList properties={properties} />
 
-        <LoadMoreBtn handleClick={this.showMore} page={page} pages={pages} properties={properties}/>
-
-        </Box>
-        );
-    }
+        <LoadMoreBtn
+          handleClick={this.showMore}
+          page={page}
+          pages={pages}
+          properties={properties}
+        />
+      </FullScreenPage>
+    );
+  }
 }
