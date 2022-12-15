@@ -13,6 +13,7 @@ export class Properties extends Component {
     pages: null,
     properties: [],
     isLoading: true,
+    isLoadingMore: false,
   };
 
   componentDidMount() {
@@ -29,7 +30,7 @@ export class Properties extends Component {
     const { page, pages } = this.state;
 
     if (page < pages) {
-      await this.setState((state) => ({ page: state.page + 1 }));
+      this.setState((state) => ({ page: state.page + 1, isLoadingMore: true }));
 
       await fetch(
         `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
@@ -40,17 +41,30 @@ export class Properties extends Component {
             properties: [...state.properties, ...data.properties],
           }))
         )
-        .catch((error) => this.setState({ error }));
+        .catch((error) => this.setState({ error }))
+        .finally(() => this.setState({ isLoadingMore: false }));
     }
   };
 
   render() {
-    const { page, pages, properties, error, isLoading } = this.state;
+    const { page, pages, properties, error, isLoading, isLoadingMore } =
+      this.state;
     const { user } = this.props;
     const content = isLoading ? (
       <Loading />
     ) : (
       <PropertyList properties={properties} />
+    );
+
+    const button = isLoadingMore ? (
+      <Loading />
+    ) : (
+      <LoadMoreBtn
+        handleClick={this.showMore}
+        page={page}
+        pages={pages}
+        properties={properties}
+      />
     );
 
     if (error) {
@@ -70,13 +84,7 @@ export class Properties extends Component {
         />
 
         {content}
-
-        <LoadMoreBtn
-          handleClick={this.showMore}
-          page={page}
-          pages={pages}
-          properties={properties}
-        />
+        {button}
       </FullScreenPage>
     );
   }
