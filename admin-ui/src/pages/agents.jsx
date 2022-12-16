@@ -1,6 +1,4 @@
 import { Component } from "react";
-import { HeaderAdmin } from "../components/header.jsx";
-import { Breadcrumps } from "../components/breadcrumbs.jsx";
 
 export class Agents extends Component {
   state = {
@@ -15,7 +13,7 @@ export class Agents extends Component {
   }
 
   render() {
-    const { agents, error } = this.state;
+    const { agents } = this.state;
 
     return (
       <ul>

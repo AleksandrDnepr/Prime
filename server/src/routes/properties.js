@@ -34,13 +34,12 @@ async function index(req, res) {
 
   const filtredProperties = isManager
     ? Property.findAll()
-    : Property.filterAll(filterParam);
+    : await Property.filterAll(filterParam);
 
   const pages = Math.ceil(filtredProperties.length / perPage);
 
   const properties = filtredProperties.slice(offset, limit);
 
-  const agents = Agent.agentsEmails();
   const isOurAgent = await Agent.findOne({
     where: {
       email: filterParam.agentEmail,
