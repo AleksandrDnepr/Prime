@@ -1,5 +1,5 @@
 const properties = require("../data/properties.json");
-const Agent = require("../static-models/agent.js");
+const { Agent } = require("../models");
 
 module.exports = class Property {
   static PROPERTIES = properties.apartaments;
@@ -12,7 +12,7 @@ module.exports = class Property {
     return [...Property.PROPERTIES];
   }
 
-  static filterAll(filterParams) {
+  static async filterAll(filterParams) {
     let filtredPropeties = [];
 
     if (filterParams === {}) {
@@ -32,6 +32,12 @@ module.exports = class Property {
       maxArea,
       agentEmail,
     } = filterParams;
+
+    const agent = await Agent.findOne({
+      where: {
+        email: filterParams.agentEmail,
+      },
+    });
 
     filtredPropeties = Property.PROPERTIES.filter((property) => {
       if (location && property.location[1] !== location) {
@@ -65,9 +71,9 @@ module.exports = class Property {
         return false;
       }
 
-      const agent = Agent.findByEmail(agentEmail);
+      const attachedId = Number(property.attached_agents_id);
 
-      if (!agent || (agentEmail && property.attached_agents_id !== agent.id)) {
+      if (!agent || (agentEmail && attachedId !== agent.id)) {
         return false;
       }
 

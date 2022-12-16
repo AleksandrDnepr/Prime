@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const Property = require("../static-models/property.js");
-const Agent = require("../static-models/agent.js");
-const { Message } = require("../models");
+const { Agent, Message } = require("../models");
 
 async function read(req, res) {
   const { id } = req.params;
@@ -29,14 +28,17 @@ async function index(req, res) {
   const offset = (page - 1) * perPage;
   const limit = offset + perPage;
 
-  const filtredProperties = Property.filterAll(filterParam);
+  const filtredProperties = await Property.filterAll(filterParam);
 
   const pages = Math.ceil(filtredProperties.length / perPage);
 
   const properties = filtredProperties.slice(offset, limit);
 
-  const agents = Agent.agentsEmails();
-  const isOurAgent = agents.includes(filterParam.agentEmail);
+  const isOurAgent = await Agent.findOne({
+    where: {
+      email: filterParam.agentEmail,
+    },
+  });
 
   if (!filterParam.agentEmail || isOurAgent) {
     return res.json({ pages, properties });
@@ -55,8 +57,8 @@ async function getMessage(req, res) {
     return res.status(404).json({ error: `Property with id ${id} not found` });
   }
 
-  const agentId = property.attached_agents_id;
-  const agent = Agent.findById(agentId);
+  const agentId = Number(property.attached_agents_id);
+  const agent = await Agent.findByPk(agentId);
 
   if (agent.email !== req.user.email) {
     return res.status(403).json({
