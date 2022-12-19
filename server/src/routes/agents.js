@@ -5,7 +5,7 @@ const config = require("config");
 
 async function showAgentsList(req, res) {
   const agents = await Agent.findAll();
-  res.json({ agents });
+  res.json(agents);
 }
 
 async function read(req, res) {
@@ -15,7 +15,7 @@ async function read(req, res) {
   if (!agent) {
     return res.status(404).json({ error: `Agent with id ${id} not found` });
   }
-  res.json({ agent });
+  res.json(agent);
 }
 
 async function sendEmail({ info, email }) {
@@ -66,7 +66,14 @@ async function sendMailToAgent(req, res) {
   });
 }
 
+async function addAgent(req, res) {
+  const newAgent = await Agent.create(req.body);
+
+  return res.status(201).json(newAgent);
+}
+
 module.exports = Router()
   .get("/:id", read)
   .post("/:id/send-mail", sendMailToAgent)
-  .get("/", showAgentsList);
+  .get("/", showAgentsList)
+  .post("/", addAgent);
