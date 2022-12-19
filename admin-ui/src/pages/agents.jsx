@@ -8,7 +8,7 @@ export class Agents extends Component {
   componentDidMount() {
     fetch(`/api/agents`)
       .then((data) => data.json())
-      .then((data) => this.setState({ ...data }))
+      .then((data) => this.setState({ agents: data }))
       .catch((error) => this.setState({ error }));
   }
 
