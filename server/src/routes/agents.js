@@ -72,8 +72,23 @@ async function addAgent(req, res) {
   return res.status(201).json(newAgent);
 }
 
+async function editAgent(req, res) {
+  const { id } = req.params;
+  const agent = await Agent.findByPk(id);
+
+  if (!agent) {
+    return res.status(404).json();
+  }
+
+  await agent.update(req.body);
+  await agent.save();
+
+  return res.status(204).json();
+}
+
 module.exports = Router()
   .get("/:id", read)
-  .post("/:id/send-mail", sendMailToAgent)
+  .post("/:id/mail", sendMailToAgent)
   .get("/", showAgentsList)
-  .post("/", addAgent);
+  .post("/", addAgent)
+  .put("/:id", editAgent);
