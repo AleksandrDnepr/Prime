@@ -7,7 +7,7 @@ POST http://localhost:3100/api/things
 
 
 ###
-GET http://localhost:3100/api/agents/1
+GET http://localhost:3100/api/agents/17
 
 
 ###
@@ -72,3 +72,9 @@ content-type: application/json
     "createdAt": "2022-12-19T17:25:54.005Z",
     "updatedAt": "2022-12-19T17:25:54.005Z"
   }
+
+
+###
+DELETE http://localhost:3100/api/agents/17
+
+

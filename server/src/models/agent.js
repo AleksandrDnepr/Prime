@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Agent",
+      paranoid: true,
     }
   );
   return Agent;
