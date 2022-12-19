@@ -44,3 +44,31 @@ GET http://localhost:3100/api/properties?manager=alex.roy.manager@gmail.com
 ###
 
 GET http://localhost:3100/api/agents
+
+###
+POST http://localhost:3100/api/agents
+content-type: application/json
+
+{
+    "name": "Adam Conover",
+    "photo": "https://rieltory.in.ua/img/images/%D0%A4%D0%BE%D1%82%D0%BE%202.jpg",
+    "location": "Los Angeles, California",
+    "phone": "+0 123-456-7890",
+    "email": "adamexample001@gmail.com",
+    "createdAt": "2022-12-19T17:25:54.005Z",
+    "updatedAt": "2022-12-19T17:25:54.005Z"
+  }
+
+###
+PUT http://localhost:3100/api/agents/17
+content-type: application/json
+
+{
+    "name": "Adam BOOOOO",
+    "photo": "https://rieltory.in.ua/img/images/%D0%A4%D0%BE%D1%82%D0%BE%202.jpg",
+    "location": "Sacramento, California",
+    "phone": "+0 123-456-7890",
+    "email": "adamexample001@ukr.net",
+    "createdAt": "2022-12-19T17:25:54.005Z",
+    "updatedAt": "2022-12-19T17:25:54.005Z"
+  }
