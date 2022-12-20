@@ -3,11 +3,14 @@ import { withRouter } from "react-router-dom";
 import MessageList from "../components/messageList";
 import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { Error } from "../components/error.jsx";
+import { Loading } from "../components/loading.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 
 class Messages extends Component {
   state = {
     messages: [],
+    agent: null,
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -26,7 +29,8 @@ class Messages extends Component {
           });
         }
       })
-      .catch(() => this.setState({ error: "Something went wrong" }));
+      .catch(() => this.setState({ error: "Something went wrong" }))
+      .finally(() => this.setState({ isLoading: false }));
 
     fetch(`/api/properties/${property_id}`)
       .then((res) => res.json())
@@ -34,15 +38,19 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages, error, title } = this.state;
+    const { messages, error, isLoading, title } = this.state;
     const { user } = this.props;
 
     const breadcrumbs = [{ name: "Properties", link: "/properties" }];
-
+    const content = isLoading ? (
+      <Loading />
+    ) : (
+      <MessageList messages={messages} />
+    );
     const result = error ? (
       <Error errorTitle={"Error 403"}>{error}</Error>
     ) : (
-      <MessageList messages={messages} />
+      content
     );
 
     return (
@@ -52,7 +60,6 @@ class Messages extends Component {
           breadcrumbs={breadcrumbs}
           lastBreadcrumbs="true"
         />
-
         {result}
       </FullScreenPage>
     );
