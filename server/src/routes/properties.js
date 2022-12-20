@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const Property = require("../static-models/property.js");
 const { Agent, Message } = require("../models");
+const config = require("config");
+const manager = config.get("managerEmail");
 
 async function read(req, res) {
   const { id } = req.params;
@@ -28,7 +30,11 @@ async function index(req, res) {
   const offset = (page - 1) * perPage;
   const limit = offset + perPage;
 
-  const filtredProperties = await Property.filterAll(filterParam);
+  const isManager = filterParam.agentEmail === manager;
+
+  const filtredProperties = isManager
+    ? Property.findAll()
+    : await Property.filterAll(filterParam);
 
   const pages = Math.ceil(filtredProperties.length / perPage);
 
@@ -40,7 +46,7 @@ async function index(req, res) {
     },
   });
 
-  if (!filterParam.agentEmail || isOurAgent) {
+  if (!filterParam.agentEmail || isOurAgent || isManager) {
     return res.json({ pages, properties });
   }
 
