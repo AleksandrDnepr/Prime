@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Subtitle } from "../subtitle/subtitle.jsx";
+// import { Subtitle } from "../subtitle/subtitle.jsx";
 import "./sidebar.css";
 
 export class Sidebar extends Component {

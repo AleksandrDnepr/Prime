@@ -60,7 +60,7 @@ class Property extends Component {
             price={property.price}
           />
 
-          <Gallery pictGalery={property.images.galery} />
+          <Gallery pictures={property.images.galery} />
 
           <Description>{property.description}</Description>
 

@@ -1,51 +1,68 @@
-import React, { Component } from "react";
-import "./gallery.css";
-import { ReactComponent as LeftArrow } from "./leftArrow.svg";
-import { ReactComponent as RightArrow } from "./rightArrow.svg";
+import React, { Component } from 'react'
+import "./gallery.css"
+import { LeftArrow } from "./leftArrow.jsx"
+import { RightArrow } from "./rightArrow.jsx"
+import {GallerySlider } from "./gallerySlider.jsx"
+
+let sectionIndex = 0;
 
 export class Gallery extends Component {
-  state = {
-    currentPhoto: 2,
-  };
-
-  showNext() {
-    if (
-      this.state.currentPhoto >
-      this.props.pictGalery.length - this.state.currentPhoto + 1
-    ) {
-      return;
-    } else {
-      this.setState((prev) => ({ currentPhoto: prev.currentPhoto + 1 }));
+    
+    state = {
+        currentIndex: 0
     }
-  }
 
-  showPrev() {
-    if (this.state.currentPhoto <= 0) {
-      return;
+    showNext = () => {
+        const { pictures } = this.props;
+
+        let track = document.querySelector('.gallery__slider_container'); 
+        sectionIndex++ ; 
+
+        if (sectionIndex < pictures.length - 2) {
+            track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)`}
+        if ((pictures.length - sectionIndex) === 2) { 
+            track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
+        if ((pictures.length - sectionIndex) <= 1) { 
+            track.style.transform = `translateX(${(sectionIndex-3)*(-273)}px)`}
+
+        this.setState(prev => ({ currentIndex: prev.currentIndex + 1 })); 
     }
-    this.setState((prev) => ({ currentPhoto: prev.currentPhoto - 1 }));
-  }
 
-  render() {
-    const { pictGalery } = this.props;
-    const { currentPhoto } = this.state;
-    if (pictGalery.length === 0) return null;
-    return (
-      <div className="gallery container__gallery">
-        <LeftArrow
-          onClick={() => this.showPrev()}
-          className="gallery__arrow-left"
-        />
-        <img
-          className="gallery__img"
-          src={pictGalery[currentPhoto]}
-          alt="First view with the property"
-        />
-        <RightArrow
-          onClick={() => this.showNext()}
-          className="gallery__arrow-right"
-        />
-      </div>
-    );
-  }
+    showPrev = () => {
+        const { pictures } = this.props;
+        const track = document.querySelector('.gallery__slider_container');
+        sectionIndex--;      
+
+        if (sectionIndex === 0) { 
+            track.style.transform = `translateX(${(sectionIndex)*(-273)}px)`}
+        if (sectionIndex === 1) { 
+            track.style.transform = `translateX(${(sectionIndex-1)*(-273)}px)`}
+        if (sectionIndex >= 2 && sectionIndex <= pictures.length - 2 ) { 
+            track.style.transform = `translateX(${(sectionIndex-2)*(-273)}px)`}
+
+        this.setState(prev => ({ currentIndex: prev.currentIndex - 1 }));
+    }
+
+    setIndex = (index) => {
+        this.setState({currentIndex:index});
+        sectionIndex = index;
+    }
+
+    render() {
+        const { pictures } = this.props;
+        const { currentIndex } = this.state;
+
+        return <div className="gallery">
+                    <div className="gallery__main">
+                        <LeftArrow currentIndex={currentIndex} pictures={pictures} onClick={this.showPrev} />
+
+                        <img className="gallery__main_img" 
+                        src={pictures[currentIndex]} 
+                        alt="First view with the property" />
+                        
+                        <RightArrow currentIndex={currentIndex} pictures={pictures} onClick={this.showNext} />
+                    </div>                   
+                        <GallerySlider currentIndex={currentIndex} pictures={pictures} onChange={this.setIndex} />
+                </div>
+    }
 }
