@@ -1,4 +1,9 @@
 import { Component } from "react";
+import { Breadcrumps } from "../components/breadcrumbs.jsx";
+import { AgentList } from "../components/agentList.jsx";
+import { AuthError } from "../components/authError.jsx";
+import { FullScreenPage } from "../components/fullScreenPage.jsx";
+import { Button } from "@mui/material";
 
 export class Agents extends Component {
   state = {
@@ -13,14 +18,22 @@ export class Agents extends Component {
   }
 
   render() {
-    const { agents } = this.state;
+    const { agents, error } = this.state;
+
+    const { user } = this.props;
+
+    if (error) {
+      return <AuthError error={error} />;
+    }
 
     return (
-      <ul>
-        {agents.map((agent) => (
-          <li>{agent.name}</li>
-        ))}
-      </ul>
+      <FullScreenPage user={user}>
+        <Breadcrumps title="Agents" breadcrumbs={[]} lastBreadcrumbs="true" />
+
+        <AgentList agents={agents} />
+
+        <Button>Add new agent</Button>
+      </FullScreenPage>
     );
   }
 }
