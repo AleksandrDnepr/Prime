@@ -9,19 +9,16 @@
     "start:client": "cd client && yarn start",
     "start:admin": "cd admin-ui && yarn start",
     "start:server": "cd server && yarn start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prestart": "cd server && yarn db:seed"
   },
   "dependencies": {
-    "eastasianwidth": "^0.2.0",
-    "query-string": "^7.1.1"
-  },
-  "devDependencies": {
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
-    "prettier": "2.8.0"
+    "prettier": "^2.8.1"
   },
   "lint-staged": {
-    "**/*.{js,jsx,json,css, html}": [
+    "**/*.{js,jsx,json,css,html}": [
       "prettier --write"
     ]
   }
