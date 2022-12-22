@@ -5,7 +5,7 @@ const config = require("config");
 
 async function showAgentsList(req, res) {
   const agents = await Agent.findAll();
-  res.json({ agents });
+  res.json(agents);
 }
 
 async function read(req, res) {
@@ -15,7 +15,7 @@ async function read(req, res) {
   if (!agent) {
     return res.status(404).json({ error: `Agent with id ${id} not found` });
   }
-  res.json({ agent });
+  res.json(agent);
 }
 
 async function sendEmail({ info, email }) {
@@ -66,7 +66,43 @@ async function sendMailToAgent(req, res) {
   });
 }
 
+async function addAgent(req, res) {
+  const newAgent = await Agent.create(req.body);
+
+  return res.status(201).json(newAgent);
+}
+
+async function editAgent(req, res) {
+  const { id } = req.params;
+  const agent = await Agent.findByPk(id);
+
+  if (!agent) {
+    return res.status(404).json();
+  }
+
+  await agent.update(req.body);
+  await agent.save();
+
+  return res.status(204).json();
+}
+
+async function removeAgent(req, res) {
+  const { id } = req.params;
+  const agent = await Agent.findByPk(id);
+
+  if (!agent) {
+    return res.status(404).json();
+  }
+
+  await agent.destroy();
+
+  return res.status(204).json();
+}
+
 module.exports = Router()
   .get("/:id", read)
-  .post("/:id/send-mail", sendMailToAgent)
-  .get("/", showAgentsList);
+  .post("/:id/mail", sendMailToAgent)
+  .get("/", showAgentsList)
+  .post("/", addAgent)
+  .put("/:id", editAgent)
+  .delete("/:id", removeAgent);

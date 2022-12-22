@@ -30,7 +30,7 @@ export class AgentCard extends Component {
 
     this.setState({ status: "loading" });
 
-    await fetch(`api/agents/${agentId}/send-mail`, {
+    await fetch(`api/agents/${agentId}/mail`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
