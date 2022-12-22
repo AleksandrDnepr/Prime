@@ -32,7 +32,10 @@ export class Agents extends Component {
 
         <AgentList agents={agents} />
 
-        <Button>Add new agent</Button>
+        <Button variant="contained"
+          size="medium"
+          onClick={() => console.log("add new agent")}
+          sx={{ position: "sticky" }}>Add new agent</Button>
       </FullScreenPage>
     );
   }
