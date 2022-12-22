@@ -40,11 +40,14 @@ async function index(req, res) {
 
   const properties = filtredProperties.slice(offset, limit);
 
-  const isOurAgent = await Agent.findOne({
-    where: {
-      email: filterParam.agentEmail,
-    },
-  });
+  let isOurAgent = null;
+  if (filterParam.agentEmail) {
+    isOurAgent = await Agent.findOne({
+      where: {
+        email: filterParam.agentEmail,
+      },
+    });
+  }
 
   if (!filterParam.agentEmail || isOurAgent || isManager) {
     return res.json({ pages, properties });
