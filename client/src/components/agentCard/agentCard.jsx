@@ -15,7 +15,7 @@ export class AgentCard extends Component {
 
     fetch(`api/agents/${agentId}/`)
       .then((res) => res.json())
-      .then((data) => this.setState({ agent: data.agent }))
+      .then((data) => this.setState({ agent: data }))
       .finally(() => {
         this.setState({
           isLoading: false,
