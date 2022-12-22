@@ -33,11 +33,14 @@ module.exports = class Property {
       agentEmail,
     } = filterParams;
 
-    const agent = await Agent.findOne({
-      where: {
-        email: filterParams.agentEmail,
-      },
-    });
+    let agent = null;
+    if (filterParams.agentEmail) {
+      agent = await Agent.findOne({
+        where: {
+          email: filterParams.agentEmail,
+        },
+      });
+    }
 
     filtredPropeties = Property.PROPERTIES.filter((property) => {
       if (location && property.location[1] !== location) {
@@ -73,7 +76,7 @@ module.exports = class Property {
 
       const attachedId = Number(property.attached_agents_id);
 
-      if (!agent || (agentEmail && attachedId !== agent.id)) {
+      if (agent && agentEmail && attachedId !== agent.id) {
         return false;
       }
 
