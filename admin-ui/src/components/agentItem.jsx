@@ -31,8 +31,8 @@ export class AgentItem extends Component {
         <ListItemText primary={name}
         sx={{ display: "flex", alignItems: "center" }} />
         <Box>
-          <ButtonEdit />
-          <ButtonDelete />
+          <ButtonEdit path={"/admin/properties"}/>
+          <ButtonDelete path={"/admin/properties"}/>
         </Box>
         
       </ListItem>
