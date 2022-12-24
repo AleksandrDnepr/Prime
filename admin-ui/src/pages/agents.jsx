@@ -10,10 +10,10 @@ export class Agents extends Component {
   state = {
     agents: [],
     isLoading: true,
-    isModalOpen: false
+    isModalOpen: false,
   };
 
-   componentDidMount() {
+  componentDidMount() {
     fetch(`/api/agents`)
       .then((data) => data.json())
       .then((data) => this.setState({ agents: data }))
@@ -22,21 +22,17 @@ export class Agents extends Component {
   }
 
   addAgent() {
-    this.setState({isModalOpen: true})
+    this.setState({ isModalOpen: true });
   }
 
   render() {
     const { agents, error, isLoading, isModalOpen } = this.state;
     const { user } = this.props;
-    const content = isLoading ? (
-      <Loading />
-    ) : (
-      <AgentList agents={agents} />
-    );
+    const content = isLoading ? <Loading /> : <AgentList agents={agents} />;
 
-if(isModalOpen) {
-  return <ModalWindow />
-}
+    if (isModalOpen) {
+      return <ModalWindow />;
+    }
 
     if (error) {
       return <AuthError error={error} />;
@@ -46,9 +42,8 @@ if(isModalOpen) {
       <FullScreenPage user={user}>
         <Breadcrumps title="Agents" breadcrumbs={[]} lastBreadcrumbs="true" />
 
-        
-{content} 
-       
+        {content}
+
         <ButtonAdd path={"/admin/properties"}>+ Add new agent</ButtonAdd>
       </FullScreenPage>
     );
