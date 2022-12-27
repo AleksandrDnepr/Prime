@@ -5,7 +5,7 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Box
+  Box,
 } from "@mui/material";
 import { ButtonEdit } from "./buttonEdit";
 import { ButtonDelete } from "./buttonDelete";
@@ -13,7 +13,6 @@ import { ButtonDelete } from "./buttonDelete";
 export class AgentItem extends Component {
   render() {
     const { photo, name, id } = this.props;
-
 
     return (
       <ListItem
@@ -29,13 +28,14 @@ export class AgentItem extends Component {
         <ListItemAvatar>
           <Avatar variant="square" alt={name} src={photo} />
         </ListItemAvatar>
-        <ListItemText primary={name}
-        sx={{ display: "flex", alignItems: "center" }} />
+        <ListItemText
+          primary={name}
+          sx={{ display: "flex", alignItems: "center" }}
+        />
         <Box>
-          <ButtonEdit path={"/properties"}/>
-          <ButtonDelete path={`/agents/${id}/delete`}/>
+          <ButtonEdit path={"/properties"} />
+          <ButtonDelete path={`/agents/${id}/delete`} />
         </Box>
-        
       </ListItem>
     );
   }

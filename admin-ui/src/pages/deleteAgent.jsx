@@ -26,7 +26,7 @@ class DeleteAgent extends Component {
   delete() {
     const agentIdToDelete = this.getAgentIdToDelete();
     const { selectedAgent } = this.state;
-  console.log({selectedAgent, agentIdToDelete })
+    console.log({ selectedAgent, agentIdToDelete });
     this.close();
   }
 
@@ -39,7 +39,9 @@ class DeleteAgent extends Component {
     const { agents } = this.props;
     const { selectedAgent } = this.state;
     const agentIdToDelete = this.getAgentIdToDelete();
-    const filteredAgents = agents.filter((agent) => agent.id !== agentIdToDelete); 
+    const filteredAgents = agents.filter(
+      (agent) => agent.id !== agentIdToDelete
+    );
 
     return (
       <ModalWindow open={isOpened}>
@@ -53,13 +55,17 @@ class DeleteAgent extends Component {
             onChange={(event) => this.selectAgent(event.target.value)}
           >
             {filteredAgents.map((agent) => (
-              <MenuItem value={agent.id} key={agent.id}>{agent.name}</MenuItem>
+              <MenuItem value={agent.id} key={agent.id}>
+                {agent.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
-<Box >
-        <Button onClick={() => this.close()}>Cancel</Button>
-        <Button onClick={() => this.delete()} disabled={!selectedAgent}>Delete</Button>
+        <Box>
+          <Button onClick={() => this.close()}>Cancel</Button>
+          <Button onClick={() => this.delete()} disabled={!selectedAgent}>
+            Delete
+          </Button>
         </Box>
       </ModalWindow>
     );
