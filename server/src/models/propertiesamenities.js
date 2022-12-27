@@ -10,14 +10,18 @@ module.exports = (sequelize, DataTypes) => {
       propId: {
         type: DataTypes.INTEGER,
         references: {
-          model: Property,
+          model: {
+            tableName: "Properties",
+          },
           key: "id",
         },
       },
       amenityId: {
         type: DataTypes.INTEGER,
         references: {
-          model: Amenity,
+          model: {
+            tableName: "Amenities",
+          },
           key: "id",
         },
       },
