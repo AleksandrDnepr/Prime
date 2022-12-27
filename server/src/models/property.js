@@ -4,19 +4,29 @@ module.exports = (sequelize, DataTypes) => {
   class Property extends Model {
     static associate(models) {
       this.belongsTo(models.Agent);
+
+      this.hasMany(models.Image, { foreignKey: "propId" });
+      this.hasMany(models.Feature, { foreignKey: "propId" });
+      this.hasMany(models.Plan, { foreignKey: "propId" });
+      this.hasMany(models.Message, { foreignKey: "prop_id" });
+
+      this.belongsToMany(models.Amenity, {
+        through: "PropertiesAmenities",
+        foreignKey: "propId",
+      });
     }
   }
   Property.init(
     {
       prop_id: DataTypes.STRING,
       title: DataTypes.STRING,
+      city: DataTypes.STRING,
+      state: DataTypes.STRING,
+      type: DataTypes.STRING,
       area: DataTypes.INTEGER,
       bedrooms: DataTypes.INTEGER,
       bathrooms: DataTypes.INTEGER,
       year: DataTypes.INTEGER,
-      city: DataTypes.STRING,
-      state: DataTypes.STRING,
-      type: DataTypes.STRING,
       price: DataTypes.INTEGER,
       deal: DataTypes.STRING,
       preview: DataTypes.STRING,
@@ -25,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Property",
+      paranoid: true,
     }
   );
   return Property;

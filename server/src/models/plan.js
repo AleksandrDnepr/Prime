@@ -1,20 +1,21 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Message extends Model {
+  class Plan extends Model {
     static associate(models) {
       this.belongsTo(models.Property);
     }
   }
-
-  Message.init(
+  Plan.init(
     {
       name: DataTypes.STRING,
-      email: DataTypes.STRING,
-      text: DataTypes.TEXT,
-      prop_id: DataTypes.STRING,
+      url: DataTypes.STRING,
     },
-    { sequelize, modelName: "Message", paranoid: true }
+    {
+      sequelize,
+      modelName: "Plan",
+      paranoid: true,
+    }
   );
-  return Message;
+  return Plan;
 };
