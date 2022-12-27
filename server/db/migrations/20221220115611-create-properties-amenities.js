@@ -2,24 +2,30 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Messages", {
+    await queryInterface.createTable("PropertiesAmenities", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.STRING,
+      propId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Properties",
+          },
+          key: "id",
+        },
       },
-      email: {
-        type: Sequelize.STRING,
-      },
-      text: {
-        type: Sequelize.TEXT,
-      },
-      prop_id: {
-        type: Sequelize.STRING,
+      amenityId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Amenities",
+          },
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Messages");
+    await queryInterface.dropTable("PropertiesAmenities");
   },
 };
