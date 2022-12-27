@@ -12,7 +12,8 @@ import { ButtonDelete } from "./buttonDelete";
 
 export class AgentItem extends Component {
   render() {
-    const { photo, name } = this.props;
+    const { photo, name, id } = this.props;
+
 
     return (
       <ListItem
@@ -31,8 +32,8 @@ export class AgentItem extends Component {
         <ListItemText primary={name}
         sx={{ display: "flex", alignItems: "center" }} />
         <Box>
-          <ButtonEdit path={"/admin/properties"}/>
-          <ButtonDelete path={"/admin/properties"}/>
+          <ButtonEdit path={"/properties"}/>
+          <ButtonDelete path={`/agents/${id}/delete`}/>
         </Box>
         
       </ListItem>
