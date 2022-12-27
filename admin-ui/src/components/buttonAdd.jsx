@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export  class ButtonAdd extends Component {
   render() {
     const { children, path } = this.props;
-    console.log(path);
+    
     return (
       
       <Button component={Link}
