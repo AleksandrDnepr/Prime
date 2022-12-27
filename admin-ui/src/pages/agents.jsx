@@ -7,8 +7,8 @@ import { ButtonAdd } from "../components/buttonAdd.jsx";
 import { Loading } from "../components/loading.jsx";
 import { ModalWindow } from "../components/modalWindow";
 import DeleteAgent from "./deleteAgent.jsx";
-import {  Switch, Route } from "react-router-dom";
- export class Agents extends Component {
+import { Switch, Route } from "react-router-dom";
+export class Agents extends Component {
   state = {
     agents: [],
     isLoading: true,
@@ -41,25 +41,18 @@ import {  Switch, Route } from "react-router-dom";
     }
 
     return (
-      
-    
       <FullScreenPage user={user}>
         <Breadcrumps title="Agents" breadcrumbs={[]} lastBreadcrumbs="true" />
-        
-            
+
         {content}
         <Switch>
-            <Route path="/agents/:agent_id/delete">
-              
-              <DeleteAgent agents={agents}/>
-              </Route>
-      </Switch>
+          <Route path="/agents/:agent_id/delete">
+            <DeleteAgent agents={agents} />
+          </Route>
+        </Switch>
 
         <ButtonAdd path={"/properties"}>+ Add new agent</ButtonAdd>
       </FullScreenPage>
-
-      
     );
   }
 }
-
