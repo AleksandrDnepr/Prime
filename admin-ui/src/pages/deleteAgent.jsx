@@ -9,6 +9,7 @@ import React, { Component } from "react";
 import { ModalWindow } from "../components/modalWindow";
 import { withRouter } from "react-router-dom";
 import { Box } from "@mui/system";
+import { DeleteAgentSelect } from "../components/deleteAgentSelect";
 
 class DeleteAgent extends Component {
   state = {
@@ -45,23 +46,17 @@ class DeleteAgent extends Component {
 
     return (
       <ModalWindow open={isOpened}>
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-controlled-open-select-label">Agents</InputLabel>
-          <Select
-            labelId="select"
-            id="select"
-            value={selectedAgent}
-            label="Agents"
-            onChange={(event) => this.selectAgent(event.target.value)}
-          >
-            {filteredAgents.map((agent) => (
-              <MenuItem value={agent.id} key={agent.id}>
-                {agent.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Box>
+        <Box sx={{ marginBottom: "20px" }}>
+          <p>Are you sure?</p>
+          <p>Transfer all agent's properties to:</p>
+        </Box>
+
+        <DeleteAgentSelect
+          agents={filteredAgents}
+          value={selectedAgent}
+          onChange={(event) => this.selectAgent(event.target.value)}
+        />
+        <Box sx={{ margin: "20px auto" }}>
           <Button onClick={() => this.close()}>Cancel</Button>
           <Button onClick={() => this.delete()} disabled={!selectedAgent}>
             Delete
