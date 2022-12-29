@@ -2,35 +2,31 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class PropertiesAmenities extends Model {
+  class PropertyAmenities extends Model {
     static associate(models) {}
   }
-  PropertiesAmenities.init(
+  PropertyAmenities.init(
     {
-      propId: {
+      PropertyId: {
         type: DataTypes.INTEGER,
         references: {
-          model: {
-            tableName: "Properties",
-          },
-          key: "id",
-        },
+          model: "Properties", 
+          key: 'id'
+        }
       },
-      amenityId: {
+      AmenityId: {
         type: DataTypes.INTEGER,
         references: {
-          model: {
-            tableName: "Amenities",
-          },
+          model:  "Amenities",
           key: "id",
         },
       },
     },
     {
       sequelize,
-      modelName: "PropertiesAmenities",
+      modelName: "PropertyAmenities",
       paranoid: true,
     }
   );
-  return PropertiesAmenities;
+  return PropertyAmenities;
 };

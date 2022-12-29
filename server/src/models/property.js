@@ -5,14 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Agent);
 
-      this.hasMany(models.Image, { foreignKey: "propId" });
-      this.hasMany(models.Feature, { foreignKey: "propId" });
-      this.hasMany(models.Plan, { foreignKey: "propId" });
+      this.hasMany(models.Image);
+      this.hasMany(models.Feature,);
+      this.hasMany(models.Plan,);
       this.hasMany(models.Message, { foreignKey: "prop_id" });
 
       this.belongsToMany(models.Amenity, {
-        through: "PropertiesAmenities",
-        foreignKey: "propId",
+        through: models.PropertyAmenities
       });
     }
   }

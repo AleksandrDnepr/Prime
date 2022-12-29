@@ -9,15 +9,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      propId: {
+      PropertyId: {
         type: Sequelize.INTEGER,
         references: {
-          model: {
-            tableName: "Properties",
-          },
-          key: "id",
-        },
-        allowNull: false,
+          model: "Properties", 
+          key: 'id'
+        }
       },
       type: {
         type: Sequelize.STRING,

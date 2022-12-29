@@ -53,7 +53,7 @@ class Index extends Component {
     const filterOptions = { type: [], deal: [], location: [] };
 
     const unicLocations = new Set();
-    properties.forEach((property) => unicLocations.add(property.location[1]));
+    properties.forEach((property) => unicLocations.add(property.state));
 
     const unicDeals = new Set();
     properties.forEach((property) => unicDeals.add(property.deal));
@@ -170,7 +170,7 @@ class Index extends Component {
           <PropertyFilter
             values={filterValues}
             options={filterOptions}
-            onSubmit={(nextValues) => this.updateFilterValues(nextValues)}
+            onSubmit={nextValues => this.updateFilterValues(nextValues)}
           />
         </Sidebar>
       </Page>
