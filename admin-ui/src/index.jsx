@@ -6,6 +6,7 @@ import { Properties } from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Agents } from "./pages/agents.jsx";
+import { PropertyPage } from "./pages/property";
 
 export default class App extends React.Component {
   render() {
@@ -13,9 +14,9 @@ export default class App extends React.Component {
       <React.StrictMode>
         <CssBaseline />
         <BrowserRouter basename="/admin">
-          <Switch>
-            <Route path="/properties/:property_id/messages">
-              <Messages user={this.props.user} />
+          <Switch>            
+            <Route path="/properties/:property_id">
+              <PropertyPage user={this.props.user} />
             </Route>
             <Route path="/agents">
               <Agents user={this.props.user} />
