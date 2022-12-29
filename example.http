@@ -22,17 +22,17 @@ GET http://localhost:3100/api/properties/A003N
 
 
 ###
-POST http://localhost:3100/api/agents/1/send-mail
-content-type: application/json
+# POST http://localhost:3100/api/agents/1/send-mail
+# content-type: application/json
 
-{
-  "info": {
-    "name": "dfghjk",
-    "email": "g@example.com",
-    "message": "dfghjkl;",
-    "propertyId": "B1902"
-  }
-}
+# {
+#   "info": {
+#     "name": "dfghjk",
+#     "email": "g@example.com",
+#     "message": "dfghjkl;",
+#     "propertyId": "B1902"
+#   }
+# }
 
 
 ###

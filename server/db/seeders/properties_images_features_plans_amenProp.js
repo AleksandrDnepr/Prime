@@ -3673,9 +3673,9 @@ module.exports = {
       },
     ];
 
-    const PROPERTIES = apartaments.map((apartment, index) => {
+    const PROPERTIES = apartaments.map(apartment => {
       let property = {};
-      property.agentId = Number(apartment.attached_agents_id);
+      property.AgentId = Number(apartment.attached_agents_id);
       property.prop_id = apartment.id;
       property.title = apartment.title;
       property.city = apartment.location[0];
@@ -3695,46 +3695,30 @@ module.exports = {
       return property;
     });
 
+
     const IMAGES = apartaments
-      .map((el, i) => {
+    .map((el, index) => el.images.galery.map(e => {
         let obj = {};
-        obj.urls = el.images.galery;
-        obj.prop_id = i;
+        obj.url = e;
+        obj.PropertyId = index + 1;
+        obj.createdAt = new Date();
+        obj.updatedAt = new Date();
         return obj;
-      })
-      .map((e, index) => {
-        let IMG = [];
-        let obj = {};
-        e.urls.forEach((e) => {
-          obj.url = e;
-          obj.prop_id = index + 1;
-          IMG.push(obj);
-        });
-        return IMG;
-      })
-      .flatMap((e) => e)
-      .map((image) => {
-        let _img = {};
-        _img.url = image.url;
-        _img.propId = image.prop_id;
-        _img.createdAt = new Date();
-        _img.updatedAt = new Date();
-        return _img;
-      });
+    })).flatMap(e => e);
 
     const FEATURES = apartaments
       .map((ap, index) => {
         let _feature = [];
         _feature = Object.entries(ap.features);
-        _feature.forEach((e) => e.push(index + 1));
+        _feature.forEach(e => e.push(index + 1));
         return _feature;
       })
-      .flatMap((e) => e)
-      .map((e) => {
+      .flatMap(e => e)
+      .map(e => {
         let feature = {};
         feature.type = e[0];
         feature.text = e[1];
-        feature.propId = e[2];
+        feature.PropertyId = e[2];
         feature.createdAt = new Date();
         feature.updatedAt = new Date();
         return feature;
@@ -3757,7 +3741,7 @@ module.exports = {
       .map((plan) => {
         let _plan = {};
         (_plan.name = plan.name), (_plan.url = plan.url);
-        _plan.propId = plan.propId;
+        _plan.PropertyId = plan.propId;
         _plan.createdAt = new Date();
         _plan.updatedAt = new Date();
         return _plan;
@@ -3769,15 +3753,15 @@ module.exports = {
           .map((e, i) => {
             let obj = {};
             if (e.isAvailable) {
-              obj.amenityId = i + 1;
-              obj.propId = index + 1;
+              obj.AmenityId = i + 1;
+              obj.PropertyId = index + 1;
               obj.createdAt = new Date();
               obj.updatedAt = new Date();
               return obj;
             }
             return;
           })
-          .filter((e) => e !== undefined)
+          .filter(e => e !== undefined)
       )
       .flatMap((e) => e);
 
@@ -3785,7 +3769,7 @@ module.exports = {
     await queryInterface.bulkInsert("Images", IMAGES, {});
     await queryInterface.bulkInsert("Features", FEATURES, {});
     await queryInterface.bulkInsert("Plans", PLANS, {});
-    await queryInterface.bulkInsert("PropertiesAmenities", AMENITYPROPERTY, {});
+    await queryInterface.bulkInsert("PropertyAmenities", AMENITYPROPERTY, {});
   },
 
   async down(queryInterface, Sequelize) {

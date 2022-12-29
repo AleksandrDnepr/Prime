@@ -7,25 +7,25 @@ import { ReactComponent as YearSvg } from "./year.svg";
 
 export class PropertyDetails extends Component {
   render() {
-    const { details, mode } = this.props;
+    const {  area, bedrooms, bathrooms, year, mode } = this.props;
 
     return (
       <ul className={`details-list_${mode}`}>
         <li>
           <AreaSvg className="details-list-item" />
-          {details.area}ft<sup>2</sup>
+          {area}ft<sup>2</sup>
         </li>
         <li>
           <BedsSvg className="details-list-item" />
-          {details.bedrooms}
+          {bedrooms}
         </li>
         <li>
           <BathsSvg className="details-list-item" />
-          {details.bathrooms}
+          {bathrooms}
         </li>
         <li>
           <YearSvg className="details-list-item" />
-          {details.year}
+          {year}
         </li>
       </ul>
     );
