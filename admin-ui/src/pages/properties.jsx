@@ -1,11 +1,11 @@
 import { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { PropertyList } from "../components/propertyList.jsx";
 import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 import { Loading } from "../components/loading.jsx";
+import { ToggleAdmin } from "../components/toggleAdmin.jsx";
 
 export class Properties extends Component {
   state = {
@@ -78,11 +78,7 @@ export class Properties extends Component {
 
     return (
       <FullScreenPage user={user}>
-        <Breadcrumps
-          title="Properties"
-          breadcrumbs={[]}
-          lastBreadcrumbs="true"
-        />
+        <ToggleAdmin title="Properties Agents"/>
 
         {content}
         {button}
