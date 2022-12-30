@@ -12,10 +12,15 @@ export class Agents extends Component {
   state = {
     agents: [],
     isLoading: true,
-    isModalOpen: false,
   };
 
   componentDidMount() {
+    this.fetchAgents();
+  }
+
+  fetchAgents() {
+    this.setState({ isLoading: true });
+
     fetch(`/api/agents`)
       .then((data) => data.json())
       .then((data) => this.setState({ agents: data }))
@@ -23,18 +28,10 @@ export class Agents extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
-  addAgent() {
-    this.setState({ isModalOpen: true });
-  }
-
   render() {
-    const { agents, error, isLoading, isModalOpen } = this.state;
+    const { agents, error, isLoading } = this.state;
     const { user } = this.props;
     const content = isLoading ? <Loading /> : <AgentList agents={agents} />;
-
-    if (isModalOpen) {
-      return <ModalWindow />;
-    }
 
     if (error) {
       return <AuthError error={error} />;
@@ -47,7 +44,7 @@ export class Agents extends Component {
         {content}
         <Switch>
           <Route path="/agents/:agent_id/delete">
-            <DeleteAgent agents={agents} />
+            <DeleteAgent agents={agents} onDelete={() => this.fetchAgents()} />
           </Route>
         </Switch>
 
