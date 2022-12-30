@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Breadcrumps } from "../components/breadcrumbs.jsx";
+import { ToggleAdmin } from "../components/toggleAdmin.jsx";
 import { AgentList } from "../components/agentList.jsx";
 import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
@@ -39,7 +39,7 @@ export class Agents extends Component {
 
     return (
       <FullScreenPage user={user}>
-        <Breadcrumps title="Agents" breadcrumbs={[]} lastBreadcrumbs="true" />
+        <ToggleAdmin title="Properties Agents"/>
 
         {content}
         <Switch>
