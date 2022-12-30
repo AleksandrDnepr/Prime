@@ -1,19 +1,15 @@
-import {
-  Button,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import React, { Component } from "react";
 import { ModalWindow } from "../components/modalWindow";
 import { withRouter } from "react-router-dom";
-import { Box } from "@mui/system";
+import { Stack, Box } from "@mui/system";
 import { DeleteAgentSelect } from "../components/deleteAgentSelect";
+import { Loading } from "../components/loading";
 
 class DeleteAgent extends Component {
   state = {
     selectedAgent: "",
+    isLoading: false,
   };
 
   selectAgent(agentId) {
@@ -27,8 +23,23 @@ class DeleteAgent extends Component {
   delete() {
     const agentIdToDelete = this.getAgentIdToDelete();
     const { selectedAgent } = this.state;
-    console.log({ selectedAgent, agentIdToDelete });
-    this.close();
+
+    this.setState({ isLoading: true });
+
+    fetch(`/api/agents/${agentIdToDelete}`, {
+      method: "DELETE",
+    })
+      .then((data) => data.json())
+      .then(({ success }) => {
+        if (success) {
+          this.props.onDelete();
+        }
+      })
+      .catch((error) => this.setState({ error }))
+      .finally(() => {
+        this.setState({ isLoading: false });
+        this.close();
+      });
   }
 
   getAgentIdToDelete() {
@@ -38,7 +49,7 @@ class DeleteAgent extends Component {
   render() {
     const isOpened = this.props.match.path === "/agents/:agent_id/delete";
     const { agents } = this.props;
-    const { selectedAgent } = this.state;
+    const { selectedAgent, isLoading } = this.state;
     const agentIdToDelete = this.getAgentIdToDelete();
     const filteredAgents = agents.filter(
       (agent) => agent.id !== agentIdToDelete
@@ -56,12 +67,12 @@ class DeleteAgent extends Component {
           value={selectedAgent}
           onChange={(event) => this.selectAgent(event.target.value)}
         />
-        <Box sx={{ margin: "20px auto" }}>
+        <Stack sx={{ margin: "20px auto" }} direction="row" spacing={2}>
           <Button onClick={() => this.close()}>Cancel</Button>
           <Button onClick={() => this.delete()} disabled={!selectedAgent}>
-            Delete
+            {isLoading ? <Loading size={16} /> : "Delete"}
           </Button>
-        </Box>
+        </Stack>
       </ModalWindow>
     );
   }
