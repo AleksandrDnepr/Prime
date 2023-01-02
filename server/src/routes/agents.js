@@ -89,14 +89,15 @@ async function editAgent(req, res) {
 async function removeAgent(req, res) {
   const { id } = req.params;
   const agent = await Agent.findByPk(id);
+  console.log({ id, agent });
 
   if (!agent) {
-    return res.status(404).json();
+    return res.status(404).json({ success: false });
   }
 
   await agent.destroy();
 
-  return res.status(204).json();
+  return res.json({ success: true });
 }
 
 module.exports = Router()

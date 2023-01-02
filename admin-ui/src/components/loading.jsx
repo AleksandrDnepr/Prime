@@ -3,15 +3,16 @@ import { Box, CircularProgress } from "@mui/material";
 
 export class Loading extends Component {
   render() {
+    const { size } = this.props;
+
     return (
       <Box
         component="div"
         sx={{
           textAlign: "center",
-          marginTop: "50px",
         }}
       >
-        <CircularProgress color="primary" />
+        <CircularProgress color="primary" size={size} />
       </Box>
     );
   }

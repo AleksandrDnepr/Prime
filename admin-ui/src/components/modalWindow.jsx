@@ -9,14 +9,15 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "75%",
   bgcolor: "#c8e2ef",
   border: "2px solid #253c5a",
   boxShadow: 24,
   p: 4,
   display: "flex",
+  flexDirection: "column",
   justifyContent: "center",
   alineItems: "center",
+  padding: "40px",
 };
 
 export class ModalWindow extends Component {
