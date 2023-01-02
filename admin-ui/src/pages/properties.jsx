@@ -5,6 +5,7 @@ import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 import { Loading } from "../components/loading.jsx";
+import { PropertyForm } from "../components/propertyForm";
 
 export class Properties extends Component {
   state = {
@@ -78,7 +79,9 @@ export class Properties extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
+        <PropertyForm />
       </FullScreenPage>
+      
     );
   }
 }
