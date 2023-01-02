@@ -55,28 +55,11 @@ async function index(req, res) {
 
   const isManager = filterParam.agentEmail === manager;
 
-  // if(isManager){
-  //   const filtredProperties = await Property.findAll();
-  // } else {
-
-  // }
-
-  // const filtredProperties = isManager
-  //   ? await Property.findAll()
-  //   : await Property.findAll({
-  //     where: {
-  //       type: {
-  //         [Op.and]: [filterParam.status, filterParam.type]
-  //       },
-  //     }
-  //   });
-
-
     let filtredProperties = [];
+
     if(isManager){
       filtredProperties = await Property.findAll()
     } else {
-
     
     const {
       location,
@@ -166,32 +149,40 @@ async function index(req, res) {
     .json({ error: `ERROR 401! User ${filterParam.agentEmail} is STRANGER` });
 }
 
-// async function getMessage(req, res) {
-//   const { id } = req.params;
+async function getMessage(req, res) {
+  const { id } = req.params;
 
-//   const property = Property.findById(id);
-//   if (!property) {
-//     return res.status(404).json({ error: `Property with id ${id} not found` });
-//   }
+  const property = await Property.findOne({
+    where: {
+      prop_id: id
+    },
+    include:  [{
+      model: Message,
+      through: { attributes: ["PropertyId"] }
+      }]
+  }).then(property => property.dataValues);
+  if (!property) {
+    return res.status(404).json({ error: `Property with id ${id} not found` });
+  }
 
-//   const agentId = Number(property.attached_agents_id);
-//   const agent = await Agent.findByPk(agentId);
-
-//   if (agent.email !== req.user.email) {
-//     return res.status(403).json({
-//       error: `Messages property with id ${id} is Forbidden for ${agent.name}`,
-//     });
-//   }
-
-//   try {
-//     const messages = await Message.findAll({ where: { prop_id: id } });
-//     return res.json(messages);
-//   } catch (err) {
-//     return res.status(500).json({ err: "An error occured" });
-//   }
-// }
+  // const agentId = Number(property.attached_agents_id);
+  const agent = await Agent.findByPk(property.AgentId).then(agent => agent.dataValues);
+  if (agent.email !== req.user.email) {
+    return res.status(403).json({
+      error: `Messages property with id ${id} is Forbidden for ${agent.name}`,
+    });
+  }
+  
+  // try {
+    // const messages = await property.getMessages();
+    console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", property);
+    // return res.json(messages);
+  // } catch (err) {
+  //   return res.status(500).json({ err: "An error occured" });
+  // }
+}
 
 module.exports = Router()
   .get("/", index)
   .get("/:id", read)
-  // .get("/:id/messages", getMessage);
+  .get("/:id/messages", getMessage);

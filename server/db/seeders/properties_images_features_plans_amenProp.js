@@ -3765,14 +3765,34 @@ module.exports = {
       )
       .flatMap((e) => e);
 
+      const createdAt = new Date();
+      const updatedAt = new Date();
+
+
     await queryInterface.bulkInsert("Properties", PROPERTIES, {});
     await queryInterface.bulkInsert("Images", IMAGES, {});
     await queryInterface.bulkInsert("Features", FEATURES, {});
     await queryInterface.bulkInsert("Plans", PLANS, {});
     await queryInterface.bulkInsert("PropertyAmenities", AMENITYPROPERTY, {});
+    await queryInterface.bulkInsert('Messages', [
+      { name: 'Alan', email: 'alan@gmail.com', text: 'Hello!', PropertyId: 1, createdAt, updatedAt },
+      { name: 'Michel', email: 'michel@gmail.com', text: 'Price question', PropertyId: 2, createdAt, updatedAt },
+      { name: 'Taras', email: 'taras@gmail.com', text: 'How are you?', PropertyId: 3, createdAt, updatedAt },
+      { name: 'Ben', email: 'ben@gmail.com', text: 'Hi!', PropertyId: 4, createdAt, updatedAt },
+      { name: 'Nina', email: 'nina@gmail.com', text: 'Call me baby', PropertyId: 5, createdAt, updatedAt },
+      { name: 'Katya', email: 'katya@gmail.com', text: 'Wanna date?', PropertyId: 6, createdAt, updatedAt },
+    ], {});
+
   },
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete("Properties", null, {});
+    await queryInterface.bulkDelete("Images", null, {});
+    await queryInterface.bulkDelete("Features", null, {});
+    await queryInterface.bulkDelete("Plans", null, {});
+    await queryInterface.bulkDelete("PropertyAmenities", null, {});
+    await queryInterface.bulkDelete("Messages", null, {});
+
+
   },
 };

@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Image);
       this.hasMany(models.Feature,);
       this.hasMany(models.Plan,);
-      this.hasMany(models.Message, { foreignKey: "prop_id" });
+      this.hasMany(models.Message,);
 
       this.belongsToMany(models.Amenity, {
         through: models.PropertyAmenities

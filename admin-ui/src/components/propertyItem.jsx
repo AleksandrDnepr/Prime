@@ -14,7 +14,7 @@ import { ButtonDelete } from "./buttonDelete";
 
 export class PropertyItem extends Component {
   render() {
-    const { id, title, preview } = this.props;
+    const { prop_id, title, preview } = this.props;
 
     return (
       <ListItem
@@ -29,7 +29,7 @@ export class PropertyItem extends Component {
         <Link
           underline="hover"
           component={RouterLink}
-          to={`/properties/${id}/messages`}
+          to={`/properties/${prop_id}/messages`}
           sx={{ display: "flex" }}
         >
           <ListItemAvatar>

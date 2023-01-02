@@ -3,7 +3,7 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Message extends Model {
     static associate(models) {
-      this.belongsTo(models.Property);
+      this.belongsTo(models.Property,);
     }
   }
 
@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       text: DataTypes.TEXT,
-      prop_id: DataTypes.STRING,
     },
     { sequelize, modelName: "Message", paranoid: true }
   );
