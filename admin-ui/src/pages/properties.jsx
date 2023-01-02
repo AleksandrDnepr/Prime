@@ -26,6 +26,7 @@ export class Properties extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
+  
   showMore = async () => {
     const { page, pages } = this.state;
 
