@@ -1,6 +1,4 @@
 const { Router } = require("express");
-const { Op } = require("sequelize");
-// const Property = require("../static-models/property.js");
 const { Agent, Amenity, Message, Property, Image, Plan, PropertiesAmenities } = require("../models");
 const config = require("config");
 const manager = config.get("managerEmail");
@@ -36,6 +34,33 @@ async function read(req, res) {
   property.location = [myProperty.dataValues.city, myProperty.dataValues.state];
 
   res.json({ property });
+}
+
+async function editProperty(req, res) {
+  const { id } = req.params;
+  const property = await Property.findByPk(id);
+
+  if (!property) {
+    return res.status(404).json();
+  }
+
+  await property.update(req.body);
+  await property.save();
+
+  return res.status(204).json();
+}
+
+async function removeProperty(req, res) {
+  const { id } = req.params;
+  const property = await Property.findByPk(id);
+
+  if (!property) {
+    return res.status(404).json();
+  }
+
+  await property.destroy();
+
+  return res.status(204).json();
 }
 
 async function index(req, res) {
@@ -149,6 +174,13 @@ async function index(req, res) {
     .json({ error: `ERROR 401! User ${filterParam.agentEmail} is STRANGER` });
 }
 
+async function addNewProperty(req, res) {
+
+  const newProperty = await Property.create(req.body);
+
+  return res.status(201).json(newProperty);
+}
+
 async function getMessage(req, res) {
   const { id } = req.params;
 
@@ -156,16 +188,12 @@ async function getMessage(req, res) {
     where: {
       prop_id: id
     },
-    include:  [{
-      model: Message,
-      through: { attributes: ["PropertyId"] }
-      }]
+    include: Message
   }).then(property => property.dataValues);
   if (!property) {
     return res.status(404).json({ error: `Property with id ${id} not found` });
   }
 
-  // const agentId = Number(property.attached_agents_id);
   const agent = await Agent.findByPk(property.AgentId).then(agent => agent.dataValues);
   if (agent.email !== req.user.email) {
     return res.status(403).json({
@@ -173,16 +201,20 @@ async function getMessage(req, res) {
     });
   }
   
-  // try {
-    // const messages = await property.getMessages();
-    console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", property);
-    // return res.json(messages);
-  // } catch (err) {
-  //   return res.status(500).json({ err: "An error occured" });
-  // }
+  try {
+    const messages = await property.Messages;
+    return res.json(messages);
+  } catch (err) {
+    return res.status(500).json({ err: "An error occured" });
+  }
 }
 
 module.exports = Router()
   .get("/", index)
+  .post("/", addNewProperty)
   .get("/:id", read)
+  .put("/:id", editProperty)
+  .delete("/:id", removeProperty)
   .get("/:id/messages", getMessage);
+
+
