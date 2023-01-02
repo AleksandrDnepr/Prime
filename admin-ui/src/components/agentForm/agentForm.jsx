@@ -32,7 +32,6 @@ export default class AgentForm extends Component {
   handleChange =
     (name) =>
     ({ target: { value } }) => {
-      console.log("dnbdkj");
       this.setState({
         ...this.state,
         [name]: value,
