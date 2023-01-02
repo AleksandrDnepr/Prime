@@ -6,7 +6,7 @@ import { Tabs } from '@mui/material';
 
 export class TabsBlock extends Component { 
   state = {
-    value: 0
+    value: 4
   }     
 
   render() {    
