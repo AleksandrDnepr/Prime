@@ -1,10 +1,9 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import MessageList from "../components/messageList";
-import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { Error } from "../components/error.jsx";
 import { Loading } from "../components/loading.jsx";
-import { FullScreenPage } from "../components/fullScreenPage.jsx";
+import {TabSubPage} from "../components/tabSubPage.jsx"
 
 class Messages extends Component {
   state = {
@@ -54,14 +53,9 @@ class Messages extends Component {
     );
 
     return (
-      <FullScreenPage user={user}>
-        <Breadcrumps
-          title={title}
-          breadcrumbs={breadcrumbs}
-          lastBreadcrumbs="true"
-        />
+      <TabSubPage >        
         {result}
-      </FullScreenPage>
+      </TabSubPage>
     );
   }
 }
