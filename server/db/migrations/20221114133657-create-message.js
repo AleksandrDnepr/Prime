@@ -18,8 +18,12 @@ module.exports = {
       text: {
         type: Sequelize.TEXT,
       },
-      prop_id: {
-        type: Sequelize.STRING,
+      PropertyId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Properties", 
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

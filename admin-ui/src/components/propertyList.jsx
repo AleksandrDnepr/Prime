@@ -19,7 +19,7 @@ export class PropertyList extends Component {
           },
         }}
       >
-        {properties.map((property) => (
+        {properties.map(property => (
           <PropertyItem key={property.id} {...property} />
         ))}
       </List>

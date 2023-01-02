@@ -1,12 +1,4 @@
 ###
-GET http://localhost:3100/api/things
-
-
-###
-POST http://localhost:3100/api/things
-
-
-###
 GET http://localhost:3100/api/agents/17
 
 
@@ -17,8 +9,13 @@ GET http://localhost:3100/api/properties?agentEmail=nickexample003@gmail.com&pag
 ###
 GET http://localhost:3100/api/properties?agentEmail=olga@example.com&minPrice=200000
 
+
 ###
 GET http://localhost:3100/api/properties/A003N
+
+
+###
+GET http://localhost:3100/api/properties/
 
 
 ###
@@ -38,19 +35,21 @@ content-type: application/json
 ###
 GET http://localhost:3100/api/properties/agent
 
+
 ###
 GET http://localhost:3100/api/properties?manager=alex.roy.manager@gmail.com
 
-###
 
+###
 GET http://localhost:3100/api/agents
+
 
 ###
 POST http://localhost:3100/api/agents
 content-type: application/json
 
 {
-    "name": "Adam Conover",
+    "name": "JAJAJAJA",
     "photo": "https://rieltory.in.ua/img/images/%D0%A4%D0%BE%D1%82%D0%BE%202.jpg",
     "location": "Los Angeles, California",
     "phone": "+0 123-456-7890",
@@ -59,8 +58,57 @@ content-type: application/json
     "updatedAt": "2022-12-19T17:25:54.005Z"
   }
 
+
 ###
-PUT http://localhost:3100/api/agents/17
+POST http://localhost:3100/api/properties
+content-type: application/json
+
+{
+  "AgentId": 3,
+  "area": 2000,
+  "bathrooms": 3,
+  "bedrooms": 4,
+  "city": "Kyjiw",
+  "deal": "rent",
+  "description": "fazenda Gorgeous lot with impressive view to the lush jungle and mountains.This spectacular lot located just 5 minutes drive from Samara Beach, is ready for development. Its 360-degrees view of the lush jungle and mountains, makes it ideal for a residential or rental project.The land comes with an extensive variety of fruit plants: Mango, lemons, papaya, water apple, and many others.",
+  "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+  "price": 450000,
+  "prop_id": "C12993",
+  "state": "UA",
+  "title": "MYyyyyyyyyyy fazenda",
+  "type": "apartment",
+  "year": 2023,
+  "createdAt": "2022-12-19T17:25:54.005Z",
+  "updatedAt": "2022-12-19T17:25:54.005Z"
+  }
+
+
+###
+PUT http://localhost:3100/api/properties/1
+content-type: application/json
+
+{
+  "AgentId": 1,
+  "area": 1,
+  "bathrooms": 3,
+  "bedrooms": 4,
+  "city": "Kyjiw",
+  "deal": "rent",
+  "description": "fazenda Gorgeous lot with impressive view to the lush jungle and mountains.This spectacular lot located just 5 minutes drive from Samara Beach, is ready for development. Its 360-degrees view of the lush jungle and mountains, makes it ideal for a residential or rental project.The land comes with an extensive variety of fruit plants: Mango, lemons, papaya, water apple, and many others.",
+  "preview": "https://my-dom.design/wp-content/uploads/2019/05/gostinaja-3-1.jpg",
+  "price": 450000,
+  "prop_id": "A0001",
+  "state": "UA",
+  "title": "fazenda",
+  "type": "apartment",
+  "year": 2023,
+  "createdAt": "2022-12-19T17:25:54.005Z",
+  "updatedAt": "2022-12-19T17:25:54.005Z"
+  }
+
+
+###
+PUT http://localhost:3100/api/agents/1
 content-type: application/json
 
 {
@@ -75,6 +123,9 @@ content-type: application/json
 
 
 ###
-DELETE http://localhost:3100/api/agents/17
+DELETE http://localhost:3100/api/agents/1
 
+
+###
+DELETE http://localhost:3100/api/properties/7
 

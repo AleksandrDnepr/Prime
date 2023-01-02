@@ -11,21 +11,25 @@ export class PropertyCard extends Component {
 
   render() {
     const {
-      id,
+      prop_id,
       preview,
       mode,
       deal,
       type,
       price,
       title,
-      location,
       description,
-      details,
+      bedrooms,
+      bathrooms,
+      year,
+      area,
+      city,
+      state
     } = this.props;
 
     return (
       <Link
-        to={`/${id}`}
+        to={`/${prop_id}`}
         className={`container_${mode}`}
         onClick={this.handleClick}
       >
@@ -36,7 +40,7 @@ export class PropertyCard extends Component {
         <section className={`description_${mode}`}>
           <h3 className="description-title">{title}</h3>
           <h4 className="description-address">
-            {location[0]}, {location[1]}
+            {city}, {state}
           </h4>
           <p className="description-text">
             {" "}
@@ -44,7 +48,7 @@ export class PropertyCard extends Component {
               ? `${description}`
               : `${description.substring(0, 215)}...`}
           </p>
-          <PropertyDetails details={details} mode={mode} />
+          <PropertyDetails area={area} bedrooms={bedrooms} bathrooms={bathrooms} year={year} mode={mode} />
         </section>
       </Link>
     );

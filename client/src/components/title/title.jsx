@@ -34,7 +34,10 @@ export class Title extends Component {
 
   render() {
     const {
-      details: { area, bedrooms, bathrooms, year },
+      area, 
+      bedrooms, 
+      bathrooms, 
+      year,
       id,
       location,
       name,
@@ -57,7 +60,7 @@ export class Title extends Component {
           </li>
           <li>
             <PropertyDetails
-              details={{ area, bedrooms, bathrooms, year }}
+              area={area} bedrooms={bedrooms} bathrooms={bathrooms} year={year}
               mode="list"
             />
           </li>

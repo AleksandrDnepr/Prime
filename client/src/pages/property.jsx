@@ -53,24 +53,27 @@ class Property extends Component {
 
           <Title
             name={property.title}
+            area={property.area}
+            year={property.year}
+            bedrooms={property.bedrooms}
+            bathrooms={property.bathrooms}
             location={property.location}
-            details={property.details}
-            id={property.id}
+            id={property.prop_id}
             type={property.type}
             price={property.price}
           />
 
-          <Gallery pictures={property.images.galery} />
+          <Gallery pictures={property.images} />
 
           <Description>{property.description}</Description>
 
           <FloorPlans plans={property.plans} />
 
-          <AmenityList amenities={property.amenities} />
+          <AmenityList amenities={property.Amenities} />
 
           <Features features={property.features} />
 
-          <AgentCard agentId={property.attached_agents_id} propertyId={property.id} status="default" />
+          <AgentCard agentId={property.AgentId} propertyId={property.id} status="default" />
         </Page>
       </>
     );

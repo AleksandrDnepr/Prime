@@ -12,7 +12,7 @@ module.exports = {
       prop_id: {
         type: Sequelize.STRING,
       },
-      agentId: {
+      AgentId: {
         type: Sequelize.INTEGER,
         references: {
           model: "Agents",
