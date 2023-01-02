@@ -62,7 +62,7 @@ async function sendMailToAgent(req, res) {
     name: body.info.name,
     email: body.info.email,
     text: body.info.message,
-    prop_id: body.info.propertyId,
+    PropertyId: body.info.PropertyId,
   });
 }
 

@@ -75,7 +75,7 @@ content-type: application/json
   "price": 450000,
   "prop_id": "C12993",
   "state": "UA",
-  "title": "fazenda",
+  "title": "MYyyyyyyyyyy fazenda",
   "type": "apartment",
   "year": 2023,
   "createdAt": "2022-12-19T17:25:54.005Z",
@@ -88,7 +88,7 @@ PUT http://localhost:3100/api/properties/1
 content-type: application/json
 
 {
-  "AgentId": 3,
+  "AgentId": 1,
   "area": 1,
   "bathrooms": 3,
   "bedrooms": 4,
@@ -127,5 +127,5 @@ DELETE http://localhost:3100/api/agents/1
 
 
 ###
-DELETE http://localhost:3100/api/properties/5
+DELETE http://localhost:3100/api/properties/7
 
