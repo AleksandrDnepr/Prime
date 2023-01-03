@@ -23,7 +23,7 @@ export class Login extends Component {
         }}
       >
         <Button variant="contained" size="lg">
-          <Link underline="hover" href="/api/auth" color="#ffffff">
+          <Link underline="hover" to="/api/auth" color="#ffffff">
             Sign in with Google
           </Link>
         </Button>
