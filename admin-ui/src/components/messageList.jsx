@@ -20,7 +20,7 @@ class MessageList extends Component {
             },
           }}
         >
-          {messages.map(({ id, name, email, text, prop_id }) => (
+          {messages.map(({ id, name, email, text, PropertyId }) => (
             <ListItem
               sx={{
                 borderBottom: 1,
@@ -30,7 +30,7 @@ class MessageList extends Component {
               alignItems="flex-start"
             >
               <Typography>
-                from {name} ({email}) about id {prop_id} :
+                from {name} ({email}) about id {PropertyId} :
               </Typography>
               <ListItemText
                 sx={{
