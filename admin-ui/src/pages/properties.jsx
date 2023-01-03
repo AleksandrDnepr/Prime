@@ -5,7 +5,6 @@ import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 import { Loading } from "../components/loading.jsx";
-import { ToggleAdmin } from "../components/toggleAdmin.jsx";
 
 export class Properties extends Component {
   state = {
@@ -26,7 +25,6 @@ export class Properties extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
-  
   showMore = async () => {
     const { page, pages } = this.state;
 
@@ -78,8 +76,6 @@ export class Properties extends Component {
 
     return (
       <FullScreenPage user={user}>
-        <ToggleAdmin title="Properties Agents" link="/admin/" />
-
         {content}
         {button}
       </FullScreenPage>
