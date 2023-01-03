@@ -10,7 +10,7 @@ export class AuthError extends Component {
       <>
         <Error errorTitle="Error 401">{error}</Error>
         <Button variant="contained" size="lg" sx={{ margin: "20px 40px" }}>
-          <Link underline="hover" href="/api/auth/logout" color="#ffffff">
+          <Link underline="hover" to="/api/auth/logout" color="#ffffff">
             Try again
           </Link>
         </Button>
