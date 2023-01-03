@@ -79,9 +79,7 @@ export class Properties extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
-        <PropertyForm />
       </FullScreenPage>
-      
     );
   }
 }

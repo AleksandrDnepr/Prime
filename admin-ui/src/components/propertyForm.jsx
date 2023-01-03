@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import {
-  FormGroup,
+  RadioGroup,
   FormControl,
   FormControlLabel,
-  Checkbox,
+  FormLabel,
+  Radio,
   Select,
   MenuItem,
   TextField,
@@ -28,35 +29,24 @@ export class PropertyForm extends Component {
       year: "",
       description: "",
     },
-    btnName: "Create",
-    isOpened: true,
   };
-
-  componentDidMount() {
-    if (
-      this.props.btnName !== this.state.btnName &&
-      this.props.btnName !== undefined
-    ) {
-      this.setState({
-        btnName: this.props.btnName,
-      });
-    }
-  }
 
   handleChange(name, { target: { value } }) {
     this.setState({
       ...this.state,
-      [name]: value,
+      values: {
+        ...this.state.values,
+        [name]: value,
+      },
     });
   }
 
-  close() {}
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log(this.state);
-  };
+  handleSubmit() {
+    console.log(this.state.values);
+    const { onSubmit, onClose } = this.props;
+    onSubmit(this.state.values);
+    onClose();
+  }
 
   render() {
     const { values } = this.state;
@@ -75,6 +65,10 @@ export class PropertyForm extends Component {
       description,
     } = values;
 
+    const { buttonName, onClose } = this.props;
+
+    console.log(this.state);
+
     return (
       <Stack sx={{ width: "600px", margin: "auto" }} spacing={2}>
         <TextField
@@ -92,31 +86,23 @@ export class PropertyForm extends Component {
           value={locationCity}
           onChange={(event) => this.handleChange("locationCity", event)}
         />
+        <TextField
+          label="State"
+          value={locationState}
+          onChange={(event) => this.handleChange("locationState", event)}
+        />
         <FormControl>
-          <InputLabel>State</InputLabel>
-          <Select
-            id="locationState"
-            value={locationState}
-            label="locationState"
-            onChange={(event) => this.handleChange("locationState", event)}
+          <FormLabel>Deal</FormLabel>
+          <RadioGroup
+            row
+            value={deal}
+            sx={{ justifyContent: "center" }}
+            onChange={(event) => this.handleChange("deal", event)}
           >
-            <MenuItem value={10}>California</MenuItem>
-            <MenuItem value={20}>Florida</MenuItem>
-          </Select>
+            <FormControlLabel value="Rent" control={<Radio />} label="Rent" />
+            <FormControlLabel value="Sale" control={<Radio />} label="Sale" />
+          </RadioGroup>
         </FormControl>
-        <FormGroup
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <FormControlLabel
-            control={<Checkbox defaultChecked />}
-            label="Rent"
-          />
-          <FormControlLabel control={<Checkbox />} label="Sale" />
-        </FormGroup>
         <FormControl>
           <InputLabel>Type</InputLabel>
           <Select
@@ -132,29 +118,35 @@ export class PropertyForm extends Component {
         <TextField
           label="Price"
           type="number"
+          inputProps={{ min: 0 }}
           value={price}
           onChange={(event) => this.handleChange("price", event)}
         />
         <TextField
           label="Area"
           type="number"
+          inputProps={{ min: 0 }}
           value={area}
           onChange={(event) => this.handleChange("area", event)}
         />
         <TextField
           label="Bedroom"
           type="number"
+          inputProps={{ min: 0 }}
           value={bedroom}
           onChange={(event) => this.handleChange("bedroom", event)}
         />
         <TextField
           label="Bathroom"
           type="number"
+          inputProps={{ min: 0 }}
           value={bathroom}
           onChange={(event) => this.handleChange("bathroom", event)}
         />
         <TextField
-          type="date"
+          label="Year"
+          type="number"
+          inputProps={{ min: 0 }}
           value={year}
           onChange={(event) => this.handleChange("year", event)}
         />
@@ -168,11 +160,11 @@ export class PropertyForm extends Component {
           direction="row"
           spacing={2}
         >
-          <Button onClick={() => this.close()} sx={{ width: "80px" }}>
+          <Button onClick={onClose} sx={{ width: "80px" }}>
             Cancel
           </Button>
           <Button onClick={() => this.handleSubmit()} sx={{ width: "80px" }}>
-            Create
+            {buttonName || "Create"}
           </Button>
         </Stack>
       </Stack>
