@@ -39,7 +39,7 @@ export class Agents extends Component {
 
     return (
       <FullScreenPage user={user}>
-        <ToggleAdmin title="Properties Agents"/>
+        <ToggleAdmin title="Properties Agents" link="/admin/"/>
 
         {content}
         <Switch>
