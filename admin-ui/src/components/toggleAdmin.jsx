@@ -5,14 +5,14 @@ import { ListItemButton, List } from "@mui/material";
 
 export class ToggleAdmin extends Component {
    render () { 
-    const titles = this.props;
+    const { title, link } = this.props;
         return (
         <List sx={{ display: 'flex'}}>
-            {titles.title.split(' ').map((value) => ((
+            {title.split(' ').map((value) => ((
                 <ListItemButton                
                 key={value}
                 component="a" 
-                to={"/admin/" + value.toLowerCase()}
+                to={link + value.toLowerCase()}
                 sx={{maxWidth: "120px", 
                 alignItems: "center",
                 justifyContent: "center"}}>
