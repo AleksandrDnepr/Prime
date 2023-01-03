@@ -6,13 +6,20 @@ import { ToggleAdmin } from "./toggleAdmin";
 
 export class FullScreenPage extends Component {
   render() {
-    const { user, children } = this.props;
-
+    const { user, children, withToggler } = this.props;
     const isManager =
       user.email === "alex.roy.manager@gmail.com" ? (
-        <ToggleAdmin title="Properties Agents" link="/admin/" />
+        <ToggleAdmin
+          title="Properties Agents"
+          link="/admin/"
+          isVisible={withToggler}
+        />
       ) : (
-        <ToggleAdmin title="Properties" link="/admin/" />
+        <ToggleAdmin
+          title="Properties"
+          link="/admin/"
+          isVisible={withToggler}
+        />
       );
 
     return (

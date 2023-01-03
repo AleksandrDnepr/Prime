@@ -1,13 +1,10 @@
 import { Component } from "react";
-import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { ListItemButton, List } from "@mui/material";
-import { Switch, Route } from "react-router-dom";
-import { Properties } from "../pages/properties.jsx";
-import { Agents } from "../pages/agents.jsx";
 
 export class ToggleAdmin extends Component {
   render() {
-    const { title, link } = this.props;
+    const { title, link, isVisible } = this.props;
+    if (!isVisible) return null;
     return (
       <List sx={{ display: "flex" }}>
         {title.split(" ").map((value) => (
@@ -19,25 +16,12 @@ export class ToggleAdmin extends Component {
               maxWidth: "120px",
               alignItems: "center",
               justifyContent: "center",
+              color: "#757575",
             }}
           >
-            <Breadcrumps
-              title={value}
-              breadcrumbs={[]}
-              lastBreadcrumbs="true"
-            />
+            {value}
           </ListItemButton>
         ))}
-        <Switch>
-          <Route path="/admin/agents">
-            {" "}
-            <Agents user={this.props.user} />
-          </Route>
-          <Route path="/admin/properties">
-            {" "}
-            <Properties user={this.props.user} />
-          </Route>
-        </Switch>
       </List>
     );
   }

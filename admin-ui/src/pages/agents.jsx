@@ -6,6 +6,7 @@ import { ButtonAdd } from "../components/buttonAdd.jsx";
 import { Loading } from "../components/loading.jsx";
 import DeleteAgent from "./deleteAgent.jsx";
 import { Switch, Route } from "react-router-dom";
+
 export class Agents extends Component {
   state = {
     agents: [],
@@ -36,7 +37,7 @@ export class Agents extends Component {
     }
 
     return (
-      <FullScreenPage user={user}>
+      <FullScreenPage user={user} withToggler={true}>
         {content}
         <Switch>
           <Route path="/agents/:agent_id/delete">

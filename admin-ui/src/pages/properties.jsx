@@ -75,7 +75,7 @@ export class Properties extends Component {
     }
 
     return (
-      <FullScreenPage user={user}>
+      <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
       </FullScreenPage>
