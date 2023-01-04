@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Breadcrumps } from "../components/breadcrumbs.jsx";
 import { PropertyList } from "../components/propertyList.jsx";
 import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
@@ -26,7 +25,6 @@ export class Properties extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
-  
   showMore = async () => {
     const { page, pages } = this.state;
 
@@ -77,13 +75,7 @@ export class Properties extends Component {
     }
 
     return (
-      <FullScreenPage user={user}>
-        <Breadcrumps
-          title="Properties"
-          breadcrumbs={[]}
-          lastBreadcrumbs="true"
-        />
-
+      <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
       </FullScreenPage>
