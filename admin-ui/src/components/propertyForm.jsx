@@ -33,7 +33,6 @@ export class PropertyForm extends Component {
 
   handleChange(name, { target: { value } }) {
     this.setState({
-      ...this.state,
       values: {
         ...this.state.values,
         [name]: value,
