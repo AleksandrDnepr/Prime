@@ -29,7 +29,7 @@ export class PropertyItem extends Component {
         <Link
           underline="hover"
           component={RouterLink}
-          to={`/properties/${prop_id}/messages`}
+          to={`/properties/${prop_id}`}
           sx={{ display: "flex" }}
         >
           <ListItemAvatar>

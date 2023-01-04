@@ -1,16 +1,17 @@
 import { Component } from "react";
-import { NavLink, Switch, Route } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Tab } from "@mui/material";
 import { Tabs } from "@mui/material";
 
-export class TabsBlock extends Component {
+class TabsBlock extends Component {
   state = {
     value: 0,
   };
 
   render() {
     const { value } = this.state;
+    const { url } = this.props.match;
 
     const tabs = ["messages", "images", "floor plans", "features", "amenities"];
 
@@ -29,7 +30,7 @@ export class TabsBlock extends Component {
                     key={index}
                     label={tab}
                     component={NavLink}
-                    to={`/properties/:property_id/floor_plans`}
+                    to={`${url}/floor_plans`}
                   />
                 );
               } else {
@@ -38,7 +39,7 @@ export class TabsBlock extends Component {
                     key={index}
                     label={tab}
                     component={NavLink}
-                    to={`/properties/:property_id/${tab}`}
+                    to={`${url}/${tab}`}
                   />
                 );
               }
@@ -49,3 +50,5 @@ export class TabsBlock extends Component {
     );
   }
 }
+
+export default withRouter(TabsBlock);
