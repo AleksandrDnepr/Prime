@@ -41,8 +41,8 @@ export class PropertyItem extends Component {
           />
         </Link>
         <Box>
-          <ButtonEdit />
-          <ButtonDelete />
+          <ButtonEdit path="" />
+          <ButtonDelete path="" />
         </Box>
       </ListItem>
     );
