@@ -99,7 +99,7 @@ async function editAgent(req, res) {
 
 async function removeAgent(req, res) {
   const { id } = req.params;
-  const { agentToAssignProperties: agentToAssignPropertiesId } = req.body;
+  const { agentToAssignPropertiesId } = req.body;
 
   const agent = await Agent.findByPk(id);
   const agentToAssignProperties = await Agent.findByPk(
@@ -107,16 +107,10 @@ async function removeAgent(req, res) {
   );
   const propertiesToAssign = await agent.getProperties();
 
-  const props1 = await agentToAssignProperties.getProperties();
-
-  await agentToAssignProperties.addProperties(propertiesToAssign);
-
-  const props2 = await agentToAssignProperties.getProperties();
-
-  if (!agent) {
+  if (!agent || !agentToAssignProperties) {
     return res.status(404).json({ success: false });
   }
-
+  await agentToAssignProperties.addProperties(propertiesToAssign);
   await agent.destroy();
 
   return res.json({ success: true });

@@ -32,7 +32,7 @@ class DeleteAgent extends Component {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        agentToAssignProperties: selectedAgent,
+        agentToAssignPropertiesId: selectedAgent,
       }),
     })
       .then((data) => data.json())
