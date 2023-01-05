@@ -28,6 +28,12 @@ class DeleteAgent extends Component {
 
     fetch(`/api/agents/${agentIdToDelete}`, {
       method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        agentToAssignPropertiesId: selectedAgent,
+      }),
     })
       .then((data) => data.json())
       .then(({ success }) => {

@@ -1,10 +1,21 @@
 const { Router } = require("express");
-const { Message, Agent } = require("../models");
+const { Message, Agent, Property, sequelize } = require("../models");
 const nodemailer = require("nodemailer");
 const config = require("config");
 
 async function showAgentsList(req, res) {
-  const agents = await Agent.findAll();
+  const agents = await Agent.findAll({
+    attributes: {
+      include: [
+        [
+          sequelize.literal(
+            "(SELECT COUNT(*) FROM Properties WHERE Properties.agentId = Agent.id)"
+          ),
+          "propertyCount",
+        ],
+      ],
+    },
+  });
   res.json(agents);
 }
 
@@ -88,13 +99,18 @@ async function editAgent(req, res) {
 
 async function removeAgent(req, res) {
   const { id } = req.params;
-  const agent = await Agent.findByPk(id);
-  console.log({ id, agent });
+  const { agentToAssignPropertiesId } = req.body;
 
-  if (!agent) {
+  const agent = await Agent.findByPk(id);
+  const agentToAssignProperties = await Agent.findByPk(
+    agentToAssignPropertiesId
+  );
+  const propertiesToAssign = await agent.getProperties();
+
+  if (!agent || !agentToAssignProperties) {
     return res.status(404).json({ success: false });
   }
-
+  await agentToAssignProperties.addProperties(propertiesToAssign);
   await agent.destroy();
 
   return res.json({ success: true });
