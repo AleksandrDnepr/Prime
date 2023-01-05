@@ -11,7 +11,7 @@ GET http://localhost:3100/api/properties?agentEmail=olga@example.com&minPrice=20
 
 
 ###
-GET http://localhost:3100/api/properties/A003N
+GET http://localhost:3100/api/properties/B1906
 
 
 ###
