@@ -88,13 +88,13 @@ async function editAgent(req, res) {
   const agent = await Agent.findByPk(id);
 
   if (!agent) {
-    return res.status(404).json();
+    return res.status(404).json({ success: false });
   }
 
   await agent.update(req.body);
   await agent.save();
 
-  return res.status(204).json();
+  return res.json({ success: true });
 }
 
 async function removeAgent(req, res) {
@@ -121,5 +121,5 @@ module.exports = Router()
   .post("/:id/mail", sendMailToAgent)
   .get("/", showAgentsList)
   .post("/", addAgent)
-  .put("/:id", editAgent)
+  .patch("/:id", editAgent)
   .delete("/:id", removeAgent);

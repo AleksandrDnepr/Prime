@@ -34,7 +34,7 @@ export class AgentItem extends Component {
         />
 
         <Box>
-          <ButtonEdit path={"/properties"} />
+          <ButtonEdit path={`/agents/${id}/edit`} />
           <ButtonDelete path={`/agents/${id}/delete`} />
         </Box>
       </ListItem>

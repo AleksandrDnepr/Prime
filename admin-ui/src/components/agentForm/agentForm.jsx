@@ -4,11 +4,14 @@ import React, { Component } from "react";
 
 export default class AgentForm extends Component {
   state = {
-    name: !this.props.form ? "" : this.props.form.name,
-    email: !this.props.form ? "" : this.props.email,
-    location: !this.props.location ? "" : this.props.location,
-    phone: !this.props.phone ? "" : this.props.phone,
-    photo: !this.props.photo ? "" : this.props.photo,
+    values: this.props.dafaultValues || {
+      name: "",
+      email: "",
+      locationtion: "",
+      phone: "",
+      photo: "",
+    },
+
     btnName: "Create",
   };
 
@@ -25,21 +28,26 @@ export default class AgentForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { onSubmit } = this.props;
 
-    console.log(this.state);
+    onSubmit(this.state.values);
   };
 
   handleChange =
     (name) =>
     ({ target: { value } }) => {
-      this.setState({
-        ...this.state,
+      const newValues = {
+        ...this.state.values,
         [name]: value,
+      };
+      this.setState({
+        values: newValues,
       });
     };
 
   render() {
-    const { name, email, location, phone, photo } = this.state;
+    const { name, email, location, phone, photo } = this.state.values;
+    const { onClose } = this.props;
 
     const labelStyle = {
       width: "70px",
@@ -126,7 +134,9 @@ export default class AgentForm extends Component {
               margin: "0px 100px 0px 100px",
             }}
           >
-            <Button sx={btnStyle}>Cancel</Button>
+            <Button sx={btnStyle} onClick={onClose}>
+              Cancel
+            </Button>
             <Button sx={btnStyle} onClick={this.handleSubmit}>
               {this.state.btnName}
             </Button>
