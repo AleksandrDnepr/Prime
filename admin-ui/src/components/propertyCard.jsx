@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography, CardMedia } from "@mui/material";
 import { ButtonEdit } from "./buttonEdit.jsx";
 import { ButtonDelete } from "./buttonDelete.jsx";
 
@@ -22,7 +22,7 @@ export class PropertyCard extends Component {
     } = this.props;
 
     return (
-      <Card sx={{ minWidth: 600, mb: 2 }}>
+      <Card sx={{ minWidth: 600, mb: 2.5 }}>
         <CardContent>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography
@@ -37,28 +37,38 @@ export class PropertyCard extends Component {
               <ButtonDelete />
             </Box>
           </Box>
+
           <Typography variant="h6" color="primary" gutterBottom>
             Title: {title}
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
-            <Typography variant="body1" color="text.secondary" gutterBottom>
-              Preview:{" "}
-              <Avatar
-                sx={{ width: 280, height: 220 }}
-                variant="square"
-                alt={title}
-                src={preview}
-              />
-            </Typography>
 
-            <Typography
-              sx={{ width: "33%" }}
-              variant="body1"
-              color="text.secondary"
-              gutterBottom
-            >
-              Property description: <br /> {description}
-            </Typography>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 10,
+            }}
+          >
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Typography variant="body1" color="text.secondary" gutterBottom>
+                Preview:
+              </Typography>
+              <CardMedia
+                component="img"
+                alt={title}
+                height="240"
+                image={preview}
+              />
+            </Box>
+
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Typography variant="body1" color="text.secondary" gutterBottom>
+                Property description:
+              </Typography>
+              <Typography variant="body1" color="text.secondary" gutterBottom>
+                {description}
+              </Typography>
+            </Box>
 
             <Box>
               <Typography variant="body1" color="text.secondary" gutterBottom>
@@ -85,11 +95,7 @@ export class PropertyCard extends Component {
               <Typography variant="body1" color="text.secondary" gutterBottom>
                 Type of deal: {deal}
               </Typography>
-              <Typography
-                sx={{ fontSize: 16 }}
-                color="text.secondary"
-                gutterBottom
-              >
+              <Typography variant="body1" color="text.secondary" gutterBottom>
                 Price: $ {price}
               </Typography>
             </Box>

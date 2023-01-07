@@ -5,15 +5,8 @@ import { Tab } from "@mui/material";
 import { Tabs } from "@mui/material";
 
 class TabsBlock extends Component {
-  state = {
-    value: 0,
-  };
-
   render() {
-    const { value } = this.state;
-    const { url } = this.props.match;
-
-    const tabs = ["messages", "images", "floor plans", "features", "amenities"];
+    const { baseUrl, tabs, currentTab } = this.props;
 
     const switchTabs = (event, newValue) => {
       this.setState({ value: newValue });
@@ -22,27 +15,17 @@ class TabsBlock extends Component {
     return (
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs value={value} onChange={switchTabs}>
+          <Tabs value={tabs.indexOf(currentTab)} onChange={switchTabs}>
             {tabs.map((tab, index) => {
-              if (tab === "floor plans") {
-                return (
-                  <Tab
-                    key={index}
-                    label={tab}
-                    component={NavLink}
-                    to={`${url}/floor_plans`}
-                  />
-                );
-              } else {
-                return (
-                  <Tab
-                    key={index}
-                    label={tab}
-                    component={NavLink}
-                    to={`${url}/${tab}`}
-                  />
-                );
-              }
+              const tabSlug = tab.replace(" ", "_");
+              return (
+                <Tab
+                  key={index}
+                  label={tab}
+                  component={NavLink}
+                  to={`${baseUrl}/${tabSlug}`}
+                />
+              );
             })}
           </Tabs>
         </Box>

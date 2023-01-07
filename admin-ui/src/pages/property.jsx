@@ -1,14 +1,21 @@
 import { Component } from "react";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import TabsBlock from "../components/tabsBlock.jsx";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import Messages from "./messages.jsx";
 import { PropertyCard } from "../components/propertyCard.jsx";
+
+const allDetails = [
+  "messages",
+  "images",
+  "floor plans",
+  "features",
+  "amenities",
+];
 
 class PropertyPage extends Component {
   state = {
     property: [],
-    isLoading: true,
   };
 
   componentDidMount() {
@@ -29,8 +36,16 @@ class PropertyPage extends Component {
 
   render() {
     const { user } = this.props;
-    const { path } = this.props.match;
-    const { property } = this.state;
+    const { property_id, currentDetailsSlug } = this.props.match.params;
+    const { property, isLoading } = this.state;
+    const baseUrl = `/properties/${property_id}`;
+    const baseUrlPattern = "/properties/:property_id";
+
+    if (!currentDetailsSlug) {
+      return <Redirect to={`${baseUrl}/messages`} />;
+    }
+
+    const currentDetails = currentDetailsSlug.replace("_", " ");
 
     return (
       <FullScreenPage user={user} withToggler={false}>
@@ -50,18 +65,20 @@ class PropertyPage extends Component {
           description={property.description}
         />
 
-        <TabsBlock />
+        <TabsBlock
+          baseUrl={baseUrl}
+          currentTab={currentDetails}
+          tabs={allDetails}
+        />
+
         <Switch>
-          {/* <Route index>
-            <Messages user={user} />
-          </Route> */}
-          <Route path={`${path}/messages`}>
+          <Route path={`${baseUrlPattern}/messages`}>
             <Messages user={user} />
           </Route>
-          <Route path={`${path}/images`}>images</Route>
-          <Route path={`${path}/floor_plans`}>floor_plans</Route>
-          <Route path={`${path}/features`}>features</Route>
-          <Route path={`${path}/amenities`}>amenities</Route>
+          <Route path={`${baseUrlPattern}/images`}>images</Route>
+          <Route path={`${baseUrlPattern}/floor_plans`}>floor_plans</Route>
+          <Route path={`${baseUrlPattern}/features`}>features</Route>
+          <Route path={`${baseUrlPattern}/amenities`}>amenities</Route>
         </Switch>
       </FullScreenPage>
     );

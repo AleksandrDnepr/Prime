@@ -14,6 +14,9 @@ export default class App extends React.Component {
         <CssBaseline />
         <BrowserRouter basename="/admin">
           <Switch>
+            <Route path="/properties/:property_id/:currentDetailsSlug">
+              <PropertyPage user={this.props.user} />
+            </Route>
             <Route path="/properties/:property_id">
               <PropertyPage user={this.props.user} />
             </Route>
