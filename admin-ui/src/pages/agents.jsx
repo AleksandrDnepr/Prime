@@ -45,7 +45,9 @@ export class Agents extends Component {
             <DeleteAgent agents={agents} onDelete={() => this.fetchAgents()} />
           </Route>
           <Route path="/agents/:agent_id/edit">
-            <EditAgent agents={agents} onEdit={() => this.fetchAgents()} />
+            {!isLoading && (
+              <EditAgent agents={agents} onEdit={() => this.fetchAgents()} />
+            )}
           </Route>
         </Switch>
 

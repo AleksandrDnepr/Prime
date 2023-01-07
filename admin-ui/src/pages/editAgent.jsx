@@ -35,14 +35,12 @@ class EditAgent extends Component {
       })
       .catch((error) => this.setState({ error }))
       .finally(() => {
-        this.setState({ isLoading: false });
         this.close();
       });
   }
 
   render() {
     const isOpened = this.props.match.path === "/agents/:agent_id/edit";
-    console.log(this.props);
 
     return (
       <ModalWindow open={isOpened} btnName="Edit">

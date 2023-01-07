@@ -11,7 +11,6 @@ export default class AgentForm extends Component {
       phone: "",
       photo: "",
     },
-
     btnName: "Create",
   };
 
@@ -48,6 +47,7 @@ export default class AgentForm extends Component {
   render() {
     const { name, email, location, phone, photo } = this.state.values;
     const { onClose } = this.props;
+    const { btnName } = this.state;
 
     const labelStyle = {
       width: "70px",
@@ -138,7 +138,7 @@ export default class AgentForm extends Component {
               Cancel
             </Button>
             <Button sx={btnStyle} onClick={this.handleSubmit}>
-              {this.state.btnName}
+              {btnName}
             </Button>
           </Box>
         </FormGroup>
