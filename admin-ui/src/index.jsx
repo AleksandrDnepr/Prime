@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Agents } from "./pages/agents.jsx";
 import PropertyPage from "./pages/property.jsx";
+import CreateProperty from "../src/pages/createProperty.jsx";
 
 export default class App extends React.Component {
   render() {
@@ -17,14 +18,19 @@ export default class App extends React.Component {
             <Route path="/properties/:property_id/:currentDetailsSlug">
               <PropertyPage user={this.props.user} />
             </Route>
+            <Route path="/properties/create">
+              <CreateProperty user={this.props.user} />
+            </Route>
+
             <Route path="/properties/:property_id">
               <PropertyPage user={this.props.user} />
             </Route>
-            <Route path="/agents">
-              <Agents user={this.props.user} />
-            </Route>
             <Route path="/properties">
               <Properties user={this.props.user} />
+            </Route>
+
+            <Route path="/agents">
+              <Agents user={this.props.user} />
             </Route>
             <Route path="/">
               <Login user={this.props.user} />

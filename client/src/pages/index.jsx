@@ -120,6 +120,7 @@ class Index extends Component {
 
   updateFilterValues(newFilterValues) {
     window.scrollTo(0, 0);
+    console.log(newFilterValues);
     this.setState(
       (prevState) => ({
         ...prevState,
@@ -170,7 +171,7 @@ class Index extends Component {
           <PropertyFilter
             values={filterValues}
             options={filterOptions}
-            onSubmit={nextValues => this.updateFilterValues(nextValues)}
+            onSubmit={(nextValues) => this.updateFilterValues(nextValues)}
           />
         </Sidebar>
       </Page>
