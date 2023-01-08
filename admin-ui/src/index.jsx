@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Login } from "./pages/login";
-import Messages from "./pages/messages";
 import { Properties } from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Agents } from "./pages/agents.jsx";
-import { PropertyPage } from "./pages/property";
+import PropertyPage from "./pages/property.jsx";
 
 export default class App extends React.Component {
   render() {
@@ -14,7 +13,10 @@ export default class App extends React.Component {
       <React.StrictMode>
         <CssBaseline />
         <BrowserRouter basename="/admin">
-          <Switch>            
+          <Switch>
+            <Route path="/properties/:property_id/:currentDetailsSlug">
+              <PropertyPage user={this.props.user} />
+            </Route>
             <Route path="/properties/:property_id">
               <PropertyPage user={this.props.user} />
             </Route>

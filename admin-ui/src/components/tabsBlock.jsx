@@ -1,39 +1,37 @@
 import { Component } from "react";
-import {NavLink, Switch, Route} from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { Box } from "@mui/material";
-import { Tab } from '@mui/material';
-import { Tabs } from '@mui/material';
+import { Tab } from "@mui/material";
+import { Tabs } from "@mui/material";
 
-export class TabsBlock extends Component { 
-  state = {
-    value: 4
-  }     
+class TabsBlock extends Component {
+  render() {
+    const { baseUrl, tabs, currentTab } = this.props;
 
-  render() {    
-    const {value } = this.state
-
-    const tabs = [
-      {label: "images",path: "images" },
-      {label: "floor plans", path: "floor_plans" },
-      {label: "features", path: "features" },
-      {label: "amenities", path: "amenities" },
-      {label: "messages", path: "messages" },
-  ]
-  const switchTabs = (event, newValue) => {
-    this.setState({value: newValue})
-  }
+    const switchTabs = (event, newValue) => {
+      this.setState({ value: newValue });
+    };
 
     return (
-      <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={switchTabs}>{
-          tabs.map( (tab, index) => 
-          <Tab key={index} label={tab.label} component={NavLink} to={`/properties/:property_id/${tab.path}`}/>      
-          )
-        }
-        </Tabs>      
-      </Box>
+      <Box sx={{ width: "100%" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs value={tabs.indexOf(currentTab)} onChange={switchTabs}>
+            {tabs.map((tab, index) => {
+              const tabSlug = tab.replace(" ", "_");
+              return (
+                <Tab
+                  key={index}
+                  label={tab}
+                  component={NavLink}
+                  to={`${baseUrl}/${tabSlug}`}
+                />
+              );
+            })}
+          </Tabs>
+        </Box>
       </Box>
     );
   }
 }
+
+export default withRouter(TabsBlock);
