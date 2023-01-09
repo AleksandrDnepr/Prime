@@ -15,7 +15,7 @@ import Close from "@mui/icons-material/Close";
 
 export class PropertyItem extends Component {
   render() {
-    const { prop_id, title, preview, onDelete } = this.props;
+    const { prop_id, title, preview, onDelete, id  } = this.props;
 
     return (
       <ListItem
@@ -42,7 +42,8 @@ export class PropertyItem extends Component {
           />
         </Link>
         <Box>
-          <ButtonEdit path="" />
+
+          <ButtonEdit path={`/properties/${id}/edit`} />
           <IconButton onClick={onDelete} size="small">
             <Close color="primary" />
           </IconButton>
