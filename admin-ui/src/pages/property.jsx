@@ -37,7 +37,7 @@ class PropertyPage extends Component {
   render() {
     const { user } = this.props;
     const { property_id, currentDetailsSlug } = this.props.match.params;
-    const { property, isLoading } = this.state;
+    const { property } = this.state;
     const baseUrl = `/properties/${property_id}`;
     const baseUrlPattern = "/properties/:property_id";
 

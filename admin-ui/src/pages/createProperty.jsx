@@ -9,9 +9,31 @@ export class CreateProperty extends Component {
     this.props.history.push("/properties");
   }
 
-  createNewProperty(values) {
-    console.log(this.props.user);
+  async createNewProperty(values) {
+    const userEmail = this.props.user.email;
+    const response = await fetch("/api/agents");
+    const agents = await response.json();
+    const agent = await agents.find((agent) => agent.email === userEmail);
+
+    values.AgentId = agent.id;
+    values.updatedAt = new Date();
+    values.createdAt = new Date();
+
     console.log(values);
+
+    await fetch("/api/properties", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((data) => data.json())
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      });
   }
 
   render() {

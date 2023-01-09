@@ -24,8 +24,8 @@ export class PropertyForm extends Component {
       type: "",
       price: "",
       area: "",
-      bedroom: "",
-      bathroom: "",
+      bedrooms: "",
+      bathrooms: "",
       year: "",
       preview: "",
       description: "",
@@ -58,8 +58,8 @@ export class PropertyForm extends Component {
       type,
       price,
       area,
-      bedroom,
-      bathroom,
+      bedrooms,
+      bathrooms,
       year,
       preview,
       description,
@@ -133,21 +133,21 @@ export class PropertyForm extends Component {
         />
 
         <TextField
-          label="Bedroom"
+          label="Bedrooms"
           type="number"
           inputProps={{ min: 0 }}
-          value={bedroom}
+          value={bedrooms}
           onChange={(event) =>
-            this.handleChange("bedroom", parseInt(event.target.value))
+            this.handleChange("bedrooms", parseInt(event.target.value))
           }
         />
         <TextField
-          label="Bathroom"
+          label="Bathrooms"
           type="number"
           inputProps={{ min: 0 }}
-          value={bathroom}
+          value={bathrooms}
           onChange={(event) =>
-            this.handleChange("bathroom", parseInt(event.target.value))
+            this.handleChange("bathrooms", parseInt(event.target.value))
           }
         />
         <TextField
