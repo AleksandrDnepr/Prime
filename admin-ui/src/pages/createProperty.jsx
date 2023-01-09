@@ -19,8 +19,6 @@ export class CreateProperty extends Component {
     values.updatedAt = new Date();
     values.createdAt = new Date();
 
-    console.log(values);
-
     await fetch("/api/properties", {
       method: "POST",
       headers: {

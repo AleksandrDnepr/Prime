@@ -25,6 +25,7 @@ async function read(req, res) {
       },
     ],
   });
+
   if (!myProperty) {
     return res.status(404).json({ error: `Property with id ${id} not found` });
   }

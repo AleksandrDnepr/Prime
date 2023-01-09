@@ -18,6 +18,12 @@ export class Properties extends Component {
   };
 
   componentDidMount() {
+    this.fetchProperties();
+  }
+
+  fetchProperties() {
+    this.setState({ isLoading: true });
+
     fetch(
       `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
     )
