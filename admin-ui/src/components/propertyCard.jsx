@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { Box, Card, CardContent, Typography, CardMedia } from "@mui/material";
 import { ButtonEdit } from "./buttonEdit.jsx";
-import { ButtonDelete } from "./buttonDelete.jsx";
+import { IconButton } from "@mui/material";
+import Close from "@mui/icons-material/Close";
 
 export class PropertyCard extends Component {
   render() {
@@ -19,6 +20,7 @@ export class PropertyCard extends Component {
       deal,
       preview,
       description,
+      onClick,
     } = this.props;
 
     return (
@@ -34,7 +36,9 @@ export class PropertyCard extends Component {
             </Typography>
             <Box>
               <ButtonEdit />
-              <ButtonDelete />
+              <IconButton onClick={onClick} size="small">
+                <Close color="primary" />
+              </IconButton>
             </Box>
           </Box>
 

@@ -10,11 +10,12 @@ import {
   Box,
 } from "@mui/material";
 import { ButtonEdit } from "./buttonEdit";
-import { ButtonDelete } from "./buttonDelete";
+import { IconButton } from "@mui/material";
+import Close from "@mui/icons-material/Close";
 
 export class PropertyItem extends Component {
   render() {
-    const { prop_id, title, preview } = this.props;
+    const { prop_id, title, preview, onDelete } = this.props;
 
     return (
       <ListItem
@@ -42,7 +43,9 @@ export class PropertyItem extends Component {
         </Link>
         <Box>
           <ButtonEdit path="" />
-          <ButtonDelete path="" />
+          <IconButton onClick={onDelete} size="small">
+            <Close color="primary" />
+          </IconButton>
         </Box>
       </ListItem>
     );

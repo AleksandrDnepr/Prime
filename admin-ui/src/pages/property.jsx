@@ -4,6 +4,7 @@ import TabsBlock from "../components/tabsBlock.jsx";
 import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import Messages from "./messages.jsx";
 import { PropertyCard } from "../components/propertyCard.jsx";
+import { DeletePropertyConfirm } from "../components/deletePropertyConfirm.jsx";
 
 const allDetails = [
   "messages",
@@ -16,6 +17,7 @@ const allDetails = [
 class PropertyPage extends Component {
   state = {
     property: [],
+    isDeleteModalOpened: false,
   };
 
   componentDidMount() {
@@ -34,10 +36,22 @@ class PropertyPage extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
+  openDeleteModal() {
+    this.setState({ isDeleteModalOpened: true });
+  }
+
+  closeDeleteModal() {
+    this.setState({ isDeleteModalOpened: false });
+  }
+
+  goToPropertyList() {
+    this.props.history.push("/properties");
+  }
+
   render() {
     const { user } = this.props;
     const { property_id, currentDetailsSlug } = this.props.match.params;
-    const { property } = this.state;
+    const { property, isDeleteModalOpened } = this.state;
     const baseUrl = `/properties/${property_id}`;
     const baseUrlPattern = "/properties/:property_id";
 
@@ -63,6 +77,7 @@ class PropertyPage extends Component {
           deal={property.deal}
           preview={property.preview}
           description={property.description}
+          onClick={() => this.openDeleteModal()}
         />
 
         <TabsBlock
@@ -80,6 +95,12 @@ class PropertyPage extends Component {
           <Route path={`${baseUrlPattern}/features`}>features</Route>
           <Route path={`${baseUrlPattern}/amenities`}>amenities</Route>
         </Switch>
+        <DeletePropertyConfirm
+          isOpened={isDeleteModalOpened}
+          property={property}
+          onClose={() => this.closeDeleteModal()}
+          onConfirm={() => this.goToPropertyList()}
+        />
       </FullScreenPage>
     );
   }
