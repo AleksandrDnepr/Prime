@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Login } from "./pages/login";
-import { Properties } from "./pages/properties";
+import Properties from "./pages/properties";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Agents } from "./pages/agents.jsx";

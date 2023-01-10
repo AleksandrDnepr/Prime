@@ -70,12 +70,12 @@ async function removeProperty(req, res) {
   const property = await Property.findByPk(id);
 
   if (!property) {
-    return res.status(404).json();
+    return res.status(404).json({ success: false });
   }
 
   await property.destroy();
 
-  return res.status(204).json();
+  return res.json({ success: true });
 }
 
 async function index(req, res) {

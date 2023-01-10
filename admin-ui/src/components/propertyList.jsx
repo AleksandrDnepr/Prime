@@ -4,7 +4,7 @@ import { PropertyItem } from "../components/propertyItem";
 
 export class PropertyList extends Component {
   render() {
-    const { properties } = this.props;
+    const { properties, onDelete } = this.props;
 
     return (
       <List
@@ -19,8 +19,12 @@ export class PropertyList extends Component {
           },
         }}
       >
-        {properties.map(property => (
-          <PropertyItem key={property.id} {...property} />
+        {properties.map((property) => (
+          <PropertyItem
+            key={property.id}
+            onDelete={() => onDelete(property)}
+            {...property}
+          />
         ))}
       </List>
     );

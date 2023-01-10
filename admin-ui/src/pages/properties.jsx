@@ -7,21 +7,24 @@ import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 import { Loading } from "../components/loading.jsx";
 import { ButtonAdd } from "../components/buttonAdd.jsx";
+import { withRouter } from "react-router-dom";
+import { DeletePropertyConfirm } from "../components/deletePropertyConfirm.jsx";
 
-export class Properties extends Component {
+class Properties extends Component {
   state = {
     page: 1,
     pages: null,
     properties: [],
     isLoading: true,
     isLoadingMore: false,
+    propertyToDelete: null,
   };
 
   componentDidMount() {
-    this.fetchProperties();
+    this.getProperties();
   }
 
-  fetchProperties() {
+  getProperties() {
     this.setState({ isLoading: true });
 
     fetch(
@@ -52,14 +55,33 @@ export class Properties extends Component {
     );
   };
 
+  openDeleteModal(propertyToDelete) {
+    this.setState({ propertyToDelete });
+  }
+
+  closeDeleteModal() {
+    this.setState({ propertyToDelete: null });
+  }
+
   render() {
-    const { page, pages, properties, error, isLoading, isLoadingMore } =
-      this.state;
+    const {
+      page,
+      pages,
+      properties,
+      error,
+      isLoading,
+      isLoadingMore,
+      propertyToDelete,
+    } = this.state;
     const { user } = this.props;
+    const isOpenModal = Boolean(propertyToDelete);
     const content = isLoading ? (
       <Loading />
     ) : (
-      <PropertyList properties={properties} />
+      <PropertyList
+        properties={properties}
+        onDelete={(propertyToDelete) => this.openDeleteModal(propertyToDelete)}
+      />
     );
 
     const button = isLoadingMore ? (
@@ -85,8 +107,18 @@ export class Properties extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
+        {isOpenModal && (
+          <DeletePropertyConfirm
+            isOpened={isOpenModal}
+            property={propertyToDelete}
+            onClose={() => this.closeDeleteModal()}
+            onConfirm={() => this.getProperties()}
+          />
+        )}
         <ButtonAdd path="/properties/create">+ Add new property</ButtonAdd>
       </FullScreenPage>
     );
   }
 }
+
+export default withRouter(Properties);
