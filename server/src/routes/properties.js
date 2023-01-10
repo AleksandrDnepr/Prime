@@ -62,7 +62,6 @@ async function editProperty(req, res) {
   await property.update(req.body);
   await property.save();
 
-  // return res.status(204).json();
   return res.json({ success: true });
 }
 
