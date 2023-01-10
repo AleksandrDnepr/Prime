@@ -10,6 +10,7 @@ const {
 } = require("../models");
 const config = require("config");
 const manager = config.get("managerEmail");
+const plans = require("./plans.js");
 
 async function read(req, res) {
   const { id } = req.params;
@@ -235,4 +236,5 @@ module.exports = Router()
   .get("/:id", read)
   .put("/:id", editProperty)
   .delete("/:id", removeProperty)
-  .get("/:id/messages", getMessage);
+  .get("/:id/messages", getMessage)
+  .use("/:id/plans", plans);
