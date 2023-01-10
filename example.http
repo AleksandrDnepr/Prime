@@ -15,7 +15,7 @@ GET http://localhost:3100/api/properties/B1906
 
 
 ###
-GET http://localhost:3100/api/properties?page=19
+GET http://localhost:3100/api/properties?page=31
 
 
 ###

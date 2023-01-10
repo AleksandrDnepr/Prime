@@ -25,7 +25,7 @@ export class Properties extends Component {
     this.setState({ isLoading: true });
 
     fetch(
-      `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
+      `/api/properties/?agentEmail=${this.props.user.email}&page=${this.state.page}`
     )
       .then((data) => data.json())
       .then((data) => this.setState({ ...data }))
@@ -34,23 +34,22 @@ export class Properties extends Component {
   }
 
   showMore = async () => {
-    const { page, pages } = this.state;
-
-    if (page < pages) {
-      this.setState((state) => ({ page: state.page + 1, isLoadingMore: true }));
-
-      await fetch(
-        `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
-      )
-        .then((data) => data.json())
-        .then((data) =>
-          this.setState((state) => ({
-            properties: [...state.properties, ...data.properties],
-          }))
+    this.setState(
+      (state) => ({ page: state.page + 1, isLoadingMore: true }),
+      () => {
+        fetch(
+          `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
         )
-        .catch((error) => this.setState({ error }))
-        .finally(() => this.setState({ isLoadingMore: false }));
-    }
+          .then((data) => data.json())
+          .then((data) =>
+            this.setState((state) => ({
+              properties: [...state.properties, ...data.properties],
+            }))
+          )
+          .catch((error) => this.setState({ error }))
+          .finally(() => this.setState({ isLoadingMore: false }));
+      }
+    );
   };
 
   render() {
