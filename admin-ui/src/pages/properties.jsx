@@ -1,11 +1,12 @@
 import { Component } from "react";
 import { Redirect } from "react-router-dom";
+
 import { PropertyList } from "../components/propertyList.jsx";
 import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
 import { LoadMoreBtn } from "../components/loadMoreBtn.jsx";
 import { Loading } from "../components/loading.jsx";
-import { PropertyForm } from "../components/propertyForm";
+import { ButtonAdd } from "../components/buttonAdd.jsx";
 
 export class Properties extends Component {
   state = {
@@ -17,8 +18,14 @@ export class Properties extends Component {
   };
 
   componentDidMount() {
+    this.fetchProperties();
+  }
+
+  fetchProperties() {
+    this.setState({ isLoading: true });
+
     fetch(
-      `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
+      `/api/properties/?agentEmail=${this.props.user.email}&page=${this.state.page}`
     )
       .then((data) => data.json())
       .then((data) => this.setState({ ...data }))
@@ -27,23 +34,22 @@ export class Properties extends Component {
   }
 
   showMore = async () => {
-    const { page, pages } = this.state;
-
-    if (page < pages) {
-      this.setState((state) => ({ page: state.page + 1, isLoadingMore: true }));
-
-      await fetch(
-        `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
-      )
-        .then((data) => data.json())
-        .then((data) =>
-          this.setState((state) => ({
-            properties: [...state.properties, ...data.properties],
-          }))
+    this.setState(
+      (state) => ({ page: state.page + 1, isLoadingMore: true }),
+      () => {
+        fetch(
+          `/api/properties?agentEmail=${this.props.user.email}&page=${this.state.page}`
         )
-        .catch((error) => this.setState({ error }))
-        .finally(() => this.setState({ isLoadingMore: false }));
-    }
+          .then((data) => data.json())
+          .then((data) =>
+            this.setState((state) => ({
+              properties: [...state.properties, ...data.properties],
+            }))
+          )
+          .catch((error) => this.setState({ error }))
+          .finally(() => this.setState({ isLoadingMore: false }));
+      }
+    );
   };
 
   render() {
@@ -79,6 +85,7 @@ export class Properties extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
+        <ButtonAdd path="/properties/create">+ Add new property</ButtonAdd>
       </FullScreenPage>
     );
   }

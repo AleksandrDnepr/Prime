@@ -26,7 +26,7 @@ export class FullScreenPage extends Component {
       <Box>
         <HeaderAdmin name={user.name}></HeaderAdmin>
         {isManager}
-        <Box sx={{ p: 2 }}>{children}</Box>
+        <Box sx={{ p: 2, pb: 4 }}>{children}</Box>
         <Footer />
       </Box>
     );

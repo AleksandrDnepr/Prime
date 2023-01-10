@@ -17,21 +17,22 @@ export class PropertyForm extends Component {
   state = {
     values: this.props.defaultValues || {
       title: "",
-      id: "",
-      locationCity: "",
-      locationState: "",
+      prop_id: "",
+      city: "",
+      state: "",
       deal: "",
       type: "",
       price: "",
       area: "",
-      bedroom: "",
-      bathroom: "",
+      bedrooms: "",
+      bathrooms: "",
       year: "",
+      preview: "",
       description: "",
     },
   };
 
-  handleChange(name, { target: { value } }) {
+  handleChange(name, value) {
     this.setState({
       values: {
         ...this.state.values,
@@ -41,7 +42,6 @@ export class PropertyForm extends Component {
   }
 
   handleSubmit() {
-    console.log(this.state.values);
     const { onSubmit, onClose } = this.props;
     onSubmit(this.state.values);
     onClose();
@@ -51,44 +51,43 @@ export class PropertyForm extends Component {
     const { values } = this.state;
     const {
       title,
-      id,
-      locationCity,
-      locationState,
+      prop_id,
+      city,
+      state,
       deal,
       type,
       price,
       area,
-      bedroom,
-      bathroom,
+      bedrooms,
+      bathrooms,
       year,
+      preview,
       description,
     } = values;
 
     const { buttonName, onClose } = this.props;
-
-    console.log(this.state);
 
     return (
       <Stack sx={{ width: "600px", margin: "auto" }} spacing={2}>
         <TextField
           label="Title"
           value={title}
-          onChange={(event) => this.handleChange("title", event)}
+          onChange={(event) => this.handleChange("title", event.target.value)}
         />
         <TextField
           label="ID"
-          value={id}
-          onChange={(event) => this.handleChange("id", event)}
+          value={prop_id}
+          onChange={(event) => this.handleChange("prop_id", event.target.value)}
         />
         <TextField
           label="City"
-          value={locationCity}
-          onChange={(event) => this.handleChange("locationCity", event)}
+          value={city}
+          onChange={(event) => this.handleChange("city", event.target.value)}
         />
         <TextField
           label="State"
-          value={locationState}
-          onChange={(event) => this.handleChange("locationState", event)}
+          value={state}
+          onChange={(event) => this.handleChange("state", event.target.value)}
         />
         <FormControl>
           <FormLabel>Deal</FormLabel>
@@ -96,10 +95,10 @@ export class PropertyForm extends Component {
             row
             value={deal}
             sx={{ justifyContent: "center" }}
-            onChange={(event) => this.handleChange("deal", event)}
+            onChange={(event) => this.handleChange("deal", event.target.value)}
           >
-            <FormControlLabel value="Rent" control={<Radio />} label="Rent" />
-            <FormControlLabel value="Sale" control={<Radio />} label="Sale" />
+            <FormControlLabel value="rent" control={<Radio />} label="Rent" />
+            <FormControlLabel value="sale" control={<Radio />} label="Sale" />
           </RadioGroup>
         </FormControl>
         <FormControl>
@@ -108,10 +107,10 @@ export class PropertyForm extends Component {
             id="type"
             value={type}
             label="Type"
-            onChange={(event) => this.handleChange("type", event)}
+            onChange={(event) => this.handleChange("type", event.target.value)}
           >
-            <MenuItem value="Townhouse">Townhouse</MenuItem>
-            <MenuItem value="Apartment">Apartment</MenuItem>
+            <MenuItem value="townhouse">Townhouse</MenuItem>
+            <MenuItem value="apartment">Apartment</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -119,40 +118,58 @@ export class PropertyForm extends Component {
           type="number"
           inputProps={{ min: 0 }}
           value={price}
-          onChange={(event) => this.handleChange("price", event)}
+          onChange={(event) =>
+            this.handleChange("price", parseInt(event.target.value))
+          }
         />
         <TextField
           label="Area"
           type="number"
           inputProps={{ min: 0 }}
           value={area}
-          onChange={(event) => this.handleChange("area", event)}
+          onChange={(event) =>
+            this.handleChange("area", parseInt(event.target.value))
+          }
         />
+
         <TextField
-          label="Bedroom"
+          label="Bedrooms"
           type="number"
           inputProps={{ min: 0 }}
-          value={bedroom}
-          onChange={(event) => this.handleChange("bedroom", event)}
+          value={bedrooms}
+          onChange={(event) =>
+            this.handleChange("bedrooms", parseInt(event.target.value))
+          }
         />
         <TextField
-          label="Bathroom"
+          label="Bathrooms"
           type="number"
           inputProps={{ min: 0 }}
-          value={bathroom}
-          onChange={(event) => this.handleChange("bathroom", event)}
+          value={bathrooms}
+          onChange={(event) =>
+            this.handleChange("bathrooms", parseInt(event.target.value))
+          }
         />
         <TextField
           label="Year"
           type="number"
           inputProps={{ min: 0 }}
           value={year}
-          onChange={(event) => this.handleChange("year", event)}
+          onChange={(event) =>
+            this.handleChange("year", parseInt(event.target.value))
+          }
+        />
+        <TextField
+          label="Preview picture"
+          value={preview}
+          onChange={(event) => this.handleChange("preview", event.target.value)}
         />
         <TextField
           label="Decscription"
           value={description}
-          onChange={(event) => this.handleChange("description", event)}
+          onChange={(event) =>
+            this.handleChange("description", event.target.value)
+          }
         />
         <Stack
           sx={{ margin: "20px auto", justifyContent: "center" }}
