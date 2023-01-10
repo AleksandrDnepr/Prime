@@ -1,13 +1,5 @@
 const { Router } = require("express");
-const {
-  Agent,
-  Amenity,
-  Message,
-  Property,
-  Image,
-  Plan,
-  PropertiesAmenities,
-} = require("../models");
+const { Property, Plan } = require("../models");
 
 async function index(req, res) {
   const propId = req.baseUrl
@@ -31,9 +23,3 @@ async function index(req, res) {
 }
 
 module.exports = Router().get("/", index);
-//   .post("/", addNewProperty)
-//   .get("/:id", read)
-//   .put("/:id", editProperty)
-//   .delete("/:id", removeProperty)
-//   .get("/:id/messages", getMessage)
-//   .use('/:id', router);
