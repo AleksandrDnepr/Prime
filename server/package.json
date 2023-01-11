@@ -21,6 +21,6 @@
     "serve": "node src/",
     "db:migrate": "sequelize db:migrate",
     "db:seed": "sequelize db:seed:all",
-    "prestart": "yarn db:migrate && yarn db:seed"
+    "prestart": "yarn db:migrate"
   }
 }
