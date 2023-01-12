@@ -2,10 +2,9 @@ const { Router } = require("express");
 const { Property, Image } = require("../models");
 
 async function getImageList(req, res) {
-  console.log({ req, res });
   const propId = req.baseUrl
     .replace("/api/properties/", "")
-    .replace("/plans", "");
+    .replace("/images", "");
 
   const myProperty = await Property.findOne({
     where: {
@@ -22,7 +21,7 @@ async function getImageList(req, res) {
   try {
     const itsImages = await myProperty.getImages();
     return res.json({
-      plans: itsImages,
+      images: itsImages,
     });
   } catch (error) {
     return res.status(500).json({ error: "Something wrong" });
@@ -41,12 +40,12 @@ async function addNewImage(req, res) {
 
 async function editImage(req, res) {
   const { id } = req.params;
-  const image = await Plan.findByPk(id);
+  const image = await Image.findByPk(id);
 
   if (!image) {
     return res.status(404).json({
       success: false,
-      error: `Plan with id: ${id} was deleted or doesn't exist`,
+      error: `Image with id: ${id} was deleted or doesn't exist`,
     });
   }
 
@@ -67,7 +66,7 @@ async function deleteImage(req, res) {
   if (!image) {
     return res.status(404).json({
       success: false,
-      error: `Plan with id: ${id} was deleted or doesn't exist`,
+      error: `Image with id: ${id} was deleted or doesn't exist`,
     });
   }
 
