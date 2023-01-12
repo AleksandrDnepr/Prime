@@ -11,6 +11,7 @@ import { DeletePropertyConfirm } from "../components/deletePropertyConfirm.jsx";
 import { EditProperty } from "./editProperty.jsx";
 import { Switch, Route } from "react-router-dom";
 
+
 class Properties extends Component {
   state = {
     page: 1,
@@ -108,6 +109,7 @@ class Properties extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
+
         {isOpenModal && (
           <DeletePropertyConfirm
             isOpened={isOpenModal}
