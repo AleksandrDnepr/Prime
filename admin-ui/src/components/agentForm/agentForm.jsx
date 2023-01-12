@@ -27,7 +27,8 @@ export default class AgentForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { onSubmit } = this.props;
+    const { onSubmit, onClose } = this.props;
+    onClose();
 
     onSubmit(this.state.values);
   };

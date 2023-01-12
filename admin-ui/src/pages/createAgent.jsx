@@ -8,6 +8,26 @@ export class CreateAgent extends Component {
   close() {
     this.props.history.push("/agents");
   }
+
+  async createNewAgent(values) {
+    values.updatedAt = new Date();
+    values.createdAt = new Date();
+
+    await fetch("/api/agents", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((data) => data.json())
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      });
+  }
+
   render() {
     const isOpened = this.props.match.path === "/agents/create";
     return (
@@ -16,10 +36,10 @@ export class CreateAgent extends Component {
           Fill the form to create a new agent:
         </Typography>
         <AgentForm
-          onClose={() => this.close()}
           onSubmit={(values) => {
-            console.log(values);
+            this.createNewAgent(values);
           }}
+          onClose={() => this.close()}
         />
       </ModalWindow>
     );
