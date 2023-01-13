@@ -131,11 +131,9 @@ DELETE http://localhost:3100/api/properties/7
 
 ********PLANS:*********************
 
-__get all plans of one Property___
 ###
 GET http://localhost:3100/api/properties/A0001/plans
 
-___add new plan___
 ###
 POST http://localhost:3100/api/properties/A0001/plans
 content-type: application/json
@@ -148,7 +146,6 @@ content-type: application/json
     "updatedAt": "2022-12-19T17:25:54.005Z"
   }
 
-___edit plan___
 ###
 PATCH http://localhost:3100/api/properties/A0001/plans/237
 content-type: application/json
@@ -161,6 +158,36 @@ content-type: application/json
     "updatedAt": "2022-12-19T17:25:54.005Z"
   }
 
-___delete plan___
 ###
 DELETE http://localhost:3100/api/properties/A0001/plans/238
+
+********IMAGES:*********************
+
+###
+GET http://localhost:3100/api/properties/B1930/images
+
+###
+POST http://localhost:3100/api/properties/B1930/images/129
+content-type: application/json
+
+{
+    "url": "https://www.pufikhomes.com/wp-content/uploads/2019/06/sovremennaya-belaya-kvartira-dlya-devushki-v-starom-dome-moskvy-pufikhomes-1.jpg",
+    "createdAt": "2022-01-12T16:12:54.005Z",
+    "updatedAt": "2022-01-12T16:12:54.005Z",
+    "PropertyId": 30
+  }
+
+###
+PATCH http://localhost:3100/api/properties/B1930/images/129
+content-type: application/json
+
+{
+    "url": "https://remont-f.ru/upload/resize_cache/iblock/675/1000_667_1c90dcf07c205e9d57687f52ee182d65f/remont-kvartiry-144-kv-m-foto-1-4217.jpg",
+    "createdAt": "2022-01-12T16:12:54.005Z",
+    "updatedAt": "2022-01-12T16:12:54.005Z",
+    "PropertyId": 30
+  }
+
+
+###  
+DELETE http://localhost:3100/api/properties/B1903/images/127

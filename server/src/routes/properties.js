@@ -11,6 +11,7 @@ const {
 const config = require("config");
 const manager = config.get("managerEmail");
 const plans = require("./plans.js");
+const images = require("./images.js");
 
 async function read(req, res) {
   const { id } = req.params;
@@ -237,4 +238,5 @@ module.exports = Router()
   .put("/:id", editProperty)
   .delete("/:id", removeProperty)
   .get("/:id/messages", getMessage)
-  .use("/:id/plans", plans);
+  .use("/:id/plans", plans)
+  .use("/:id/images", images);
