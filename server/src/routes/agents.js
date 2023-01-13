@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 const config = require("config");
 
 async function showAgentsList(req, res) {
-  const agents = await Agent.findAll({});
+  const agents = await Agent.findAll();
   res.json(agents);
 }
 
