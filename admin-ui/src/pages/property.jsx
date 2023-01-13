@@ -96,7 +96,7 @@ class PropertyPage extends Component {
           <Route path={`${baseUrlPattern}/features`}>features</Route>
           <Route path={`${baseUrlPattern}/amenities`}>amenities</Route>
           <Route path={"/properties/:id/edit"}>
-            <EditProperty property={property} />
+            <EditProperty />
           </Route>
         </Switch>
         <DeletePropertyConfirm

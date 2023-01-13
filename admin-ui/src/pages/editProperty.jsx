@@ -5,8 +5,9 @@ import { withRouter } from "react-router-dom";
 
 class EditProperty extends Component {
   state = {
-    property: [],
+    property: {},
     isLoading: true,
+    isModalOpen: false,
   };
 
   componentDidMount() {
@@ -16,7 +17,9 @@ class EditProperty extends Component {
       .then((res) => {
         if (res.ok) {
           res.json().then((data) => {
-            this.setState({ property: data });
+            if (this.props.match.path === "/properties/:id/edit") {
+              this.setState({ property: data, isModalOpen: true });
+            }
           });
         } else {
           this.setState({
@@ -24,7 +27,6 @@ class EditProperty extends Component {
           });
         }
       })
-
       .catch(() => this.setState({ error: "Something went wrong" }))
       .finally(() => this.setState({ isLoading: false }));
   }
@@ -35,9 +37,10 @@ class EditProperty extends Component {
 
   editProperty(values) {
     const { id } = this.props.match.params;
+
     this.setState({ isLoading: true });
     fetch(`/api/properties/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -59,12 +62,12 @@ class EditProperty extends Component {
   }
 
   render() {
-    const isOpened = this.props.match.path === "/properties/:id/edit";
-    const { property } = this.props;
+    const { property, isModalOpen } = this.state;
+
     return (
-      <ModalWindow open={isOpened}>
+      <ModalWindow open={isModalOpen}>
         <PropertyForm
-          defaultValues={property}
+          defaultValues={property.property}
           onSubmit={(values) => {
             this.editProperty(values);
           }}
