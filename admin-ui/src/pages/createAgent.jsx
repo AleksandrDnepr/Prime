@@ -32,7 +32,12 @@ export class CreateAgent extends Component {
     const isOpened = this.props.match.path === "/agents/create";
     return (
       <ModalWindow open={isOpened}>
-        <Typography variant="h6" gutterBottom>
+        <Typography
+          color="#54575c"
+          variant="h5"
+          textAlign="center"
+          gutterBottom
+        >
           Fill the form to create a new agent:
         </Typography>
         <AgentForm
