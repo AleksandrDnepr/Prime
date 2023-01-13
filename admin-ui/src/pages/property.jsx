@@ -88,9 +88,6 @@ class PropertyPage extends Component {
         />
 
         <Switch>
-          <Route path={"/properties/:id/edit"}>
-            <EditProperty property={property} />
-          </Route>
           <Route path={`${baseUrlPattern}/messages`}>
             <Messages user={user} />
           </Route>
@@ -98,6 +95,9 @@ class PropertyPage extends Component {
           <Route path={`${baseUrlPattern}/floor_plans`}>floor_plans</Route>
           <Route path={`${baseUrlPattern}/features`}>features</Route>
           <Route path={`${baseUrlPattern}/amenities`}>amenities</Route>
+          <Route path={"/properties/:id/edit"}>
+            <EditProperty property={property} />
+          </Route>
         </Switch>
         <DeletePropertyConfirm
           isOpened={isDeleteModalOpened}

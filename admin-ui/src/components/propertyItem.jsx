@@ -15,7 +15,7 @@ import Close from "@mui/icons-material/Close";
 
 export class PropertyItem extends Component {
   render() {
-    const { prop_id, title, preview, onDelete, id  } = this.props;
+    const { prop_id, title, preview, onDelete } = this.props;
 
     return (
       <ListItem

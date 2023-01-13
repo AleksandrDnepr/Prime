@@ -35,7 +35,7 @@ export class PropertyCard extends Component {
               ID: {id}
             </Typography>
             <Box>
-              <ButtonEdit />
+              <ButtonEdit path={`/properties/${id}/edit`} />
               <IconButton onClick={onClick} size="small">
                 <Close color="primary" />
               </IconButton>

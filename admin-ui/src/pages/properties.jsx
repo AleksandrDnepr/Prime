@@ -8,9 +8,6 @@ import { Loading } from "../components/loading.jsx";
 import { ButtonAdd } from "../components/buttonAdd.jsx";
 import { withRouter } from "react-router-dom";
 import { DeletePropertyConfirm } from "../components/deletePropertyConfirm.jsx";
-import { EditProperty } from "./editProperty.jsx";
-import { Switch, Route } from "react-router-dom";
-
 
 class Properties extends Component {
   state = {
@@ -119,13 +116,6 @@ class Properties extends Component {
           />
         )}
         <ButtonAdd path="/properties/create">+ Add new property</ButtonAdd>
-
-        <Switch>
-          <Route path={"/properties/:id/edit"}>
-            <EditProperty />
-          </Route>
-        </Switch>
-
       </FullScreenPage>
     );
   }
