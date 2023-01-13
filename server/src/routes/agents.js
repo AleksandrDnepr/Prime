@@ -4,18 +4,7 @@ const nodemailer = require("nodemailer");
 const config = require("config");
 
 async function showAgentsList(req, res) {
-  const agents = await Agent.findAll({
-    attributes: {
-      include: [
-        [
-          sequelize.literal(
-            "(SELECT COUNT(*) FROM Properties WHERE Properties.agentId = Agent.id)"
-          ),
-          "propertyCount",
-        ],
-      ],
-    },
-  });
+  const agents = await Agent.findAll();
   res.json(agents);
 }
 

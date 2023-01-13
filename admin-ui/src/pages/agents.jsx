@@ -7,6 +7,7 @@ import { Loading } from "../components/loading.jsx";
 import DeleteAgent from "./deleteAgent.jsx";
 import EditAgent from "./editAgent.jsx";
 import { Switch, Route } from "react-router-dom";
+import CreateAgent from "./createAgent.jsx";
 
 export class Agents extends Component {
   state = {
@@ -41,9 +42,13 @@ export class Agents extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         <Switch>
+          <Route path="/agents/create">
+            <CreateAgent />
+          </Route>
           <Route path="/agents/:agent_id/delete">
             <DeleteAgent agents={agents} onDelete={() => this.fetchAgents()} />
           </Route>
+
           <Route path="/agents/:agent_id/edit">
             {!isLoading && (
               <EditAgent agents={agents} onEdit={() => this.fetchAgents()} />
@@ -51,7 +56,7 @@ export class Agents extends Component {
           </Route>
         </Switch>
 
-        <ButtonAdd path={"/properties"}>+ Add new agent</ButtonAdd>
+        <ButtonAdd path="/agents/create">+ Add new agent</ButtonAdd>
       </FullScreenPage>
     );
   }

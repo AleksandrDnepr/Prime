@@ -27,7 +27,8 @@ export default class AgentForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { onSubmit } = this.props;
+    const { onSubmit, onClose } = this.props;
+    onClose();
 
     onSubmit(this.state.values);
   };
@@ -70,18 +71,17 @@ export default class AgentForm extends Component {
       backgroundColor: "none",
       margin: "10px",
       textTransform: "none",
-      fontSize: "16px",
+      fontSize: "22px",
       justifyContent: "",
     };
 
     return (
       <form>
-        <FormGroup sx={{ backgroundColor: "#e1e6ed", maxWidth: "700px" }}>
+        <FormGroup sx={{ backgroundColor: "", maxWidth: "700px" }}>
           <Box sx={boxStyle}>
             <InputLabel sx={labelStyle}>Name</InputLabel>
             <TextField
               sx={textFieldStyle}
-              htmlFor="my-input"
               color="primary"
               value={name}
               onChange={this.handleChange("name")}
@@ -90,8 +90,8 @@ export default class AgentForm extends Component {
           <Box sx={boxStyle}>
             <InputLabel sx={labelStyle}>Email</InputLabel>
             <TextField
+              required
               sx={textFieldStyle}
-              htmlFor="my-input-email"
               color="primary"
               value={email}
               onChange={this.handleChange("email")}
@@ -101,7 +101,6 @@ export default class AgentForm extends Component {
             <InputLabel sx={labelStyle}>Location</InputLabel>
             <TextField
               sx={textFieldStyle}
-              htmlFor="my-input-email"
               color="primary"
               value={location}
               onChange={this.handleChange("location")}
@@ -111,8 +110,8 @@ export default class AgentForm extends Component {
             <InputLabel sx={labelStyle}>Phone</InputLabel>
             <TextField
               sx={textFieldStyle}
-              htmlFor="my-input-phone"
               color="primary"
+              type="number"
               value={phone}
               onChange={this.handleChange("phone")}
             ></TextField>
@@ -121,7 +120,6 @@ export default class AgentForm extends Component {
             <InputLabel sx={labelStyle}>Photo</InputLabel>
             <TextField
               sx={textFieldStyle}
-              htmlFor="my-input-photo"
               color="primary"
               value={photo}
               onChange={this.handleChange("photo")}
@@ -131,7 +129,6 @@ export default class AgentForm extends Component {
             sx={{
               display: "flex",
               justifyContent: "space-evenly",
-              margin: "0px 100px 0px 100px",
             }}
           >
             <Button sx={btnStyle} onClick={onClose}>

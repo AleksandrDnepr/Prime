@@ -12,7 +12,7 @@ import { ButtonDelete } from "./buttonDelete";
 
 export class AgentItem extends Component {
   render() {
-    const { photo, name, id, propertyCount } = this.props;
+    const { photo, name, id } = this.props;
 
     return (
       <ListItem
@@ -29,7 +29,7 @@ export class AgentItem extends Component {
           <Avatar variant="square" alt={name} src={photo} />
         </ListItemAvatar>
         <ListItemText
-          primary={`${name} (${propertyCount})`}
+          primary={name}
           sx={{ display: "flex", alignItems: "center" }}
         />
 
