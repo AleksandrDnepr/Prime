@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Typography, TextField, Stack, Button } from "@mui/material";
 
-export class PlanForm extends Component {
+export class ImageForm extends Component {
   state = {
     values: this.props.defaultValues || {
       name: "",
-      url: "",
     },
     prevValues: {},
     isFormValid: true,
@@ -22,9 +21,8 @@ export class PlanForm extends Component {
 
   handleSubmit() {
     const { onSubmit, onClose } = this.props;
-    const { values } = this.state;
-    const areEmptyFields = Object.values(values).some((e) => e === "");
-    if (areEmptyFields) {
+    const { name } = this.state.values;
+    if (name === "") {
       this.setState({ isFormValid: false });
       return;
     }
@@ -47,7 +45,7 @@ export class PlanForm extends Component {
 
   render() {
     const { values, isFormValid } = this.state;
-    const { name, url } = values;
+    const { name } = values;
     const error = !isFormValid && (
       <Typography variant="subtitle2" gutterBottom>
         Please complete the form
@@ -60,17 +58,10 @@ export class PlanForm extends Component {
       <Stack sx={{ width: "400px", margin: "auto" }} spacing={2}>
         <TextField
           label="Plan name"
-          error={name === "" && !isFormValid}
+          error={!isFormValid}
           required
           value={name}
           onChange={(event) => this.handleChange("name", event.target.value)}
-        />
-        <TextField
-          label="Plan image link"
-          error={url === "" && !isFormValid}
-          required
-          value={url}
-          onChange={(event) => this.handleChange("url", event.target.value)}
         />
         {error}
         <Stack
