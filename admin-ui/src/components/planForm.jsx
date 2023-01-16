@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { TextField, Stack, Button } from "@mui/material";
-import { AuthError } from "../components/authError";
 
 export class PlanForm extends Component {
   state = {
@@ -24,7 +23,7 @@ export class PlanForm extends Component {
     const { onSubmit, onClose } = this.props;
     const { name, url } = this.state.values;
     if (name === "" || url === "") {
-      return <AuthError error={"FILL FORM"} />;
+      return;
     }
 
     const copyValues = JSON.parse(JSON.stringify(this.state.values));
