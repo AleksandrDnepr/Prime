@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Redirect } from "react-router-dom";
-
 import { PropertyList } from "../components/propertyList.jsx";
 import { AuthError } from "../components/authError.jsx";
 import { FullScreenPage } from "../components/fullScreenPage.jsx";
@@ -107,6 +106,7 @@ class Properties extends Component {
       <FullScreenPage user={user} withToggler={true}>
         {content}
         {button}
+
         {isOpenModal && (
           <DeletePropertyConfirm
             isOpened={isOpenModal}

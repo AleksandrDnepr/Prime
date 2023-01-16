@@ -5,6 +5,7 @@ import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import Messages from "./messages.jsx";
 import { PropertyCard } from "../components/propertyCard.jsx";
 import { DeletePropertyConfirm } from "../components/deletePropertyConfirm.jsx";
+import EditProperty from "./editProperty.jsx";
 
 const allDetails = [
   "messages",
@@ -94,6 +95,9 @@ class PropertyPage extends Component {
           <Route path={`${baseUrlPattern}/floor_plans`}>floor_plans</Route>
           <Route path={`${baseUrlPattern}/features`}>features</Route>
           <Route path={`${baseUrlPattern}/amenities`}>amenities</Route>
+          <Route path={"/properties/:id/edit"}>
+            <EditProperty />
+          </Route>
         </Switch>
         <DeletePropertyConfirm
           isOpened={isDeleteModalOpened}

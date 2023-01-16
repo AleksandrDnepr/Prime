@@ -42,7 +42,7 @@ export class PropertyItem extends Component {
           />
         </Link>
         <Box>
-          <ButtonEdit path="" />
+          <ButtonEdit path={`/properties/${prop_id}/edit`} />
           <IconButton onClick={onDelete} size="small">
             <Close color="primary" />
           </IconButton>
