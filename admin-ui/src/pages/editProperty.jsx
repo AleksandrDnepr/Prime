@@ -36,11 +36,11 @@ class EditProperty extends Component {
   }
 
   editProperty(values) {
-    const { id } = this.props.match.params;
+    const { id } = values;
 
     this.setState({ isLoading: true });
     fetch(`/api/properties/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
