@@ -5,6 +5,7 @@ import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import Messages from "./messages.jsx";
 import { PropertyCard } from "../components/propertyCard.jsx";
 import { DeletePropertyConfirm } from "../components/deletePropertyConfirm.jsx";
+import { PlanForm } from "../components/planForm.jsx";
 
 const allDetails = [
   "messages",
@@ -100,6 +101,10 @@ class PropertyPage extends Component {
           property={property}
           onClose={() => this.closeDeleteModal()}
           onConfirm={() => this.goToPropertyList()}
+        />
+        <PlanForm
+          onSubmit={(v) => console.log(v)}
+          onClose={() => console.log("close")}
         />
       </FullScreenPage>
     );
