@@ -3,6 +3,8 @@ import { ListItem } from "@mui/material";
 
 export class ImageItem extends Component {
   render() {
-    return <ListItem></ListItem>;
+    const { image } = this.props;
+    console.log({ image });
+    return <ListItem>{image}</ListItem>;
   }
 }

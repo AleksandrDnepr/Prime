@@ -105,6 +105,7 @@ class PropertyPage extends Component {
           onClose={() => this.closeDeleteModal()}
           onConfirm={() => this.goToPropertyList()}
         />
+        <ImageList image={property.preview} propertyId={property_id} />
       </FullScreenPage>
     );
   }
