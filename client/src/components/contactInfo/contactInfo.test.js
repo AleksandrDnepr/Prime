@@ -2,17 +2,53 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ContactInfo } from "./contactInfo";
 
-test("display the markup of the component", () => {
-  render(<ContactInfo />);
-  screen.debug();
-});
+describe("ContactInfo component", () => {
+  let props = {};
 
-test("find elements in component", () => {
-  render(<ContactInfo />);
-  expect(screen.queryByRole("span"));
-});
+  beforeEach(() => {
+    props = {
+      type: "tel",
+      border: true,
+      className: "footer-contact__info",
+      children: "+0 123-456-7890",
+    };
+  });
 
-test("check class", () => {
-  const component = render(<ContactInfo />);
-  component.container.getElementsByClassName("contact-info");
+  test("display the markup of the component ContactInfo", () => {
+    render(<ContactInfo {...props} />);
+    screen.debug();
+  });
+
+  test("find element link in component ContactInfo", () => {
+    render(<ContactInfo {...props} />);
+    expect(screen.queryByRole("link")).toBeInTheDocument();
+  });
+
+  test("link `tel` check in component ContactInfo", () => {
+    render(<ContactInfo {...props} />);
+    expect(screen.queryByRole("link")).toHaveAttribute(
+      "href",
+      "tel:+0 123-456-7890"
+    );
+  });
+
+  test("link `mail` check in component ContactInfo", () => {
+    props.type = "mail";
+    props.children = "info@example.com";
+    render(<ContactInfo {...props} />);
+    expect(screen.queryByRole("link")).toHaveAttribute(
+      "href",
+      "mailto:info@example.com"
+    );
+  });
+
+  test("link `adress` check in component ContactInfo", () => {
+    props.type = "adress";
+    props.children = "24th Street, New York, USA";
+    render(<ContactInfo {...props} />);
+    expect(screen.queryByRole("link")).toHaveAttribute(
+      "href",
+      "https://www.google.com/maps/place/24th+street+new+york+usa"
+    );
+  });
 });
