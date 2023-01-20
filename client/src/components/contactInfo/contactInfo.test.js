@@ -32,6 +32,11 @@ describe("ContactInfo component", () => {
     );
   });
 
+  test("checking phoneIcon in component ContactInfo", () => {
+    render(<ContactInfo {...props} />);
+    expect(screen.getByRole("phoneIcon")).toBeInTheDocument();
+  });
+
   test("link `mail` check in component ContactInfo", () => {
     props.type = "mail";
     props.children = "info@example.com";
@@ -42,6 +47,11 @@ describe("ContactInfo component", () => {
     );
   });
 
+  test("checking emailIcon in component ContactInfo", () => {
+    render(<ContactInfo {...props} type="mail" />);
+    expect(screen.getByRole("emailIcon")).toBeInTheDocument();
+  });
+
   test("link `adress` check in component ContactInfo", () => {
     props.type = "adress";
     props.children = "24th Street, New York, USA";
@@ -50,5 +60,10 @@ describe("ContactInfo component", () => {
       "href",
       "https://www.google.com/maps/place/24th+street+new+york+usa"
     );
+  });
+
+  test("checking adressIcon in component ContactInfo", () => {
+    render(<ContactInfo {...props} type="adress" />);
+    expect(screen.getByRole("adressIcon")).toBeInTheDocument();
   });
 });

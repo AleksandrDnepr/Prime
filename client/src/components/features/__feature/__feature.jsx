@@ -8,11 +8,11 @@ export default class Feature extends Component {
   getIconFor(name) {
     switch (name) {
       case "pet":
-        return <PetIcon />;
+        return <PetIcon role="petIcon" />;
       case "pool":
-        return <PoolIcon />;
+        return <PoolIcon role="poolIcon" />;
       case "garden":
-        return <GardenIcon />;
+        return <GardenIcon role="gardenIcon" />;
       default:
         return null;
     }
