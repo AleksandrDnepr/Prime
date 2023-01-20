@@ -25,11 +25,11 @@ export class ContactInfo extends Component {
   chooseImage = (type) => {
     switch (type) {
       case "tel":
-        return <PhoneIcon />;
+        return <PhoneIcon role="phoneIcon" />;
       case "mail":
-        return <EmailIcon />;
+        return <EmailIcon role="emailIcon" />;
       case "adress":
-        return <AdressIcon />;
+        return <AdressIcon role="adressIcon" />;
       default:
         break;
     }
