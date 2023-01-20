@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { ViewModeToggle } from "../ViewModeToggle/ViewModeToggle";
 import { Component } from "react";
@@ -27,5 +27,25 @@ describe("should be..", () => {
     const component = render(<ViewModeToggle />);
     let searchedButtons = component.container.getElementsByTagName("Button");
     expect(searchedButtons.length).toBe(2);
+  });
+  test("the btn 'list' is disabled and btn 'grid' enabled when mode is 'list'", () => {
+    const { getAllByRole } = render(<ViewModeToggle mode="list" />);
+
+    const searched = getAllByRole("button");
+
+    console.log(searched);
+    // screen.debug()
+    expect(searched[0]).not.toBeDisabled();
+    expect(searched[1]).toBeDisabled();
+  });
+  test("the button 'grid' is disabled and btn 'list' enabled when mode is 'grid'", () => {
+    const { getAllByRole } = render(<ViewModeToggle mode="grid" />);
+
+    const searched = getAllByRole("button");
+
+    console.log(searched);
+    // screen.debug()
+    expect(searched[1]).not.toBeDisabled();
+    expect(searched[0]).toBeDisabled();
   });
 });
