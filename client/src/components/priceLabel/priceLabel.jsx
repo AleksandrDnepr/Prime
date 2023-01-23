@@ -10,9 +10,13 @@ export class PriceLabel extends Component {
   chooseImage = (type) => {
     switch (type) {
       case "apartment":
-        return <ApartmentSvg className="type-building-icon" />;
+        return (
+          <ApartmentSvg role="apartmentIcon" className="type-building-icon" />
+        );
       case "townhouse":
-        return <TownHouseSvg className="type-building-icon" />;
+        return (
+          <TownHouseSvg role="townhouseIcon" className="type-building-icon" />
+        );
       default:
         return null;
     }
@@ -31,9 +35,11 @@ export class PriceLabel extends Component {
     const { price, deal, type } = this.props;
     return (
       <div>
-        <div className="price__label-block">
+        <div role="chooseImage" className="price__label-block">
           {this.chooseImage(type)}
-          <p className="type-building">{this.saleOrRent(deal)}</p>
+          <p role="saleOrRent" className="type-building">
+            {this.saleOrRent(deal)}
+          </p>
           <p className="price">{this.numberFormat(price)}</p>
         </div>
       </div>
