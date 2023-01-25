@@ -2,8 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
-import { ViewModeToggle } from "../ViewModeToggle/ViewModeToggle";
-import { Component } from "react";
+import { ViewModeToggle } from "./ViewModeToggle";
 
 describe("should be..", () => {
   test("should be the text in the dom", () => {
@@ -43,8 +42,6 @@ describe("should be..", () => {
 
     const searched = getAllByRole("button");
 
-    console.log(searched);
-    // screen.debug()
     expect(searched[1]).not.toBeDisabled();
     expect(searched[0]).toBeDisabled();
   });
