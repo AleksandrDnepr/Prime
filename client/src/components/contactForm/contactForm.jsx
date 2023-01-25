@@ -100,7 +100,7 @@ export class ContactForm extends Component {
     const { name, email, message, errors } = this.state;
 
     return (
-      <form className="contact-form">
+      <form role="form" className="contact-form">
         <ul className="contact-form__list">
           <li className="contact-form__input">
             <div className="contact-form__field">
