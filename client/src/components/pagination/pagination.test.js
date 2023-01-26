@@ -1,6 +1,6 @@
 import React from "react";
 import { Pagination } from "./pagination.jsx";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 let pagination;
 
@@ -127,5 +127,31 @@ describe("render Pagination", () => {
     }
     expect(screen.queryByRole("button", { name: "1" })).toBeNull();
     expect(screen.queryByRole("button", { name: "7" })).toBeNull();
+  });
+});
+
+describe("pages changing by clicking", () => {
+  test("click on next page button increase number of current page by 1", () => {
+    const handleClick = jest.fn();
+    render(<Pagination pages={8} page={4} onChange={handleClick} />);
+    fireEvent.click(screen.queryByRole("nextPageButton"));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick.mock.calls[0][0]).toBe(5);
+  });
+
+  test("click on previous page button decrease number of current page by 1", () => {
+    const handleClick = jest.fn();
+    render(<Pagination pages={9} page={6} onChange={handleClick} />);
+    fireEvent.click(screen.queryByRole("prevPageButton"));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick.mock.calls[0][0]).toBe(5);
+  });
+
+  test("click changes number of current page on the number of clicked page", () => {
+    const handleClick = jest.fn();
+    render(<Pagination pages={9} page={5} onChange={handleClick} />);
+    fireEvent.click(screen.queryByRole("button", { name: "3" }));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick.mock.calls[0][0]).toBe(3);
   });
 });
