@@ -33,17 +33,8 @@ export class Title extends Component {
   };
 
   render() {
-    const {
-      area, 
-      bedrooms, 
-      bathrooms, 
-      year,
-      id,
-      location,
-      name,
-      type,
-      price,
-    } = this.props;
+    const { area, bedrooms, bathrooms, year, id, location, name, type, price } =
+      this.props;
 
     return (
       <section className="title title__section">
@@ -51,16 +42,19 @@ export class Title extends Component {
           <span>{name}</span>
           <span>{this.numberFormat(price)}</span>
         </h2>
-        <p className="title__location">
+        <p className="title__location" role="location">
           {location[0]}, {location[1]}
         </p>
         <ul className="title__details details">
-          <li className="details__type-card">
+          <li className="details__type-card" role="type">
             {this.chooseImage(type)} {this.apartOrHouse(type)}
           </li>
           <li>
             <PropertyDetails
-              area={area} bedrooms={bedrooms} bathrooms={bathrooms} year={year}
+              area={area}
+              bedrooms={bedrooms}
+              bathrooms={bathrooms}
+              year={year}
               mode="list"
             />
           </li>
