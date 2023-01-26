@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
 import { GoHomeButton } from "./GoHomeButton";
@@ -12,7 +12,18 @@ describe("should be..", () => {
         <GoHomeButton />
       </BrowserRouter>
     );
-    const searhedText = getByText(/back to search/i);
-    expect(searhedText).toHaveTextContent("back to search");
+
+    const searched = getByText("back to search");
+    expect(searched).toHaveTextContent("back to search");
+  });
+  test("should have the name of the icon", () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <GoHomeButton />
+      </BrowserRouter>
+    );
+
+    const searched = getByText("search.svg");
+    expect(searched).toBeInTheDocument();
   });
 });
