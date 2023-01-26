@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "./button.jsx";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 describe("render button", () => {
   test("returns correct class if size is M", () => {
@@ -33,5 +33,15 @@ describe("render button", () => {
   test("returns correct class rounding option is both", () => {
     render(<Button rounding="both" />);
     expect(screen.queryByRole("button")).toHaveClass("Btn__border-round-both");
+  });
+});
+
+describe("click event on button", () => {
+  test("calls onClick prop when clicked", () => {
+    const handleClick = jest.fn();
+    render(<Button clickEvent={handleClick} />);
+    fireEvent.click(screen.queryByRole("button"));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick.mock.calls).toHaveLength(1);
   });
 });
