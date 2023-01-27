@@ -36,9 +36,10 @@ export class Button extends Component {
   }
 
   render() {
-    const { clickEvent, isDisabled, children } = this.props;
+    const { clickEvent, isDisabled, children, role } = this.props;
     return (
       <button
+        role={role}
         type="button"
         className={this.className()}
         onClick={clickEvent}

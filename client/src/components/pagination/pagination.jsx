@@ -13,7 +13,7 @@ export class Pagination extends Component {
 
   sliceVisiblePages(pages, page) {
     const availablePages = this.pageSeparating(pages);
-    const currentPageIndex = availablePages.findIndex((e) => e === page);
+    const currentPageIndex = page - 1;
     let visiblePages = availablePages.slice();
     if (availablePages.length > 5) {
       if (availablePages.slice(-3).includes(page)) {
@@ -33,7 +33,12 @@ export class Pagination extends Component {
       return null;
     }
     return (
-      <Button size="m" rounding="both" clickEvent={() => onChange(page - 1)}>
+      <Button
+        role="prevPageButton"
+        size="m"
+        rounding="both"
+        clickEvent={() => onChange(page - 1)}
+      >
         {"<"}
       </Button>
     );
@@ -47,7 +52,12 @@ export class Pagination extends Component {
       return null;
     }
     return (
-      <Button size="m" rounding="both" clickEvent={() => onChange(page + 1)}>
+      <Button
+        role="nextPageButton"
+        size="m"
+        rounding="both"
+        clickEvent={() => onChange(page + 1)}
+      >
         {">"}
       </Button>
     );
