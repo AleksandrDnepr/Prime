@@ -28,37 +28,36 @@ export class PropertyCard extends Component {
     } = this.props;
 
     return (
-      // <Link
-      //   to={`/${prop_id}`}
-      //   className={`container_${mode}`}
-      //   onClick={this.handleClick}
-      // >
-      <>
-        <section className="label__info">
-          <img className="property-photo" src={preview} alt="Property view" />
-          <PriceLabel price={price} deal={deal} type={type} />
-        </section>
-        <section className={`description_${mode}`}>
-          <h3 className="description-title">{title}</h3>
-          <h4 className="description-address">
-            {city}, {state}
-          </h4>
-          <p className="description-text">
-            {" "}
-            {description.length < 215
-              ? `${description}`
-              : `${description.substring(0, 215)}...`}
-          </p>
-          <PropertyDetails
-            area={area}
-            bedrooms={bedrooms}
-            bathrooms={bathrooms}
-            year={year}
-            mode={mode}
-          />
-        </section>
-      </>
-      // </Link>
+      <Link
+        to={`/${prop_id}`}
+        className={`container_${mode}`}
+        onClick={this.handleClick}
+      >
+        <>
+          <section className="label__info">
+            <img className="property-photo" src={preview} alt="Property view" />
+            <PriceLabel price={price} deal={deal} type={type} />
+          </section>
+          <section className={`description_${mode}`}>
+            <h3 className="description-title">{title}</h3>
+            <h4 className="description-address">
+              {city}, {state}
+            </h4>
+            <p className="description-text">
+              {description.length < 215
+                ? `${description}`
+                : `${description.substring(0, 215)}...`}
+            </p>
+            <PropertyDetails
+              area={area}
+              bedrooms={bedrooms}
+              bathrooms={bathrooms}
+              year={year}
+              mode={mode}
+            />
+          </section>
+        </>
+      </Link>
     );
   }
 }
