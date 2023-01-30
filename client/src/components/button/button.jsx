@@ -1,9 +1,14 @@
-import { Component } from "react";
 import "./button.css";
 
-export class Button extends Component {
-  BtnSize() {
-    let { size } = this.props;
+export function Button({
+  size,
+  rounding,
+  clickEvent,
+  isDisabled,
+  children,
+  role,
+}) {
+  function BtnSize() {
     switch (size) {
       case "m":
         return "Btn Btn__m_size";
@@ -14,8 +19,7 @@ export class Button extends Component {
     }
   }
 
-  BtnBorder() {
-    let { rounding } = this.props;
+  function BtnBorder() {
     switch (rounding) {
       case "none":
         return "Btn__border-round-none";
@@ -30,23 +34,19 @@ export class Button extends Component {
     }
   }
 
-  className() {
-    const { size, rounding } = this.props;
-    return `${this.BtnSize(size)} ${this.BtnBorder(rounding)}`;
+  function className() {
+    return `${BtnSize(size)} ${BtnBorder(rounding)}`;
   }
 
-  render() {
-    const { clickEvent, isDisabled, children, role } = this.props;
-    return (
-      <button
-        role={role}
-        type="button"
-        className={this.className()}
-        onClick={clickEvent}
-        disabled={isDisabled}
-      >
-        {children}
-      </button>
-    );
-  }
+  return (
+    <button
+      role={role}
+      type="button"
+      className={className()}
+      onClick={clickEvent}
+      disabled={isDisabled}
+    >
+      {children}
+    </button>
+  );
 }
