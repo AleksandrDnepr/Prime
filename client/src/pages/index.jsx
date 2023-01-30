@@ -5,7 +5,8 @@ import { Page } from "../components/page/page.jsx";
 import { PropertyFilter } from "../components/propertyFilter/propertyFilter.jsx";
 import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Loading } from "../components/loading/loading.jsx";
-import queryStr from "query-string";
+import queryString from "query-string";
+const { queryStr } = require("query-string");
 
 class Index extends Component {
   state = {
@@ -44,7 +45,7 @@ class Index extends Component {
   }
 
   parseQueryString() {
-    let queryParams = queryStr.parse(window.location.search);
+    let queryParams = queryString.parse(window.location.search);
     let { page, ...filterValues } = queryParams;
     return [Number(page), filterValues];
   }
@@ -136,7 +137,7 @@ class Index extends Component {
   }
 
   showLoader(isLoading) {
-    return isLoading && <Loading />;
+    return isLoading && <Loading role="loader" />;
   }
 
   render() {
@@ -173,7 +174,6 @@ class Index extends Component {
             options={filterOptions}
             onSubmit={(nextValues) => this.updateFilterValues(nextValues)}
           />
-          {console.log(filterOptions)}
         </Sidebar>
       </Page>
     );

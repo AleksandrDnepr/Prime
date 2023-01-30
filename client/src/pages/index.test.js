@@ -1,20 +1,9 @@
-import { render, screen } from "@testing-library/react";
-import { Index } from "./index.jsx";
-import queryStr from "query-string";
+import { render, screen, act } from "@testing-library/react";
+import Index from "./index.jsx";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Index Page", () => {
-  it("Filtration", () => {
-    //     const props = {
-    //         values: {
-    //         bathrooms: '2',
-    //         type: 'apartment'
-    //         }
-    //         options: {
-
-    //         }
-
-    // }
-
+  it("Page fetches the data from API", async () => {
     const properties = [
       {
         AgentId: 1,
@@ -24,6 +13,8 @@ describe("Index Page", () => {
         city: "Natomas",
         createdAt: "2023-01-03T11:03:06.691Z",
         deal: "rent",
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni delectus accusantium omnis. Quos, quaerat inventore id odio facere fuga aut?",
         deletedAt: null,
         price: 20000,
         prop_id: "A0001",
@@ -33,26 +24,47 @@ describe("Index Page", () => {
         updatedAt: "2023-01-16T12:01:37.235Z",
         year: 1920,
       },
+      {
+        AgentId: 2,
+        area: 720,
+        bathrooms: 1,
+        bedrooms: 1,
+        city: "Kyiv",
+        createdAt: "2023-01-03T11:03:06.691Z",
+        deal: "sale",
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni delectus accusantium omnis. Quos, quaerat inventore id odio facere fuga aut?",
+        deletedAt: null,
+        price: 150000,
+        prop_id: "A0002",
+        state: "UA",
+        title: "Beautiful house",
+        type: "apartments",
+        updatedAt: "2023-01-16T12:01:37.235Z",
+        year: 2000,
+      },
     ];
 
-    const mockSuccesfulResponse = (status = 200, returnBody = properties) => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return new Promise((resolve, reject) => {
-          resolve({
-            ok: true,
-            status,
-            json: () => {
-              return returnBody ? returnBody : {};
-            },
-          });
-        });
-      });
-    };
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () =>
+          Promise.resolve({
+            properties,
+          }),
+      })
+    );
 
-    console.log(mockSuccesfulResponse());
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <Index />
+        </BrowserRouter>
+      );
+    });
 
-    // fetch = jest.fn(() => Promise.resolve());
-    const filter = render(<Index />);
     screen.debug();
+    // expect(screen.queryByRole("loader"))
+    // expect(setTimeout(() => { screen.findByText("Luxury Apartment");
+    // }, 3000)).toBeInTheDocument()
   });
 });
