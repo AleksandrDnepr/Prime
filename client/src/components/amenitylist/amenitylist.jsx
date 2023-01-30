@@ -38,7 +38,7 @@ export function AmenityList({ amenities }) {
   const [propAmenities, setpropAmenities] = useState([...amenitiesTamplate]);
 
   useEffect(() => {
-    const updatedAmenities = [...amenitiesTamplate];
+    const updatedAmenities = [...propAmenities];
     amenities.forEach((amenity) => {
       const amenityId = Number(amenity.id);
       if (amenityId === propAmenities[amenityId - 1].id) {
