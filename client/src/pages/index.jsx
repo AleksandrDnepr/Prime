@@ -174,6 +174,7 @@ class Index extends Component {
             options={filterOptions}
             onSubmit={(nextValues) => this.updateFilterValues(nextValues)}
           />
+          {console.log(filterOptions)}
         </Sidebar>
       </Page>
     );
