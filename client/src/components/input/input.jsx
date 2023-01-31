@@ -10,7 +10,7 @@ export class Input extends Component {
   changeValue = (e) => {
     const { type } = this.props;
     let value = e.target.value;
-
+    console.log({ value });
     if (type === "number" && value !== "") {
       value = Number(value);
     }
@@ -56,6 +56,7 @@ export class Input extends Component {
           onBlur={this.handleBlur}
           autoComplete="off"
           className={`input input_${size}`}
+          role={this.props.role}
         />
       </label>
     );

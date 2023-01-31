@@ -43,6 +43,7 @@ export class Button extends Component {
         className={this.className()}
         onClick={clickEvent}
         disabled={isDisabled}
+        role="button"
       >
         {children}
       </button>

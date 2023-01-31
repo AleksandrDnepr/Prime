@@ -24,6 +24,7 @@ export class AgentCard extends Component {
   }
 
   async sendMail(info) {
+    console.log(info);
     const { agentId, propertyId } = this.props;
 
     info.PropertyId = propertyId;

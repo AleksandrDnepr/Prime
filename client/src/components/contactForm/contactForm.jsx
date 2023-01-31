@@ -90,6 +90,7 @@ export class ContactForm extends Component {
     const formIsValid = this.validate();
     const { name, email, message } = this.state;
     const { onSubmit } = this.props;
+    console.log({ formIsValid }, this.state);
 
     if (formIsValid && onSubmit) {
       onSubmit({ name, email, message });
@@ -111,6 +112,7 @@ export class ContactForm extends Component {
                 value={name}
                 name="name"
                 placeholder="Your name"
+                role="inputName"
                 onChange={this.changeFormParam}
               />
               <FormError error={errors.name} />
@@ -123,6 +125,7 @@ export class ContactForm extends Component {
                 value={email}
                 name="email"
                 placeholder="Your Email"
+                role="inputEmail"
                 onChange={this.changeFormParam}
               />
               <FormError error={errors.email} />
@@ -137,6 +140,7 @@ export class ContactForm extends Component {
               name="message"
               placeholder="Message"
               className="textarea__element"
+              role="textbox"
               onChange={(event) => this.changeMessage(event)}
             />
             <FormError error={errors.message} />
