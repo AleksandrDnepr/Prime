@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Feature from "./__feature/__feature.jsx";
 import "./features.css";
 import { Subtitle } from "../subtitle/subtitle.jsx";
