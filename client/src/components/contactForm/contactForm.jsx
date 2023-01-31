@@ -1,22 +1,18 @@
-import React, { Component } from "react";
-
+import React, { useState } from "react";
 import { Input } from "../input/input.jsx";
-
 import { Button } from "../button/button.jsx";
-
 import { FormError } from "../formError/formError.jsx";
-
 import "./contactForm.css";
 
-export class ContactForm extends Component {
-  state = {
-    name: "",
-    email: "",
-    message: "",
-    errors: {},
-  };
+export function ContactForm({onSubmit}) {
 
-  validation = {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+  const [formIsValid, ]
+
+  const validation = {
     name: {
       isRequired: true,
     },
@@ -29,8 +25,8 @@ export class ContactForm extends Component {
     },
   };
 
-  validateField(fieldName, value) {
-    const fieldValidation = this.validation[fieldName];
+  function validateField(fieldName, value) {
+    const fieldValidation = validation[fieldName];
 
     let error;
 
@@ -47,14 +43,14 @@ export class ContactForm extends Component {
     return error;
   }
 
-  validate() {
+  function validate() {
     const fields = ["name", "email", "message"];
     const { errors } = this.state;
     let formIsValid = true;
 
     fields.forEach((fieldName) => {
       const value = this.state[fieldName];
-      const error = this.validateField(fieldName, value);
+      const error = validateField(fieldName, value);
 
       if (error) {
         errors[fieldName] = error;
@@ -68,10 +64,9 @@ export class ContactForm extends Component {
     return formIsValid;
   }
 
-  changeFormParam = (fieldName, value) => {
-    const { errors } = this.state;
+  const changeFormParam = (fieldName, value) => {
     this.setState({ [fieldName]: value });
-    const error = this.validateField(fieldName, value);
+    const error = validateField(fieldName, value);
 
     if (error) {
       errors[fieldName] = error;
@@ -82,22 +77,19 @@ export class ContactForm extends Component {
     this.setState({ errors });
   };
 
-  changeMessage(event) {
-    this.changeFormParam("message", event.target.value);
+  function changeMessage(event) {
+    changeFormParam("message", event.target.value);
   }
 
-  handleSubmit() {
-    const formIsValid = this.validate();
+  function handleSubmit() {
+    const formIsValid = validate();
     const { name, email, message } = this.state;
-    const { onSubmit } = this.props;
 
     if (formIsValid && onSubmit) {
       onSubmit({ name, email, message });
     }
   }
 
-  render() {
-    const { name, email, message, errors } = this.state;
 
     return (
       <form className="contact-form">
@@ -111,7 +103,7 @@ export class ContactForm extends Component {
                 value={name}
                 name="name"
                 placeholder="Your name"
-                onChange={this.changeFormParam}
+                onChange={changeFormParam}
               />
               <FormError error={errors.name} />
             </div>
@@ -123,7 +115,7 @@ export class ContactForm extends Component {
                 value={email}
                 name="email"
                 placeholder="Your Email"
-                onChange={this.changeFormParam}
+                onChange={changeFormParam}
               />
               <FormError error={errors.email} />
             </div>
@@ -137,7 +129,7 @@ export class ContactForm extends Component {
               name="message"
               placeholder="Message"
               className="textarea__element"
-              onChange={(event) => this.changeMessage(event)}
+              onChange={(event) => changeMessage(event)}
             />
             <FormError error={errors.message} />
           </li>
@@ -145,8 +137,8 @@ export class ContactForm extends Component {
             <Button
               size="l"
               rounding="both"
-              clickEvent={(event) => this.handleSubmit(event)}
-              disabled={!this.state.formValid}
+              clickEvent={(event) => handleSubmit(event)}
+              // disabled={!this.state.formValid}
             >
               SEND MESSAGE
             </Button>
@@ -154,5 +146,4 @@ export class ContactForm extends Component {
         </ul>
       </form>
     );
-  }
 }
