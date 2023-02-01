@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { ReactComponent as ApartmentSvg } from "./Apartment.svg";
 import { ReactComponent as TownHouseSvg } from "./townhouse.svg";
 
