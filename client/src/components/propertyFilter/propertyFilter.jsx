@@ -4,7 +4,7 @@ import { Button } from "../button/button.jsx";
 
 import { DropDown } from "../dropDown/DropDown.jsx";
 
-import { Input } from "../input/input.jsx";
+import Input from "../input/input.jsx";
 
 import { Subtitle } from "../subtitle/subtitle.jsx";
 
