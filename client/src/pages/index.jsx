@@ -120,7 +120,6 @@ class Index extends Component {
 
   updateFilterValues(newFilterValues) {
     window.scrollTo(0, 0);
-    console.log(newFilterValues);
     this.setState(
       (prevState) => ({
         ...prevState,
