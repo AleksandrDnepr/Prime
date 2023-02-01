@@ -10,7 +10,7 @@ import { AgentCard } from "../components/agentCard/agentCard.jsx";
 import { Page } from "../components/page/page.jsx";
 import { GoHomeButton } from "../components/goHomeButton/GoHomeButton";
 import { Loading } from "../components/loading/loading";
-import { ErrorMessage } from "../components/errorMessage/errorMessage";
+import ErrorMessage from "../components/errorMessage/errorMessage";
 import { Redirect } from "react-router-dom";
 
 class Property extends Component {
@@ -39,7 +39,7 @@ class Property extends Component {
     }
 
     if (error) {
-      return <ErrorMessage>{error}</ErrorMessage>;
+      return <ErrorMessage errorText={error}>{error}</ErrorMessage>;
     }
 
     if (!property) {
@@ -73,7 +73,11 @@ class Property extends Component {
 
           <Features features={property.features} />
 
-          <AgentCard agentId={property.AgentId} propertyId={property.id} status="default" />
+          <AgentCard
+            agentId={property.AgentId}
+            propertyId={property.id}
+            status="default"
+          />
         </Page>
       </>
     );
