@@ -3,7 +3,7 @@ import "./description.css";
 export default function Description({ children }) {
   return (
     <div className="text_description">
-      <p>{children}</p>
+      <p> {children} </p>
     </div>
   );
 }
