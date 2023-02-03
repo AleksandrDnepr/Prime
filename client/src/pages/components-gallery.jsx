@@ -34,7 +34,7 @@ import {Features} from "../components/features/features.jsx";
 
 import {GoHomeButton} from "../components/goHomeButton/GoHomeButton.jsx";
 
-import { Input } from "../components/input/input.jsx";
+import  Input  from "../components/input/input.jsx";
 
 import {DropDown} from "../components/dropDown/DropDown.jsx";
 

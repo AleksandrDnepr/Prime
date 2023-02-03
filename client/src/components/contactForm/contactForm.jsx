@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Input } from "../input/input.jsx";
+import Input from "../input/input.jsx";
 
 import { Button } from "../button/button.jsx";
 

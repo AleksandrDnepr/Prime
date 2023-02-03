@@ -1,14 +1,19 @@
-import { Component } from "react";
+import React, { useState } from "react";
 import "./input.css";
 
-export class Input extends Component {
-  state = {
-    startValue: this.props.value,
-    currentValue: this.props.value,
-  };
+export default function Input({
+  type,
+  name,
+  placeholder,
+  size,
+  children,
+  min,
+  onChange,
+}) {
+  const [startValue, setStartValue] = useState();
+  const [currentValue, setCurrentValue] = useState();
 
-  changeValue = (e) => {
-    const { type } = this.props;
+  const changeValue = (e) => {
     let value = e.target.value;
 
     if (type === "number" && value !== "") {
@@ -17,11 +22,11 @@ export class Input extends Component {
 
     switch (e.type) {
       case "focus":
-        this.setState({ startValue: value });
+        setStartValue(value);
         break;
 
       case "change":
-        this.setState({ currentValue: value });
+        setCurrentValue(value);
         break;
 
       default:
@@ -29,35 +34,28 @@ export class Input extends Component {
     }
   };
 
-  handleBlur = () => {
-    const { startValue, currentValue } = this.state;
-    const { name, onChange } = this.props;
+  const handleBlur = () => {
     if (currentValue !== startValue) {
       onChange(name, currentValue);
     }
   };
 
-  render() {
-    const { type, name, placeholder, size, children, min } = this.props;
-    const { currentValue } = this.state;
-
-    return (
-      <label>
-        {children}
-        <input
-          type={type}
-          name={name}
-          id={name}
-          value={currentValue}
-          min={min}
-          placeholder={placeholder}
-          onChange={this.changeValue}
-          onFocus={this.changeValue}
-          onBlur={this.handleBlur}
-          autoComplete="off"
-          className={`input input_${size}`}
-        />
-      </label>
-    );
-  }
+  return (
+    <label>
+      {children}
+      <input
+        type={type}
+        name={name}
+        id={name}
+        value={currentValue}
+        min={min}
+        placeholder={placeholder}
+        onChange={changeValue}
+        onFocus={changeValue}
+        onBlur={handleBlur}
+        autoComplete="off"
+        className={`input input_${size}`}
+      />
+    </label>
+  );
 }
