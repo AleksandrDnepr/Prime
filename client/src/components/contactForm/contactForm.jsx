@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
 import Input from "../input/input.jsx";
 
@@ -8,13 +8,21 @@ import { FormError } from "../formError/formError.jsx";
 
 import "./contactForm.css";
 
-export class ContactForm extends Component {
-  state = {
+export function ContactForm(props) {
+  // state = {
+  //   name: "",
+  //   email: "",
+  //   message: "",
+  //   errors: {},
+  // };
+
+  const [values, setValues] = useState({
     name: "",
     email: "",
     message: "",
-    errors: {},
-  };
+  });
+
+  const [errors, setError] = useState({});
 
   validation = {
     name: {
@@ -29,64 +37,63 @@ export class ContactForm extends Component {
     },
   };
 
-  validateField(fieldName, value) {
-    const fieldValidation = this.validation[fieldName];
+  // function validateField(fieldName, value) {
+  //   const fieldValidation = this.validation[fieldName];
 
-    let error;
+  //   let error;
 
-    if (fieldValidation.isRequired && !value) {
-      error = "This field is required";
-    } else if (fieldValidation.isEmail) {
-      const regexp = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
+  //   if (fieldValidation.isRequired && !value) {
+  //     error = "This field is required";
+  //   } else if (fieldValidation.isEmail) {
+  //     const regexp = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 
-      if (!regexp.test(value)) {
-        error = "This field should be a valid email";
-      }
-    }
+  //     if (!regexp.test(value)) {
+  //       error = "This field should be a valid email";
+  //     }
+  //   }
 
-    return error;
-  }
+  //   return error;
+  // }
 
-  validate() {
-    const fields = ["name", "email", "message"];
-    const { errors } = this.state;
-    let formIsValid = true;
+  // function validate() {
+  //   const fields = ["name", "email", "message"];
+  //   const { errors } = this.state;
+  //   let formIsValid = true;
 
-    fields.forEach((fieldName) => {
-      const value = this.state[fieldName];
-      const error = this.validateField(fieldName, value);
+  //   fields.forEach((fieldName) => {
+  //     const value = this.state[fieldName];
+  //     const error = this.validateField(fieldName, value);
 
-      if (error) {
-        errors[fieldName] = error;
-        formIsValid = false;
-      } else {
-        delete errors[fieldName];
-      }
-    });
+  //     if (error) {
+  //       errors[fieldName] = error;
+  //       formIsValid = false;
+  //     } else {
+  //       delete errors[fieldName];
+  //     }
+  //   });
 
-    this.setState({ errors });
-    return formIsValid;
-  }
+  //   this.setState({ errors });
+  //   return formIsValid;
+  // }
 
-  changeFormParam = (fieldName, value) => {
-    const { errors } = this.state;
-    this.setState({ [fieldName]: value });
-    const error = this.validateField(fieldName, value);
+  const changeFormParam = (fieldName, value) => {
+    setValues({ ...values, [fieldName]: value });
+    // const error = this.validateField(fieldName, value);
 
-    if (error) {
-      errors[fieldName] = error;
-    } else {
-      delete errors[fieldName];
-    }
+    // if (error) {
+    //   errors[fieldName] = error;
+    // } else {
+    //   delete errors[fieldName];
+    // }
 
-    this.setState({ errors });
+    // this.setState({ errors });
   };
 
-  changeMessage(event) {
-    this.changeFormParam("message", event.target.value);
-  }
+  // changeMessage(event) {
+  //   this.changeFormParam("message", event.target.value);
+  // }
 
-  handleSubmit() {
+  function handleSubmit() {
     const formIsValid = this.validate();
     const { name, email, message } = this.state;
     const { onSubmit } = this.props;
@@ -96,63 +103,59 @@ export class ContactForm extends Component {
     }
   }
 
-  render() {
-    const { name, email, message, errors } = this.state;
-
-    return (
-      <form className="contact-form">
-        <ul className="contact-form__list">
-          <li className="contact-form__input">
-            <div className="contact-form__field">
-              <Input
-                required
-                type="text"
-                size="large"
-                value={name}
-                name="name"
-                placeholder="Your name"
-                onChange={this.changeFormParam}
-              />
-              <FormError error={errors.name} />
-            </div>
-            <div className="contact-form__field">
-              <Input
-                required
-                type="text"
-                size="large"
-                value={email}
-                name="email"
-                placeholder="Your Email"
-                onChange={this.changeFormParam}
-              />
-              <FormError error={errors.email} />
-            </div>
-          </li>
-          <li className="contact-form__textarea">
-            <textarea
+  return (
+    <form className="contact-form">
+      <ul className="contact-form__list">
+        <li className="contact-form__input">
+          <div className="contact-form__field">
+            <Input
               required
-              rows={8}
               type="text"
-              value={message}
-              name="message"
-              placeholder="Message"
-              className="textarea__element"
-              onChange={(event) => this.changeMessage(event)}
+              size="large"
+              value={values.name}
+              name="name"
+              placeholder="Your name"
+              onChange={changeFormParam}
             />
-            <FormError error={errors.message} />
-          </li>
-          <li className="contact-form__button">
-            <Button
-              size="l"
-              rounding="both"
-              clickEvent={(event) => this.handleSubmit(event)}
-              disabled={!this.state.formValid}
-            >
-              SEND MESSAGE
-            </Button>
-          </li>
-        </ul>
-      </form>
-    );
-  }
+            <FormError error={errors.name} />
+          </div>
+          <div className="contact-form__field">
+            <Input
+              required
+              type="text"
+              size="large"
+              value={values.email}
+              name="email"
+              placeholder="Your Email"
+              onChange={changeFormParam}
+            />
+            <FormError error={errors.email} />
+          </div>
+        </li>
+        <li className="contact-form__textarea">
+          <textarea
+            required
+            rows={8}
+            type="text"
+            value={values.message}
+            name="message"
+            placeholder="Message"
+            className="textarea__element"
+            onChange={changeFormParam}
+          />
+          <FormError error={errors.message} />
+        </li>
+        <li className="contact-form__button">
+          <Button
+            size="l"
+            rounding="both"
+            clickEvent={(event) => this.handleSubmit(event)}
+            disabled={!this.state.formValid}
+          >
+            SEND MESSAGE
+          </Button>
+        </li>
+      </ul>
+    </form>
+  );
 }
