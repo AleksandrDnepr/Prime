@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Button } from "../button/button";
 import "./errorMessage.css";
 
-export default function ErrorMessage({ errorText }) {
+export function ErrorMessage({ errorText }) {
   const [value, setValue] = useState("true");
   const modalRoot = document.getElementById("modal-root");
 
