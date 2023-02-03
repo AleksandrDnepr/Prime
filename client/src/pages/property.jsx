@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Title } from "../components/title/title.jsx";
-import { Gallery } from "../components/Gallery/Gallery.jsx";
+import Gallery from "../components/Gallery/Gallery.jsx";
 import Description from "../components/description/description.jsx";
 import { FloorPlans } from "../components/floorPlans/floorPlans.jsx";
 import { AmenityList } from "../components/amenitylist/amenitylist.jsx";

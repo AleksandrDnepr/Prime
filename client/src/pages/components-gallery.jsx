@@ -24,7 +24,7 @@ import { AgentCard } from "../components/agentCard/agentCard.jsx";
 
 import { FloorPlans } from "../components/floorPlans/floorPlans.jsx";
 
-import { Gallery } from "../components/Gallery/Gallery.jsx";
+import Gallery from "../components/Gallery/Gallery.jsx";
 
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,7 @@ import { Features } from "../components/features/features.jsx";
 
 import { GoHomeButton } from "../components/goHomeButton/GoHomeButton.jsx";
 
-import  Input  from "../components/input/input.jsx";
+import Input from "../components/input/input.jsx";
 
 import { DropDown } from "../components/dropDown/DropDown.jsx";
 
