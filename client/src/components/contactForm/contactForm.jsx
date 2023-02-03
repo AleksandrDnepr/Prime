@@ -4,13 +4,14 @@ import { Button } from "../button/button.jsx";
 import { FormError } from "../formError/formError.jsx";
 import "./contactForm.css";
 
-export function ContactForm({onSubmit}) {
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+export function ContactForm({ onSubmit }) {
   const [errors, setErrors] = useState({});
-  const [formIsValid, ]
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formIsValid, setFormIsValid] = useState(false);
 
   const validation = {
     name: {
@@ -65,21 +66,21 @@ export function ContactForm({onSubmit}) {
   }
 
   const changeFormParam = (fieldName, value) => {
-    this.setState({ [fieldName]: value });
-    const error = validateField(fieldName, value);
+    setValues({ ...values, [fieldName]: value });
+    // const error = validateField(fieldName, value);
 
-    if (error) {
-      errors[fieldName] = error;
-    } else {
-      delete errors[fieldName];
-    }
+    // if (error) {
+    //   errors[fieldName] = error;
+    // } else {
+    //   delete errors[fieldName];
+    // }
 
-    this.setState({ errors });
+    // this.setState({ errors });
   };
-
-  function changeMessage(event) {
-    changeFormParam("message", event.target.value);
-  }
+  //i think it doesnt needed
+  // function changeMessage(event) {
+  //   changeFormParam("message", event.target.value);
+  // }
 
   function handleSubmit() {
     const formIsValid = validate();
@@ -90,60 +91,59 @@ export function ContactForm({onSubmit}) {
     }
   }
 
-
-    return (
-      <form className="contact-form">
-        <ul className="contact-form__list">
-          <li className="contact-form__input">
-            <div className="contact-form__field">
-              <Input
-                required
-                type="text"
-                size="large"
-                value={name}
-                name="name"
-                placeholder="Your name"
-                onChange={changeFormParam}
-              />
-              <FormError error={errors.name} />
-            </div>
-            <div className="contact-form__field">
-              <Input
-                required
-                type="text"
-                size="large"
-                value={email}
-                name="email"
-                placeholder="Your Email"
-                onChange={changeFormParam}
-              />
-              <FormError error={errors.email} />
-            </div>
-          </li>
-          <li className="contact-form__textarea">
-            <textarea
+  return (
+    <form className="contact-form">
+      <ul className="contact-form__list">
+        <li className="contact-form__input">
+          <div className="contact-form__field">
+            <Input
               required
-              rows={8}
               type="text"
-              value={message}
-              name="message"
-              placeholder="Message"
-              className="textarea__element"
-              onChange={(event) => changeMessage(event)}
+              size="large"
+              value={values.name}
+              name="name"
+              placeholder="Your name"
+              onChange={(event) => changeFormParam("name", event.target.value)}
             />
-            <FormError error={errors.message} />
-          </li>
-          <li className="contact-form__button">
-            <Button
-              size="l"
-              rounding="both"
-              clickEvent={(event) => handleSubmit(event)}
-              // disabled={!this.state.formValid}
-            >
-              SEND MESSAGE
-            </Button>
-          </li>
-        </ul>
-      </form>
-    );
+            <FormError error={errors.name} />
+          </div>
+          <div className="contact-form__field">
+            <Input
+              required
+              type="text"
+              size="large"
+              value={values.email}
+              name="email"
+              placeholder="Your Email"
+              onChange={(event) => changeFormParam("email", event.target.value)}
+            />
+            <FormError error={errors.email} />
+          </div>
+        </li>
+        <li className="contact-form__textarea">
+          <textarea
+            required
+            rows={8}
+            type="text"
+            value={values.message}
+            name="message"
+            placeholder="Message"
+            className="textarea__element"
+            onChange={(event) => changeFormParam("message", event.target.value)}
+          />
+          <FormError error={errors.message} />
+        </li>
+        <li className="contact-form__button">
+          <Button
+            size="l"
+            rounding="both"
+            clickEvent={(event) => handleSubmit(event)}
+            // disabled={!this.state.formValid}
+          >
+            SEND MESSAGE
+          </Button>
+        </li>
+      </ul>
+    </form>
+  );
 }
