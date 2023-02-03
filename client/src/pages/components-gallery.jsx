@@ -16,7 +16,7 @@ import Header from "../components/header/header";
 
 import { ViewModeToggle } from "../components/ViewModeToggle/ViewModeToggle.jsx";
 
-import Description from "../components/description/description.jsx";
+import { Description } from "../components/description/description.jsx";
 
 import { Subtitle } from "../components/subtitle/subtitle.jsx";
 
@@ -34,7 +34,7 @@ import { Features } from "../components/features/features.jsx";
 
 import { GoHomeButton } from "../components/goHomeButton/GoHomeButton.jsx";
 
-import  Input  from "../components/input/input.jsx";
+import Input from "../components/input/input.jsx";
 
 import { DropDown } from "../components/dropDown/DropDown.jsx";
 
