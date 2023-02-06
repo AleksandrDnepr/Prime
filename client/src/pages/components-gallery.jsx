@@ -24,7 +24,7 @@ import { AgentCard } from "../components/agentCard/agentCard.jsx";
 
 import { FloorPlans } from "../components/floorPlans/floorPlans.jsx";
 
-import { Gallery } from "../components/Gallery/Gallery.jsx";
+import Gallery from "../components/Gallery/Gallery.jsx";
 
 import { Link } from "react-router-dom";
 
