@@ -1,3 +1,4 @@
+import React from "react";
 import "./description.css";
 
 export function Description({ children }) {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter, useParams } from "react-router-dom";
 import { Title } from "../components/title/title.jsx";
-import { Gallery } from "../components/Gallery/Gallery.jsx";
+import Gallery from "../components/Gallery/Gallery.jsx";
 import { Description } from "../components/description/description.jsx";
 import { FloorPlans } from "../components/floorPlans/floorPlans.jsx";
 import { AmenityList } from "../components/amenitylist/amenitylist.jsx";
@@ -27,7 +27,7 @@ function Property() {
       })
       .catch(() => setError("Something went wrong"))
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [property_id]);
 
   if (isLoading) {
     return <Loading />;
@@ -60,7 +60,7 @@ function Property() {
 
         <Gallery pictures={property.images} />
 
-          <Description>{property.description}</Description>
+        <Description>{property.description}</Description>
 
         <FloorPlans plans={property.plans} />
 
